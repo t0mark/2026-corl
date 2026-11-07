@@ -4,122 +4,306 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CoRL 2026 한국어 가이드</title>
-<meta name="description" content="CoRL 2026 (Austin, 2026.11.9–12) 논문 리스트, 학회 일정, 참가 가이드 한국어 정리">
+<meta name="description" content="CoRL 2026 (Austin, 2026.11.9–12) 논문 리스트, 학회 일정, 장소·도면, 참가 가이드 한국어 정리">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f7f5f0;--surface:#ffffff;--soft:#efece4;--fg:#1d1b17;--muted:#6b665c;--line:#e0dbcf;
-  --accent:#bf5700;--accent-soft:#fbe9db;--oral:#1f7a3a;--oral-soft:#dcf1e2;--spot:#2b5fb8;--spot-soft:#dde7f8;
-  --award:#a87500;--award-soft:#fbefcf;--ws:#7a3fb0;--ws-soft:#efe3f9;--shadow:0 1px 2px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.04);
+  --bg:#f7f5f0;--surface:#fff;--soft:#efece4;--fg:#1d1b17;--fg2:#52514e;--muted:#7a756a;--line:#e3ded2;
+  --accent:#bf5700;--accent-soft:#fbe9db;
+  /* venue identity (validated categorical slots) */
+  --v-hilton:#2a78d6;--v-jw:#eb6834;--v-long:#1baf7a;--v-fare:#eda100;--v-bass:#e87ba4;
+  /* session kinds */
+  --k-oral:#1f7a3a;--k-oral-s:#dcf1e2;--k-spot:#2a63c0;--k-spot-s:#dde7f8;--k-key:#bf5700;--k-key-s:#fbe9db;
+  --k-poster:#9a6a00;--k-poster-s:#fbefcf;--k-ws:#6c3fb0;--k-ws-s:#ece2f8;--k-misc:#7a756a;--k-misc-s:#eeebe4;--k-social:#b0346a;--k-social-s:#f9e0ea;
+  --bar:#2a78d6;--grid:#e1e0d9;--shadow:0 1px 2px rgba(0,0,0,.05),0 6px 20px rgba(0,0,0,.05);
+  --map-land:#efe9dc;--map-water:#bcd7ee;--map-road:#ffffff;--map-campus:#e6dcef;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#15140f;--surface:#1f1d18;--soft:#29261f;--fg:#efebe2;--muted:#a59f92;--line:#38342b;
-  --accent:#ff9a4d;--accent-soft:#3a2617;--oral:#6fd08e;--oral-soft:#1b3323;--spot:#8fb2f5;--spot-soft:#1c2840;
-  --award:#f0c25a;--award-soft:#3a2f12;--ws:#c79af0;--ws-soft:#2e2140;--shadow:none}}
+  --bg:#121210;--surface:#1c1b18;--soft:#26241f;--fg:#efebe2;--fg2:#c3c2b7;--muted:#a59f92;--line:#36332b;
+  --accent:#ff9a4d;--accent-soft:#3a2617;
+  --v-hilton:#3987e5;--v-jw:#d95926;--v-long:#199e70;--v-fare:#c98500;--v-bass:#d55181;
+  --k-oral:#6fd08e;--k-oral-s:#1b3323;--k-spot:#8fb2f5;--k-spot-s:#1c2840;--k-key:#ff9a4d;--k-key-s:#3a2617;
+  --k-poster:#f0c25a;--k-poster-s:#3a2f12;--k-ws:#c79af0;--k-ws-s:#2e2140;--k-misc:#a59f92;--k-misc-s:#2a2823;--k-social:#f08ab5;--k-social-s:#3c1c2a;
+  --bar:#3987e5;--grid:#2c2c2a;--shadow:none;
+  --map-land:#22201b;--map-water:#1b3550;--map-road:#3a372f;--map-campus:#2d2536}}
 :root[data-theme="dark"]{
-  --bg:#15140f;--surface:#1f1d18;--soft:#29261f;--fg:#efebe2;--muted:#a59f92;--line:#38342b;
-  --accent:#ff9a4d;--accent-soft:#3a2617;--oral:#6fd08e;--oral-soft:#1b3323;--spot:#8fb2f5;--spot-soft:#1c2840;
-  --award:#f0c25a;--award-soft:#3a2f12;--ws:#c79af0;--ws-soft:#2e2140;--shadow:none}
+  --bg:#121210;--surface:#1c1b18;--soft:#26241f;--fg:#efebe2;--fg2:#c3c2b7;--muted:#a59f92;--line:#36332b;
+  --accent:#ff9a4d;--accent-soft:#3a2617;
+  --v-hilton:#3987e5;--v-jw:#d95926;--v-long:#199e70;--v-fare:#c98500;--v-bass:#d55181;
+  --k-oral:#6fd08e;--k-oral-s:#1b3323;--k-spot:#8fb2f5;--k-spot-s:#1c2840;--k-key:#ff9a4d;--k-key-s:#3a2617;
+  --k-poster:#f0c25a;--k-poster-s:#3a2f12;--k-ws:#c79af0;--k-ws-s:#2e2140;--k-misc:#a59f92;--k-misc-s:#2a2823;--k-social:#f08ab5;--k-social-s:#3c1c2a;
+  --bar:#3987e5;--grid:#2c2c2a;--shadow:none;
+  --map-land:#22201b;--map-water:#1b3550;--map-road:#3a372f;--map-campus:#2d2536}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.65;font-size:15.5px;word-break:keep-all;overflow-wrap:anywhere}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.6;font-size:15.5px;word-break:keep-all;overflow-wrap:anywhere}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
-header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;gap:12px;height:54px}
-.logo{font-weight:900;letter-spacing:-.02em;color:var(--fg);white-space:nowrap}
-.logo span{color:var(--accent)}
+svg.i{width:1.1em;height:1.1em;vertical-align:-.18em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+header.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:12px;height:56px}
+.logo{font-weight:900;letter-spacing:-.02em;color:var(--fg);white-space:nowrap;display:flex;align-items:center;gap:6px}
+.logo:hover{text-decoration:none}.logo span{color:var(--accent)}
+.logo .dot{width:22px;height:22px;border-radius:7px;background:var(--accent);display:grid;place-items:center;color:#fff}
 nav.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
 nav.tabs::-webkit-scrollbar{display:none}
-nav.tabs a{padding:6px 11px;border-radius:999px;color:var(--muted);font-weight:500;font-size:.92rem;white-space:nowrap}
+nav.tabs a{display:flex;align-items:center;gap:5px;padding:7px 11px;border-radius:999px;color:var(--fg2);font-weight:500;font-size:.9rem;white-space:nowrap}
 nav.tabs a:hover{background:var(--soft);text-decoration:none;color:var(--fg)}
 nav.tabs a.on{background:var(--fg);color:var(--bg)}
-#theme{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;width:34px;height:34px;cursor:pointer;flex:none}
-section.pg{display:none;padding:28px 0 64px}
-section.pg.on{display:block}
+#theme{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;width:36px;height:36px;cursor:pointer;flex:none;display:grid;place-items:center}
+section.pg{display:none;padding:26px 0 64px}
+section.pg.on{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 h1,h2,h3{letter-spacing:-.02em;line-height:1.3}
-h2{font-size:1.5rem;margin:0 0 6px}
-h3{font-size:1.1rem;margin:28px 0 10px}
-.lead{color:var(--muted);margin:0 0 22px}
-.hero{background:linear-gradient(135deg,var(--accent) 0%,#8a3d00 100%);color:#fff;border-radius:20px;padding:32px 26px;margin-bottom:22px;position:relative;overflow:hidden}
-.hero h1{font-size:clamp(1.8rem,5vw,2.8rem);margin:0 0 6px;font-weight:900}
-.hero p{margin:0;opacity:.92}
-.hero .dd{display:inline-block;margin-top:16px;background:rgba(255,255,255,.18);padding:6px 14px;border-radius:999px;font-weight:700}
+h2{font-size:1.6rem;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+h2 .hi{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+h3{font-size:1.12rem;margin:34px 0 12px;display:flex;align-items:center;gap:8px}
+.lead{color:var(--fg2);margin:4px 0 22px}
 .grid{display:grid;gap:14px}
-.g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
-.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
-.card h4{margin:0 0 6px;font-size:1rem}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);min-width:0}
+.card h4{margin:0 0 6px;font-size:1rem;display:flex;align-items:center;gap:7px}
 .card p{margin:0}
-.stat b{display:block;font-size:1.8rem;font-weight:900;color:var(--accent);line-height:1.2}
-.stat span{color:var(--muted);font-size:.9rem}
-.muted{color:var(--muted)}.small{font-size:.86rem}
+.muted{color:var(--muted)}.small{font-size:.86rem}.fg2{color:var(--fg2)}
 ul.clean{margin:6px 0 0;padding-left:18px}ul.clean li{margin:3px 0}
-.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:1px 8px;border-radius:999px;vertical-align:1px;white-space:nowrap}
-.p-oral{background:var(--oral-soft);color:var(--oral)}.p-spot{background:var(--spot-soft);color:var(--spot)}
-.p-award{background:var(--award-soft);color:var(--award)}.p-ws{background:var(--ws-soft);color:var(--ws)}
-.p-key{background:var(--accent-soft);color:var(--accent)}.p-misc{background:var(--soft);color:var(--muted)}
-.note{background:var(--accent-soft);border-left:4px solid var(--accent);padding:12px 16px;border-radius:8px;margin:14px 0}
-/* schedule */
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:.74rem;font-weight:700;padding:1px 8px;border-radius:999px;white-space:nowrap;line-height:1.6}
+.p-oral{background:var(--k-oral-s);color:var(--k-oral)}.p-spot{background:var(--k-spot-s);color:var(--k-spot)}
+.p-award{background:var(--k-poster-s);color:var(--k-poster)}.p-ws{background:var(--k-ws-s);color:var(--k-ws)}
+.p-key{background:var(--k-key-s);color:var(--k-key)}.p-misc{background:var(--k-misc-s);color:var(--fg2)}
+.p-poster{background:var(--k-poster-s);color:var(--k-poster)}
+.vchip{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:500;color:var(--fg2);white-space:nowrap}
+.vchip::before{content:"";width:9px;height:9px;border-radius:3px;background:var(--vc,var(--muted));flex:none}
+.v-hilton{--vc:var(--v-hilton)}.v-jw{--vc:var(--v-jw)}.v-long{--vc:var(--v-long)}.v-fare{--vc:var(--v-fare)}.v-bass{--vc:var(--v-bass)}
+.note{display:flex;gap:10px;background:var(--accent-soft);border-radius:12px;padding:12px 16px;margin:14px 0;font-size:.92rem}
+.note svg{color:var(--accent);margin-top:3px}
+/* hero */
+.hero{border-radius:22px;padding:30px 26px;margin-bottom:18px;position:relative;overflow:hidden;color:#fff;background:#8a3d00}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 140% at 0% 0%,#d9661a 0%,#a84800 45%,#5c2900 100%)}
+.hero>*{position:relative}
+.hero h1{font-size:clamp(1.9rem,5.4vw,3rem);margin:2px 0 6px;font-weight:900}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 18px;opacity:.95;font-size:.95rem}
+.hero .meta span{display:flex;align-items:center;gap:6px}
+.hero .dd{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:rgba(255,255,255,.18);padding:7px 15px;border-radius:999px;font-weight:700}
+.hero svg.art{position:absolute;right:-10px;bottom:-6px;width:min(46%,360px);height:auto;opacity:.9;pointer-events:none}
+@media (max-width:640px){.hero svg.art{opacity:.22;width:70%}}
+.stat{display:flex;gap:14px;align-items:center}
+.stat .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;flex:none}
+.stat .ic svg{width:22px;height:22px}
+.stat b{display:block;font-size:1.65rem;font-weight:900;line-height:1.15}
+.stat span{color:var(--fg2);font-size:.86rem}
+/* day overview cards */
+.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.day .dh{padding:12px 16px;display:flex;align-items:baseline;gap:8px;border-bottom:1px solid var(--line)}
+.day .dh b{font-size:1.25rem;font-weight:900}.day .dh span{color:var(--muted);font-size:.85rem}
+.day ul{list-style:none;margin:0;padding:10px 16px 14px;display:flex;flex-direction:column;gap:7px;font-size:.88rem}
+.day li{display:flex;gap:8px;align-items:flex-start}
+.day li .t{font-variant-numeric:tabular-nums;color:var(--muted);width:42px;flex:none;font-size:.8rem;padding-top:1px}
+.vbar{display:flex;height:6px}
+.vbar i{display:block;height:100%}
+/* map */
+.mapwrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px}
+@media (max-width:820px){.mapwrap{grid-template-columns:1fr}}
+.mapcard{padding:0;overflow:hidden}
+.mapcard svg{display:block;width:100%;height:auto}
+.vlist{display:flex;flex-direction:column;gap:10px}
+.vitem{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;border-left:5px solid var(--vc)}
+.vitem .n{width:26px;height:26px;border-radius:50%;background:var(--vc);color:#fff;display:grid;place-items:center;font-weight:900;font-size:.85rem;flex:none}
+.vitem b{display:block}
+.vitem .small{color:var(--fg2)}
+/* floors */
+.bldg{border-top:5px solid var(--vc)}
+.bldg .bh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.bldg .bh b{font-size:1.1rem}
+.floor{display:grid;grid-template-columns:52px 1fr;gap:10px;margin:8px 0;align-items:stretch}
+.floor .fl{background:var(--vc);color:#fff;border-radius:10px;display:grid;place-items:center;font-weight:900;font-size:1.05rem}
+.floor .rooms{display:flex;flex-wrap:wrap;gap:6px}
+.room{border-radius:10px;padding:7px 10px;font-size:.83rem;line-height:1.35;background:var(--soft);border:1px solid var(--line);flex:1 1 140px;min-width:0}
+.room b{display:block;font-size:.9rem}
+.room.r-poster{background:var(--k-poster-s);border-color:transparent}.room.r-poster b{color:var(--k-poster)}
+.room.r-stage{background:var(--k-spot-s);border-color:transparent}.room.r-stage b{color:var(--k-spot)}
+.room.r-ws{background:var(--k-ws-s);border-color:transparent}.room.r-ws b{color:var(--k-ws)}
+.room.r-badge{background:var(--k-key-s);border-color:transparent}.room.r-badge b{color:var(--k-key)}
+.room.r-recruit{background:var(--k-oral-s);border-color:transparent}.room.r-recruit b{color:var(--k-oral)}
+.room.r-social{background:var(--k-social-s);border-color:transparent}.room.r-social b{color:var(--k-social)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.8rem;color:var(--fg2);margin:6px 0 2px}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:12px;height:12px;border-radius:4px;display:inline-block}
+.plan svg{width:100%;height:auto;display:block}
+.plan svg text{font-family:inherit}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.thumb{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:zoom-in;padding:0;text-align:left;font:inherit;color:inherit}
+.thumb img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;background:#fff}
+.thumb span{display:block;padding:8px 12px;font-size:.86rem;font-weight:500}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;display:none;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:100%;background:#fff;border-radius:8px}
+/* schedule grid */
+.legendk{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.sgwrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow)}
+.sg{display:grid;grid-template-columns:54px repeat(4,minmax(170px,1fr));min-width:760px;position:relative}
+.sg .hd{position:sticky;top:0;background:var(--surface);padding:10px 8px;font-weight:700;font-size:.9rem;border-bottom:1px solid var(--line);text-align:center;z-index:2}
+.sg .hd small{display:block;font-weight:400;color:var(--muted);font-size:.75rem}
+.sg .tc{font-size:.72rem;color:var(--muted);text-align:right;padding-right:8px;font-variant-numeric:tabular-nums;transform:translateY(-7px)}
+.sg .ln{border-top:1px solid var(--grid)}
+.blk{margin:1px 3px;border-radius:8px;padding:4px 7px;font-size:.74rem;line-height:1.3;overflow:hidden;border-left:4px solid var(--kc);background:var(--ks);color:var(--fg);cursor:default;position:relative;z-index:1}
+.blk b{display:block;font-size:.76rem;color:var(--kc)}
+.blk .vchip{font-size:.68rem}
+.blk.k-oral{--kc:var(--k-oral);--ks:var(--k-oral-s)}.blk.k-spot{--kc:var(--k-spot);--ks:var(--k-spot-s)}
+.blk.k-key{--kc:var(--k-key);--ks:var(--k-key-s)}.blk.k-poster{--kc:var(--k-poster);--ks:var(--k-poster-s)}
+.blk.k-misc{--kc:var(--k-misc);--ks:var(--k-misc-s)}.blk.k-ws{--kc:var(--k-ws);--ks:var(--k-ws-s)}.blk.k-social{--kc:var(--k-social);--ks:var(--k-social-s)}
+.blk.click{cursor:pointer}.blk.click:hover{outline:2px solid var(--kc)}
 .daytabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
 .daytabs button{border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:8px 14px;border-radius:10px;cursor:pointer;font:inherit;font-weight:500}
 .daytabs button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);margin-left:6px}
-.tl li{position:relative;padding:0 0 16px 20px}
-.tl li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--muted)}
-.tl li.k-oral::before{border-color:var(--oral);background:var(--oral)}.tl li.k-spot::before{border-color:var(--spot);background:var(--spot)}
-.tl li.k-key::before{border-color:var(--accent);background:var(--accent)}.tl li.k-poster::before{border-color:var(--award);background:var(--award)}
-.tl .tm{font-weight:700;font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums}
-.tl .tm em{font-style:normal;font-weight:400;opacity:.8;margin-left:6px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:78px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.tl .tm{font-weight:700;font-size:.9rem;font-variant-numeric:tabular-nums}
+.tl .tm em{display:block;font-style:normal;font-weight:400;font-size:.75rem;color:var(--muted)}
+.tl .bx{border-left:4px solid var(--kc);padding-left:12px}
+.tl .bx.k-oral{--kc:var(--k-oral)}.tl .bx.k-spot{--kc:var(--k-spot)}.tl .bx.k-key{--kc:var(--k-key)}.tl .bx.k-poster{--kc:var(--k-poster)}.tl .bx.k-misc{--kc:var(--line)}.tl .bx.k-ws{--kc:var(--k-ws)}.tl .bx.k-social{--kc:var(--k-social)}
 .tl .ti{font-weight:700}
-.tl .lo{font-size:.86rem;color:var(--muted)}
-.tl .sp{font-size:.88rem}
-.tl a.jump{font-size:.84rem}
+.tl .sub{font-size:.85rem;color:var(--fg2);display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:2px}
 /* papers */
-.tools{position:sticky;top:54px;z-index:10;background:var(--bg);padding:10px 0 8px;border-bottom:1px solid var(--line);margin-bottom:8px}
-#q{width:100%;padding:11px 14px;font:inherit;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--fg)}
+.chart{display:grid;grid-template-columns:auto 1fr auto;gap:5px 10px;align-items:center;font-size:.84rem}
+.chart .lb{color:var(--fg2);white-space:nowrap;text-align:right;cursor:pointer}
+.chart .tr{height:16px;border-radius:0 4px 4px 0;cursor:pointer;position:relative}
+.chart .tr i{display:block;height:100%;background:var(--bar);border-radius:0 4px 4px 0;opacity:.85;transition:opacity .15s}
+.chart .row:hover i,.chart .tr:hover i{opacity:1}
+.chart .vl{color:var(--fg2);font-variant-numeric:tabular-nums;font-size:.8rem}
+.chart .on i{background:var(--accent)}.chart .lb.on{color:var(--accent);font-weight:700}
+.psbars{display:flex;flex-direction:column;gap:10px}
+.psb{display:grid;grid-template-columns:1fr;gap:4px;font-size:.84rem}
+.psb .bar{display:flex;height:22px;border-radius:6px;overflow:hidden;gap:2px}
+.psb .bar i{display:grid;place-items:center;font-style:normal;font-size:.72rem;font-weight:700;color:#fff}
+.tools{position:sticky;top:56px;z-index:10;background:var(--bg);padding:10px 0 8px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.sbox{position:relative}.sbox svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted)}
+#q{width:100%;padding:11px 14px 11px 40px;font:inherit;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--fg)}
 .filters{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.filters select{font:inherit;font-size:.88rem;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);max-width:100%}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.chip{border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:3px 10px;border-radius:999px;cursor:pointer;font:inherit;font-size:.82rem}
+.filters select{font:inherit;font-size:.86rem;padding:6px 8px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--fg);max-width:100%;flex:1 1 150px}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:8px;padding-bottom:2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--fg2);padding:3px 11px;border-radius:999px;cursor:pointer;font:inherit;font-size:.82rem;white-space:nowrap}
 .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
 #cnt{font-size:.85rem;color:var(--muted);margin-top:6px}
 ul.papers{list-style:none;margin:0;padding:0}
-ul.papers li{display:flex;gap:10px;padding:10px 4px;border-bottom:1px solid var(--line);align-items:flex-start}
-ul.papers .no{flex:none;width:52px;font-size:.78rem;color:var(--muted);text-align:center;padding-top:3px;font-variant-numeric:tabular-nums}
-ul.papers .no b{display:block;font-size:1rem;color:var(--fg)}
+ul.papers li{display:flex;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line);align-items:flex-start}
+ul.papers .no{flex:none;width:56px;border-radius:10px;text-align:center;padding:5px 0;background:var(--soft);font-size:.7rem;color:var(--fg2);line-height:1.25}
+ul.papers .no b{display:block;font-size:1.05rem;color:var(--fg)}
+ul.papers .no.ls{box-shadow:inset 0 -3px 0 var(--v-jw)}
 ul.papers .bd{flex:1;min-width:0}
 ul.papers .tt{font-weight:500;color:var(--fg)}
-ul.papers .mt{font-size:.82rem;color:var(--muted);margin-top:2px;display:flex;gap:5px;flex-wrap:wrap;align-items:center}
-.star{flex:none;border:none;background:none;cursor:pointer;font-size:1.25rem;line-height:1;color:var(--line);padding:2px}
-.star.on{color:var(--award)}
+ul.papers .mt{font-size:.8rem;color:var(--fg2);margin-top:4px;display:flex;gap:5px 8px;flex-wrap:wrap;align-items:center}
+ul.papers .where{display:inline-flex;align-items:center;gap:4px}
+.star{flex:none;border:none;background:none;cursor:pointer;font-size:1.3rem;line-height:1;color:var(--line);padding:2px}
+.star.on{color:var(--v-fare)}
 .more{display:block;margin:16px auto;padding:10px 22px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);font:inherit;cursor:pointer}
-table{width:100%;border-collapse:collapse;font-size:.92rem}
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:.9rem}
 th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
-th{background:var(--soft);font-weight:700}
-.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
-.tw table th:first-child,.tw table td:first-child{padding-left:14px}
-ol.ws{margin:0;padding-left:22px}ol.ws li{margin:4px 0}
-.check label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line);cursor:pointer}
-.check input{margin-top:5px;accent-color:var(--accent)}
+th{background:var(--soft);font-weight:700;font-size:.85rem}
+tr:last-child td{border-bottom:none}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.tw td:first-child,.tw th:first-child{padding-left:14px}
+/* keynotes */
+.spk{display:flex;gap:14px;align-items:flex-start}
+.av{width:56px;height:56px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:900;color:#fff;font-size:1.1rem}
+.ktime{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+/* workshops */
+.wscols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:14px}
+.wsh{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.wsh b{font-size:1.05rem}
+.ws{list-style:none;margin:0;padding:0}
+.ws li{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);align-items:start}
+.ws li:last-child{border-bottom:none}
+.ws .rm{font-size:.78rem;font-weight:700;border-radius:8px;padding:4px 6px;text-align:center;background:var(--soft);border-left:4px solid var(--vc);line-height:1.3}
+.ws .rm small{display:block;font-weight:400;color:var(--muted);font-size:.7rem}
+.ws a{color:var(--fg);font-size:.9rem}.ws a:hover{color:var(--accent)}
+/* recruit grid */
+.rg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:760px){.rg{grid-template-columns:1fr}}
+.rg .slot{display:grid;grid-template-columns:62px 1fr 1fr;gap:6px;align-items:center;font-size:.8rem;margin:4px 0}
+.rg .slot span:first-child{color:var(--muted);font-variant-numeric:tabular-nums}
+.co{background:var(--k-oral-s);color:var(--fg);border-radius:7px;padding:3px 7px;font-weight:500;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* guide */
+.check label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--line);cursor:pointer}
+.check input{margin-top:5px;accent-color:var(--accent);width:16px;height:16px;flex:none}
+.check input:checked+span{color:var(--muted);text-decoration:line-through}
+.prog{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;margin:4px 0 10px}
+.prog i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.fee{display:grid;grid-template-columns:70px repeat(4,1fr);gap:4px;font-size:.84rem;align-items:center}
+.fee .c{border-radius:8px;padding:8px 4px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.fee .h{font-size:.74rem;color:var(--muted);text-align:center}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.86rem}
+.flow .st{background:var(--soft);border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:6px}
+.flow .ar{color:var(--muted)}
 footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:.85rem}
 @media (max-width:640px){
   .hero{padding:24px 18px}
   header.top .wrap{gap:8px}
-  .logo{font-size:.95rem}
-  ul.papers .no{width:42px}
+  nav.tabs a span{display:none}
+  nav.tabs a.on span{display:inline}
+  ul.papers .no{width:48px}
+  .floor{grid-template-columns:40px 1fr}
+  .ws li{grid-template-columns:80px 1fr}
+  .fee{grid-template-columns:52px repeat(4,1fr);font-size:.78rem}
+  .g4{grid-template-columns:1fr 1fr;gap:10px}
+  .stat{flex-direction:column;align-items:flex-start;gap:8px}
+  .stat .ic{width:38px;height:38px}
+  .tools{position:static}
+  .filters select{flex:1 1 45%}
 }
 </style>
 </head>
 <body>
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9 21v-6h6v6"/></symbol>
+ <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></symbol>
+ <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+ <symbol id="i-map" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+ <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></symbol>
+ <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></symbol>
+ <symbol id="i-party" viewBox="0 0 24 24"><path d="M4 20 9 7l8 8z"/><path d="M14 4v2M19 9h2M17.5 5.5 19 4M12 8c1-2 3-2 3-4"/></symbol>
+ <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+ <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+ <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2A5 5 0 0 1 21.5 19"/></symbol>
+ <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+ <symbol id="i-board" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20l4-4 4 4M7 8h6M7 11h10"/></symbol>
+ <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4a3 3 0 0 0 4 4M16 6h4a3 3 0 0 1-4 4M12 13v4M8 21h8M9 17h6v4H9z"/></symbol>
+ <symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 21v-3M16 21v-3"/><circle cx="8" cy="14.5" r=".6"/><circle cx="16" cy="14.5" r=".6"/></symbol>
+ <symbol id="i-plane" viewBox="0 0 24 24"><path d="M2 16l20-8-3-2-7 3-6-3-2 1 5 4-4 2-2-1-1 1 3 3z"/></symbol>
+ <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 0 4v0a2 2 0 0 1 0 4v2h18v-2a2 2 0 0 1 0-4 2 2 0 0 1 0-4V6H3z"/><path d="M14 6v12" stroke-dasharray="2 2"/></symbol>
+ <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 19V6M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-8v6"/><circle cx="6.5" cy="11" r="1.6"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/></symbol>
+ <symbol id="i-baby" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5"/><path d="M6 21v-3a6 6 0 0 1 12 0v3"/></symbol>
+ <symbol id="i-food" viewBox="0 0 24 24"><path d="M5 3v8a2 2 0 0 0 2 2v8M9 3v8a2 2 0 0 1-2 2M7 3v6M17 21V3c-2 0-4 3-4 8h4"/></symbol>
+ <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></symbol>
+ <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+ <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 13v1M15 13v1M9 17h6"/><circle cx="12" cy="3.5" r="1"/></symbol>
+ <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+ <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+ <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+</svg>
+
 <header class="top"><div class="wrap">
-  <a class="logo" href="#home">CoRL<span>2026</span></a>
+  <a class="logo" href="#home"><span class="dot"><svg class="i" style="width:14px;height:14px"><use href="#i-bot"/></svg></span>CoRL<span>2026</span></a>
   <nav class="tabs" id="tabs">
-    <a href="#home">홈</a><a href="#schedule">일정</a><a href="#papers">논문</a><a href="#keynotes">키노트</a><a href="#workshops">워크숍</a><a href="#events">행사</a><a href="#guide">참가 가이드</a>
+    <a href="#home"><svg class="i"><use href="#i-home"/></svg><span>홈</span></a>
+    <a href="#schedule"><svg class="i"><use href="#i-cal"/></svg><span>일정</span></a>
+    <a href="#papers"><svg class="i"><use href="#i-doc"/></svg><span>논문</span></a>
+    <a href="#venues"><svg class="i"><use href="#i-map"/></svg><span>장소·도면</span></a>
+    <a href="#keynotes"><svg class="i"><use href="#i-mic"/></svg><span>키노트</span></a>
+    <a href="#workshops"><svg class="i"><use href="#i-tool"/></svg><span>워크숍</span></a>
+    <a href="#events"><svg class="i"><use href="#i-party"/></svg><span>행사</span></a>
+    <a href="#guide"><svg class="i"><use href="#i-info"/></svg><span>가이드</span></a>
   </nav>
-  <button id="theme" title="테마 전환" aria-label="테마 전환">◐</button>
+  <button id="theme" title="테마 전환" aria-label="테마 전환"><svg class="i"><use href="#i-moon"/></svg></button>
 </div></header>
 
 <main class="wrap">
@@ -127,67 +311,89 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
 <!-- ================= HOME ================= -->
 <section class="pg" id="pg-home">
   <div class="hero">
-    <p class="small" style="opacity:.85">Conference on Robot Learning</p>
-    <h1>CoRL 2026 · 오스틴</h1>
-    <p>2026년 11월 9일(월) – 12일(목) · 미국 텍사스주 오스틴</p>
-    <p>본 학회 11/9–11 · 워크숍 11/12</p>
-    <span class="dd" id="dday"></span>
+    <svg class="art" viewBox="0 0 360 220" aria-hidden="true">
+      <!-- Austin skyline + robot arm -->
+      <g fill="rgba(255,255,255,.16)">
+        <rect x="10" y="120" width="34" height="100"/><rect x="48" y="90" width="26" height="130"/><rect x="78" y="60" width="30" height="160"/>
+        <path d="M112 220V70l14-24 14 24v150z"/><rect x="146" y="105" width="28" height="115"/>
+        <path d="M180 220v-58a26 26 0 0 1 52 0v58z"/><rect x="200" y="122" width="12" height="16" rx="6"/><rect x="204" y="98" width="4" height="24"/>
+        <rect x="238" y="80" width="30" height="140"/><rect x="272" y="112" width="40" height="108"/><rect x="316" y="130" width="40" height="90"/>
+      </g>
+      <g stroke="#fff" stroke-width="9" stroke-linecap="round" fill="none" opacity=".95">
+        <path d="M300 214v-58"/><path d="M300 156l-52-40"/><path d="M248 116l-20 34"/>
+      </g>
+      <g fill="#fff"><rect x="276" y="206" width="48" height="14" rx="4"/><circle cx="300" cy="156" r="10"/><circle cx="248" cy="116" r="9"/></g>
+      <g stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none"><path d="M228 150l-10 8M228 150l2 13"/></g>
+      <circle cx="210" cy="172" r="7" fill="#ffd27a"/>
+    </svg>
+    <div class="small" style="opacity:.85;font-weight:500">Conference on Robot Learning</div>
+    <h1>CoRL 2026 · Austin</h1>
+    <div class="meta">
+      <span><svg class="i"><use href="#i-cal"/></svg>2026.11.9 (월) – 11.12 (목)</span>
+      <span><svg class="i"><use href="#i-pin"/></svg>미국 텍사스주 오스틴</span>
+    </div>
+    <span class="dd"><svg class="i"><use href="#i-clock"/></svg><span id="dday"></span></span>
   </div>
 
   <div class="grid g4">
-    <div class="card stat"><b>687</b><span>채택 논문 (전원 포스터)</span></div>
-    <div class="card stat"><b>21</b><span>Oral 발표 (7개 세션)</span></div>
-    <div class="card stat"><b>72</b><span>Spotlight 발표 (8개 세션)</span></div>
-    <div class="card stat"><b>32</b><span>워크숍·튜토리얼 (11/12)</span></div>
+    <div class="card stat"><div class="ic" style="background:var(--k-poster-s);color:var(--k-poster)"><svg class="i"><use href="#i-doc"/></svg></div><div><b>687</b><span>채택 논문 · 전원 포스터</span></div></div>
+    <div class="card stat"><div class="ic" style="background:var(--k-oral-s);color:var(--k-oral)"><svg class="i"><use href="#i-mic"/></svg></div><div><b>21</b><span>Oral · 7개 세션</span></div></div>
+    <div class="card stat"><div class="ic" style="background:var(--k-spot-s);color:var(--k-spot)"><svg class="i"><use href="#i-star"/></svg></div><div><b>72</b><span>Spotlight · 8개 세션</span></div></div>
+    <div class="card stat"><div class="ic" style="background:var(--k-ws-s);color:var(--k-ws)"><svg class="i"><use href="#i-tool"/></svg></div><div><b>32</b><span>워크숍 · 11/12 오전·오후</span></div></div>
   </div>
 
-  <h3>한눈에 보는 4일</h3>
-  <div class="grid g2">
-    <div class="card"><h4>11/8 (일) · 사전 배지 수령</h4><p class="small">JW Marriott 2층 201호, 14:00–20:00. 9일 아침은 붐비므로 <b>전날 수령 강력 권장</b>.</p></div>
-    <div class="card"><h4>11/9 (월) · 1일차</h4><p class="small">개회 → Spotlight S1 · Oral O1–O3 · Keynote I (Wolfram Burgard) · 포스터 세션 1 → 저녁 Long Center 웰컴 디너</p></div>
-    <div class="card"><h4>11/10 (화) · 2일차</h4><p class="small">Spotlight S3–S5 · Oral O4–O7 · Keynote II (Russ Tedrake) · 포스터 세션 2 · Tesla 기가팩토리 투어</p></div>
-    <div class="card"><h4>11/11 (수) · 3일차</h4><p class="small">Spotlight S6–S8 · 포스터 세션 3 → 오후 UT Austin Bass Hall로 이동: Keynote III (Fei-Fei Li × Lisa Su), 패널, 시상·폐회</p></div>
-    <div class="card"><h4>11/12 (목) · 워크숍</h4><p class="small">JW Marriott에서 32개 반일(half-day) 워크숍·튜토리얼, 08:30–17:30</p></div>
-    <div class="card"><h4>시간대</h4><p class="small">오스틴은 <b>CST (UTC−6)</b>. 한국 시간 = 현지 시간 <b>+15시간</b> (예: 현지 월 09:00 = 한국 화 00:00).</p></div>
-  </div>
+  <h3><svg class="i"><use href="#i-cal"/></svg>한눈에 보는 5일</h3>
+  <div class="days" id="dayCards"></div>
+  <div class="legend" id="vlegend" style="margin-top:10px"></div>
 
-  <h3>장소 3곳 (+식사·소셜)</h3>
-  <div class="tw"><table>
-    <tr><th>장소</th><th>주소</th><th>용도</th></tr>
-    <tr><td><b>JW Marriott Austin</b><br><span class="small muted">“소셜 허브”</span></td><td class="small">110 E 2nd St</td><td class="small">배지 수령, 포스터 세션, 전시, 데모, 커피·점심, 11/12 워크숍 전체. Hilton 발표 생중계 시청 가능</td></tr>
-    <tr><td><b>Hilton Austin</b> (6층)</td><td class="small">500 E 4th St</td><td class="small">개회, Spotlight, Oral, 얼리커리어 키노트, 스폰서 토크, Keynote I·II</td></tr>
-    <tr><td><b>Fareground Austin</b></td><td class="small">111 Congress Ave (One Eleven Congress 1층)</td><td class="small">점심 (실내·중정)</td></tr>
-    <tr><td><b>The Long Center</b></td><td class="small">701 W Riverside Dr</td><td class="small">11/9(월) 19:00–22:00 웰컴 소셜 디너</td></tr>
-    <tr><td><b>Bass Concert Hall</b> (UT Austin)</td><td class="small">2350 Robert Dedman Dr</td><td class="small">11/11(수) 오후: 디저트 리셉션, Keynote III, 패널, 시상·폐회</td></tr>
-  </table></div>
-  <p class="small muted">JW Marriott ↔ Hilton은 약 0.4마일(도보 10–15분), 셔틀 운행. Long Center · Bass Hall 행 셔틀 제공.</p>
+  <div class="note"><svg class="i"><use href="#i-clock"/></svg><div><b>시간대:</b> 오스틴은 CST (UTC−6). <b>한국 시간 = 현지 + 15시간</b>. 예) 현지 월 09:00 = 한국 화 00:00</div></div>
+
+  <h3><svg class="i"><use href="#i-map"/></svg>장소 5곳</h3>
+  <div class="mapwrap">
+    <div class="card mapcard" id="mapHome"></div>
+    <div class="vlist" id="vlistHome"></div>
+  </div>
 </section>
 
 <!-- ================= SCHEDULE ================= -->
 <section class="pg" id="pg-schedule">
-  <h2>학회 일정</h2>
-  <p class="lead">모든 시간은 오스틴 현지 시간(CST). 회색 KST는 한국 시간입니다. “논문 보기”를 누르면 해당 세션 논문 목록으로 이동합니다.</p>
+  <h2><span class="hi"><svg class="i"><use href="#i-cal"/></svg></span>학회 일정</h2>
+  <p class="lead">현지 시간(CST) 기준. 색은 세션 종류, 작은 네모는 장소입니다. 세션 블록을 누르면 해당 논문 목록으로 이동합니다.</p>
+  <div class="legendk" id="klegend"></div>
+  <div class="sgwrap"><div class="sg" id="sgrid"></div></div>
+  <h3><svg class="i"><use href="#i-clock"/></svg>날짜별 상세 (한국 시간 병기)</h3>
   <div class="daytabs" id="daytabs"></div>
   <ul class="tl" id="timeline"></ul>
-  <h3>배지 수령 · 전시 시간</h3>
+  <h3><svg class="i"><use href="#i-ticket"/></svg>배지 수령 · 전시 시간</h3>
   <div class="grid g2">
-    <div class="card"><h4>배지 수령 (JW Marriott 2층 201호)</h4><ul class="clean small">
-      <li>11/8 (일) 14:00–20:00</li><li>11/9 (월) 07:30–17:00</li><li>11/10 (화) 07:30–17:00</li><li>11/11 (수) 09:00–13:30</li><li>11/12 (목) 08:00–13:30</li></ul>
-      <p class="small muted" style="margin-top:6px">배지는 Marriott에서만 수령 가능. Hilton 가기 전에 받으세요.</p></div>
-    <div class="card"><h4>전시(Exhibit) 시간</h4><ul class="clean small">
-      <li>11/9 (월) 12:00–18:30</li><li>11/10 (화) 10:00–18:30</li><li>11/11 (수) 08:30–13:00</li></ul></div>
+    <div class="card"><h4><svg class="i"><use href="#i-ticket"/></svg>배지 수령 · JW Marriott 2층 201호</h4>
+      <div id="badgeBars"></div>
+      <p class="small muted" style="margin-top:8px">배지는 Marriott에서만 수령 가능. 9일 아침 Hilton 가기 전에 받으세요(8일 수령 권장).</p></div>
+    <div class="card"><h4><svg class="i"><use href="#i-brief"/></svg>전시(Exhibit) 시간 · JW Marriott</h4>
+      <div id="exBars"></div>
+      <p class="small muted" style="margin-top:8px">전시 스태프 배지는 전시장만 출입 가능.</p></div>
   </div>
 </section>
 
 <!-- ================= PAPERS ================= -->
 <section class="pg" id="pg-papers">
-  <h2>채택 논문 리스트</h2>
-  <p class="lead">687편 전체. 제목을 누르면 OpenReview로 이동합니다. ☆ 를 눌러 관심 논문을 저장하세요(이 브라우저에만 저장).</p>
-  <div class="tools">
-    <input id="q" type="search" placeholder="논문 제목 검색 (예: VLA, humanoid, tactile)…" aria-label="논문 검색">
+  <h2><span class="hi"><svg class="i"><use href="#i-doc"/></svg></span>채택 논문 리스트</h2>
+  <p class="lead">687편 전체. 각 논문마다 <b>발표 장소(건물·층·홀·보드 번호)</b>를 표시했습니다. 제목은 OpenReview로 연결, ☆로 관심 논문 저장.</p>
+
+  <div class="grid g2">
+    <div class="card"><h4><svg class="i"><use href="#i-layers"/></svg>주제별 논문 수 <span class="small muted" style="font-weight:400">(누르면 필터)</span></h4><div class="chart" id="topicChart"></div></div>
+    <div class="card"><h4><svg class="i"><use href="#i-board"/></svg>포스터 세션 · 홀 배치</h4>
+      <div class="psbars" id="psBars"></div>
+      <div class="note" style="margin:12px 0 0"><svg class="i"><use href="#i-pin"/></svg><div class="small">보드 <b>1–116번 → JW 3층 Lone Star 볼룸</b>, <b>117번 이상 → JW 2층 Griffin 홀</b>. Oral·Spotlight는 <b>Hilton 6층</b> 메인 무대.</div></div>
+    </div>
+  </div>
+
+  <div class="tools" style="margin-top:16px">
+    <div class="sbox"><svg class="i"><use href="#i-search"/></svg><input id="q" type="search" placeholder="논문 제목 검색 (예: VLA, humanoid, tactile)…" aria-label="논문 검색"></div>
     <div class="filters">
-      <select id="fType" aria-label="발표 유형"><option value="">발표 유형: 전체</option><option value="oral">Oral</option><option value="spot">Spotlight</option><option value="award">Best Paper 후보</option><option value="star">★ 내 관심 논문</option></select>
+      <select id="fType" aria-label="발표 유형"><option value="">발표 유형: 전체</option><option value="oral">Oral</option><option value="spot">Spotlight</option><option value="award">🏆 Best Paper 후보</option><option value="star">★ 내 관심 논문</option></select>
       <select id="fPs" aria-label="포스터 세션"><option value="">포스터 세션: 전체</option><option value="1">세션 1 · 11/9(월) 17:00</option><option value="2">세션 2 · 11/10(화) 17:00</option><option value="3">세션 3 · 11/11(수) 10:30</option></select>
+      <select id="fHall" aria-label="포스터 홀"><option value="">포스터 홀: 전체</option><option value="ls">3층 Lone Star (1–116)</option><option value="gr">2층 Griffin (117~)</option></select>
       <select id="fSess" aria-label="구두 세션"><option value="">Oral/Spotlight 세션: 전체</option></select>
       <select id="fSort" aria-label="정렬"><option value="ps">정렬: 포스터 번호</option><option value="t">정렬: 제목</option></select>
     </div>
@@ -196,205 +402,324 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   </div>
   <ul class="papers" id="plist"></ul>
   <button class="more" id="more" hidden>더 보기</button>
-  <p class="small muted">주제 태그는 제목 키워드로 자동 분류한 것이라 정확하지 않을 수 있습니다. 저자 정보는 OpenReview 페이지에서 확인하세요.</p>
+  <p class="small muted">주제 태그는 제목 키워드로 자동 분류한 것이라 정확하지 않을 수 있습니다. 저자 정보는 OpenReview에서 확인하세요.</p>
+</section>
+
+<!-- ================= VENUES ================= -->
+<section class="pg" id="pg-venues">
+  <h2><span class="hi"><svg class="i"><use href="#i-map"/></svg></span>장소 · 건물별 도면</h2>
+  <p class="lead">CoRL 2026은 SXSW처럼 여러 건물에 나뉘어 열립니다. 어디서 무엇을 하는지, 건물·층별로 정리했습니다.</p>
+
+  <div class="mapwrap">
+    <div class="card mapcard" id="mapVenue"></div>
+    <div class="card">
+      <h4><svg class="i"><use href="#i-search"/></svg>어디로 가야 하나요?</h4>
+      <div class="tw" style="border:none"><table id="whereTbl">
+        <tr><th>하는 일</th><th>장소</th></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <h3><svg class="i"><use href="#i-layers"/></svg>건물별 층 안내</h3>
+  <div class="legend">
+    <span><i style="background:var(--k-spot-s);outline:1px solid var(--k-spot)"></i>발표 무대</span>
+    <span><i style="background:var(--k-poster-s);outline:1px solid var(--k-poster)"></i>포스터·데모</span>
+    <span><i style="background:var(--k-ws-s);outline:1px solid var(--k-ws)"></i>워크숍(11/12)</span>
+    <span><i style="background:var(--k-oral-s);outline:1px solid var(--k-oral)"></i>기업 채용</span>
+    <span><i style="background:var(--k-key-s);outline:1px solid var(--k-key)"></i>배지·등록</span>
+    <span><i style="background:var(--k-social-s);outline:1px solid var(--k-social)"></i>식사·소셜</span>
+  </div>
+  <div class="grid g2" style="margin-top:10px">
+    <div class="card bldg v-jw">
+      <div class="bh"><b>JW Marriott Austin</b><span class="pill p-misc">소셜 허브</span><span class="small muted">110 E 2nd St · 입구는 E 2nd St (Congress–Brazos 사이)</span></div>
+      <div class="floor"><div class="fl">3F</div><div class="rooms">
+        <div class="room r-poster"><b>Lone Star 볼룸 (Salon A–H)</b>포스터 보드 1–116 · 데모 8개 (파운데이션 모델·휴머노이드) · 포스터 인쇄물 수령</div>
+        <div class="room r-recruit"><b>302 · 307호</b>기업 채용 세션 (11/9–11)</div>
+        <div class="room r-ws"><b>301–302 · 303–304 · 305 · 306 · 310–311호</b>11/12 워크숍</div>
+      </div></div>
+      <div class="floor"><div class="fl">2F</div><div class="rooms">
+        <div class="room r-badge"><b>201호</b>배지 수령 (11/8–12)</div>
+        <div class="room r-poster"><b>Griffin 홀</b>포스터 보드 117–232 · LBR 포스터(점심) · 데모 7개 (덱스터러스·촉각)</div>
+        <div class="room r-ws"><b>202 · 203–204 · 205 · 208 · 212 · 213호</b>11/12 워크숍 (203–204는 11/12 AgileX 소셜)</div>
+      </div></div>
+      <div class="floor"><div class="fl">etc</div><div class="rooms">
+        <div class="room r-ws"><b>Brazos</b>11/12 워크숍 (층은 현장 안내 확인)</div>
+        <div class="room r-social"><b>커피·점심</b>매일 커피 브레이크, 점심(Fareground 병행)</div>
+      </div></div>
+    </div>
+    <div class="card bldg v-hilton">
+      <div class="bh"><b>Hilton Austin</b><span class="pill p-misc">발표·기조연설</span><span class="small muted">500 E 4th St · 컨벤션센터 옆</span></div>
+      <div class="floor"><div class="fl">6F</div><div class="rooms">
+        <div class="room r-stage"><b>메인 무대 (Hilton Stage)</b>개회 · Oral O1–O7 · Spotlight S1–S8 · 얼리커리어 키노트 · Keynote I·II · 스폰서 토크</div>
+        <div class="room"><b>시청실 (Viewing rooms)</b>무대 생중계 — JW Marriott에서도 시청 가능</div>
+        <div class="room r-ws"><b>Salon D · Salon E</b>11/12 워크숍</div>
+      </div></div>
+      <div class="floor"><div class="fl">4F</div><div class="rooms">
+        <div class="room r-ws"><b>408 · 410호</b>11/12 워크숍</div>
+      </div></div>
+      <div class="floor"><div class="fl">TBA</div><div class="rooms">
+        <div class="room r-social"><b>Women &amp; Allies Lunch</b>11/10 12:00–13:30 (방 추후 공지)</div>
+      </div></div>
+      <p class="small muted" style="margin-top:8px">Salon D/E, 408/410호의 층은 호텔 방 번호 기준 추정입니다. 현장 표지를 확인하세요.</p>
+    </div>
+    <div class="card bldg v-bass">
+      <div class="bh"><b>Bass Concert Hall (UT Austin)</b><span class="pill p-misc">피날레</span><span class="small muted">2350 Robert Dedman Dr</span></div>
+      <div class="floor"><div class="fl">11/11</div><div class="rooms">
+        <div class="room r-social"><b>13:30 디저트 리셉션</b>+ Texas Robotics 투어 (Anna Hiss Gym)</div>
+        <div class="room r-stage"><b>15:00 Keynote III</b>Fei-Fei Li + Lisa Su</div>
+        <div class="room r-stage"><b>16:00 패널 · 17:00 시상/폐회</b>Best Paper 발표</div>
+      </div></div>
+      <p class="small muted" style="margin-top:6px">셔틀 운행. 라이드셰어 승하차는 DeLoss Dodds Way.</p>
+    </div>
+    <div class="card bldg v-long">
+      <div class="bh"><b>The Long Center</b><span class="small muted">701 W Riverside Dr</span></div>
+      <div class="floor"><div class="fl">11/9</div><div class="rooms">
+        <div class="room r-social"><b>19:00–22:00 웰컴 소셜 디너</b>푸드트럭 · 로봇 데모 · 라이브 음악·라인댄스 · 로봇 밴드</div>
+      </div></div>
+      <div class="bh" style="margin-top:14px;--vc:var(--v-fare)"><b class="vchip v-fare" style="font-size:1.05rem;color:var(--fg)">Fareground Austin</b><span class="small muted">111 Congress Ave, One Eleven Congress 1층</span></div>
+      <div class="floor v-fare"><div class="fl">1F</div><div class="rooms"><div class="room r-social"><b>점심 (11/9–11)</b>실내 + 중정, JW Marriott와 병행</div></div></div>
+    </div>
+  </div>
+
+  <h3><svg class="i"><use href="#i-board"/></svg>JW Marriott 층별 도면 (간략도)</h3>
+  <div class="grid g2">
+    <div class="card plan"><h4>Level 2 — Griffin 홀 · 201–205호</h4><div id="planL2"></div></div>
+    <div class="card plan"><h4>Level 3 — Lone Star 볼룸 · 301–311호</h4><div id="planL3"></div></div>
+  </div>
+  <p class="small muted">공식 배치도를 바탕으로 단순화한 그림입니다. 208·212·213호, Brazos는 공식 도면 범위 밖이라 표시하지 않았습니다.</p>
+
+  <h3><svg class="i"><use href="#i-doc"/></svg>공식 도면 원본 (눌러서 크게 보기)</h3>
+  <div class="thumbs">
+    <button class="thumb" data-src="img/floor-jw-level2.webp"><img src="img/floor-jw-level2.webp" alt="JW Marriott Level 2 공식 도면" loading="lazy"><span>JW Marriott Level 2 (Griffin 홀)</span></button>
+    <button class="thumb" data-src="img/floor-jw-level3.webp"><img src="img/floor-jw-level3.webp" alt="JW Marriott Level 3 공식 도면" loading="lazy"><span>JW Marriott Level 3 (Salon A–H)</span></button>
+    <button class="thumb" data-src="img/floor-jw-lonestar.webp"><img src="img/floor-jw-lonestar.webp" alt="Lone Star 볼룸 배치도" loading="lazy"><span>Lone Star 볼룸 좌석 배치</span></button>
+  </div>
+  <p class="small muted">출처: CoRL 2026 공식 도면 폴더(Freeman, Presentation Technologies 작성, 2026년 8월 기준). 현장 배치는 바뀔 수 있습니다. Hilton 도면은 공식 공개본이 없습니다.</p>
 </section>
 
 <!-- ================= KEYNOTES ================= -->
 <section class="pg" id="pg-keynotes">
-  <h2>키노트 · 패널</h2>
-  <p class="lead">기조연설 3개, 얼리커리어 키노트 3개, 특별 패널(토론) 1개.</p>
-  <h3>Keynote</h3>
-  <div class="grid g3">
-    <div class="card"><span class="pill p-key">Keynote I · 11/9(월) 15:30 · Hilton</span><h4 style="margin-top:8px">Wolfram Burgard</h4><p class="small muted">University of Technology Nuremberg</p><p class="small" style="margin-top:6px"><b>Challenges to Realize Embodied AI</b><br>센서·구동기의 불확실성을 다루는 확률적 접근과 딥러닝의 결합, 그리고 파운데이션 모델로 복잡·변화하는 실제 환경에 대응하는 방법.</p></div>
-    <div class="card"><span class="pill p-key">Keynote II · 11/10(화) 15:30 · Hilton</span><h4 style="margin-top:8px">Russ Tedrake</h4><p class="small muted">MIT / Walden Robotics CEO</p><p class="small" style="margin-top:6px"><b>Learning in the factories</b><br>2026년 1월 창업한 Walden Robotics가 2개월 만에 실제 생산 라인에 배치하며 얻은 교훈 — 배치 규모에 따른 성능 스케일링과 “배치-학습 순환”.</p></div>
-    <div class="card"><span class="pill p-key">Keynote III · 11/11(수) 15:00 · Bass Hall</span><h4 style="margin-top:8px">Fei-Fei Li <span class="muted small">+ Lisa Su (AMD) 대담</span></h4><p class="small muted">Stanford / World Labs</p><p class="small" style="margin-top:6px"><b>Atlas: A Unified World Model for Generation and Reconstruction</b><br>픽셀 생성과 3D 장면 복원을 통합한 자기회귀 프레임 생성 모델 Atlas. 후반부는 AMD CEO Lisa Su와의 파이어사이드 챗.</p></div>
-  </div>
-  <h3>Early Career Keynote</h3>
-  <div class="grid g3">
-    <div class="card"><span class="pill p-key">I · 11/9(월) 09:30</span><h4 style="margin-top:8px">Hang Zhao</h4><p class="small muted">Tsinghua University / Galaxea AI</p><p class="small" style="margin-top:6px"><b>Organizing Physical AI Across Timescales</b><br>지능을 기능이 아닌 시간 스케일(S2 추론·S1 정책·S0 제어)로 나누고, 각 층의 속도와 층 간 인터페이스 문제를 다룸.</p></div>
-    <div class="card"><span class="pill p-key">II · 11/9(월) 14:00</span><h4 style="margin-top:8px">Negar Mehr</h4><p class="small muted">UC Berkeley</p><p class="small" style="margin-top:6px"><b>How Can Robots Learn to Interact and Coordinate with Others?</b><br>다중 에이전트 RL, 상호작용 모방학습, 그리고 지속 학습을 합의 최적화로 보는 관점.</p></div>
-    <div class="card"><span class="pill p-key">III · 11/10(화) 09:30</span><h4 style="margin-top:8px">Roberto Martín-Martín</h4><p class="small muted">UT Austin</p><p class="small" style="margin-top:6px"><b>Learning Without Starting Over</b><br>모바일 매니퓰레이션에서 재사용 가능한 행동 공간, 사람의 시연·교정, 경험 선별을 통한 “학습 잠재력” 확장.</p></div>
-  </div>
-  <h3>특별 패널 (토론) · 11/11(수) 16:00 · Bass Hall</h3>
-  <div class="card"><p class="small">사회: Vincent Vanhoucke (Waymo)<br>패널: Marc Toussaint (TU Berlin), Chelsea Finn (Stanford/Physical Intelligence), Leslie Kaelbling (MIT), Pulkit Agrawal (MIT/Eka Robotics), Edward Johns (Imperial/Machenta), Yonatan Bisk (CMU)</p></div>
-  <h3>다이아몬드 스폰서 토크 (Hilton, 각 10분)</h3>
+  <h2><span class="hi"><svg class="i"><use href="#i-mic"/></svg></span>키노트 · 패널</h2>
+  <p class="lead">기조연설 3개, 얼리커리어 키노트 3개, 특별 패널 1개, 스폰서 토크 12개.</p>
+  <h3><svg class="i"><use href="#i-star"/></svg>Keynote</h3>
+  <div class="grid g3" id="kn1"></div>
+  <h3><svg class="i"><use href="#i-users"/></svg>Early Career Keynote</h3>
+  <div class="grid g3" id="kn2"></div>
+  <h3><svg class="i"><use href="#i-chat"/></svg>특별 패널 (토론) · 11/11(수) 16:00 · Bass Hall</h3>
+  <div class="card"><div style="display:flex;flex-wrap:wrap;gap:14px" id="panel"></div></div>
+  <h3><svg class="i"><use href="#i-brief"/></svg>다이아몬드 스폰서 토크 · Hilton 6층 · 각 10분</h3>
   <div class="tw"><table>
     <tr><th>시간</th><th>11/9 (월)</th><th>11/10 (화)</th></tr>
-    <tr><td>13:30</td><td>Sharpa — Scaling Robotic Dexterity</td><td>Google DeepMind — Building general purpose robots with Gemini</td></tr>
-    <tr><td>13:40</td><td>Lightwheel — Robot Learning Through Data &amp; Sim</td><td>Boston Dynamics — Actions and Agents for Long-Horizon Behavior</td></tr>
-    <tr><td>13:50</td><td>NVIDIA (Jim Fan) — World Action Models &amp; Agentic Robotics</td><td>Franka / Agile Robots — Reference Platform for Physical AI</td></tr>
-    <tr><td>16:30</td><td>GM</td><td>Meta Robotics Studio</td></tr>
-    <tr><td>16:40</td><td>BitRobot — RoboCap &amp; RoboColosseum</td><td>AGIBOT — From Human Experience to Self-Improving Robots</td></tr>
-    <tr><td>16:50</td><td>MaxInsights</td><td>Tesla</td></tr>
+    <tr><td>13:30</td><td><b>Sharpa</b><br><span class="small fg2">Scaling Robotic Dexterity</span></td><td><b>Google DeepMind</b><br><span class="small fg2">Building general purpose robots with Gemini</span></td></tr>
+    <tr><td>13:40</td><td><b>Lightwheel</b><br><span class="small fg2">Robot Learning Through Data &amp; Sim</span></td><td><b>Boston Dynamics</b><br><span class="small fg2">Actions and Agents for Long-Horizon Behavior</span></td></tr>
+    <tr><td>13:50</td><td><b>NVIDIA</b> (Jim Fan)<br><span class="small fg2">World Action Models &amp; Agentic Robotics</span></td><td><b>Franka / Agile Robots</b><br><span class="small fg2">Reference Platform for Physical AI</span></td></tr>
+    <tr><td>16:30</td><td><b>GM</b></td><td><b>Meta Robotics Studio</b></td></tr>
+    <tr><td>16:40</td><td><b>BitRobot</b><br><span class="small fg2">RoboCap &amp; RoboColosseum</span></td><td><b>AGIBOT</b><br><span class="small fg2">Human Experience → Self-Improving Robots</span></td></tr>
+    <tr><td>16:50</td><td><b>MaxInsights</b></td><td><b>Tesla</b></td></tr>
   </table></div>
 </section>
 
 <!-- ================= WORKSHOPS ================= -->
 <section class="pg" id="pg-workshops">
-  <h2>워크숍 · 튜토리얼</h2>
-  <p class="lead">11/12(목) 08:30–17:30, JW Marriott. 모든 워크숍은 <b>반일(half-day)</b> 진행이며 정확한 방·시간은 각 워크숍 사이트에서 확인하세요. 워크숍만 참석하는 등록 옵션도 있습니다.</p>
-  <div class="card"><ol class="ws" id="wslist"></ol></div>
+  <h2><span class="hi"><svg class="i"><use href="#i-tool"/></svg></span>워크숍 · 튜토리얼</h2>
+  <p class="lead">11/12(목). 32개가 <b>오전(08:30–12:30)</b>과 <b>오후(14:00–18:00)</b>에 16개씩 나뉘어 JW Marriott와 Hilton에서 열립니다. 방 배정은 잠정이므로 현장에서 확인하세요.</p>
+  <div class="grid g4" style="margin-bottom:14px" id="wsStats"></div>
+  <div class="wscols">
+    <div class="card"><div class="wsh"><b>☀️ 오전 08:30–12:30</b><span class="pill p-ws">16개</span></div><ul class="ws" id="wsAM"></ul></div>
+    <div class="card"><div class="wsh"><b>🌇 오후 14:00–18:00</b><span class="pill p-ws">16개</span></div><ul class="ws" id="wsPM"></ul></div>
+  </div>
 </section>
 
 <!-- ================= EVENTS ================= -->
 <section class="pg" id="pg-events">
-  <h2>데모 · LBR · 소셜 · 채용</h2>
+  <h2><span class="hi"><svg class="i"><use href="#i-party"/></svg></span>데모 · LBR · 소셜 · 채용</h2>
+  <p class="lead">포스터 외에 볼거리와 네트워킹 기회.</p>
   <div class="grid g2">
-    <div class="card"><h4>연구자 데모 (11/9–10)</h4><p class="small">JW Marriott <b>Lone Star(3층)</b>: 로봇 파운데이션 모델·휴머노이드·학습 플랫폼 8개 / <b>Griffin(2층)</b>: 덱스터러스 핸드·촉각·접촉 조작 7개 / 야외 데모 2개.<br>예: MolmoAct2, Sony aibo SDK, NVIDIA Alpamayo 휴머노이드, DreamFAR(월드모델 속 로봇 조종) 등.</p></div>
-    <div class="card"><h4>Late-Breaking Results (LBR)</h4><p class="small">점심시간 12:00–13:30, JW Marriott Griffin(2층)<br>• 11/9(월) <b>Agentic Robotics</b> 포스터 21편<br>• 11/10(화) <b>Real2Sim2Real</b> 포스터 18편</p></div>
-    <div class="card"><h4>Women &amp; Allies Lunch</h4><p class="small">11/10(화) 12:00–13:30, Hilton Austin. TRI 후원, 선착순 80명. 사전 등록 필요(<a href="https://forms.gle/ES3NnWmgJZDVpRJYA" target="_blank" rel="noopener">신청 폼</a>).</p></div>
-    <div class="card"><h4>웰컴 소셜 디너</h4><p class="small">11/9(월) 19:00–22:00, The Long Center. 푸드트럭, 로봇 데모, 라이브 음악·라인댄스, 로봇 밴드 공연. 18:30 셔틀 이동.</p></div>
+    <div class="card"><h4><svg class="i"><use href="#i-bot"/></svg>연구자 데모 · 11/9–10</h4>
+      <div class="psb" style="margin:6px 0 10px"><div class="bar"><i style="flex:8;background:var(--v-jw)">Lone Star 8</i><i style="flex:7;background:var(--v-hilton)">Griffin 7</i><i style="flex:2;background:var(--muted)">야외 2</i></div></div>
+      <p class="small fg2"><b>3층 Lone Star</b>: 파운데이션 모델·휴머노이드·학습 플랫폼 · <b>2층 Griffin</b>: 덱스터러스 핸드·촉각·접촉 조작<br>예) MolmoAct2, Sony aibo SDK, NVIDIA Alpamayo 휴머노이드, DreamFAR(월드모델 속 로봇 조종)</p></div>
+    <div class="card"><h4><svg class="i"><use href="#i-board"/></svg>Late-Breaking Results · 점심 12:00–13:30</h4>
+      <div class="psb" style="margin:6px 0 10px"><div class="bar"><i style="flex:21;background:var(--k-spot)">월 Agentic Robotics 21</i><i style="flex:18;background:var(--k-ws)">화 Real2Sim2Real 18</i></div></div>
+      <p class="small fg2">장소: JW Marriott <b>2층 Griffin</b> (보드 117번대)</p></div>
+    <div class="card"><h4><svg class="i"><use href="#i-users"/></svg>Women &amp; Allies Lunch</h4><p class="small fg2">11/10(화) 12:00–13:30 · Hilton Austin · TRI 후원 · 선착순 80명 (<a href="https://forms.gle/ES3NnWmgJZDVpRJYA" target="_blank" rel="noopener">신청</a>)</p></div>
+    <div class="card"><h4><svg class="i"><use href="#i-party"/></svg>웰컴 소셜 디너</h4><p class="small fg2">11/9(월) 19:00–22:00 · The Long Center · 18:30 셔틀 · 푸드트럭, 로봇 데모, 라인댄스, 로봇 밴드</p></div>
   </div>
-  <h3>외부 소셜 이벤트 (공식 프로그램 아님)</h3>
-  <div class="tw"><table>
-    <tr><th>날짜</th><th>주최 · 장소</th></tr>
-    <tr><td>11/9 (월)</td><td class="small">MaxInsights @ Electric Shuffle Austin</td></tr>
-    <tr><td>11/10 (화)</td><td class="small">Abaka AI @ Nica on 4th · Austin Robotics @ Antler VC · GenRobot.AI @ Hilton Garden Inn Downtown · Samsung Next (Luma 승인제) · Sieve @ Hestia · VESSL AI @ Edge Rooftop Bar · XDOF @ Hilton 앞</td></tr>
-    <tr><td>11/11 (수)</td><td class="small">NVIDIA @ Bull and Bowl · Torc @ Austin Project Taco · X Square Robot 애프터파티 · Zeromatter</td></tr>
-    <tr><td>11/12 (목)</td><td class="small">AgileX Robotics @ JW Marriott 203–204호</td></tr>
-  </table></div>
+
+  <h3><svg class="i"><use href="#i-brief"/></svg>기업 채용 세션 · JW Marriott 3층 302·307호 · 각 1시간</h3>
+  <div class="rg" id="recruit"></div>
+
+  <h3><svg class="i"><use href="#i-party"/></svg>외부 소셜 이벤트 <span class="small muted" style="font-weight:400">(공식 프로그램 아님)</span></h3>
+  <div class="grid g4" id="socials"></div>
   <p class="small muted">시간·등록은 각 주최 측 확인 (<a href="https://2026.corl.org/program/socials" target="_blank" rel="noopener">공식 소셜 페이지</a>).</p>
-  <h3>기업 채용 세션 (JW Marriott 302·307호, 세션당 1시간)</h3>
-  <div class="tw"><table>
-    <tr><th>날짜 · 시간</th><th>302호</th><th>307호</th></tr>
-    <tr><td>11/9 10:15</td><td>Agibot</td><td>NVIDIA</td></tr>
-    <tr><td>11/9 11:30</td><td>Sharpa</td><td>Google DeepMind</td></tr>
-    <tr><td>11/9 13:30</td><td>MaxInsights</td><td>BitRobot / Frodobots</td></tr>
-    <tr><td>11/9 14:45</td><td>Tesla</td><td>Walden Robotics</td></tr>
-    <tr><td>11/9 16:00</td><td>Foundry Robotics</td><td>Sudo</td></tr>
-    <tr><td>11/9 17:15</td><td>Xynova</td><td>MicroAGI</td></tr>
-    <tr><td>11/10 09:45</td><td>Unitree Robotics</td><td>OpenAI Robotics</td></tr>
-    <tr><td>11/10 11:00</td><td>Amazon</td><td>Meta (Robotics Studio)</td></tr>
-    <tr><td>11/10 13:30</td><td>Lightwheel</td><td>Dyna</td></tr>
-    <tr><td>11/10 14:45</td><td>Toyota Research Institute</td><td>Boston Dynamics</td></tr>
-    <tr><td>11/10 16:00</td><td>Genrobot</td><td>Sieve</td></tr>
-    <tr><td>11/10 17:15</td><td>Holiday Robotics</td><td>Origami Robotics</td></tr>
-    <tr><td>11/11 08:30</td><td>Apptronik</td><td>General Motors</td></tr>
-    <tr><td>11/11 09:45</td><td>Path Robotics</td><td>Franka Robotics</td></tr>
-    <tr><td>11/11 11:00</td><td>Airoa</td><td>Gento Robotics</td></tr>
-  </table></div>
-  <h3>투어</h3>
+
+  <h3><svg class="i"><use href="#i-bus"/></svg>투어</h3>
   <div class="grid g2">
-    <div class="card"><h4>Tesla 기가팩토리 텍사스</h4><p class="small">11/10(화) 12:00 · 15:00 (각 50명, 선착순). 주최 측 확정 메일을 받아야 참여 가능.</p></div>
-    <div class="card"><h4>Texas Robotics (UT Austin)</h4><p class="small">Anna Hiss Gymnasium 연구시설 45분 무료 투어(의료·자율·조작·원자력 로봇 랩). 1인 1예약, 교통은 개별. 11/11 오후 디저트 리셉션과 함께 진행. <a href="https://calendly.com/txroboticstours/texas-robotics-group-tour-corl" target="_blank" rel="noopener">예약</a></p></div>
+    <div class="card"><h4>⚡ Tesla 기가팩토리 텍사스</h4><p class="small fg2">11/10(화) 12:00 · 15:00, 각 50명 선착순. 확정 메일 받은 사람만 참여.</p></div>
+    <div class="card"><h4>🤘 Texas Robotics (UT Austin)</h4><p class="small fg2">Anna Hiss Gym 45분 무료 투어(의료·자율·조작·원자력 로봇 랩). 1인 1예약, 교통 개별. <a href="https://calendly.com/txroboticstours/texas-robotics-group-tour-corl" target="_blank" rel="noopener">예약</a></p></div>
   </div>
 </section>
 
 <!-- ================= GUIDE ================= -->
 <section class="pg" id="pg-guide">
-  <h2>참가 가이드</h2>
+  <h2><span class="hi"><svg class="i"><use href="#i-info"/></svg></span>참가 가이드</h2>
   <p class="lead">공식 사이트의 Attending / Instruction 페이지를 한국어로 요약했습니다.</p>
 
-  <h3>✅ 출발 전 · 도착 직후 체크리스트</h3>
-  <div class="card check" id="checklist"></div>
-
-  <h3>🛬 오스틴 가는 법</h3>
-  <div class="card"><ul class="clean small">
-    <li>공항: <b>Austin-Bergstrom 국제공항 (AUS)</b> — JW Marriott까지 약 7마일(11km). 한국발 직항은 없어 보통 달라스(DFW)·LA·샌프란시스코 등 경유.</li>
-    <li>공항 → 다운타운: 우버/리프트(앱 픽업 구역 표지 따라가기), 택시, 렌터카, 또는 <b>CapMetro 20번 버스</b> (편도 $1.25, 컨택리스 카드·Apple Pay·Google Pay 탭 결제).</li>
-    <li>미국 입국: 한국 여권 소지자는 보통 <b>ESTA</b>로 입국(출국 최소 72시간 전 신청 권장). 비자가 필요하면 등록 완료 후 확인 페이지/메일에서 <b>초청장(Visa letter)</b> 발급 가능. 문의: marissa@ctocevents.com</li>
-  </ul></div>
-
-  <h3>🚕 현지 이동</h3>
-  <div class="card"><ul class="clean small">
-    <li>JW Marriott ↔ Hilton: 0.4마일, 도보 10–15분. 무료 셔틀도 운행. 편한 신발 추천.</li>
-    <li>Bass Concert Hall(11/11 오후)·Long Center(11/9 저녁): <b>무료 셔틀</b> 운행 — 정류장·시간은 CoRL 앱/공식 사이트 공지. Bass Hall 라이드셰어 승하차는 DeLoss Dodds Way.</li>
-    <li>Lime 전동 킥보드·전기자전거가 다운타운 곳곳에 있어 호텔 간 이동에 편리(교통법규 준수).</li>
-    <li>🤖 로보택시 체험: <b>Waymo</b>는 Uber 앱 → 계정 → 설정 → Autonomous vehicles 활성화 후 호출 / <b>Tesla Robotaxi</b>·<b>Zoox</b>는 각 전용 앱. 운행 지역은 앱에서 확인.</li>
-  </ul></div>
-
-  <h3>🎫 등록 · 등록비</h3>
-  <div class="tw"><table>
-    <tr><th>구분</th><th>Early (~10/12)</th><th>Standard (10/13–10/31)</th><th>Late (11/1~)</th><th>워크숍만</th></tr>
-    <tr><td>학생</td><td>$200</td><td>$500</td><td>$1,500</td><td>$75</td></tr>
-    <tr><td>학계</td><td>$400</td><td>$800</td><td>$1,500</td><td>$150</td></tr>
-    <tr><td>산업계</td><td>$1,200</td><td>$1,500</td><td>$1,500</td><td>$450</td></tr>
-  </table></div>
-  <p class="small muted">등록비에 4일간 커피·점심 포함. 10/1 이후 환불 불가(이름 변경은 무료). 전시 스태프 배지로는 전시장만 출입 가능 — 모든 학회 활동은 등록·배지 필요.</p>
-
-  <h3>🏨 숙소</h3>
-  <div class="card"><p class="small">학회 블록(JW Marriott, Hilton)은 <b>매진</b>(할인 마감 10/16). 취소분이 나오면 공식 링크가 자동 갱신됩니다. 다운타운은 대형 행사 시 빨리 차므로 취소·결제 정책을 꼭 확인하세요.</p></div>
-
-  <h3>🧑‍🏫 발표자 가이드</h3>
-  <div class="grid g3">
-    <div class="card"><h4><span class="pill p-misc">포스터</span> 전 논문</h4><ul class="clean small">
-      <li>포스터 크기: <b>84" × 42" (213 × 107 cm), 가로형 2:1</b> (보드는 4×8 ft)</li>
-      <li>3–4단 레이아웃, 글은 적게·그림은 크게. 5–10분 설명용으로.</li>
-      <li>인쇄는 저자 책임. 공식 인쇄 서비스 온라인 주문은 <b>11/6 17:00 EST 마감</b>. 이후엔 ARC Austin 현장 주문($420).</li>
-      <li>수령: JW Marriott <b>LoneStar 전시홀</b>, 11/8–11 12:00–15:00, 11/12 09:00–13:00</li>
-      <li>세션 끝나면 반드시 철거(방치 시 폐기)</li>
-    </ul></div>
-    <div class="card"><h4><span class="pill p-spot">Spotlight</span> 72편</h4><ul class="clean small">
-      <li>3분, 사전 녹화 영상(무음)을 틀고 <b>현장에서 직접 말하며</b> 발표</li>
-      <li>영상 제출 마감 10/26 (지남) — OpenReview 업로드</li>
-      <li>세션 시작 <b>10분 전</b> 무대 옆 대기</li>
-      <li>발표 사이 쉬는 시간 없음: 앞 발표 중 무대로 이동, 영상 끝나면 바로 퇴장</li>
-    </ul></div>
-    <div class="card"><h4><span class="pill p-oral">Oral</span> 21편</h4><ul class="clean small">
-      <li>발표 8분 + 질의응답 2분, <b>시간 엄수</b></li>
-      <li><b>본인 노트북</b> 사용 — HDMI 어댑터 지참</li>
-      <li>세션 전 쉬는 시간에 연결 테스트</li>
-      <li>세션 시작 10분 전 도착</li>
-    </ul></div>
-  </div>
-
-  <h3>👨‍👩‍👧 육아 · 포용 지원</h3>
-  <div class="card"><ul class="clean small">
-    <li><b>KiddieCorp 현장 보육</b>: 11/9–12, 08:00–18:30, 아동 1인 시간당 $10 (점심·간식 포함, 사전 등록 필수)</li>
-    <li><b>IDEA Lab 로보틱스 캠프</b>(5–15세): 11/9–11, 09:00–12:00, 1인 1일 $25</li>
-    <li>접근성·미성년자 동반·기타 편의 문의: Chuchu Fan (chuchu@mit.edu), 제목에 [Inclusion at CoRL]</li>
-  </ul></div>
-
-  <h3>🌮 오스틴 즐기기 (조직위원 추천)</h3>
   <div class="grid g2">
-    <div class="card"><h4>관광·산책</h4><ul class="clean small">
-      <li>Barton Springs Pool (연중 20℃ 내외 샘물 수영장)</li>
-      <li>텍사스 주의회 의사당, Lady Bird Lake 보트·패들보드</li>
-      <li>Mt. Bonnell 전망, Mayfield Park 공작새</li>
-      <li>UT Austin 캠퍼스: Harry Ransom Center(구텐베르크 성경), Blanton 미술관 Ellsworth Kelly 'Austin'</li>
-      <li>South Congress Ave 산책, Allen's Boots</li>
-    </ul></div>
-    <div class="card"><h4>먹고 마시기</h4><ul class="clean small">
-      <li>BBQ: Terry Black's (다운타운에서 가까움)</li>
-      <li>아침 타코: Taco Joint의 migas 타코</li>
-      <li>라이브 음악: 6th Street, Elephant Room(재즈)</li>
-      <li>바: Roosevelt Room, Driskill 호텔 피아노바, Nido(Loren 호텔) 강변 뷰</li>
-      <li>Central Library 정원 테라스 + Café Crème</li>
-    </ul></div>
+    <div class="card"><h4><svg class="i"><use href="#i-check"/></svg>체크리스트</h4><div class="prog"><i id="progbar"></i></div><div class="check" id="checklist"></div></div>
+    <div>
+      <div class="card"><h4><svg class="i"><use href="#i-plane"/></svg>공항에서 호텔까지</h4>
+        <div class="flow" style="margin:8px 0">
+          <span class="st">✈️ 인천</span><span class="ar">→</span><span class="st">미국 경유지 (DFW·LAX·SFO 등)</span><span class="ar">→</span><span class="st">🛬 AUS 공항</span><span class="ar">→ 11km →</span><span class="st vchip v-jw" style="color:var(--fg)">JW Marriott</span>
+        </div>
+        <ul class="clean small fg2">
+          <li>우버/리프트(앱 픽업 구역), 택시, 렌터카, <b>CapMetro 20번 버스</b>($1.25, 컨택리스 결제)</li>
+          <li>한국 여권: 보통 <b>ESTA</b> (출국 72시간 전까지 신청 권장). 비자 초청장은 등록 확인 페이지/메일에서 발급</li>
+        </ul></div>
+      <div class="card" style="margin-top:14px"><h4><svg class="i"><use href="#i-bus"/></svg>현지 이동</h4>
+        <ul class="clean small fg2">
+          <li>JW ↔ Hilton: 0.4마일, <b>도보 10–15분</b> · 무료 셔틀</li>
+          <li>Long Center(11/9 저녁) · Bass Hall(11/11 오후): <b>무료 셔틀</b>, 시간은 CoRL 앱 공지</li>
+          <li>Lime 킥보드·전기자전거 다운타운 곳곳</li>
+          <li>🤖 로보택시: <b>Waymo</b>(Uber 앱 → 설정 → Autonomous vehicles 켜기), <b>Tesla Robotaxi</b>·<b>Zoox</b> 전용 앱</li>
+        </ul></div>
+    </div>
   </div>
 
-  <h3>🔗 공식 링크</h3>
-  <div class="card"><ul class="clean small">
-    <li><a href="https://2026.corl.org/" target="_blank" rel="noopener">CoRL 2026 공식 사이트</a> · <a href="https://2026.corl.org/program" target="_blank" rel="noopener">프로그램</a> · <a href="https://2026.corl.org/program/accepted-papers" target="_blank" rel="noopener">채택 논문</a></li>
-    <li><a href="https://2026.corl.org/attending/registration" target="_blank" rel="noopener">등록·비자</a> · <a href="https://2026.corl.org/attending/venue-information" target="_blank" rel="noopener">장소 안내</a> · <a href="https://2026.corl.org/attending/poster-printing" target="_blank" rel="noopener">포스터 인쇄</a> · <a href="https://2026.corl.org/contributions/instruction-for-presentations" target="_blank" rel="noopener">발표 지침</a></li>
-  </ul></div>
+  <h3><svg class="i"><use href="#i-ticket"/></svg>등록비 (USD)</h3>
+  <div class="card">
+    <div class="fee" id="fee"></div>
+    <p class="small muted" style="margin-top:10px">등록비에 4일간 커피·점심 포함 · 10/1 이후 환불 불가(이름 변경은 무료) · 모든 학회 활동은 등록·배지 필요</p>
+  </div>
+
+  <h3><svg class="i"><use href="#i-mic"/></svg>발표자 가이드</h3>
+  <div class="grid g3">
+    <div class="card"><h4><span class="pill p-poster">포스터</span>전 논문 687편</h4>
+      <svg viewBox="0 0 300 150" style="width:100%;height:auto;margin:6px 0" role="img" aria-label="포스터 크기 84x42인치, 사람 키와 비교">
+        <rect x="10" y="20" width="220" height="110" rx="3" fill="var(--k-poster-s)" stroke="var(--k-poster)" stroke-width="2"/>
+        <g fill="var(--k-poster)" opacity=".5"><rect x="22" y="32" width="60" height="86" rx="2"/><rect x="90" y="32" width="60" height="86" rx="2"/><rect x="158" y="32" width="60" height="86" rx="2"/></g>
+        <text x="120" y="14" text-anchor="middle" font-size="12" fill="var(--fg)" font-weight="700">84" (213 cm)</text>
+        <text x="238" y="78" font-size="12" fill="var(--fg)" font-weight="700">42"</text><text x="238" y="92" font-size="10" fill="var(--muted)">(107cm)</text>
+        <g fill="var(--muted)"><circle cx="278" cy="60" r="7"/><rect x="271" y="69" width="14" height="40" rx="5"/><rect x="272" y="105" width="5" height="25"/><rect x="279" y="105" width="5" height="25"/></g>
+        <text x="278" y="145" text-anchor="middle" font-size="9" fill="var(--muted)">170cm</text>
+      </svg>
+      <ul class="clean small fg2">
+        <li><b>가로 2:1</b>, 3–4단, 글은 적게·그림은 크게</li>
+        <li>인쇄물 수령: JW <b>3층 Lone Star</b> 11/8–11 12:00–15:00</li>
+        <li>내 보드 위치는 <a href="#papers">논문 탭</a>에서 확인</li>
+        <li>세션 끝나면 철거(방치 시 폐기)</li>
+      </ul></div>
+    <div class="card"><h4><span class="pill p-spot">Spotlight</span>72편 · Hilton 6층</h4>
+      <div class="flow" style="margin:8px 0"><span class="st">⏱ 10분 전 무대 옆</span><span class="ar">→</span><span class="st">🎬 무음 영상 3분 + 라이브 설명</span><span class="ar">→</span><span class="st">🚶 바로 퇴장</span></div>
+      <ul class="clean small fg2"><li>발표 사이 쉬는 시간 없음 — 앞 발표 중 무대로 이동</li><li>영상은 10/26에 OpenReview로 제출 완료</li></ul></div>
+    <div class="card"><h4><span class="pill p-oral">Oral</span>21편 · Hilton 6층</h4>
+      <div class="psb" style="margin:8px 0"><div class="bar"><i style="flex:8;background:var(--k-oral)">발표 8분</i><i style="flex:2;background:var(--k-spot)">Q&amp;A 2</i></div></div>
+      <ul class="clean small fg2"><li><b>본인 노트북</b> + HDMI 어댑터</li><li>세션 전 쉬는 시간에 연결 테스트</li><li>10분 전 도착, 시간 엄수</li></ul></div>
+  </div>
+
+  <h3><svg class="i"><use href="#i-bed"/></svg>숙소 · 육아 · 포용</h3>
+  <div class="grid g3">
+    <div class="card"><h4><svg class="i"><use href="#i-bed"/></svg>숙소</h4><p class="small fg2">학회 블록(JW, Hilton) <b>매진</b>. 취소분이 생기면 공식 링크가 자동 갱신됩니다.</p></div>
+    <div class="card"><h4><svg class="i"><use href="#i-baby"/></svg>육아</h4><p class="small fg2"><b>KiddieCorp 보육</b> 11/9–12 08:00–18:30, 시간당 $10<br><b>로보틱스 캠프</b>(5–15세) 11/9–11 09:00–12:00, 1일 $25</p></div>
+    <div class="card"><h4><svg class="i"><use href="#i-users"/></svg>접근성 문의</h4><p class="small fg2">Chuchu Fan (chuchu@mit.edu), 제목에 [Inclusion at CoRL]</p></div>
+  </div>
+
+  <h3><svg class="i"><use href="#i-food"/></svg>오스틴 즐기기 (조직위원 추천)</h3>
+  <div class="grid g4">
+    <div class="card"><h4>🏊 자연·산책</h4><p class="small fg2">Barton Springs Pool · Lady Bird Lake 보트·패들보드 · Mt. Bonnell 전망 · Mayfield Park 공작새</p></div>
+    <div class="card"><h4>🏛 문화</h4><p class="small fg2">주의회 의사당 · Harry Ransom Center(구텐베르크 성경) · Blanton 미술관 · Central Library 테라스</p></div>
+    <div class="card"><h4>🍖 먹기</h4><p class="small fg2">Terry Black's BBQ · Taco Joint 아침 타코(migas) · Clay Pit 인도요리 · South Congress</p></div>
+    <div class="card"><h4>🎸 밤</h4><p class="small fg2">6th Street 라이브 음악 · Elephant Room 재즈 · Roosevelt Room · Nido 강변 루프탑</p></div>
+  </div>
+
+  <h3><svg class="i"><use href="#i-link"/></svg>공식 링크</h3>
+  <div class="grid g4">
+    <a class="card" href="https://2026.corl.org/" target="_blank" rel="noopener">공식 사이트 ↗</a>
+    <a class="card" href="https://2026.corl.org/program" target="_blank" rel="noopener">프로그램 ↗</a>
+    <a class="card" href="https://2026.corl.org/attending/venue-information" target="_blank" rel="noopener">장소 안내 ↗</a>
+    <a class="card" href="https://2026.corl.org/contributions/instruction-for-presentations" target="_blank" rel="noopener">발표 지침 ↗</a>
+  </div>
 </section>
 </main>
 
+<div id="lb" role="dialog" aria-label="도면 확대"><img alt=""></div>
+
 <footer><div class="wrap">
-  비공식 한국어 정리 페이지입니다. 출처: <a href="https://2026.corl.org/" target="_blank" rel="noopener">2026.corl.org</a> (2026-11-07 기준). 변경 사항은 공식 사이트·CoRL 앱을 우선 확인하세요.
+  비공식 한국어 정리 페이지입니다. 출처: <a href="https://2026.corl.org/" target="_blank" rel="noopener">2026.corl.org</a> 및 공식 도면 (2026-11-07 기준). 변경 사항은 공식 사이트·CoRL 앱을 우선 확인하세요.
 </div></footer>
 
 <script src="papers.js"></script>
 <script>
 (function(){
-// ---------- helpers ----------
 function $(s,r){return (r||document).querySelector(s)}
 function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-var store={get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
-  set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+var store={get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 
-// ---------- theme ----------
-var th=store.get('corl26-theme',null); if(th) document.documentElement.setAttribute('data-theme',th);
-$('#theme').onclick=function(){var cur=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
-  var n=cur==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);store.set('corl26-theme',n)};
+// theme
+var th=store.get('corl26-theme',null);if(th)document.documentElement.setAttribute('data-theme',th);
+$('#theme').onclick=function(){var cur=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');var n=cur==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);store.set('corl26-theme',n)};
 
-// ---------- D-day (Austin CST = UTC-6) ----------
-(function(){var start=Date.UTC(2026,10,9,14,30),end=Date.UTC(2026,10,12,23,30),now=Date.now(),t;
-  if(now<start){var d=Math.ceil((start-now)/864e5);t='D-'+d+' · 11월 9일 08:30 개막';}
-  else if(now<=end){t='지금 학회 진행 중! 🤖';} else t='CoRL 2026 종료 — 수고하셨습니다';
-  $('#dday').textContent=t;})();
+// D-day
+(function(){var start=Date.UTC(2026,10,9,14,30),end=Date.UTC(2026,10,13,0,0),now=Date.now(),t;
+  if(now<start){var d=Math.ceil((start-now)/864e5);t='D-'+d+' · 11월 9일 08:30 개막';}else if(now<=end)t='지금 학회 진행 중!';else t='CoRL 2026 종료 — 수고하셨습니다';$('#dday').textContent=t})();
+
+// ---------- venues ----------
+var V={
+ hilton:{n:'Hilton Austin',s:'Hilton',a:'500 E 4th St',d:'발표 무대(6층): 개회·Oral·Spotlight·키노트 I·II·스폰서 토크',m:'https://maps.app.goo.gl/RhnbBDo5QG3TJoH37'},
+ jw:{n:'JW Marriott Austin',s:'JW Marriott',a:'110 E 2nd St',d:'배지 수령·포스터·데모·전시·커피, 11/12 워크숍',m:'https://maps.app.goo.gl/7cV669rBiwTTdiGq6'},
+ long:{n:'The Long Center',s:'Long Center',a:'701 W Riverside Dr',d:'11/9(월) 19:00 웰컴 소셜 디너',m:'https://www.google.com/maps/search/?api=1&query=Long+Center+for+the+Performing+Arts+Austin'},
+ fare:{n:'Fareground Austin',s:'Fareground',a:'111 Congress Ave',d:'점심 (JW Marriott와 병행)',m:'https://www.google.com/maps/search/?api=1&query=Fareground+Austin'},
+ bass:{n:'Bass Concert Hall',s:'Bass Hall',a:'2350 Robert Dedman Dr (UT Austin)',d:'11/11(수) 오후: 리셉션·Keynote III·패널·시상',m:'https://maps.app.goo.gl/sdn9tv8g1ag3oDoK7'}};
+var VORD=['hilton','jw','long','fare','bass'];
+$('#vlegend').innerHTML=VORD.map(function(k){return '<span class="vchip v-'+k+'">'+V[k].s+'</span>'}).join('');
+
+// Austin map (approximate, projected from lat/lon)
+function mapSVG(){
+  var P={jw:[120,283],hilton:[154,274],fare:[103,292],long:[45,333],bass:[225,62]};
+  var s='<svg viewBox="0 0 300 380" role="img" aria-label="오스틴 다운타운과 UT 캠퍼스의 행사장 위치 약도">'+
+  '<rect width="300" height="380" fill="var(--map-land)"/>'+
+  '<rect x="140" y="20" width="120" height="80" rx="14" fill="var(--map-campus)"/><text x="150" y="92" font-size="10" fill="var(--muted)" font-weight="700">UT Austin 캠퍼스</text>'+
+  '<path d="M0 322 C40 316 70 312 100 304 S160 296 200 300 S260 306 300 298 L300 316 C260 322 230 318 200 316 S150 312 110 320 S40 334 0 340Z" fill="var(--map-water)"/>'+
+  '<text x="250" y="330" font-size="10" fill="var(--muted)" text-anchor="middle">Lady Bird Lake</text>'+
+  '<g stroke="var(--map-road)" stroke-width="5" stroke-linecap="round"><path d="M111 300V176"/><path d="M60 230H240"/><path d="M30 270H250"/><path d="M190 370 L238 0"/></g>'+
+  '<text x="117" y="210" font-size="9" fill="var(--muted)" transform="rotate(-90 117 210)">Congress Ave</text>'+
+  '<text x="220" y="200" font-size="9" fill="var(--muted)" transform="rotate(-82 220 200)">I-35</text>'+
+  '<rect x="131" y="170" width="18" height="14" rx="3" fill="var(--muted)" opacity=".5"/><text x="140" y="164" font-size="9" text-anchor="middle" fill="var(--muted)">주의회</text>'+
+  '<path d="M120 283 L154 274" stroke="var(--fg2)" stroke-width="1.5" stroke-dasharray="3 3"/><text x="140" y="294" font-size="9" text-anchor="middle" fill="var(--fg2)" paint-order="stroke" stroke="var(--map-land)" stroke-width="3">도보 12분</text>'+
+  '<path d="M150 268 Q200 170 222 72" fill="none" stroke="var(--fg2)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="196" y="160" font-size="9" fill="var(--fg2)">🚌 셔틀</text>'+
+  '<text x="292" y="370" text-anchor="end" font-size="9" fill="var(--fg2)">✈ 공항(AUS) 남동쪽 11km ↘</text>';
+  VORD.forEach(function(k,i){var p=P[k];s+='<g><circle cx="'+p[0]+'" cy="'+p[1]+'" r="11" fill="var(--v-'+k+')" stroke="var(--surface)" stroke-width="3"/><text x="'+p[0]+'" y="'+(p[1]+4)+'" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">'+(i+1)+'</text></g>'});
+  var lab={hilton:[168,262,'start'],jw:[106,262,'end'],fare:[88,296,'end'],long:[45,358,'middle'],bass:[208,58,'end']};
+  VORD.forEach(function(k){var l=lab[k];s+='<text x="'+l[0]+'" y="'+l[1]+'" text-anchor="'+l[2]+'" font-size="10.5" font-weight="700" fill="var(--fg)" paint-order="stroke" stroke="var(--map-land)" stroke-width="3">'+V[k].s+'</text>'});
+  return s+'</svg>'}
+$('#mapHome').innerHTML=mapSVG();$('#mapVenue').innerHTML=mapSVG();
+$('#vlistHome').innerHTML=VORD.map(function(k,i){var v=V[k];return '<div class="vitem v-'+k+'"><span class="n">'+(i+1)+'</span><div><b>'+v.n+'</b><div class="small">'+v.d+'</div><div class="small muted">'+v.a+' · <a href="'+v.m+'" target="_blank" rel="noopener">지도 ↗</a></div></div></div>'}).join('')+
+ '<p class="small muted" style="margin:0">약도는 대략적인 위치입니다. JW ↔ Hilton 0.4마일, 다운타운 ↔ Bass Hall 약 3km.</p>';
+var WHERE=[['배지 수령','jw','2층 201호'],['Oral · Spotlight · 키노트 I·II','hilton','6층 메인 무대'],['포스터 보드 1–116','jw','3층 Lone Star 볼룸'],['포스터 보드 117~','jw','2층 Griffin 홀'],['데모','jw','3층 Lone Star · 2층 Griffin'],['LBR 포스터 (점심)','jw','2층 Griffin'],['기업 채용 세션','jw','3층 302·307호'],['커피 브레이크','jw','+ Hilton (11/11은 JW만)'],['점심','fare','+ JW Marriott'],['웰컴 디너 (11/9)','long','야외·로비'],['Keynote III · 패널 · 시상','bass','콘서트홀'],['워크숍 (11/12)','jw','+ Hilton Salon D/E, 408/410'],['포스터 인쇄물 수령','jw','3층 Lone Star 전시홀']];
+WHERE.forEach(function(w){var tr=el('tr');tr.innerHTML='<td class="small">'+w[0]+'</td><td class="small"><span class="vchip v-'+w[1]+'" style="color:var(--fg);font-weight:700">'+V[w[1]].s+'</span> <span class="fg2">'+w[2]+'</span></td>';$('#whereTbl').appendChild(tr)});
+
+// simplified floor plans
+function room(x,y,w,h,label,cls,sub){var c={poster:'var(--k-poster',ws:'var(--k-ws',recruit:'var(--k-oral',badge:'var(--k-key',stage:'var(--k-spot',none:'var(--k-misc'}[cls||'none'];
+  return '<g><rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="4" fill="'+c+'-s)" stroke="'+c+')" stroke-width="1.5"/><text x="'+(x+w/2)+'" y="'+(y+h/2+(sub?-2:4))+'" text-anchor="middle" font-size="'+(w<40?9:11)+'" font-weight="700" fill="var(--fg)">'+label+'</text>'+(sub?'<text x="'+(x+w/2)+'" y="'+(y+h/2+11)+'" text-anchor="middle" font-size="8.5" fill="var(--fg2)">'+sub+'</text>':'')+'</g>'}
+$('#planL2').innerHTML='<svg viewBox="0 0 360 250" role="img" aria-label="JW Marriott 2층 간략도">'+
+  '<rect x="1" y="1" width="358" height="248" rx="10" fill="none" stroke="var(--line)"/>'+
+  room(30,20,300,120,'Griffin 홀','poster','포스터 117–232 · LBR · 데모 7')+
+  '<rect x="30" y="145" width="300" height="22" fill="var(--soft)"/><text x="180" y="160" text-anchor="middle" font-size="9" fill="var(--muted)">PREFUNCTION (복도)</text>'+
+  room(70,175,38,52,'201','badge','배지')+room(112,175,44,52,'202','ws')+room(160,175,40,52,'203','ws')+room(204,175,40,52,'204','ws')+room(248,175,40,52,'205','ws')+
+  '<text x="20" y="215" font-size="9" fill="var(--muted)" transform="rotate(-90 20 215)">로비·에스컬레이터</text>'+
+  '<text x="180" y="244" text-anchor="middle" font-size="9" fill="var(--muted)">↓ E 2nd St 방향</text></svg>';
+$('#planL3').innerHTML='<svg viewBox="0 0 360 250" role="img" aria-label="JW Marriott 3층 간략도">'+
+  '<rect x="1" y="1" width="358" height="248" rx="10" fill="none" stroke="var(--line)"/>'+
+  room(150,10,40,26,'311','ws')+room(194,10,40,26,'310','ws')+room(238,10,34,26,'309')+room(310,10,40,30,'308')+
+  room(30,44,250,126,'Lone Star 볼룸','poster','Salon A–H · 포스터 1–116 · 데모 8')+
+  room(300,60,50,42,'307','recruit','채용')+room(300,108,50,30,'306','ws')+
+  room(30,190,40,44,'301','ws')+room(74,190,40,44,'302','recruit','채용·WS')+
+  '<rect x="118" y="190" width="70" height="44" rx="4" fill="var(--soft)"/><text x="153" y="216" text-anchor="middle" font-size="9" fill="var(--muted)">등록 구역</text>'+
+  room(192,190,40,44,'303','ws')+room(236,190,40,44,'304','ws')+room(286,190,40,44,'305','ws')+
+  '<text x="155" y="182" text-anchor="middle" font-size="9" fill="var(--muted)">PREFUNCTION (복도)</text></svg>';
+document.querySelectorAll('.thumb').forEach(function(b){b.onclick=function(){$('#lb img').src=b.dataset.src;$('#lb').classList.add('on')}});
+$('#lb').onclick=function(){this.classList.remove('on')};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')$('#lb').classList.remove('on')});
 
 // ---------- sessions ----------
 var SESS={
@@ -415,93 +740,155 @@ var SESS={
  S8:['Spotlight','Perception, navigation and autonomous systems','11/11(수) 09:30','Hang Zhao']};
 var PS={1:'11/9(월) 17:00–18:30',2:'11/10(화) 17:00–18:30',3:'11/11(수) 10:30–12:00'};
 
-// ---------- schedule ----------
-// [start,end,kind,title,location,extra]
+// ---------- schedule data ----------
+// [start,end,kind,title,venue,link,place]
 var DAYS=[
- {k:'mon',label:'11/9 (월)',items:[
-  ['08:30','09:00','misc','개회 (Welcome)','Hilton Austin'],
-  ['09:00','09:30','spot','Spotlight S1 · Generalist policies, memory and transfer','Hilton Austin','S1'],
-  ['09:30','10:00','key','Early Career Keynote I · Hang Zhao','Hilton Austin'],
-  ['10:00','10:30','misc','커피 브레이크','Hilton & JW Marriott'],
-  ['10:30','11:00','oral','Oral O1 · Generalist policies and context scaling','Hilton Austin','O1'],
-  ['11:00','11:30','oral','Oral O2 · World models and temporal representations','Hilton Austin','O2'],
-  ['11:30','12:00','oral','Oral O3 · Data, simulation and evaluation','Hilton Austin','O3'],
-  ['12:00','13:30','misc','점심 + LBR 포스터: Agentic Robotics','JW Marriott & Fareground / LBR은 Griffin(JW 2층)'],
-  ['13:30','14:00','misc','스폰서 토크 ×3 (Sharpa, Lightwheel, NVIDIA)','Hilton Austin'],
-  ['14:00','14:30','key','Early Career Keynote II · Negar Mehr','Hilton Austin'],
-  ['14:30','15:00','spot','Spotlight S2 · Efficient execution, world models and learning','Hilton Austin','S2'],
-  ['15:00','15:30','misc','커피 브레이크','Hilton & JW Marriott'],
-  ['15:30','16:30','key','Keynote I · Wolfram Burgard — Challenges to Realize Embodied AI','Hilton Austin'],
-  ['16:30','17:00','misc','스폰서 토크 ×3 (GM, BitRobot, MaxInsights)','Hilton Austin'],
-  ['17:00','18:30','poster','포스터 세션 1','JW Marriott','P1'],
-  ['18:30','19:00','misc','Long Center로 이동 (셔틀)',''],
-  ['19:00','22:00','key','🤠 웰컴 소셜 디너','The Long Center']]},
- {k:'tue',label:'11/10 (화)',items:[
-  ['08:30','09:00','spot','Spotlight S3 · Human learning, dexterity and cooperation','Hilton Austin','S3'],
-  ['09:00','09:30','oral','Oral O4 · Reinforcement learning and motion reasoning','Hilton Austin','O4'],
-  ['09:30','10:00','key','Early Career Keynote III · Roberto Martín-Martín','Hilton Austin'],
-  ['10:00','10:30','misc','커피 브레이크','Hilton & JW Marriott'],
-  ['10:30','11:00','oral','Oral O5 · Dexterous learning, grasping and assembly','Hilton Austin','O5'],
-  ['11:00','11:30','oral','Oral O6 · Force, tactile control and manipulation planning','Hilton Austin','O6'],
-  ['11:30','12:00','oral','Oral O7 · Humanoid data, control and skills','Hilton Austin','O7'],
-  ['12:00','13:30','misc','점심 + LBR 포스터: Real2Sim2Real · Women & Allies Lunch','JW Marriott & Fareground / Hilton'],
-  ['13:30','14:00','misc','스폰서 토크 ×3 (Google DeepMind, Boston Dynamics, Franka)','Hilton Austin'],
-  ['14:00','14:30','spot','Spotlight S4 · Touch, force and contact-rich manipulation','Hilton Austin','S4'],
-  ['14:30','15:00','spot','Spotlight S5 · Deformable manipulation, geometry and morphology','Hilton Austin','S5'],
-  ['15:00','15:30','misc','커피 브레이크','Hilton & JW Marriott'],
-  ['15:30','16:30','key','Keynote II · Russ Tedrake — Learning in the factories','Hilton Austin'],
-  ['16:30','17:00','misc','스폰서 토크 ×3 (Meta, AGIBOT, Tesla)','Hilton Austin'],
-  ['17:00','18:30','poster','포스터 세션 2','JW Marriott','P2']]},
- {k:'wed',label:'11/11 (수)',items:[
-  ['08:30','09:00','spot','Spotlight S6 · Optimization, agentic planning and evaluation','Hilton Austin','S6'],
-  ['09:00','09:30','spot','Spotlight S7 · Humanoid locomotion and whole-body control','Hilton Austin','S7'],
-  ['09:30','10:00','spot','Spotlight S8 · Perception, navigation and autonomous systems','Hilton Austin','S8'],
-  ['10:00','10:30','misc','커피 브레이크','JW Marriott'],
-  ['10:30','12:00','poster','포스터 세션 3','JW Marriott','P3'],
-  ['12:00','13:30','misc','점심','JW Marriott & Fareground'],
-  ['13:30','15:00','misc','디저트 리셉션 + Texas Robotics 투어','Bass Concert Hall / Anna Hiss Gym (UT Austin)'],
-  ['15:00','16:00','key','Keynote III · Fei-Fei Li + Lisa Su 파이어사이드 챗','Bass Concert Hall'],
-  ['16:00','17:00','key','특별 패널 (사회: Vincent Vanhoucke)','Bass Concert Hall'],
-  ['17:00','18:00','key','클로징 인터루드 · 시상 & 폐회','Bass Concert Hall']]},
- {k:'thu',label:'11/12 (목) 워크숍',items:[
-  ['08:30','17:30','ws','워크숍 · 튜토리얼 32개 (반일 진행)','JW Marriott','WS']]}
+ {k:'sun',label:'11/8 (일)',short:'일 11/8',sub:'도착·배지',items:[
+  ['14:00','20:00','misc','배지 사전 수령','jw',null,'2층 201호'],
+  ['12:00','15:00','poster','포스터 인쇄물 수령','jw',null,'3층 Lone Star']]},
+ {k:'mon',label:'11/9 (월)',short:'월 11/9',sub:'본 학회 1일차',items:[
+  ['08:30','09:00','misc','개회 (Welcome)','hilton',null,'6층'],
+  ['09:00','09:30','spot','Spotlight S1 · Generalist policies, memory and transfer','hilton','S1','6층'],
+  ['09:30','10:00','key','Early Career Keynote I · Hang Zhao','hilton',null,'6층'],
+  ['10:00','10:30','misc','커피 브레이크','jw',null,'+ Hilton'],
+  ['10:30','11:00','oral','Oral O1 · Generalist policies and context scaling','hilton','O1','6층'],
+  ['11:00','11:30','oral','Oral O2 · World models and temporal representations','hilton','O2','6층'],
+  ['11:30','12:00','oral','Oral O3 · Data, simulation and evaluation','hilton','O3','6층'],
+  ['12:00','13:30','misc','점심 + LBR: Agentic Robotics','fare',null,'LBR은 JW 2층 Griffin'],
+  ['13:30','14:00','misc','스폰서 토크 ×3 (Sharpa · Lightwheel · NVIDIA)','hilton',null,'6층'],
+  ['14:00','14:30','key','Early Career Keynote II · Negar Mehr','hilton',null,'6층'],
+  ['14:30','15:00','spot','Spotlight S2 · Efficient execution, world models and learning','hilton','S2','6층'],
+  ['15:00','15:30','misc','커피 브레이크','jw',null,'+ Hilton'],
+  ['15:30','16:30','key','Keynote I · Wolfram Burgard','hilton',null,'6층'],
+  ['16:30','17:00','misc','스폰서 토크 ×3 (GM · BitRobot · MaxInsights)','hilton',null,'6층'],
+  ['17:00','18:30','poster','포스터 세션 1 (228편)','jw','P1','3층 Lone Star · 2층 Griffin'],
+  ['18:30','19:00','misc','Long Center로 셔틀 이동',null,null,''],
+  ['19:00','22:00','social','웰컴 소셜 디너','long',null,'']]},
+ {k:'tue',label:'11/10 (화)',short:'화 11/10',sub:'본 학회 2일차',items:[
+  ['08:30','09:00','spot','Spotlight S3 · Human learning, dexterity and cooperation','hilton','S3','6층'],
+  ['09:00','09:30','oral','Oral O4 · Reinforcement learning and motion reasoning','hilton','O4','6층'],
+  ['09:30','10:00','key','Early Career Keynote III · Roberto Martín-Martín','hilton',null,'6층'],
+  ['10:00','10:30','misc','커피 브레이크','jw',null,'+ Hilton'],
+  ['10:30','11:00','oral','Oral O5 · Dexterous learning, grasping and assembly','hilton','O5','6층'],
+  ['11:00','11:30','oral','Oral O6 · Force, tactile control and manipulation planning','hilton','O6','6층'],
+  ['11:30','12:00','oral','Oral O7 · Humanoid data, control and skills','hilton','O7','6층'],
+  ['12:00','13:30','misc','점심 + LBR: Real2Sim2Real · Women & Allies Lunch','fare',null,'LBR은 JW 2층 Griffin'],
+  ['13:30','14:00','misc','스폰서 토크 ×3 (DeepMind · Boston Dynamics · Franka)','hilton',null,'6층'],
+  ['14:00','14:30','spot','Spotlight S4 · Touch, force and contact-rich manipulation','hilton','S4','6층'],
+  ['14:30','15:00','spot','Spotlight S5 · Deformable manipulation, geometry and morphology','hilton','S5','6층'],
+  ['15:00','15:30','misc','커피 브레이크','jw',null,'+ Hilton'],
+  ['15:30','16:30','key','Keynote II · Russ Tedrake','hilton',null,'6층'],
+  ['16:30','17:00','misc','스폰서 토크 ×3 (Meta · AGIBOT · Tesla)','hilton',null,'6층'],
+  ['17:00','18:30','poster','포스터 세션 2 (231편)','jw','P2','3층 Lone Star · 2층 Griffin']]},
+ {k:'wed',label:'11/11 (수)',short:'수 11/11',sub:'본 학회 3일차',items:[
+  ['08:30','09:00','spot','Spotlight S6 · Optimization, agentic planning and evaluation','hilton','S6','6층'],
+  ['09:00','09:30','spot','Spotlight S7 · Humanoid locomotion and whole-body control','hilton','S7','6층'],
+  ['09:30','10:00','spot','Spotlight S8 · Perception, navigation and autonomous systems','hilton','S8','6층'],
+  ['10:00','10:30','misc','커피 브레이크','jw',null,''],
+  ['10:30','12:00','poster','포스터 세션 3 (228편)','jw','P3','3층 Lone Star · 2층 Griffin'],
+  ['12:00','13:30','misc','점심','fare',null,'+ JW Marriott'],
+  ['13:30','15:00','social','디저트 리셉션 + Texas Robotics 투어','bass',null,''],
+  ['15:00','16:00','key','Keynote III · Fei-Fei Li + Lisa Su','bass',null,''],
+  ['16:00','17:00','key','특별 패널 (토론)','bass',null,''],
+  ['17:00','18:00','key','시상 · 폐회','bass',null,'']]},
+ {k:'thu',label:'11/12 (목)',short:'목 11/12',sub:'워크숍',items:[
+  ['08:30','12:30','ws','오전 워크숍 16개','jw','WS','+ Hilton'],
+  ['12:30','14:00','misc','점심','jw',null,''],
+  ['14:00','18:00','ws','오후 워크숍 16개','jw','WS','+ Hilton']]}
 ];
+var KIND={oral:['Oral','p-oral'],spot:['Spotlight','p-spot'],key:['키노트·패널','p-key'],poster:['포스터','p-poster'],ws:['워크숍','p-ws'],social:['소셜','p-misc'],misc:['기타','p-misc']};
+$('#klegend').innerHTML=['oral','spot','key','poster','ws','social','misc'].map(function(k){return '<span class="pill '+(k==='social'?'':KIND[k][1])+'" '+(k==='social'?'style="background:var(--k-social-s);color:var(--k-social)"':'')+'>'+KIND[k][0]+'</span>'}).join('')+'<span style="width:10px"></span>'+VORD.map(function(k){return '<span class="vchip v-'+k+'">'+V[k].s+'</span>'}).join(' ');
+
+function mins(t){return +t.slice(0,2)*60+ +t.slice(3)}
+// home day cards
+var HL={sun:[['14:00','배지 사전 수령 (JW 201호)'],['12:00','포스터 인쇄물 수령']],
+ mon:[['09:00','Spotlight S1 · Oral O1–O3'],['15:30','Keynote I · Burgard'],['17:00','포스터 세션 1'],['19:00','🤠 웰컴 디너 · Long Center']],
+ tue:[['08:30','Spotlight S3–S5 · Oral O4–O7'],['15:30','Keynote II · Tedrake'],['17:00','포스터 세션 2']],
+ wed:[['08:30','Spotlight S6–S8'],['10:30','포스터 세션 3'],['15:00','Keynote III · Fei-Fei Li'],['17:00','🏆 시상 · 폐회 (Bass Hall)']],
+ thu:[['08:30','워크숍 오전 16개'],['14:00','워크숍 오후 16개']]};
+DAYS.forEach(function(d){
+  var tot={},sum=0;d.items.forEach(function(it){if(!it[4])return;var m=mins(it[1])-mins(it[0]);tot[it[4]]=(tot[it[4]]||0)+m;sum+=m});
+  var bar='<div class="vbar" title="장소별 시간 비중">'+VORD.filter(function(k){return tot[k]}).map(function(k){return '<i style="flex:'+tot[k]+';background:var(--v-'+k+')" title="'+V[k].s+'"></i>'}).join('')+'</div>';
+  var c=el('div','day',bar+'<div class="dh"><b>'+d.short+'</b><span>'+d.sub+'</span></div><ul>'+HL[d.k].map(function(h){return '<li><span class="t">'+h[0]+'</span><span>'+esc(h[1])+'</span></li>'}).join('')+'</ul>');
+  $('#dayCards').appendChild(c)});
+
+// week grid (main 4 days)
+(function(){
+  var G=$('#sgrid'),S=mins('08:30'),E=mins('22:00'),R=15,rows=(E-S)/R;
+  G.style.gridTemplateRows='auto repeat('+rows+',13px)';
+  G.appendChild(el('div','hd',''));
+  var days=DAYS.slice(1);
+  days.forEach(function(d,i){var h=el('div','hd',d.short+'<small>'+d.sub+'</small>');h.style.gridColumn=(i+2);G.appendChild(h)});
+  for(var t=S;t<E;t+=60){var r=(t-S)/R+2;var tc=el('div','tc',(t/60|0)+':'+(t%60<10?'0':'')+t%60);tc.style.gridRow=r;tc.style.gridColumn=1;G.appendChild(tc);
+    var ln=el('div','ln');ln.style.gridRow=r;ln.style.gridColumn='2 / 6';G.appendChild(ln)}
+  days.forEach(function(d,i){d.items.forEach(function(it){
+    var r0=(mins(it[0])-S)/R+2,r1=(mins(it[1])-S)/R+2,short=(mins(it[1])-mins(it[0]))<=30;
+    var b=el('div','blk k-'+it[2]+(it[5]?' click':''));b.style.gridColumn=i+2;b.style.gridRow=r0+' / '+r1;
+    var parts=it[3].split(' · ');
+    b.innerHTML='<b>'+esc(parts[0])+'</b>'+(short?'':(parts[1]?'<div>'+esc(parts.slice(1).join(' · '))+'</div>':''))+(it[4]&&!short?'<span class="vchip v-'+it[4]+'">'+V[it[4]].s+'</span>':'');
+    b.title=it[0]+'–'+it[1]+' '+it[3]+(it[4]?' @ '+V[it[4]].s+' '+it[6]:'');
+    if(it[5])b.onclick=function(){jump(it[5])};
+    G.appendChild(b)})});
+})();
+function jump(x){
+  if(x==='WS'){location.hash='workshops';return}
+  resetF();if(x[0]==='P')$('#fPs').value=x[1];else $('#fSess').value=x;
+  location.hash='papers';setTimeout(function(){render();$('#plist').scrollIntoView({block:'start'})},30)}
+
 function kst(t){var h=+t.slice(0,2)+15,m=t.slice(3),d='';if(h>=24){h-=24;d='+1일 '}return d+(h<10?'0':'')+h+':'+m}
-var dayIdx=store.get('corl26-day',0);
-function drawDay(i){dayIdx=i;store.set('corl26-day',i);
+var dayIdx=store.get('corl26-day2',1);
+function drawDay(i){dayIdx=i;store.set('corl26-day2',i);
   [].forEach.call($('#daytabs').children,function(b,j){b.classList.toggle('on',j===i)});
   var ul=$('#timeline');ul.innerHTML='';
-  DAYS[i].items.forEach(function(it){
-    var li=el('li','k-'+it[2]);var x=it[5],extra='';
-    if(x&&SESS[x]) extra='<div class="sp muted">좌장: '+esc(SESS[x][3])+' · <a class="jump" href="#papers" data-sess="'+x+'">논문 '+(SESS[x][0]==='Oral'?3:9)+'편 보기 →</a></div>';
-    else if(x&&x[0]==='P') extra='<div class="sp"><a class="jump" href="#papers" data-ps="'+x[1]+'">이 세션 포스터 보기 →</a></div>';
-    else if(x==='WS') extra='<div class="sp"><a class="jump" href="#workshops">워크숍 목록 →</a></div>';
-    li.innerHTML='<div class="tm">'+it[0]+'–'+it[1]+'<em>KST '+kst(it[0])+'</em></div><div class="ti">'+esc(it[3])+'</div>'+(it[4]?'<div class="lo">📍 '+esc(it[4])+'</div>':'')+extra;
-    ul.appendChild(li)});}
+  DAYS[i].items.slice().sort(function(a,b){return mins(a[0])-mins(b[0])}).forEach(function(it){
+    var x=it[5],extra='';
+    if(x&&SESS[x])extra='<span>좌장 '+esc(SESS[x][3])+'</span><a href="#papers" data-j="'+x+'">논문 '+(x[0]==='O'?3:9)+'편 →</a>';
+    else if(x&&x[0]==='P')extra='<a href="#papers" data-j="'+x+'">포스터 목록 →</a>';
+    else if(x==='WS')extra='<a href="#workshops">워크숍 목록 →</a>';
+    var li=el('li');
+    li.innerHTML='<div class="tm">'+it[0]+'<em>~'+it[1]+'</em><em>KST '+kst(it[0])+'</em></div><div class="bx k-'+it[2]+'"><div class="ti">'+esc(it[3])+'</div><div class="sub">'+(it[4]?'<span class="vchip v-'+it[4]+'">'+V[it[4]].s+(it[6]?' '+esc(it[6]):'')+'</span>':'')+extra+'</div></div>';
+    ul.appendChild(li)})}
 DAYS.forEach(function(d,i){var b=el('button','',d.label);b.onclick=function(){drawDay(i)};$('#daytabs').appendChild(b)});
-drawDay(Math.min(dayIdx,3));
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.jump');if(!a)return;
-  if(a.dataset.sess){resetF();$('#fSess').value=a.dataset.sess;}
-  if(a.dataset.ps){resetF();$('#fPs').value=a.dataset.ps;}
-  if(a.dataset.sess||a.dataset.ps)setTimeout(function(){render();window.scrollTo(0,0)},0);});
+drawDay(Math.min(dayIdx,DAYS.length-1));
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-j]');if(!a)return;e.preventDefault();jump(a.dataset.j)});
+
+// hour bars (badge / exhibit)
+function hourBars(id,data){var S=7,E=21,h='<div style="display:grid;grid-template-columns:72px 1fr;gap:6px;font-size:.8rem;align-items:center">';
+  data.forEach(function(r){var a=(mins(r[1])/60-S)/(E-S)*100,b=(mins(r[2])/60-S)/(E-S)*100;
+    h+='<span class="fg2">'+r[0]+'</span><div style="position:relative;height:18px;background:var(--soft);border-radius:5px"><i title="'+r[1]+'–'+r[2]+'" style="position:absolute;left:'+a+'%;width:'+(b-a)+'%;top:0;bottom:0;background:var(--v-jw);border-radius:5px;display:grid;place-items:center;color:#fff;font-style:normal;font-size:.7rem;font-weight:700;white-space:nowrap">'+r[1]+'–'+r[2]+'</i></div>'});
+  h+='<span></span><div style="display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted)"><span>7시</span><span>14시</span><span>21시</span></div></div>';$(id).innerHTML=h}
+hourBars('#badgeBars',[['11/8 (일)','14:00','20:00'],['11/9 (월)','07:30','17:00'],['11/10 (화)','07:30','17:00'],['11/11 (수)','09:00','13:30'],['11/12 (목)','08:00','13:30']]);
+hourBars('#exBars',[['11/9 (월)','12:00','18:30'],['11/10 (화)','10:00','18:30'],['11/11 (수)','08:30','13:00']]);
 
 // ---------- papers ----------
 var P=window.PAPERS||[];
 var AWARD=['SuperMimic','Play2Perfect','GRAIL: Generating Humanoid','RoboTTT','What Are We Actually Benchmarking','Long-Horizon Multi-Object Rearrangement via Distilled'];
-P.forEach(function(p){p.aw=AWARD.some(function(a){return p.t.indexOf(a)===0});p.lt=p.t.toLowerCase()});
+P.forEach(function(p){p.aw=AWARD.some(function(a){return p.t.indexOf(a)===0});p.lt=p.t.toLowerCase();p.ls=p.no<=116});
 var TOPICS={vla:'VLA·파운데이션',wm:'월드 모델',hum:'휴머노이드·보행',dex:'덱스터러스·파지',tac:'촉각·힘·접촉',rl:'강화학습',il:'모방학습',sim:'시뮬레이션·Sim2Real',nav:'내비게이션·주행·드론',human:'인간·HRI',eval:'벤치마크·데이터',deform:'변형체',perc:'3D·인지',plan:'계획·추론',safe:'안전·강건성'};
 var stars=store.get('corl26-stars',{});var topic='';var shown=60;
 Object.keys(SESS).sort(function(a,b){return a[0]===b[0]?a[1]-b[1]:(a[0]==='O'?-1:1)}).forEach(function(k){var o=el('option');o.value=k;o.textContent=k+' · '+SESS[k][1];$('#fSess').appendChild(o)});
 var chipAll=el('button','chip on','전체 주제');chipAll.dataset.t='';$('#chips').appendChild(chipAll);
 Object.keys(TOPICS).forEach(function(k){var c=el('button','chip',TOPICS[k]);c.dataset.t=k;$('#chips').appendChild(c)});
-$('#chips').onclick=function(e){var c=e.target.closest('.chip');if(!c)return;topic=c.dataset.t;[].forEach.call(this.children,function(x){x.classList.toggle('on',x===c)});shown=60;render()};
-function resetF(){$('#q').value='';$('#fType').value='';$('#fPs').value='';$('#fSess').value='';topic='';[].forEach.call($('#chips').children,function(x,i){x.classList.toggle('on',i===0)});shown=60}
+function setTopic(t){topic=t;[].forEach.call($('#chips').children,function(x){x.classList.toggle('on',x.dataset.t===t)});drawTopic();shown=60;render()}
+$('#chips').onclick=function(e){var c=e.target.closest('.chip');if(c)setTopic(c.dataset.t)};
+// topic chart
+var tc={};P.forEach(function(p){p.k.forEach(function(k){tc[k]=(tc[k]||0)+1})});
+var tkeys=Object.keys(TOPICS).sort(function(a,b){return tc[b]-tc[a]}),tmax=tc[tkeys[0]];
+function drawTopic(){$('#topicChart').innerHTML=tkeys.map(function(k){var on=topic===k?' on':'';return '<span class="lb'+on+'" data-t="'+k+'">'+TOPICS[k]+'</span><span class="tr'+on+'" data-t="'+k+'" title="'+TOPICS[k]+': '+tc[k]+'편"><i style="width:'+(tc[k]/tmax*100)+'%"></i></span><span class="vl">'+tc[k]+'</span>'}).join('')}
+drawTopic();
+$('#topicChart').onclick=function(e){var t=e.target.closest('[data-t]');if(t)setTopic(topic===t.dataset.t?'':t.dataset.t)};
+// poster session bars
+$('#psBars').innerHTML=[1,2,3].map(function(s){var a=P.filter(function(p){return p.ps===s}),ls=a.filter(function(p){return p.ls}).length;
+  return '<div class="psb"><div style="display:flex;justify-content:space-between"><b>세션 '+s+'</b><span class="muted">'+PS[s]+' · '+a.length+'편</span></div><div class="bar"><i style="flex:'+ls+';background:var(--v-jw)" title="3층 Lone Star '+ls+'편">3F Lone Star '+ls+'</i><i style="flex:'+(a.length-ls)+';background:var(--v-hilton)" title="2층 Griffin '+(a.length-ls)+'편">2F Griffin '+(a.length-ls)+'</i></div></div>'}).join('');
+
+function resetF(){$('#q').value='';$('#fType').value='';$('#fPs').value='';$('#fSess').value='';$('#fHall').value='';topic='';[].forEach.call($('#chips').children,function(x,i){x.classList.toggle('on',i===0)});drawTopic();shown=60}
 function render(){
-  var q=$('#q').value.trim().toLowerCase(),ty=$('#fType').value,ps=$('#fPs').value,ss=$('#fSess').value,so=$('#fSort').value;
+  var q=$('#q').value.trim().toLowerCase(),ty=$('#fType').value,ps=$('#fPs').value,ss=$('#fSess').value,so=$('#fSort').value,hl=$('#fHall').value;
   var terms=q?q.split(/\s+/):[];
   var r=P.filter(function(p){
     if(terms.length&&!terms.every(function(t){return p.lt.indexOf(t)>-1}))return false;
     if(ps&&p.ps!=ps)return false;
+    if(hl&&(hl==='ls')!==p.ls)return false;
     if(ss&&p.s.indexOf(ss)<0)return false;
     if(topic&&p.k.indexOf(topic)<0)return false;
     if(ty==='oral'&&!p.s.some(function(s){return s[0]==='O'}))return false;
@@ -510,41 +897,82 @@ function render(){
     if(ty==='star'&&!stars[p.id])return false;
     return true});
   if(so==='t')r=r.slice().sort(function(a,b){return a.lt<b.lt?-1:1});
-  $('#cnt').textContent=r.length+'편'+(Object.keys(stars).length?' · ★ 관심 논문 '+Object.keys(stars).length+'편':'');
+  var cntTxt=function(){return r.length+'편'+(Object.keys(stars).length?' · ★ 관심 논문 '+Object.keys(stars).length+'편':'')};
+  $('#cnt').textContent=cntTxt();
   var ul=$('#plist');ul.innerHTML='';var frag=document.createDocumentFragment();
   r.slice(0,shown).forEach(function(p){
     var li=el('li');var tags='';
     if(p.aw)tags+='<span class="pill p-award">🏆 Best Paper 후보</span>';
-    p.s.forEach(function(s){var S=SESS[s];tags+='<span class="pill '+(s[0]==='O'?'p-oral':'p-spot')+'" title="'+esc(S[1])+'">'+(s[0]==='O'?'Oral ':'Spotlight ')+s+' · '+S[2]+'</span>'});
-    tags+='<span>포스터 '+p.ps+' · '+PS[p.ps]+'</span>';
+    p.s.forEach(function(s){var S=SESS[s];tags+='<span class="pill '+(s[0]==='O'?'p-oral':'p-spot')+'" title="'+esc(S[1])+'">'+(s[0]==='O'?'Oral ':'Spotlight ')+s+' · '+S[2]+' · Hilton 6F</span>'});
+    tags+='<span class="where"><span class="vchip v-jw" style="color:var(--fg)">JW '+(p.ls?'3층 Lone Star':'2층 Griffin')+'</span> · 보드 #'+p.no+' · '+PS[p.ps]+'</span>';
     p.k.slice(0,3).forEach(function(k){tags+='<span class="pill p-misc">'+TOPICS[k]+'</span>'});
-    li.innerHTML='<div class="no"><b>#'+p.no+'</b>P'+p.ps+'</div><div class="bd"><a class="tt" href="https://openreview.net/forum?id='+encodeURIComponent(p.id)+'" target="_blank" rel="noopener">'+esc(p.t)+'</a><div class="mt">'+tags+'</div></div>';
+    li.innerHTML='<div class="no'+(p.ls?' ls':'')+'"><b>#'+p.no+'</b>P'+p.ps+' · '+(p.ls?'3F':'2F')+'</div><div class="bd"><a class="tt" href="https://openreview.net/forum?id='+encodeURIComponent(p.id)+'" target="_blank" rel="noopener">'+esc(p.t)+'</a><div class="mt">'+tags+'</div></div>';
     var b=el('button','star'+(stars[p.id]?' on':''),stars[p.id]?'★':'☆');b.title='관심 논문';b.setAttribute('aria-label','관심 논문 표시');
-    b.onclick=function(){if(stars[p.id])delete stars[p.id];else stars[p.id]=1;store.set('corl26-stars',stars);b.classList.toggle('on');b.textContent=stars[p.id]?'★':'☆';$('#cnt').textContent=r.length+'편 · ★ 관심 논문 '+Object.keys(stars).length+'편'};
+    b.onclick=function(){if(stars[p.id])delete stars[p.id];else stars[p.id]=1;store.set('corl26-stars',stars);b.classList.toggle('on');b.textContent=stars[p.id]?'★':'☆';$('#cnt').textContent=cntTxt()};
     li.appendChild(b);frag.appendChild(li)});
   ul.appendChild(frag);
   var m=$('#more');m.hidden=r.length<=shown;m.textContent='더 보기 ('+(r.length-shown)+'편 남음)';
 }
-['#q','#fType','#fPs','#fSess','#fSort'].forEach(function(s){$(s).addEventListener('input',function(){shown=60;render()})});
+['#q','#fType','#fPs','#fSess','#fSort','#fHall'].forEach(function(s){$(s).addEventListener('input',function(){shown=60;render()})});
 $('#more').onclick=function(){shown+=120;render()};
 render();
 
+// ---------- keynotes ----------
+function avatar(name,c){var ini=name.split(' ').map(function(w){return w[0]}).join('').slice(0,2);return '<div class="av" style="background:'+c+'">'+ini+'</div>'}
+var KN=[
+ ['Wolfram Burgard','University of Technology Nuremberg','Keynote I','11/9(월) 15:30','hilton','Challenges to Realize Embodied AI','센서·구동기의 불확실성을 다루는 확률적 접근과 딥러닝의 결합, 파운데이션 모델로 복잡한 실제 환경에 대응하기.'],
+ ['Russ Tedrake','MIT / Walden Robotics CEO','Keynote II','11/10(화) 15:30','hilton','Learning in the factories','창업 2개월 만에 실제 생산 라인에 배치한 Walden Robotics의 교훈 — 배치 규모에 따른 성능 스케일링과 “배치-학습 순환”.'],
+ ['Fei-Fei Li','Stanford / World Labs','Keynote III','11/11(수) 15:00','bass','Atlas: A Unified World Model for Generation and Reconstruction','픽셀 생성과 3D 장면 복원을 통합한 자기회귀 모델 Atlas. 후반부는 AMD CEO Lisa Su와 파이어사이드 챗.']];
+var EK=[
+ ['Hang Zhao','Tsinghua / Galaxea AI','Early Career I','11/9(월) 09:30','hilton','Organizing Physical AI Across Timescales','지능을 시간 스케일(S2 추론·S1 정책·S0 제어)로 나누고 층 간 인터페이스를 설계.'],
+ ['Negar Mehr','UC Berkeley','Early Career II','11/9(월) 14:00','hilton','How Can Robots Learn to Interact and Coordinate with Others?','다중 에이전트 RL, 상호작용 모방학습, 지속 학습을 합의 최적화로 보기.'],
+ ['Roberto Martín-Martín','UT Austin','Early Career III','11/10(화) 09:30','hilton','Learning Without Starting Over','재사용 가능한 행동 공간, 사람의 시연·교정, 경험 선별로 “학습 잠재력” 넓히기.']];
+function kcard(k){return '<div class="card"><div class="ktime"><span class="pill p-key">'+k[2]+'</span><span class="pill p-misc">'+k[3]+'</span><span class="vchip v-'+k[4]+'">'+V[k[4]].s+'</span></div><div class="spk">'+avatar(k[0],'var(--v-'+k[4]+')')+'<div><h4 style="margin:0">'+k[0]+'</h4><div class="small muted">'+k[1]+'</div></div></div><p class="small" style="margin-top:10px"><b>'+esc(k[5])+'</b></p><p class="small fg2" style="margin-top:4px">'+k[6]+'</p></div>'}
+$('#kn1').innerHTML=KN.map(kcard).join('');$('#kn2').innerHTML=EK.map(kcard).join('');
+$('#panel').innerHTML=[['Vincent Vanhoucke','Waymo · 사회'],['Marc Toussaint','TU Berlin'],['Chelsea Finn','Stanford / PI'],['Leslie Kaelbling','MIT'],['Pulkit Agrawal','MIT / Eka'],['Edward Johns','Imperial / Machenta'],['Yonatan Bisk','CMU']].map(function(p,i){return '<div style="display:flex;gap:8px;align-items:center;min-width:180px">'+avatar(p[0],i?'var(--v-bass)':'var(--k-key)').replace('class="av"','class="av" style="width:40px;height:40px;font-size:.85rem;background:'+(i?'var(--v-bass)':'var(--k-key)')+'"')+'<div><b class="small">'+p[0]+'</b><div class="small muted">'+p[1]+'</div></div></div>'}).join('');
+
 // ---------- workshops ----------
-var WS=[["4th CoRL Workshop on Learning Effective Abstractions for Planning (LEAP)","http://leap-workshop.github.io"],["Bringing Physics Simulation and World Models Together for Robotic Manipulation","https://corl26ws-physwm.github.io"],["Modeling Uncertainty in Robotic World Models","https://uncertainwm2026.github.io/"],["Do Robots Need World Models? A Debate on Dynamics Learning, Planning, and End-to-End Robot Learning","https://do-robots-need-world-models.github.io/"],["The Action Gap: large generative models (video, image, 3D) learn rich knowledge","https://actiongapworkshop.github.io/"],["Sim-to-Real-to-Field (SRF): The Science of Transfer","https://sim2real2field-corl26.github.io/"],["From GPU-Accelerated Simulation for Real-World Robot Policy Learning","https://corl2026-realworld-robot-learning.github.io/"],["1st Workshop on \"Structured Physical Intelligence\" (SPIN)","https://sites.google.com/view/spin-1st-workshop/home"],["Remember, Retrieve, Act: Memory for Robot Foundation Models","https://corl2026-memory.github.io/"],["Efficient Foundation Models for Real-Time Embodied AI","http://efficient-embodied-ai.github.io"],["Continually Self-Improving Robots Workshop (CSIR-2026)","https://csircorl.github.io/website/"],["Learn@Deploy: Robot Learning at Deployment","https://learn-at-deploy.github.io/"],["Pretrain to Adapt: What Makes a Pretrained Policy Adaptable?","https://corl2026-robotcl.github.io/"],["Scaling H2R: Scaling Laws and Diversity in Human-to-Robot Workshop","http://scaling-h2r-corl.github.io/"],["\"Oops, I Erred\" — Collecting, Curating and Using Imperfect Data for Realistic Scenarios","http://workshop.oopsie-data.com/"],["Learning from Corrections and Interventions","https://sites.google.com/view/lfcworkshopcorl2026/home"],["From Human Videos to Dexterous Robot Capability: A Hands-on Tutorial","https://aanwar-nv.github.io/v2d-tutorial.github.io/"],["BiDexTool: Bimanual Dexterous Tool Use","https://bimanual-tool.github.io/"],["The UMI Olympics: From Handheld Devices to Real-World Policies","https://umi-olympics.airoa.io/"],["3rd Workshop on Dexterous Manipulation: Full-Stack Robotics on Learning and Design","https://dex-manipulation.github.io/corl2026/"],["R2RL: Roadmap to Sample-Efficient Real-World Reinforcement Learning","https://r2rl-workshop.github.io/"],["Robot Learning on the Path to Surgical Autonomy","https://corl2026-surgical-autonomy.github.io/"],["RoboLetics 3.0: Benchmarks for Agile Physical Human-Robot Interaction","https://roboletics.github.io/corl2026/"],["Human-Centered Robot Learning and Interaction","https://hc-robot-learning.github.io/"],["The Science of Physical AI Safety Workshop (SPAIS)","https://spais-ws.org"],["Grounded 4D Multimodal World Models for Autonomous Driving Decision Making","https://arlo0o.github.io/Grounded-Driving-World-Models_Workshop/"],["Spatial Intelligence and Structured Reasoning for Embodied Navigation (SISREN)","https://sisren-embodied-nav.github.io"],["Everything Beneath the Policy: Controllers, Hardware, and Data Infrastructure","https://beneath-the-policy.github.io/"],["Open Problems in Contact-Rich Loco-Manipulation","https://contact-rich-loco-manipulation.github.io"],["Beyond Binary Success: Diagnosing Fine-Grained Capabilities in Robot Manipulation","https://robofinemani2026.github.io/"],["Compositional Generalization for Real-World Robot Learning","https://compogen-robotics.github.io/corl2026/"],["Workshop on Agentic Robotics","https://agentic-robotics-workshop.github.io/"]];
-WS.forEach(function(w){var li=el('li','','<a href="'+w[1]+'" target="_blank" rel="noopener">'+esc(w[0])+'</a>');$('#wslist').appendChild(li)});
+var WSD={
+ am:[["Continually Self-Improving Robots Workshop (CSIR-2026)","https://csircorl.github.io/website/","jw","202"],["Closing the Sim2Real Gap: GPU-Accelerated Simulation for Real-World Robot Policy Learning","https://corl2026-realworld-robot-learning.github.io/","jw","212"],["RoboLetics 3.0: Benchmarks for Agile Physical Human-Robot Interaction","https://roboletics.github.io/corl2026/","hilton","Salon D"],["Learning from Corrections and Interventions","https://sites.google.com/view/lfcworkshopcorl2026/home","jw","305"],["1st Workshop on \"Structured Physical Intelligence\" (SPIN)","https://sites.google.com/view/spin-1st-workshop/home","jw","208"],["Grounded 4D Multimodal World Models for Autonomous Driving Decision Making","https://arlo0o.github.io/Grounded-Driving-World-Models_Workshop/","hilton","410"],["Compositional Generalization for Real-World Robot Learning","https://compogen-robotics.github.io/corl2026/","jw","310–311"],["The Science of Physical AI Safety Workshop (SPAIS)","https://spais-ws.org","jw","203–204"],["Learn@Deploy: Robot Learning at Deployment","https://learn-at-deploy.github.io/","jw","205"],["R2RL: Roadmap to Sample-Efficient Real-World Reinforcement Learning","https://r2rl-workshop.github.io/","jw","213"],["Scaling H2R: Scaling Laws and Diversity in Human-to-Robot Workshop","http://scaling-h2r-corl.github.io/","jw","301–302"],["Do Robots Need World Models? A Debate on Dynamics Learning, Planning, and End-to-End Robot Learning","https://do-robots-need-world-models.github.io/","jw","Brazos"],["BiDexTool: Bimanual Dexterous Tool Use","https://bimanual-tool.github.io/","jw","303–304"],["4th CoRL Workshop on Learning Effective Abstractions for Planning (LEAP)","http://leap-workshop.github.io","jw","306"],["Remember, Retrieve, Act: Memory for Robot Foundation Models","https://corl2026-memory.github.io/","hilton","408"],["Everything Beneath the Policy: Controllers, Hardware, and Data Infrastructure","https://beneath-the-policy.github.io/","hilton","Salon E"]],
+ pm:[["3rd Workshop on Dexterous Manipulation: Full-Stack Robotics on Learning and Design","https://dex-manipulation.github.io/corl2026/","jw","212"],["Modeling Uncertainty in Robotic World Models","https://uncertainwm2026.github.io/","jw","310–311"],["Human-Centered Robot Learning and Interaction","https://hc-robot-learning.github.io/","jw","202"],["Robot Learning on the Path to Surgical Autonomy","https://corl2026-surgical-autonomy.github.io/","jw","213"],["Spatial Intelligence and Structured Reasoning for Embodied Navigation (SISREN)","https://sisren-embodied-nav.github.io","jw","306"],["Beyond Binary Success: Diagnosing Fine-Grained Capabilities in Robot Manipulation","https://robofinemani2026.github.io/","hilton","410"],["Open Problems in Contact-Rich Loco-Manipulation","https://contact-rich-loco-manipulation.github.io","jw","205"],["Sim-to-Real-to-Field (SRF): The Science of Transfer","https://sim2real2field-corl26.github.io/","hilton","Salon E"],["From Human Videos to Dexterous Robot Capability: A Hands-on Tutorial","https://aanwar-nv.github.io/v2d-tutorial.github.io/","hilton","Salon D"],["\"Oops, I Erred\" — Imperfect Data for Realistic Scenarios","http://workshop.oopsie-data.com/","jw","305"],["Bringing Physics Simulation and World Models Together for Robotic Manipulation","https://corl26ws-physwm.github.io","jw","Brazos"],["The UMI Olympics: From Handheld Devices to Real-World Policies","https://umi-olympics.airoa.io/","jw","303–304"],["Workshop on Agentic Robotics","https://agentic-robotics-workshop.github.io/","jw","203–204"],["Efficient Foundation Models for Real-Time Embodied AI","http://efficient-embodied-ai.github.io","hilton","408"],["Pretrain to Adapt: What Makes a Pretrained Policy Adaptable?","https://corl2026-robotcl.github.io/","jw","301–302"],["The Action Gap: large generative models (video, image, 3D) learn rich knowledge","https://actiongapworkshop.github.io/","jw","208"]]};
+function floorOf(v,r){if(v==='jw'){if(r==='Brazos')return 'JW';return 'JW '+r[0]+'층'}return /Salon/.test(r)?'Hilton 6층':'Hilton 4층'}
+['am','pm'].forEach(function(s){$('#ws'+s.toUpperCase()).innerHTML=WSD[s].map(function(w){return '<li><div class="rm v-'+w[2]+'">'+(/^\d/.test(w[3])?w[3]+'호':w[3])+'<small>'+floorOf(w[2],w[3])+'</small></div><a href="'+w[1]+'" target="_blank" rel="noopener">'+esc(w[0])+'</a></li>'}).join('')});
+var wjw=WSD.am.concat(WSD.pm).filter(function(w){return w[2]==='jw'}).length;
+$('#wsStats').innerHTML='<div class="card stat"><div class="ic" style="background:var(--k-ws-s);color:var(--k-ws)"><svg class="i"><use href="#i-tool"/></svg></div><div><b>32</b><span>워크숍·튜토리얼</span></div></div>'+
+ '<div class="card stat"><div class="ic" style="background:var(--soft);color:var(--v-jw)"><svg class="i"><use href="#i-pin"/></svg></div><div><b>'+wjw+'</b><span>JW Marriott (2·3층)</span></div></div>'+
+ '<div class="card stat"><div class="ic" style="background:var(--soft);color:var(--v-hilton)"><svg class="i"><use href="#i-pin"/></svg></div><div><b>'+(32-wjw)+'</b><span>Hilton (Salon D/E, 408/410)</span></div></div>'+
+ '<div class="card stat"><div class="ic" style="background:var(--soft);color:var(--fg2)"><svg class="i"><use href="#i-clock"/></svg></div><div><b>4h</b><span>각 반일 세션 길이</span></div></div>';
+
+// ---------- recruiting ----------
+var RC=[['11/9 (월)',[['10:15','Agibot','NVIDIA'],['11:30','Sharpa','Google DeepMind'],['13:30','MaxInsights','BitRobot'],['14:45','Tesla','Walden Robotics'],['16:00','Foundry Robotics','Sudo'],['17:15','Xynova','MicroAGI']]],
+ ['11/10 (화)',[['09:45','Unitree','OpenAI Robotics'],['11:00','Amazon','Meta Robotics'],['13:30','Lightwheel','Dyna'],['14:45','TRI','Boston Dynamics'],['16:00','Genrobot','Sieve'],['17:15','Holiday Robotics','Origami Robotics']]],
+ ['11/11 (수)',[['08:30','Apptronik','General Motors'],['09:45','Path Robotics','Franka Robotics'],['11:00','Airoa','Gento Robotics']]]];
+$('#recruit').innerHTML=RC.map(function(d){return '<div class="card"><h4>'+d[0]+'</h4><div class="slot"><span></span><span class="small muted" style="text-align:center">302호</span><span class="small muted" style="text-align:center">307호</span></div>'+d[1].map(function(s){return '<div class="slot"><span>'+s[0]+'</span><span class="co" title="'+s[1]+'">'+s[1]+'</span><span class="co" title="'+s[2]+'">'+s[2]+'</span></div>'}).join('')+'</div>'}).join('');
+
+// ---------- socials ----------
+var SO=[['11/9 (월)',['MaxInsights @ Electric Shuffle']],['11/10 (화)',['Abaka AI @ Nica on 4th','Austin Robotics @ Antler VC','GenRobot.AI @ Hilton Garden Inn','Samsung Next (Luma 승인제)','Sieve @ Hestia','VESSL AI @ Edge Rooftop','XDOF @ Hilton 앞']],['11/11 (수)',['NVIDIA @ Bull and Bowl','Torc @ Austin Project Taco','X Square Robot 애프터파티','Zeromatter']],['11/12 (목)',['AgileX @ JW 203–204호']]];
+$('#socials').innerHTML=SO.map(function(d){return '<div class="card"><h4>'+d[0]+' <span class="pill p-misc">'+d[1].length+'</span></h4><ul class="clean small fg2">'+d[1].map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div>'}).join('');
+
+// ---------- fee ----------
+var FEE=[['학생',200,500,1500,75],['학계',400,800,1500,150],['산업계',1200,1500,1500,450]];
+(function(){var h='<span></span><span class="h">Early<br>~10/12</span><span class="h">Standard<br>10/13–31</span><span class="h">Late<br>11/1~ (현재)</span><span class="h">워크숍만</span>';
+ FEE.forEach(function(r){h+='<b class="small">'+r[0]+'</b>';for(var i=1;i<5;i++){var a=Math.min(1,r[i]/1500)*.85+.08;h+='<span class="c" style="background:color-mix(in srgb,var(--accent) '+Math.round(a*100)+'%,var(--surface));color:'+(a>.5?'#fff':'var(--fg)')+(i===3?';outline:2px solid var(--fg)':'')+'">$'+r[i].toLocaleString()+'</span>'}});
+ $('#fee').innerHTML=h})();
 
 // ---------- checklist ----------
-var CK=['ESTA(또는 비자) 승인 확인, 여권 유효기간 6개월 이상','등록 확인 메일·QR 준비 (등록 안 했다면 Late 요금 $1,500)','숙소 예약 확인 (학회 블록은 매진)','11/8(일) 14:00–20:00 JW Marriott 201호에서 배지 미리 수령','포스터 인쇄 주문 확인 · 수령(LoneStar 전시홀 12:00–15:00) — 84"×42" 가로','Oral 발표자: 노트북 + HDMI 어댑터, 쉬는 시간에 연결 테스트','Spotlight 발표자: 세션 10분 전 무대 옆 대기','CoRL 공식 앱 설치 (셔틀 시간·장소 공지)','미국 110V 어댑터(A타입), 얇은 겉옷 (11월 오스틴 낮 20℃대·밤 10℃대, 실내 냉방 강함)','관심 논문 ★ 표시해서 포스터 동선 짜기','11/9 저녁 Long Center 디너 · 11/11 오후 Bass Hall 이동 셔틀 확인'];
+var CK=['ESTA(또는 비자) 승인 확인, 여권 유효기간 6개월 이상','등록 확인 메일·QR 준비','숙소 예약 확인 (학회 블록은 매진)','11/8(일) 14:00–20:00 JW Marriott 2층 201호에서 배지 수령','포스터 인쇄물 수령 (JW 3층 Lone Star, 12:00–15:00) · 내 보드 번호·홀 확인','Oral 발표자: 노트북 + HDMI 어댑터, 쉬는 시간에 연결 테스트','Spotlight 발표자: 세션 10분 전 Hilton 6층 무대 옆 대기','CoRL 공식 앱 설치 (셔틀 시간·장소 공지)','미국 110V 어댑터(A타입), 얇은 겉옷 (낮 20℃대·밤 10℃대, 실내 냉방 강함)','관심 논문 ★ 표시해서 포스터 동선 짜기','11/9 저녁 Long Center · 11/11 오후 Bass Hall 셔틀 확인','11/12 워크숍 방 확인 (JW 2·3층 / Hilton)'];
 var ck=store.get('corl26-check',{});
-CK.forEach(function(t,i){var l=el('label');var c=el('input');c.type='checkbox';c.checked=!!ck[i];c.onchange=function(){ck[i]=c.checked;store.set('corl26-check',ck)};l.appendChild(c);l.appendChild(el('span','small',esc(t)));$('#checklist').appendChild(l)});
+function prog(){var n=CK.filter(function(_,i){return ck[i]}).length;$('#progbar').style.width=(n/CK.length*100)+'%'}
+CK.forEach(function(t,i){var l=el('label');var c=el('input');c.type='checkbox';c.checked=!!ck[i];c.onchange=function(){ck[i]=c.checked;store.set('corl26-check',ck);prog()};l.appendChild(c);l.appendChild(el('span','small',esc(t)));$('#checklist').appendChild(l)});
+prog();
 
 // ---------- router ----------
-var PAGES=['home','schedule','papers','keynotes','workshops','events','guide'];
+var PAGES=['home','schedule','papers','venues','keynotes','workshops','events','guide'];
 function route(){var h=location.hash.slice(1);if(PAGES.indexOf(h)<0)h='home';
   PAGES.forEach(function(p){$('#pg-'+p).classList.toggle('on',p===h)});
   [].forEach.call(document.querySelectorAll('#tabs a'),function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+h)});
   var on=$('#tabs a.on');if(on&&on.scrollIntoView)on.scrollIntoView({block:'nearest',inline:'nearest'});
-  window.scrollTo(0,0);}
+  window.scrollTo(0,0)}
 window.addEventListener('hashchange',route);route();
 })();
 </script>
