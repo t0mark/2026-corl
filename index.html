@@ -368,7 +368,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   </div>
 
   <div class="grid g4">
-    <div class="card stat"><div class="ic" style="background:var(--k-poster-s);color:var(--k-poster)"><svg class="i"><use href="#i-doc"/></svg></div><div><b>687</b><span>채택 논문 · 전원 포스터</span></div></div>
+    <div class="card stat"><div class="ic" style="background:var(--k-poster-s);color:var(--k-poster)"><svg class="i"><use href="#i-doc"/></svg></div><div><b>687</b><span>채택 논문 (모두 포스터 발표)</span></div></div>
     <div class="card stat"><div class="ic" style="background:var(--k-oral-s);color:var(--k-oral)"><svg class="i"><use href="#i-mic"/></svg></div><div><b>21</b><span>Oral · 7개 세션</span></div></div>
     <div class="card stat"><div class="ic" style="background:var(--k-spot-s);color:var(--k-spot)"><svg class="i"><use href="#i-star"/></svg></div><div><b>72</b><span>Spotlight · 8개 세션</span></div></div>
     <div class="card stat"><div class="ic" style="background:var(--k-ws-s);color:var(--k-ws)"><svg class="i"><use href="#i-tool"/></svg></div><div><b>32</b><span>워크숍 · 11/12 오전·오후</span></div></div>
@@ -390,33 +390,33 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
 <!-- ================= SCHEDULE ================= -->
 <section class="pg" id="pg-schedule">
   <h2><span class="hi"><svg class="i"><use href="#i-cal"/></svg></span>학회 일정</h2>
-  <p class="lead">현지 시간(CST) 기준. 색은 세션 종류, 작은 네모는 장소입니다. 세션 블록을 누르면 해당 논문 목록으로 이동합니다.</p>
+  <p class="lead">시간은 모두 오스틴 현지 시간(CST)입니다. 블록 색은 세션 종류를, 작은 네모 색은 장소를 나타냅니다. 세션을 누르면 그 세션의 논문 목록으로 넘어갑니다.</p>
   <div class="legendk" id="klegend"></div>
   <div class="sgwrap"><div class="sg" id="sgrid"></div></div>
-  <h3><svg class="i"><use href="#i-clock"/></svg>날짜별 상세 (한국 시간 병기)</h3>
+  <h3><svg class="i"><use href="#i-clock"/></svg>날짜별 세부 일정 (한국 시간 함께 표시)</h3>
   <div class="daytabs" id="daytabs"></div>
   <ul class="tl" id="timeline"></ul>
   <h3><svg class="i"><use href="#i-ticket"/></svg>배지 수령 · 전시 시간</h3>
   <div class="grid g2">
     <div class="card"><h4><svg class="i"><use href="#i-ticket"/></svg>배지 수령 · JW Marriott 2층 201호</h4>
       <div id="badgeBars"></div>
-      <p class="small muted" style="margin-top:8px">배지는 Marriott에서만 수령 가능. 9일 아침 Hilton 가기 전에 받으세요(8일 수령 권장).</p></div>
+      <p class="small muted" style="margin-top:8px">배지는 Marriott에서만 받을 수 있습니다. 9일 아침에 Hilton으로 가기 전에 받거나, 되도록 8일에 미리 받아 두세요.</p></div>
     <div class="card"><h4><svg class="i"><use href="#i-brief"/></svg>전시(Exhibit) 시간 · JW Marriott</h4>
       <div id="exBars"></div>
-      <p class="small muted" style="margin-top:8px">전시 스태프 배지는 전시장만 출입 가능.</p></div>
+      <p class="small muted" style="margin-top:8px">전시 스태프 배지로는 전시장에만 들어갈 수 있습니다.</p></div>
   </div>
 </section>
 
 <!-- ================= PAPERS ================= -->
 <section class="pg" id="pg-papers">
-  <h2><span class="hi"><svg class="i"><use href="#i-doc"/></svg></span>채택 논문 리스트</h2>
-  <p class="lead">687편 전체. 각 논문마다 <b>발표 장소(건물·층·홀·보드 번호)</b>를 표시했습니다. 제목은 OpenReview로 연결, ☆로 관심 논문 저장.</p>
+  <h2><span class="hi"><svg class="i"><use href="#i-doc"/></svg></span>채택 논문 목록</h2>
+  <p class="lead">채택 논문 687편을 모두 담았고, 논문마다 <b>발표 장소(건물·층·홀·보드 번호)</b>를 함께 적었습니다. 제목을 누르면 OpenReview로 가고, ☆를 누르면 관심 논문으로 저장됩니다.</p>
 
   <div class="grid g2">
-    <div class="card"><h4><svg class="i"><use href="#i-layers"/></svg>주제별 논문 수 <span class="small muted" style="font-weight:400">(누르면 필터)</span></h4><div class="chart" id="topicChart"></div></div>
-    <div class="card"><h4><svg class="i"><use href="#i-board"/></svg>포스터 세션 · 홀 배치</h4>
+    <div class="card"><h4><svg class="i"><use href="#i-layers"/></svg>주제별 논문 수 <span class="small muted" style="font-weight:400">(누르면 그 주제만 보기)</span></h4><div class="chart" id="topicChart"></div></div>
+    <div class="card"><h4><svg class="i"><use href="#i-board"/></svg>포스터 세션별 홀 배치</h4>
       <div class="psbars" id="psBars"></div>
-      <div class="note" style="margin:12px 0 0"><svg class="i"><use href="#i-pin"/></svg><div class="small">보드 <b>1–116번 → JW 3층 Lone Star 볼룸</b>, <b>117번 이상 → JW 2층 Griffin 홀</b>. Oral·Spotlight는 <b>Hilton 6층</b> 메인 무대.</div></div>
+      <div class="note" style="margin:12px 0 0"><svg class="i"><use href="#i-pin"/></svg><div class="small">보드 <b>1–116번 → JW 3층 Lone Star 볼룸</b>, <b>117번 이상 → JW 2층 Griffin 홀</b>. Oral·Spotlight 발표는 <b>Hilton 6층</b> 메인 무대에서 합니다.</div></div>
     </div>
   </div>
 
@@ -440,14 +440,14 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
 <!-- ================= VENUES ================= -->
 <section class="pg" id="pg-venues">
   <h2><span class="hi"><svg class="i"><use href="#i-map"/></svg></span>장소 · 건물별 도면</h2>
-  <p class="lead">CoRL 2026은 SXSW처럼 여러 건물에 나뉘어 열립니다. 어디서 무엇을 하는지, 건물·층별로 정리했습니다.</p>
+  <p class="lead">CoRL 2026은 SXSW처럼 여러 건물에서 나눠 열립니다. 무엇을 어디서 하는지 건물과 층별로 정리했습니다.</p>
 
   <div class="mapwrap">
     <div class="card mapcard" id="mapVenue"></div>
     <div class="card">
       <h4><svg class="i"><use href="#i-search"/></svg>어디로 가야 하나요?</h4>
       <div class="tw" style="border:none"><table id="whereTbl">
-        <tr><th>하는 일</th><th>장소</th></tr>
+        <tr><th>할 일</th><th>장소</th></tr>
       </table></div>
     </div>
   </div>
@@ -463,27 +463,27 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   </div>
   <div class="grid g2" style="margin-top:10px">
     <div class="card bldg v-jw">
-      <div class="bh"><b>JW Marriott Austin</b><span class="pill p-misc">소셜 허브</span><span class="small muted">110 E 2nd St · 입구는 E 2nd St (Congress–Brazos 사이)</span></div>
+      <div class="bh"><b>JW Marriott Austin</b><span class="pill p-misc">포스터·전시·교류</span><span class="small muted">110 E 2nd St · 입구는 E 2nd St (Congress–Brazos 사이)</span></div>
       <div class="floor"><div class="fl">3F</div><div class="rooms">
-        <div class="room r-poster"><b>Lone Star 볼룸 (Salon A–H)</b>포스터 보드 1–116 · 데모 8개 (파운데이션 모델·휴머노이드) · 포스터 인쇄물 수령</div>
+        <div class="room r-poster"><b>Lone Star 볼룸 (Salon A–H)</b>포스터 보드 1–116 · 데모 8개 (파운데이션 모델·휴머노이드) · 인쇄한 포스터 찾는 곳</div>
         <div class="room r-recruit"><b>302 · 307호</b>기업 채용 세션 (11/9–11)</div>
         <div class="room r-ws"><b>301–302 · 303–304 · 305 · 306 · 310–311호</b>11/12 워크숍</div>
       </div></div>
       <div class="floor"><div class="fl">2F</div><div class="rooms">
         <div class="room r-badge"><b>201호</b>배지 수령 (11/8–12)</div>
-        <div class="room r-poster"><b>Griffin 홀</b>포스터 보드 117–232 · LBR 포스터(점심) · 데모 7개 (덱스터러스·촉각)</div>
-        <div class="room r-ws"><b>202 · 203–204 · 205 · 208 · 212 · 213호</b>11/12 워크숍 (203–204는 11/12 AgileX 소셜)</div>
+        <div class="room r-poster"><b>Griffin 홀</b>포스터 보드 117–232 · LBR 포스터(점심시간) · 데모 7개 (덱스터러스·촉각)</div>
+        <div class="room r-ws"><b>202 · 203–204 · 205 · 208 · 212 · 213호</b>11/12 워크숍 (203–204호는 11/12 AgileX 소셜 장소이기도 함)</div>
       </div></div>
       <div class="floor"><div class="fl">etc</div><div class="rooms">
-        <div class="room r-ws"><b>Brazos</b>11/12 워크숍 (층은 현장 안내 확인)</div>
-        <div class="room r-social"><b>커피·점심</b>매일 커피 브레이크, 점심(Fareground 병행)</div>
+        <div class="room r-ws"><b>Brazos</b>11/12 워크숍 (몇 층인지는 현장 안내판에서 확인)</div>
+        <div class="room r-social"><b>커피·점심</b>매일 커피 브레이크와 점심 (점심은 Fareground에서도 제공)</div>
       </div></div>
     </div>
     <div class="card bldg v-hilton">
       <div class="bh"><b>Hilton Austin</b><span class="pill p-misc">발표·기조연설</span><span class="small muted">500 E 4th St · 컨벤션센터 옆</span></div>
       <div class="floor"><div class="fl">6F</div><div class="rooms">
         <div class="room r-stage"><b>메인 무대 (Hilton Stage)</b>개회 · Oral O1–O7 · Spotlight S1–S8 · 얼리커리어 키노트 · Keynote I·II · 스폰서 토크</div>
-        <div class="room"><b>시청실 (Viewing rooms)</b>무대 생중계 — JW Marriott에서도 시청 가능</div>
+        <div class="room"><b>중계실 (Viewing rooms)</b>무대 발표를 생중계하며, JW Marriott에서도 볼 수 있음</div>
         <div class="room r-ws"><b>Salon D · Salon E</b>11/12 워크숍</div>
       </div></div>
       <div class="floor"><div class="fl">4F</div><div class="rooms">
@@ -492,16 +492,16 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
       <div class="floor"><div class="fl">TBA</div><div class="rooms">
         <div class="room r-social"><b>Women &amp; Allies Lunch</b>11/10 12:00–13:30 (방 추후 공지)</div>
       </div></div>
-      <p class="small muted" style="margin-top:8px">Salon D/E, 408/410호의 층은 호텔 방 번호 기준 추정입니다. 현장 표지를 확인하세요.</p>
+      <p class="small muted" style="margin-top:8px">Salon D/E와 408·410호의 층은 방 번호를 보고 짐작한 것입니다. 현장 안내판을 확인하세요.</p>
     </div>
     <div class="card bldg v-bass">
-      <div class="bh"><b>Bass Concert Hall (UT Austin)</b><span class="pill p-misc">피날레</span><span class="small muted">2350 Robert Dedman Dr</span></div>
+      <div class="bh"><b>Bass Concert Hall (UT Austin)</b><span class="pill p-misc">폐막 행사</span><span class="small muted">2350 Robert Dedman Dr</span></div>
       <div class="floor"><div class="fl">11/11</div><div class="rooms">
         <div class="room r-social"><b>13:30 디저트 리셉션</b>+ Texas Robotics 투어 (Anna Hiss Gym)</div>
         <div class="room r-stage"><b>15:00 Keynote III</b>Fei-Fei Li + Lisa Su</div>
-        <div class="room r-stage"><b>16:00 패널 · 17:00 시상/폐회</b>Best Paper 발표</div>
+        <div class="room r-stage"><b>16:00 패널 · 17:00 시상/폐회</b>Best Paper 수상작 발표</div>
       </div></div>
-      <p class="small muted" style="margin-top:6px">셔틀 운행. 라이드셰어 승하차는 DeLoss Dodds Way.</p>
+      <p class="small muted" style="margin-top:6px">셔틀이 다닙니다. 우버·리프트는 DeLoss Dodds Way에서 타고 내립니다.</p>
     </div>
     <div class="card bldg v-long">
       <div class="bh"><b>The Long Center</b><span class="small muted">701 W Riverside Dr</span></div>
@@ -509,7 +509,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
         <div class="room r-social"><b>19:00–22:00 웰컴 소셜 디너</b>푸드트럭 · 로봇 데모 · 라이브 음악·라인댄스 · 로봇 밴드</div>
       </div></div>
       <div class="bh" style="margin-top:14px;--vc:var(--v-fare)"><b class="vchip v-fare" style="font-size:1.05rem;color:var(--fg)">Fareground Austin</b><span class="small muted">111 Congress Ave, One Eleven Congress 1층</span></div>
-      <div class="floor v-fare"><div class="fl">1F</div><div class="rooms"><div class="room r-social"><b>점심 (11/9–11)</b>실내 + 중정, JW Marriott와 병행</div></div></div>
+      <div class="floor v-fare"><div class="fl">1F</div><div class="rooms"><div class="room r-social"><b>점심 (11/9–11)</b>실내와 안뜰에서 식사, JW Marriott에서도 점심 제공</div></div></div>
     </div>
   </div>
 
@@ -518,7 +518,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
     <div class="card plan"><h4>Level 2 — Griffin 홀 · 201–205호</h4><div id="planL2"></div></div>
     <div class="card plan"><h4>Level 3 — Lone Star 볼룸 · 301–311호</h4><div id="planL3"></div></div>
   </div>
-  <p class="small muted">공식 배치도를 바탕으로 단순화한 그림입니다. 208·212·213호, Brazos는 공식 도면 범위 밖이라 표시하지 않았습니다.</p>
+  <p class="small muted">공식 배치도를 바탕으로 단순화한 그림입니다. 208·212·213호와 Brazos는 공식 도면에 나오지 않아 넣지 못했습니다.</p>
 
   <h3><svg class="i"><use href="#i-doc"/></svg>공식 도면 원본 (눌러서 크게 보기)</h3>
   <div class="thumbs">
@@ -526,7 +526,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
     <button class="thumb" data-src="img/floor-jw-level3.webp"><img src="img/floor-jw-level3.webp" alt="JW Marriott Level 3 공식 도면" loading="lazy"><span>JW Marriott Level 3 (Salon A–H)</span></button>
     <button class="thumb" data-src="img/floor-jw-lonestar.webp"><img src="img/floor-jw-lonestar.webp" alt="Lone Star 볼룸 배치도" loading="lazy"><span>Lone Star 볼룸 좌석 배치</span></button>
   </div>
-  <p class="small muted">출처: CoRL 2026 공식 도면 폴더(Freeman, Presentation Technologies 작성, 2026년 8월 기준). 현장 배치는 바뀔 수 있습니다. Hilton 도면은 공식 공개본이 없습니다.</p>
+  <p class="small muted">출처: CoRL 2026 공식 도면 폴더(Freeman, Presentation Technologies 작성, 2026년 8월 기준). 현장 배치는 바뀔 수 있습니다. Hilton 도면은 공식적으로 공개되지 않았습니다.</p>
 </section>
 
 <!-- ================= KEYNOTES ================= -->
@@ -554,7 +554,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
 <!-- ================= WORKSHOPS ================= -->
 <section class="pg" id="pg-workshops">
   <h2><span class="hi"><svg class="i"><use href="#i-tool"/></svg></span>워크숍 · 튜토리얼</h2>
-  <p class="lead">11/12(목). 32개가 <b>오전(08:30–12:30)</b>과 <b>오후(14:00–18:00)</b>에 16개씩 나뉘어 JW Marriott와 Hilton에서 열립니다. 방 배정은 잠정이므로 현장에서 확인하세요.</p>
+  <p class="lead">11/12(목)에 워크숍 32개가 <b>오전(08:30–12:30)</b>과 <b>오후(14:00–18:00)</b>에 16개씩 JW Marriott와 Hilton에서 열립니다. 방 배정이 아직 확정되지 않았으니 현장에서 다시 확인하세요.</p>
   <div class="grid g4" style="margin-bottom:14px" id="wsStats"></div>
   <div class="wscols">
     <div class="card"><div class="wsh"><b>☀️ 오전 08:30–12:30</b><span class="pill p-ws">16개</span></div><ul class="ws" id="wsAM"></ul></div>
@@ -565,12 +565,12 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
 <!-- ================= COMPANIES ================= -->
 <section class="pg" id="pg-companies">
   <h2><span class="hi"><svg class="i"><use href="#i-brief"/></svg></span>참가 기업</h2>
-  <p class="lead">공식 스폰서 72곳과 채용·토크·소셜·부스 일정을 회사별로 모았습니다. 회사 카드를 보면 그 회사를 언제 어디서 만날 수 있는지 한눈에 보입니다.</p>
+  <p class="lead">공식 스폰서 72곳의 채용·토크·소셜·부스 일정을 회사별로 묶었습니다. 카드 하나만 보면 그 회사를 언제 어디서 만날 수 있는지 알 수 있습니다.</p>
   <div class="grid g4" id="coStats"></div>
   <div class="card" style="margin-top:14px">
     <h4><svg class="i"><use href="#i-layers"/></svg>스폰서 등급 <span class="small muted" style="font-weight:400">(누르면 필터)</span></h4>
     <div class="tierbar" id="tierbar"></div>
-    <p class="small muted">Diamond는 다이아몬드 스폰서 토크(각 10분)를 하고, 다수가 채용 세션을 엽니다.</p>
+    <p class="small muted">Diamond 스폰서는 10분씩 스폰서 토크를 하고, 대부분 채용 세션도 엽니다.</p>
   </div>
   <div class="tools" style="margin-top:14px">
     <div class="sbox"><svg class="i"><use href="#i-search"/></svg><input id="coQ" type="search" placeholder="회사 이름 검색 (예: NVIDIA, Tesla, Unitree)…" aria-label="회사 검색"></div>
@@ -580,22 +580,22 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   <div class="cogrid" id="cogrid"></div>
   <h3><svg class="i"><use href="#i-pin"/></svg>기업 부스·전시</h3>
   <div class="grid g2">
-    <div class="card"><h4>전시 시간 · JW Marriott</h4><p class="small fg2">11/9(월) 12:00–18:30 · 11/10(화) 10:00–18:30 · 11/11(수) 08:30–13:00<br>포스터 세션 시간과 겹치니 포스터 돌면서 부스도 같이 보면 효율적입니다.</p></div>
-    <div class="card"><h4>확인된 부스</h4><p class="small fg2"><b>NVIDIA 부스 #404</b> (JW Marriott, 11/9–11): GR00T·Isaac Lab·Newton 데모, 연구자 만남, 채용 상담.<br>다른 회사 부스 번호는 공식 공개 목록이 없어 현장 안내판·CoRL 앱에서 확인하세요.</p></div>
+    <div class="card"><h4>전시 시간 · JW Marriott</h4><p class="small fg2">11/9(월) 12:00–18:30 · 11/10(화) 10:00–18:30 · 11/11(수) 08:30–13:00<br>포스터 세션과 시간이 겹치니 포스터를 보러 다니면서 부스도 함께 둘러보면 좋습니다.</p></div>
+    <div class="card"><h4>확인된 부스</h4><p class="small fg2"><b>NVIDIA 부스 #404</b> (JW Marriott, 11/9–11): GR00T·Isaac Lab·Newton 데모, 연구자와 대화, 채용 상담.<br>다른 회사 부스 번호는 공개된 목록이 없으니 현장 안내판이나 CoRL 앱에서 확인하세요.</p></div>
   </div>
-  <p class="small muted">출처: CoRL 2026 공식 홈페이지 스폰서 로고·프로그램, NVIDIA CoRL 이벤트 페이지. 공식 스폰서가 아닌 소셜·채용 참여 회사도 함께 넣었습니다.</p>
+  <p class="small muted">출처: CoRL 2026 공식 홈페이지 스폰서 로고·프로그램, NVIDIA CoRL 이벤트 페이지. 공식 스폰서는 아니지만 소셜이나 채용 세션을 여는 회사도 함께 넣었습니다.</p>
 </section>
 
 <!-- ================= EVENTS ================= -->
 <section class="pg" id="pg-events">
   <h2><span class="hi"><svg class="i"><use href="#i-trophy"/></svg></span>행사 · 대회</h2>
-  <p class="lead">대회·시상, 데모, LBR, 소셜, 채용, 투어까지 포스터 외의 볼거리.</p>
+  <p class="lead">포스터 말고도 볼거리가 많습니다. 대회와 시상, 데모, LBR, 소셜, 채용 세션, 투어를 모았습니다.</p>
   <h3><svg class="i"><use href="#i-trophy"/></svg>대회 · 챌린지 · 시상</h3>
   <div class="grid g2" id="comps"></div>
   <div class="grid g2">
     <div class="card"><h4><svg class="i"><use href="#i-bot"/></svg>연구자 데모 · 11/9–10</h4>
       <div class="psb" style="margin:6px 0 10px"><div class="bar"><i style="flex:8;background:var(--v-jw)">Lone Star 8</i><i style="flex:7;background:var(--v-hilton)">Griffin 7</i><i style="flex:2;background:var(--muted)">야외 2</i></div></div>
-      <p class="small fg2"><b>3층 Lone Star</b>: 파운데이션 모델·휴머노이드·학습 플랫폼 · <b>2층 Griffin</b>: 덱스터러스 핸드·촉각·접촉 조작<br>예) MolmoAct2, Sony aibo SDK, NVIDIA Alpamayo 휴머노이드, DreamFAR(월드모델 속 로봇 조종)</p></div>
+      <p class="small fg2"><b>3층 Lone Star</b>: 파운데이션 모델·휴머노이드·학습 플랫폼 · <b>2층 Griffin</b>: 덱스터러스 핸드·촉각·접촉 조작<br>예) MolmoAct2, Sony aibo SDK, NVIDIA Alpamayo 휴머노이드, DreamFAR(월드 모델 안에만 있는 로봇 조종하기)</p></div>
     <div class="card"><h4><svg class="i"><use href="#i-board"/></svg>Late-Breaking Results · 점심 12:00–13:30</h4>
       <div class="psb" style="margin:6px 0 10px"><div class="bar"><i style="flex:21;background:var(--k-spot)">월 Agentic Robotics 21</i><i style="flex:18;background:var(--k-ws)">화 Real2Sim2Real 18</i></div></div>
       <p class="small fg2">장소: JW Marriott <b>2층 Griffin</b> (보드 117번대)</p></div>
@@ -608,12 +608,12 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
 
   <h3><svg class="i"><use href="#i-party"/></svg>외부 소셜 이벤트 <span class="small muted" style="font-weight:400">(공식 프로그램 아님)</span></h3>
   <div class="grid g4" id="socials"></div>
-  <p class="small muted">시간·등록은 각 주최 측 확인 (<a href="https://2026.corl.org/program/socials" target="_blank" rel="noopener">공식 소셜 페이지</a>).</p>
+  <p class="small muted">시간과 등록 방법은 주최 측에 확인하세요 (<a href="https://2026.corl.org/program/socials" target="_blank" rel="noopener">공식 소셜 페이지</a>).</p>
 
   <h3><svg class="i"><use href="#i-bus"/></svg>투어</h3>
   <div class="grid g2">
-    <div class="card"><h4>⚡ Tesla 기가팩토리 텍사스</h4><p class="small fg2">11/10(화) 12:00 · 15:00, 각 50명 선착순. 확정 메일 받은 사람만 참여.</p></div>
-    <div class="card"><h4>🤘 Texas Robotics (UT Austin)</h4><p class="small fg2">Anna Hiss Gym 45분 무료 투어(의료·자율·조작·원자력 로봇 랩). 1인 1예약, 교통 개별. <a href="https://calendly.com/txroboticstours/texas-robotics-group-tour-corl" target="_blank" rel="noopener">예약</a></p></div>
+    <div class="card"><h4>⚡ Tesla 기가팩토리 텍사스</h4><p class="small fg2">11/10(화) 12:00 · 15:00, 회차별 50명 선착순. 확정 메일을 받은 사람만 참여할 수 있습니다.</p></div>
+    <div class="card"><h4>🤘 Texas Robotics (UT Austin)</h4><p class="small fg2">Anna Hiss Gym 45분 무료 투어(의료·자율·조작·원자력 로봇 랩). 한 사람당 한 번만 예약할 수 있고, 이동은 각자 해야 합니다. <a href="https://calendly.com/txroboticstours/texas-robotics-group-tour-corl" target="_blank" rel="noopener">예약</a></p></div>
   </div>
 </section>
 
@@ -630,14 +630,14 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
           <span class="st">✈️ 인천</span><span class="ar">→</span><span class="st">미국 경유지 (DFW·LAX·SFO 등)</span><span class="ar">→</span><span class="st">🛬 AUS 공항</span><span class="ar">→ 11km →</span><span class="st vchip v-jw" style="color:var(--fg)">JW Marriott</span>
         </div>
         <ul class="clean small fg2">
-          <li>우버/리프트(앱 픽업 구역), 택시, 렌터카, <b>CapMetro 20번 버스</b>($1.25, 컨택리스 결제)</li>
-          <li>한국 여권: 보통 <b>ESTA</b> (출국 72시간 전까지 신청 권장). 비자 초청장은 등록 확인 페이지/메일에서 발급</li>
+          <li>우버·리프트(공항의 앱 전용 승차장), 택시, 렌터카, <b>CapMetro 20번 버스</b>($1.25, 컨택리스 결제)</li>
+          <li>한국 여권: 보통 <b>ESTA</b> (출국 72시간 전까지 신청 권장). 비자용 초청장은 등록 확인 페이지나 확인 메일에서 받을 수 있음</li>
         </ul></div>
       <div class="card" style="margin-top:14px"><h4><svg class="i"><use href="#i-bus"/></svg>현지 이동</h4>
         <ul class="clean small fg2">
           <li>JW ↔ Hilton: 0.4마일, <b>도보 10–15분</b> · 무료 셔틀</li>
-          <li>Long Center(11/9 저녁) · Bass Hall(11/11 오후): <b>무료 셔틀</b>, 시간은 CoRL 앱 공지</li>
-          <li>Lime 킥보드·전기자전거 다운타운 곳곳</li>
+          <li>Long Center(11/9 저녁) · Bass Hall(11/11 오후): <b>무료 셔틀</b> 운행, 시간은 CoRL 앱에서 공지</li>
+          <li>다운타운 곳곳에 Lime 킥보드·전기자전거가 있음</li>
           <li>🤖 로보택시: <b>Waymo</b>(Uber 앱 → 설정 → Autonomous vehicles 켜기), <b>Tesla Robotaxi</b>·<b>Zoox</b> 전용 앱</li>
         </ul></div>
     </div>
@@ -646,12 +646,12 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   <h3><svg class="i"><use href="#i-ticket"/></svg>등록비 (USD)</h3>
   <div class="card">
     <div class="fee" id="fee"></div>
-    <p class="small muted" style="margin-top:10px">등록비에 4일간 커피·점심 포함 · 10/1 이후 환불 불가(이름 변경은 무료) · 모든 학회 활동은 등록·배지 필요</p>
+    <p class="small muted" style="margin-top:10px">등록비에 4일간 커피·점심 포함 · 10/1 이후 환불 불가(이름 변경은 무료) · 학회 행사에 참여하려면 등록하고 배지를 달아야 함</p>
   </div>
 
   <h3><svg class="i"><use href="#i-mic"/></svg>발표자 가이드</h3>
   <div class="grid g3">
-    <div class="card"><h4><span class="pill p-poster">포스터</span>전 논문 687편</h4>
+    <div class="card"><h4><span class="pill p-poster">포스터</span>채택 논문 687편 모두</h4>
       <svg viewBox="0 0 300 150" style="width:100%;height:auto;margin:6px 0" role="img" aria-label="포스터 크기 84x42인치, 사람 키와 비교">
         <rect x="10" y="20" width="220" height="110" rx="3" fill="var(--k-poster-s)" stroke="var(--k-poster)" stroke-width="2"/>
         <g fill="var(--k-poster)" opacity=".5"><rect x="22" y="32" width="60" height="86" rx="2"/><rect x="90" y="32" width="60" height="86" rx="2"/><rect x="158" y="32" width="60" height="86" rx="2"/></g>
@@ -662,21 +662,21 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
       </svg>
       <ul class="clean small fg2">
         <li><b>가로 2:1</b>, 3–4단, 글은 적게·그림은 크게</li>
-        <li>인쇄물 수령: JW <b>3층 Lone Star</b> 11/8–11 12:00–15:00</li>
-        <li>내 보드 위치는 <a href="#papers">논문 탭</a>에서 확인</li>
-        <li>세션 끝나면 철거(방치 시 폐기)</li>
+        <li>인쇄한 포스터 찾는 곳: JW <b>3층 Lone Star</b>, 11/8–11 12:00–15:00</li>
+        <li>내 보드 위치는 <a href="#papers">논문 탭</a>에서 확인할 수 있음</li>
+        <li>세션이 끝나면 직접 떼어 가기 (두고 가면 버려짐)</li>
       </ul></div>
     <div class="card"><h4><span class="pill p-spot">Spotlight</span>72편 · Hilton 6층</h4>
-      <div class="flow" style="margin:8px 0"><span class="st">⏱ 10분 전 무대 옆</span><span class="ar">→</span><span class="st">🎬 무음 영상 3분 + 라이브 설명</span><span class="ar">→</span><span class="st">🚶 바로 퇴장</span></div>
-      <ul class="clean small fg2"><li>발표 사이 쉬는 시간 없음 — 앞 발표 중 무대로 이동</li><li>영상은 10/26에 OpenReview로 제출 완료</li></ul></div>
+      <div class="flow" style="margin:8px 0"><span class="st">⏱ 10분 전 무대 옆</span><span class="ar">→</span><span class="st">🎬 3분 무음 영상을 틀고 직접 설명</span><span class="ar">→</span><span class="st">🚶 바로 퇴장</span></div>
+      <ul class="clean small fg2"><li>발표 사이에 쉬는 시간이 없으니 앞 발표 중에 무대로 이동</li><li>영상은 10/26까지 OpenReview에 냈어야 함</li></ul></div>
     <div class="card"><h4><span class="pill p-oral">Oral</span>21편 · Hilton 6층</h4>
       <div class="psb" style="margin:8px 0"><div class="bar"><i style="flex:8;background:var(--k-oral)">발표 8분</i><i style="flex:2;background:var(--k-spot)">Q&amp;A 2</i></div></div>
       <ul class="clean small fg2"><li><b>본인 노트북</b> + HDMI 어댑터</li><li>세션 전 쉬는 시간에 연결 테스트</li><li>10분 전 도착, 시간 엄수</li></ul></div>
   </div>
 
-  <h3><svg class="i"><use href="#i-bed"/></svg>숙소 · 육아 · 포용</h3>
+  <h3><svg class="i"><use href="#i-bed"/></svg>숙소 · 육아 · 접근성</h3>
   <div class="grid g3">
-    <div class="card"><h4><svg class="i"><use href="#i-bed"/></svg>숙소</h4><p class="small fg2">학회 블록(JW, Hilton) <b>매진</b>. 취소분이 생기면 공식 링크가 자동 갱신됩니다.</p></div>
+    <div class="card"><h4><svg class="i"><use href="#i-bed"/></svg>숙소</h4><p class="small fg2">학회 할인 객실(JW, Hilton)은 <b>매진</b>. 취소된 방이 나오면 공식 예약 링크에 자동으로 다시 올라옵니다.</p></div>
     <div class="card"><h4><svg class="i"><use href="#i-baby"/></svg>육아</h4><p class="small fg2"><b>KiddieCorp 보육</b> 11/9–12 08:00–18:30, 시간당 $10<br><b>로보틱스 캠프</b>(5–15세) 11/9–11 09:00–12:00, 1일 $25</p></div>
     <div class="card"><h4><svg class="i"><use href="#i-users"/></svg>접근성 문의</h4><p class="small fg2">Chuchu Fan (chuchu@mit.edu), 제목에 [Inclusion at CoRL]</p></div>
   </div>
@@ -685,8 +685,8 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   <div class="grid g4">
     <div class="card"><h4>🏊 자연·산책</h4><p class="small fg2">Barton Springs Pool · Lady Bird Lake 보트·패들보드 · Mt. Bonnell 전망 · Mayfield Park 공작새</p></div>
     <div class="card"><h4>🏛 문화</h4><p class="small fg2">주의회 의사당 · Harry Ransom Center(구텐베르크 성경) · Blanton 미술관 · Central Library 테라스</p></div>
-    <div class="card"><h4>🍖 먹기</h4><p class="small fg2">Terry Black's BBQ · Taco Joint 아침 타코(migas) · Clay Pit 인도요리 · South Congress</p></div>
-    <div class="card"><h4>🎸 밤</h4><p class="small fg2">6th Street 라이브 음악 · Elephant Room 재즈 · Roosevelt Room · Nido 강변 루프탑</p></div>
+    <div class="card"><h4>🍖 먹거리</h4><p class="small fg2">Terry Black's BBQ · Taco Joint 아침 타코(migas) · Clay Pit 인도요리 · South Congress</p></div>
+    <div class="card"><h4>🎸 밤 문화</h4><p class="small fg2">6th Street 라이브 음악 · Elephant Room 재즈 · Roosevelt Room · Nido 강변 루프탑</p></div>
   </div>
 
   <h3><svg class="i"><use href="#i-link"/></svg>공식 링크</h3>
@@ -702,7 +702,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
 <div id="lb" role="dialog" aria-label="도면 확대"><img alt=""></div>
 
 <footer><div class="wrap">
-  비공식 한국어 정리 페이지입니다. 출처: <a href="https://2026.corl.org/" target="_blank" rel="noopener">2026.corl.org</a> 및 공식 도면 (2026-11-07 기준). 변경 사항은 공식 사이트·CoRL 앱을 우선 확인하세요.
+  비공식 한국어 정리 페이지입니다. 출처: <a href="https://2026.corl.org/" target="_blank" rel="noopener">2026.corl.org</a> 및 공식 도면 (2026-11-07 기준). 바뀐 내용이 있을 수 있으니 공식 사이트와 CoRL 앱을 먼저 확인하세요.
 </div></footer>
 
 <script src="papers.js"></script>
@@ -742,7 +742,7 @@ function mapSVG(){
   '<g stroke="var(--map-road)" stroke-width="5" stroke-linecap="round"><path d="M111 300V176"/><path d="M60 230H240"/><path d="M30 270H250"/><path d="M190 370 L238 0"/></g>'+
   '<text x="117" y="210" font-size="9" fill="var(--muted)" transform="rotate(-90 117 210)">Congress Ave</text>'+
   '<text x="220" y="200" font-size="9" fill="var(--muted)" transform="rotate(-82 220 200)">I-35</text>'+
-  '<rect x="131" y="170" width="18" height="14" rx="3" fill="var(--muted)" opacity=".5"/><text x="140" y="164" font-size="9" text-anchor="middle" fill="var(--muted)">주의회</text>'+
+  '<rect x="131" y="170" width="18" height="14" rx="3" fill="var(--muted)" opacity=".5"/><text x="140" y="164" font-size="9" text-anchor="middle" fill="var(--muted)">주의사당</text>'+
   '<path d="M120 283 L154 274" stroke="var(--fg2)" stroke-width="1.5" stroke-dasharray="3 3"/><text x="140" y="294" font-size="9" text-anchor="middle" fill="var(--fg2)" paint-order="stroke" stroke="var(--map-land)" stroke-width="3">도보 12분</text>'+
   '<path d="M150 268 Q200 170 222 72" fill="none" stroke="var(--fg2)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="196" y="160" font-size="9" fill="var(--fg2)">🚌 셔틀</text>'+
   '<text x="292" y="370" text-anchor="end" font-size="9" fill="var(--fg2)">✈ 공항(AUS) 남동쪽 11km ↘</text>';
@@ -752,8 +752,8 @@ function mapSVG(){
   return s+'</svg>'}
 $('#mapHome').innerHTML=mapSVG();$('#mapVenue').innerHTML=mapSVG();
 $('#vlistHome').innerHTML=VORD.map(function(k,i){var v=V[k];return '<div class="vitem v-'+k+'"><span class="n">'+(i+1)+'</span><div><b>'+v.n+'</b><div class="small">'+v.d+'</div><div class="small muted">'+v.a+' · <a href="'+v.m+'" target="_blank" rel="noopener">지도 ↗</a></div></div></div>'}).join('')+
- '<p class="small muted" style="margin:0">약도는 대략적인 위치입니다. JW ↔ Hilton 0.4마일, 다운타운 ↔ Bass Hall 약 3km.</p>';
-var WHERE=[['배지 수령','jw','2층 201호'],['Oral · Spotlight · 키노트 I·II','hilton','6층 메인 무대'],['포스터 보드 1–116','jw','3층 Lone Star 볼룸'],['포스터 보드 117~','jw','2층 Griffin 홀'],['데모','jw','3층 Lone Star · 2층 Griffin'],['LBR 포스터 (점심)','jw','2층 Griffin'],['기업 채용 세션','jw','3층 302·307호'],['커피 브레이크','jw','+ Hilton (11/11은 JW만)'],['점심','fare','+ JW Marriott'],['웰컴 디너 (11/9)','long','야외·로비'],['Keynote III · 패널 · 시상','bass','콘서트홀'],['워크숍 (11/12)','jw','+ Hilton Salon D/E, 408/410'],['포스터 인쇄물 수령','jw','3층 Lone Star 전시홀']];
+ '<p class="small muted" style="margin:0">약도라 위치는 대략적입니다. JW ↔ Hilton 0.4마일, 다운타운 ↔ Bass Hall 약 3km.</p>';
+var WHERE=[['배지 수령','jw','2층 201호'],['Oral · Spotlight · 키노트 I·II','hilton','6층 메인 무대'],['포스터 보드 1–116','jw','3층 Lone Star 볼룸'],['포스터 보드 117~','jw','2층 Griffin 홀'],['데모','jw','3층 Lone Star · 2층 Griffin'],['LBR 포스터 (점심)','jw','2층 Griffin'],['기업 채용 세션','jw','3층 302·307호'],['커피 브레이크','jw','+ Hilton (11/11은 JW만)'],['점심','fare','+ JW Marriott'],['웰컴 디너 (11/9)','long','야외·로비'],['Keynote III · 패널 · 시상','bass','콘서트홀'],['워크숍 (11/12)','jw','+ Hilton Salon D/E, 408/410'],['인쇄한 포스터 찾기','jw','3층 Lone Star 전시홀']];
 WHERE.forEach(function(w){var tr=el('tr');tr.innerHTML='<td class="small">'+w[0]+'</td><td class="small"><span class="vchip v-'+w[1]+'" style="color:var(--fg);font-weight:700">'+V[w[1]].s+'</span> <span class="fg2">'+w[2]+'</span></td>';$('#whereTbl').appendChild(tr)});
 
 // simplified floor plans
@@ -802,8 +802,8 @@ var PS={1:'11/9(월) 17:00–18:30',2:'11/10(화) 17:00–18:30',3:'11/11(수) 1
 // [start,end,kind,title,venue,link,place]
 var DAYS=[
  {k:'sun',label:'11/8 (일)',short:'일 11/8',sub:'도착·배지',items:[
-  ['14:00','20:00','misc','배지 사전 수령','jw',null,'2층 201호'],
-  ['12:00','15:00','poster','포스터 인쇄물 수령','jw',null,'3층 Lone Star']]},
+  ['14:00','20:00','misc','배지 미리 받기','jw',null,'2층 201호'],
+  ['12:00','15:00','poster','인쇄한 포스터 찾기','jw',null,'3층 Lone Star']]},
  {k:'mon',label:'11/9 (월)',short:'월 11/9',sub:'본 학회 1일차',items:[
   ['08:30','09:00','misc','개회 (Welcome)','hilton',null,'6층'],
   ['09:00','09:30','spot','Spotlight S1 · Generalist policies, memory and transfer','hilton','S1','6층'],
@@ -859,7 +859,7 @@ $('#klegend').innerHTML=['oral','spot','key','poster','ws','social','misc'].map(
 
 function mins(t){return +t.slice(0,2)*60+ +t.slice(3)}
 // home day cards
-var HL={sun:[['14:00','배지 사전 수령 (JW 201호)'],['12:00','포스터 인쇄물 수령']],
+var HL={sun:[['12:00','인쇄한 포스터 찾기'],['14:00','배지 미리 받기 (JW 201호)']],
  mon:[['09:00','Spotlight S1 · Oral O1–O3'],['15:30','Keynote I · Burgard'],['17:00','포스터 세션 1'],['19:00','🤠 웰컴 디너 · Long Center']],
  tue:[['08:30','Spotlight S3–S5 · Oral O4–O7'],['15:30','Keynote II · Tedrake'],['17:00','포스터 세션 2']],
  wed:[['08:30','Spotlight S6–S8'],['10:30','포스터 세션 3'],['15:00','Keynote III · Fei-Fei Li'],['17:00','🏆 시상 · 폐회 (Bass Hall)']],
@@ -922,7 +922,7 @@ hourBars('#exBars',[['11/9 (월)','12:00','18:30'],['11/10 (화)','10:00','18:30
 var P=window.PAPERS||[];
 var AWARD=['SuperMimic','Play2Perfect','GRAIL: Generating Humanoid','RoboTTT','What Are We Actually Benchmarking','Long-Horizon Multi-Object Rearrangement via Distilled'];
 P.forEach(function(p){p.aw=AWARD.some(function(a){return p.t.indexOf(a)===0});p.lt=p.t.toLowerCase();p.ls=p.no<=116});
-var TOPICS={vla:'VLA·파운데이션',wm:'월드 모델',hum:'휴머노이드·보행',dex:'덱스터러스·파지',tac:'촉각·힘·접촉',rl:'강화학습',il:'모방학습',sim:'시뮬레이션·Sim2Real',nav:'내비게이션·주행·드론',human:'인간·HRI',eval:'벤치마크·데이터',deform:'변형체',perc:'3D·인지',plan:'계획·추론',safe:'안전·강건성'};
+var TOPICS={vla:'VLA·파운데이션',wm:'월드 모델',hum:'휴머노이드·보행',dex:'덱스터러스·파지',tac:'촉각·힘·접촉',rl:'강화학습',il:'모방학습',sim:'시뮬레이션·Sim2Real',nav:'내비게이션·주행·드론',human:'사람·HRI',eval:'벤치마크·데이터',deform:'천·줄 같은 변형 물체',perc:'3D·인식',plan:'계획·추론',safe:'안전·강건성'};
 var stars=store.get('corl26-stars',{});var topic='';var shown=60;
 Object.keys(SESS).sort(function(a,b){return a[0]===b[0]?a[1]-b[1]:(a[0]==='O'?-1:1)}).forEach(function(k){var o=el('option');o.value=k;o.textContent=k+' · '+SESS[k][1];$('#fSess').appendChild(o)});
 var chipAll=el('button','chip on','전체 주제');chipAll.dataset.t='';$('#chips').appendChild(chipAll);
@@ -978,13 +978,13 @@ render();
 // ---------- keynotes ----------
 function avatar(name,c){var ini=name.split(' ').map(function(w){return w[0]}).join('').slice(0,2);return '<div class="av" style="background:'+c+'">'+ini+'</div>'}
 var KN=[
- ['Wolfram Burgard','University of Technology Nuremberg','Keynote I','11/9(월) 15:30','hilton','Challenges to Realize Embodied AI','센서·구동기의 불확실성을 다루는 확률적 접근과 딥러닝의 결합, 파운데이션 모델로 복잡한 실제 환경에 대응하기.'],
- ['Russ Tedrake','MIT / Walden Robotics CEO','Keynote II','11/10(화) 15:30','hilton','Learning in the factories','창업 2개월 만에 실제 생산 라인에 배치한 Walden Robotics의 교훈 — 배치 규모에 따른 성능 스케일링과 “배치-학습 순환”.'],
- ['Fei-Fei Li','Stanford / World Labs','Keynote III','11/11(수) 15:00','bass','Atlas: A Unified World Model for Generation and Reconstruction','픽셀 생성과 3D 장면 복원을 통합한 자기회귀 모델 Atlas. 후반부는 AMD CEO Lisa Su와 파이어사이드 챗.']];
+ ['Wolfram Burgard','University of Technology Nuremberg','Keynote I','11/9(월) 15:30','hilton','Challenges to Realize Embodied AI','센서와 구동기는 완벽하지 않아서 로봇은 늘 불확실성을 안고 움직입니다. 확률적 방법과 딥러닝을 어떻게 합칠지, 파운데이션 모델로 복잡하고 늘 변하는 실제 환경에 어떻게 대응할지 이야기합니다.'],
+ ['Russ Tedrake','MIT / Walden Robotics CEO','Keynote II','11/10(화) 15:30','hilton','Learning in the factories','2026년 1월 Walden Robotics를 세우고 두 달 만에 실제 생산 라인에 로봇을 투입한 경험을 나눕니다. 현장에 많이 투입할수록 성능이 어떻게 오르는지, 투입과 학습을 계속 반복하는 방식이 왜 중요한지 다룹니다.'],
+ ['Fei-Fei Li','Stanford / World Labs','Keynote III','11/11(수) 15:00','bass','Atlas: A Unified World Model for Generation and Reconstruction','이미지 생성과 3D 장면 복원을 하나로 묶은 자기회귀 모델 Atlas를 소개합니다. 후반에는 AMD CEO Lisa Su와 대담을 나눕니다.']];
 var EK=[
- ['Hang Zhao','Tsinghua / Galaxea AI','Early Career I','11/9(월) 09:30','hilton','Organizing Physical AI Across Timescales','지능을 시간 스케일(S2 추론·S1 정책·S0 제어)로 나누고 층 간 인터페이스를 설계.'],
- ['Negar Mehr','UC Berkeley','Early Career II','11/9(월) 14:00','hilton','How Can Robots Learn to Interact and Coordinate with Others?','다중 에이전트 RL, 상호작용 모방학습, 지속 학습을 합의 최적화로 보기.'],
- ['Roberto Martín-Martín','UT Austin','Early Career III','11/10(화) 09:30','hilton','Learning Without Starting Over','재사용 가능한 행동 공간, 사람의 시연·교정, 경험 선별로 “학습 잠재력” 넓히기.']];
+ ['Hang Zhao','Tsinghua / Galaxea AI','Early Career I','11/9(월) 09:30','hilton','Organizing Physical AI Across Timescales','로봇의 지능을 기능이 아니라 시간 단위로 나누자고 제안합니다. 초 단위 추론(S2), 수십 Hz 정책(S1), 수백 Hz 제어(S0)로 나누고 각 층을 어떻게 이을지 다룹니다.'],
+ ['Negar Mehr','UC Berkeley','Early Career II','11/9(월) 14:00','hilton','How Can Robots Learn to Interact and Coordinate with Others?','로봇이 다른 로봇이나 사람과 손발을 맞추는 법을 다중 에이전트 강화학습과 모방학습으로 살펴보고, 지속 학습을 합의 최적화 문제로 푸는 방법을 소개합니다.'],
+ ['Roberto Martín-Martín','UT Austin','Early Career III','11/10(화) 09:30','hilton','Learning Without Starting Over','로봇이 앞으로 배울 수 있는 능력의 폭을 넓히는 방법을 다룹니다. 다시 쓸 수 있는 행동 공간, 사람의 시연과 교정, 정책 개선에 도움이 되는 경험 고르기가 핵심입니다.']];
 function kcard(k){return '<div class="card"><div class="ktime"><span class="pill p-key">'+k[2]+'</span><span class="pill p-misc">'+k[3]+'</span><span class="vchip v-'+k[4]+'">'+V[k[4]].s+'</span></div><div class="spk">'+avatar(k[0],'var(--v-'+k[4]+')')+'<div><h4 style="margin:0">'+k[0]+'</h4><div class="small muted">'+k[1]+'</div></div></div><p class="small" style="margin-top:10px"><b>'+esc(k[5])+'</b></p><p class="small fg2" style="margin-top:4px">'+k[6]+'</p></div>'}
 $('#kn1').innerHTML=KN.map(kcard).join('');$('#kn2').innerHTML=EK.map(kcard).join('');
 $('#panel').innerHTML=[['Vincent Vanhoucke','Waymo · 사회'],['Marc Toussaint','TU Berlin'],['Chelsea Finn','Stanford / PI'],['Leslie Kaelbling','MIT'],['Pulkit Agrawal','MIT / Eka'],['Edward Johns','Imperial / Machenta'],['Yonatan Bisk','CMU']].map(function(p,i){return '<div style="display:flex;gap:8px;align-items:center;min-width:180px">'+avatar(p[0],i?'var(--v-bass)':'var(--k-key)').replace('class="av"','class="av" style="width:40px;height:40px;font-size:.85rem;background:'+(i?'var(--v-bass)':'var(--k-key)')+'"')+'<div><b class="small">'+p[0]+'</b><div class="small muted">'+p[1]+'</div></div></div>'}).join('');
@@ -999,7 +999,7 @@ var wjw=WSD.am.concat(WSD.pm).filter(function(w){return w[2]==='jw'}).length;
 $('#wsStats').innerHTML='<div class="card stat"><div class="ic" style="background:var(--k-ws-s);color:var(--k-ws)"><svg class="i"><use href="#i-tool"/></svg></div><div><b>32</b><span>워크숍·튜토리얼</span></div></div>'+
  '<div class="card stat"><div class="ic" style="background:var(--soft);color:var(--v-jw)"><svg class="i"><use href="#i-pin"/></svg></div><div><b>'+wjw+'</b><span>JW Marriott (2·3층)</span></div></div>'+
  '<div class="card stat"><div class="ic" style="background:var(--soft);color:var(--v-hilton)"><svg class="i"><use href="#i-pin"/></svg></div><div><b>'+(32-wjw)+'</b><span>Hilton (Salon D/E, 408/410)</span></div></div>'+
- '<div class="card stat"><div class="ic" style="background:var(--soft);color:var(--fg2)"><svg class="i"><use href="#i-clock"/></svg></div><div><b>4h</b><span>각 반일 세션 길이</span></div></div>';
+ '<div class="card stat"><div class="ic" style="background:var(--soft);color:var(--fg2)"><svg class="i"><use href="#i-clock"/></svg></div><div><b>4h</b><span>워크숍 하나당 진행 시간</span></div></div>';
 
 // ---------- recruiting ----------
 var RC=[['11/9 (월)',[['10:15','Agibot','NVIDIA'],['11:30','Sharpa','Google DeepMind'],['13:30','MaxInsights','BitRobot'],['14:45','Tesla','Walden Robotics'],['16:00','Foundry Robotics','Sudo'],['17:15','Xynova','MicroAGI']]],
@@ -1008,7 +1008,7 @@ var RC=[['11/9 (월)',[['10:15','Agibot','NVIDIA'],['11:30','Sharpa','Google Dee
 $('#recruit').innerHTML=RC.map(function(d){return '<div class="card"><h4>'+d[0]+'</h4><div class="slot"><span></span><span class="small muted" style="text-align:center">302호</span><span class="small muted" style="text-align:center">307호</span></div>'+d[1].map(function(s){return '<div class="slot"><span>'+s[0]+'</span><span class="co" title="'+s[1]+'">'+s[1]+'</span><span class="co" title="'+s[2]+'">'+s[2]+'</span></div>'}).join('')+'</div>'}).join('');
 
 // ---------- socials ----------
-var SO=[['11/9 (월)',['MaxInsights @ Electric Shuffle']],['11/10 (화)',['Abaka AI @ Nica on 4th','Austin Robotics @ Antler VC','GenRobot.AI @ Hilton Garden Inn','Samsung Next (Luma 승인제)','Sieve @ Hestia','VESSL AI @ Edge Rooftop','XDOF @ Hilton 앞']],['11/11 (수)',['NVIDIA 연구자 리셉션 18:00–21:00 @ Bull and Bowl (RSVP)','Torc @ Austin Project Taco','X Square Robot 애프터파티','Zeromatter']],['11/12 (목)',['AgileX @ JW 203–204호']]];
+var SO=[['11/9 (월)',['MaxInsights @ Electric Shuffle']],['11/10 (화)',['Abaka AI @ Nica on 4th','Austin Robotics @ Antler VC','GenRobot.AI @ Hilton Garden Inn','Samsung Next (Luma에서 신청 후 승인)','Sieve @ Hestia','VESSL AI @ Edge Rooftop','XDOF @ Hilton 앞']],['11/11 (수)',['NVIDIA 연구자 리셉션 18:00–21:00 @ Bull and Bowl (RSVP)','Torc @ Austin Project Taco','X Square Robot 애프터파티','Zeromatter']],['11/12 (목)',['AgileX @ JW 203–204호']]];
 $('#socials').innerHTML=SO.map(function(d){return '<div class="card"><h4>'+d[0]+' <span class="pill p-misc">'+d[1].length+'</span></h4><ul class="clean small fg2">'+d[1].map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div>'}).join('');
 
 // ---------- fee ----------
@@ -1018,7 +1018,7 @@ var FEE=[['학생',200,500,1500,75],['학계',400,800,1500,150],['산업계',120
  $('#fee').innerHTML=h})();
 
 // ---------- checklist ----------
-var CK=['ESTA(또는 비자) 승인 확인, 여권 유효기간 6개월 이상','등록 확인 메일·QR 준비','숙소 예약 확인 (학회 블록은 매진)','11/8(일) 14:00–20:00 JW Marriott 2층 201호에서 배지 수령','포스터 인쇄물 수령 (JW 3층 Lone Star, 12:00–15:00) · 내 보드 번호·홀 확인','Oral 발표자: 노트북 + HDMI 어댑터, 쉬는 시간에 연결 테스트','Spotlight 발표자: 세션 10분 전 Hilton 6층 무대 옆 대기','CoRL 공식 앱 설치 (셔틀 시간·장소 공지)','미국 110V 어댑터(A타입), 얇은 겉옷 (낮 20℃대·밤 10℃대, 실내 냉방 강함)','관심 논문 ★ 표시해서 포스터 동선 짜기','11/9 저녁 Long Center · 11/11 오후 Bass Hall 셔틀 확인','11/12 워크숍 방 확인 (JW 2·3층 / Hilton)'];
+var CK=['ESTA(또는 비자) 승인 확인, 여권 유효기간 6개월 이상','등록 확인 메일·QR 준비','숙소 예약 확인 (학회 블록은 매진)','11/8(일) 14:00–20:00 JW Marriott 2층 201호에서 배지 수령','인쇄한 포스터 찾기 (JW 3층 Lone Star, 12:00–15:00) · 내 보드 번호와 홀 확인','Oral 발표자: 노트북 + HDMI 어댑터, 쉬는 시간에 연결 테스트','Spotlight 발표자: 세션 10분 전 Hilton 6층 무대 옆 대기','CoRL 공식 앱 설치 (셔틀 시간·장소 공지)','미국 110V 어댑터(A타입), 얇은 겉옷 (낮 20℃대·밤 10℃대, 실내 냉방 강함)','관심 논문에 ★ 표시해서 포스터 볼 순서 정하기','11/9 저녁 Long Center · 11/11 오후 Bass Hall 셔틀 확인','11/12 워크숍 방 확인 (JW 2·3층 / Hilton)'];
 var ck=store.get('corl26-check',{});
 function prog(){var n=CK.filter(function(_,i){return ck[i]}).length;$('#progbar').style.width=(n/CK.length*100)+'%'}
 CK.forEach(function(t,i){var l=el('label');var c=el('input');c.type='checkbox';c.checked=!!ck[i];c.onchange=function(){ck[i]=c.checked;store.set('corl26-check',ck);prog()};l.appendChild(c);l.appendChild(el('span','small',esc(t)));$('#checklist').appendChild(l)});
@@ -1027,29 +1027,29 @@ prog();
 // ---------- competitions ----------
 var COMPS=[
  {n:'NVIDIA Video-to-Data (V2D) Challenge',org:'NVIDIA',prize:'$54K',pz:'총 상금',
-  d:'사람 영상 → 로봇 데이터·정책 파이프라인 대회. 3개 트랙: ① 4D 재구성 ② Robotic Grounding (G1 + Dex3 휴머노이드, Isaac Lab) ③ 에고센트릭 영상→정책',
+  d:'사람이 찍힌 영상을 로봇 학습 데이터와 정책으로 바꾸는 과정 전체를 겨루는 대회입니다. 트랙은 세 개입니다: ① 4D 재구성 ② 로봇 동작으로 옮기기(G1 + Dex3 휴머노이드, Isaac Lab) ③ 1인칭 영상으로 정책 학습',
   when:'11/12(목) 14:00–18:00 시상', where:'hilton|Salon D · 튜토리얼 "From Human Videos to Dexterous Robot Capability"',
-  award:'트랙별 1위 DGX Spark($6K) · 2위 GPU 크레딧 $3K · Industry Innovation Award DGX Spark+$3K',
-  steps:[['9/21','등록·데이터 공개',1],['11/4','리더보드 동결',1],['11/12','시상·발표',0]],link:'https://nvidia-isaac.github.io/video_to_data/v2d_challenge/'},
- {n:'Child–Robot Dexterity Challenge',org:'SPIN 워크숍 · Scale AI 후원',prize:'$1,000',pz:'상금 풀',
-  d:'로봇과 아이가 같은 일상 조작 과제(예: 그릇에 따르기)를 나란히 수행해 과제별로 비교하는 <b>라이브 대회</b>. 양팔 YAM 로봇(MolmoAct 2 셋업) 제공.',
-  when:'11/12(목) 09:40–10:40 라이브', where:'jw|2층 Griffin 볼룸 (워크숍은 208호)',
-  award:'관람 자유 — 오전 워크숍 중 진행',
-  steps:[['9/17','공개',1],['10/12','등록 마감',1],['11/12','라이브 대회',0]],link:'https://spin-workshop.github.io/'},
- {n:'The UMI Arena (UMI Olympics)',org:'AIRoA 워크숍',prize:'$1,000',pz:'Best Policy',
-  d:'핸드헬드 UMI 데이터로 학습한 정책을 <b>공유 실제 로봇</b>에서 겨루는 대회. 트랙: 🤖 정책 경쟁 · 🔧 디바이스 전시(현장 투표) · 📄 논문. UMI 데이터 약 2만 시간(초기 580시간 공개).',
+  award:'트랙별 1위 DGX Spark($6K) · 2위 GPU 크레딧 $3K · 산업 혁신상 DGX Spark+$3K',
+  steps:[['9/21','등록·데이터 공개',1],['11/4','리더보드 마감',1],['11/12','시상·발표',0]],link:'https://nvidia-isaac.github.io/video_to_data/v2d_challenge/'},
+ {n:'Child–Robot Dexterity Challenge',org:'SPIN 워크숍 · Scale AI 후원',prize:'$1,000',pz:'총 상금',
+  d:'아이와 로봇이 똑같은 집안일(예: 다른 그릇에 옮겨 따르기)을 하고 과제마다 결과를 비교하는 <b>현장 대회</b>입니다. 주최 측이 양팔 YAM 로봇(MolmoAct 2 구성)을 제공합니다.',
+  when:'11/12(목) 09:40–10:40 현장 진행', where:'jw|2층 Griffin 볼룸 (워크숍은 208호)',
+  award:'누구나 볼 수 있음 (오전 워크숍 중에 진행)',
+  steps:[['9/17','공개',1],['10/12','등록 마감',1],['11/12','현장 대회',0]],link:'https://spin-workshop.github.io/'},
+ {n:'The UMI Arena (UMI Olympics)',org:'AIRoA 워크숍',prize:'$1,000',pz:'최우수 정책상',
+  d:'손에 드는 UMI 장비로 모은 데이터로 정책을 학습하고, <b>모두가 같은 실제 로봇</b>에서 실력을 겨룹니다. 트랙은 🤖 정책 경쟁, 🔧 장비 전시(현장 투표), 📄 논문 세 가지입니다. 데이터는 약 2만 시간 분량이고, 처음에 580시간을 공개했습니다.',
   when:'11/12(목) 14:00–18:00', where:'jw|3층 303–304호',
-  award:'Best Policy $1,000 · Best Paper · 디바이스 현장 투표',
+  award:'최우수 정책상 $1,000 · 최우수 논문상 · 장비 현장 투표',
   steps:[['10/9','정책 등록 마감',1],['10/16','논문 마감',1],['11/12','대회·시상',0]],link:'https://umi-arena.airoa.io/'},
  {n:'CoRL 2026 Best Paper Award',org:'CoRL 공식',prize:'6편',pz:'최종 후보',
   d:'후보: SuperMimic · Play2Perfect · GRAIL · RoboTTT · What Are We Actually Benchmarking in Robot Manipulation? · Long-Horizon Multi-Object Rearrangement (Distilled Tree Search)',
   when:'11/11(수) 17:00 발표', where:'bass|Awards & Farewell',
-  award:'<a href="#papers" data-award="1">후보 논문 보기 →</a> · Outstanding Reviewers/ACs도 공식 사이트에 공개',
-  steps:[['10/19','채택 발표',1],['Oral','후보 발표',0],['11/11','시상',0]],link:'https://2026.corl.org/program/awards'},
+  award:'<a href="#papers" data-award="1">후보 논문 보기 →</a> · 우수 심사위원·AC 명단도 공식 사이트에 있음',
+  steps:[['10/19','채택 발표',1],['11/9–10','후보 Oral 발표',0],['11/11','시상',0]],link:'https://2026.corl.org/program/awards'},
  {n:'RoboLetics 3.0 — 복식 테니스 벤치마크',org:'워크숍 · Robotics and AI Institute 협력',prize:'🎾',pz:'벤치마크 공개',
-  d:'사람-로봇 혼합 스포츠를 다음 그랜드 챌린지로 제안. 2v2 <b>복식 테니스 시뮬레이션 벤치마크</b> 프로토타입 공개, 데모 영상·브레이크아웃 세션.',
+  d:'사람과 로봇이 한 팀으로 뛰는 스포츠를 로봇 분야의 다음 큰 도전 과제로 내세웁니다. 2대2 <b>복식 테니스 시뮬레이션 벤치마크</b> 시제품을 공개하고, 데모 영상 상영과 소그룹 토론을 합니다.',
   when:'11/12(목) 08:30–12:30', where:'hilton|Salon D',
-  award:'상금 대회는 아님',steps:null,link:'https://roboletics.github.io/corl2026/'}];
+  award:'상금이 걸린 대회는 아님',steps:null,link:'https://roboletics.github.io/corl2026/'}];
 function today(){return Date.now()}
 $('#comps').innerHTML=COMPS.map(function(c){var w=c.where.split('|');
   var st=c.steps?'<div class="steps">'+c.steps.map(function(s,i){var nxt=c.steps[i-1]&&c.steps[i-1][2]&&!s[2];return '<div class="'+(s[2]?'done':'')+(nxt?' now':'')+'"><b>'+s[0]+'</b><br>'+s[1]+'</div>'}).join('')+'</div>':'';
@@ -1059,7 +1059,7 @@ $('#comps').innerHTML=COMPS.map(function(c){var w=c.where.split('|');
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-award]');if(!a)return;e.preventDefault();resetF();$('#fType').value='award';location.hash='papers';setTimeout(render,30)});
 
 // ---------- companies ----------
-var TIERS={dia:['Diamond','t-dia'],pat:['Patron','t-pat'],std:['Standard','t-std'],lite:['Lite','t-lite'],none:['비스폰서','t-none']};
+var TIERS={dia:['Diamond','t-dia'],pat:['Patron','t-pat'],std:['Standard','t-std'],lite:['Lite','t-lite'],none:['스폰서 아님','t-none']};
 var CO=[
  ['BitRobot','dia','bitrobot.ai'],['Google DeepMind','dia','deepmind.google'],['NVIDIA','dia','www.nvidia.com'],['Sharpa','dia','www.sharpa.com'],['Franka Robotics','dia','franka.de'],['Meta','dia','about.meta.com'],['Lightwheel','dia','lightwheel.ai'],['MaxInsights','dia','www.maxinsights.ai'],['Tesla','dia','www.tesla.com'],['Boston Dynamics','dia','bostondynamics.com'],['GM','dia','www.gm.com'],['AGIBOT','dia','www.agibot.com'],
  ['Sudo','pat','www.sudo.ai'],['Apple','pat','www.apple.com'],['OpenAI','pat','openai.com'],['Apptronik','pat','apptronik.com'],['Xynova','pat','xynova.tech/en'],['Dyna Robotics','pat','www.dyna.co'],['Amazon','pat','www.amazon.com'],['MicroAGI','pat','www.microagi.ai'],['GenRobot','pat','www.genrobot.ai'],['Gento Robotics','pat','gentorobotics.ai'],['AIRoA','pat','www.airoa.org'],['Toyota Research Institute','pat','www.tri.global'],['Path Robotics','pat','www.path-robotics.com'],['Origami Robotics','pat','www.origami-robotics.com'],['Holiday Robotics','pat','holiday-robotics.com'],['Unitree Robotics','pat','www.unitree.com'],['Foundry Robotics','pat','foundryrobotics.ai'],
@@ -1073,8 +1073,8 @@ var ACT=[
  ['AGIBOT','rec','11/9 10:15 · 302호'],['NVIDIA','rec','11/9 10:15 · 307호'],['Sharpa','rec','11/9 11:30 · 302호'],['Google DeepMind','rec','11/9 11:30 · 307호'],['MaxInsights','rec','11/9 13:30 · 302호'],['BitRobot','rec','11/9 13:30 · 307호 (Frodobots)'],['Tesla','rec','11/9 14:45 · 302호'],['Walden Robotics','rec','11/9 14:45 · 307호'],['Foundry Robotics','rec','11/9 16:00 · 302호'],['Sudo','rec','11/9 16:00 · 307호'],['Xynova','rec','11/9 17:15 · 302호'],['MicroAGI','rec','11/9 17:15 · 307호'],
  ['Unitree Robotics','rec','11/10 09:45 · 302호'],['OpenAI','rec','11/10 09:45 · 307호'],['Amazon','rec','11/10 11:00 · 302호'],['Meta','rec','11/10 11:00 · 307호'],['Lightwheel','rec','11/10 13:30 · 302호'],['Dyna Robotics','rec','11/10 13:30 · 307호'],['Toyota Research Institute','rec','11/10 14:45 · 302호'],['Boston Dynamics','rec','11/10 14:45 · 307호'],['GenRobot','rec','11/10 16:00 · 302호'],['Sieve','rec','11/10 16:00 · 307호'],['Holiday Robotics','rec','11/10 17:15 · 302호'],['Origami Robotics','rec','11/10 17:15 · 307호'],
  ['Apptronik','rec','11/11 08:30 · 302호'],['GM','rec','11/11 08:30 · 307호'],['Path Robotics','rec','11/11 09:45 · 302호'],['Franka Robotics','rec','11/11 09:45 · 307호'],['AIRoA','rec','11/11 11:00 · 302호'],['Gento Robotics','rec','11/11 11:00 · 307호'],
- ['MaxInsights','soc','11/9 Electric Shuffle'],['Abaka AI','soc','11/10 Nica on 4th'],['Austin Robotics','soc','11/10 Antler VC'],['GenRobot','soc','11/10 Hilton Garden Inn'],['Samsung Next','soc','11/10 (Luma 승인제)'],['Sieve','soc','11/10 Hestia'],['VESSL AI','soc','11/10 Edge Rooftop Bar'],['XDOF','soc','11/10 Hilton 앞'],['NVIDIA','soc','11/11 18:00–21:00 연구자 리셉션 · Bull and Bowl (RSVP)'],['Torc','soc','11/11 Austin Project Taco'],['X Square Robot','soc','11/11 애프터파티'],['Zeromatter','soc','11/11'],['AgileX Robotics','soc','11/12 JW 203–204호'],
- ['NVIDIA','etc','부스 #404 (JW, 11/9–11) · V2D 챌린지 주최'],['Tesla','etc','11/10 기가팩토리 투어 12:00·15:00'],['Scale AI','etc','SPIN 아이 vs 로봇 대회 상금 후원'],['AIRoA','etc','UMI Arena 워크숍·대회 주최 · YUBI 데모'],['Toyota Research Institute','etc','Women & Allies Lunch 후원'],['Walden Robotics','etc','CEO Russ Tedrake Keynote II (11/10)']];
+ ['MaxInsights','soc','11/9 Electric Shuffle'],['Abaka AI','soc','11/10 Nica on 4th'],['Austin Robotics','soc','11/10 Antler VC'],['GenRobot','soc','11/10 Hilton Garden Inn'],['Samsung Next','soc','11/10 (Luma에서 신청 후 승인)'],['Sieve','soc','11/10 Hestia'],['VESSL AI','soc','11/10 Edge Rooftop Bar'],['XDOF','soc','11/10 Hilton 앞'],['NVIDIA','soc','11/11 18:00–21:00 연구자 리셉션 · Bull and Bowl (RSVP)'],['Torc','soc','11/11 Austin Project Taco'],['X Square Robot','soc','11/11 애프터파티'],['Zeromatter','soc','11/11'],['AgileX Robotics','soc','11/12 JW 203–204호'],
+ ['NVIDIA','etc','부스 #404 (JW, 11/9–11) · V2D 챌린지 주최'],['Tesla','etc','11/10 기가팩토리 투어 12:00·15:00'],['Scale AI','etc','SPIN 아이 vs 로봇 대회 상금 후원'],['AIRoA','etc','UMI Arena 워크숍·대회 주최 · YUBI 데모'],['Toyota Research Institute','etc','Women & Allies Lunch 후원'],['Walden Robotics','etc','CEO Russ Tedrake가 Keynote II 발표 (11/10)']];
 var AB={talk:['토크','ab-talk'],rec:['채용','ab-rec'],soc:['소셜','ab-soc'],etc:['기타','ab-etc']};
 var coF='',coAct='';
 var tcount={};CO.forEach(function(c){tcount[c[1]]=(tcount[c[1]]||0)+1});
@@ -1099,7 +1099,7 @@ function drawCo(){var q=$('#coQ').value.trim().toLowerCase();
   $('#cogrid').innerHTML=r.map(function(c){var a=(acts[c[0]]||[]).slice().sort(function(x,y){return 'talk rec etc soc'.indexOf(x[1])-'talk rec etc soc'.indexOf(y[1])});
     var ini=c[0].replace(/[^A-Za-z0-9 ]/g,'').split(' ').filter(Boolean).map(function(w){return w[0]}).join('').slice(0,2).toUpperCase();
     return '<div class="cocard '+TIERS[c[1]][1]+'"><div class="top"><div class="logo-i">'+ini+'</div><div><div class="nm">'+(c[2]?'<a href="https://'+c[2]+'" target="_blank" rel="noopener">'+esc(c[0])+'</a>':esc(c[0]))+'</div><div class="tier">'+TIERS[c[1]][0]+'</div></div></div>'+
-    (a.length?'<div class="acts">'+a.map(function(x){return '<div class="act"><span class="ab '+AB[x[1]][1]+'">'+AB[x[1]][0]+'</span><span>'+esc(x[2])+'</span></div>'}).join('')+'</div>':'<div class="small muted">현장 전시·부스 위주 (세부 일정 공개 없음)</div>')+'</div>'}).join('')}
+    (a.length?'<div class="acts">'+a.map(function(x){return '<div class="act"><span class="ab '+AB[x[1]][1]+'">'+AB[x[1]][0]+'</span><span>'+esc(x[2])+'</span></div>'}).join('')+'</div>':'<div class="small muted">따로 공개된 일정 없음 (현장 부스에서 확인)</div>')+'</div>'}).join('')}
 drawCo();
 
 // ---------- router ----------
