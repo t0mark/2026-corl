@@ -273,6 +273,19 @@ tr:last-child td{border-bottom:none}
 .steps div:first-child::before{left:50%}.steps div:last-child::before{right:50%}
 .kv{display:grid;grid-template-columns:72px 1fr;gap:4px 10px;font-size:.84rem;margin-top:6px}
 .kv dt{color:var(--muted)}.kv dd{margin:0}
+/* glossary */
+.gl{border-bottom:1.5px dotted var(--accent);cursor:help;text-decoration:none}
+.gl:hover,.gl.on{background:var(--accent-soft);border-radius:3px}
+#tip{position:absolute;z-index:200;max-width:min(300px,calc(100vw - 24px));background:var(--fg);color:var(--bg);font-size:.82rem;line-height:1.5;padding:9px 12px;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.25);display:none;pointer-events:none}
+#tip b{display:block;font-size:.86rem;margin-bottom:2px}
+#tip.on{display:block}
+.glhint{font-size:.82rem;color:var(--fg2);display:flex;gap:6px;align-items:center;margin:10px 0 0}
+.glhint .gl{pointer-events:none}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.gloss dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:.86rem}
+.gloss dt{font-weight:700;white-space:nowrap}
+.gloss dd{margin:0;color:var(--fg2)}
+#glQ{width:100%;padding:10px 14px 10px 40px;font:inherit;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--fg);margin-bottom:12px}
 footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:.85rem}
 @media (max-width:640px){
   body{font-size:15px}
@@ -325,6 +338,9 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   .flow{font-size:.8rem;gap:6px}
   .flow .st{padding:6px 9px}
   .rg .slot{grid-template-columns:48px 1fr 1fr}
+  .gloss dl{display:block}
+  .gloss dt{margin-top:10px}
+  .gloss dt:first-child{margin-top:0}
   ul.papers .no{width:48px}
   .ws li{grid-template-columns:80px 1fr}
   .fee{grid-template-columns:52px repeat(4,1fr);font-size:.78rem}
@@ -423,6 +439,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   <div class="legend" id="vlegend" style="margin-top:10px"></div>
 
   <div class="note"><svg class="i"><use href="#i-clock"/></svg><div><b>시간대:</b> 오스틴은 CST (UTC−6). <b>한국 시간 = 현지 + 15시간</b>. 예) 현지 월 09:00 = 한국 화 00:00</div></div>
+  <p class="glhint">💡 <span class="gl">점선 밑줄</span>이 그어진 단어를 누르거나 마우스를 올리면 뜻풀이가 나옵니다. 전체 목록은 <a href="#guide" data-glossary="1">용어 풀이</a>에 있습니다.</p>
 
   <h3><svg class="i"><use href="#i-map"/></svg>장소 5곳</h3>
   <div class="mapwrap">
@@ -732,6 +749,10 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
     <div class="card"><h4>🍖 먹거리</h4><p class="small fg2">Terry Black's BBQ · Taco Joint 아침 타코(migas) · Clay Pit 인도요리 · South Congress</p></div>
     <div class="card"><h4>🎸 밤 문화</h4><p class="small fg2">6th Street 라이브 음악 · Elephant Room 재즈 · Roosevelt Room · Nido 강변 루프탑</p></div>
   </div>
+
+  <h3 id="glossary"><svg class="i"><use href="#i-doc"/></svg>용어 풀이</h3>
+  <div class="sbox"><svg class="i" style="top:22px"><use href="#i-search"/></svg><input id="glQ" type="search" placeholder="용어 검색 (예: Spotlight, VLA, ESTA)…" aria-label="용어 검색"></div>
+  <div class="gloss" id="glossList"></div>
 
   <h3><svg class="i"><use href="#i-link"/></svg>공식 링크</h3>
   <div class="grid g4 stats">
@@ -1146,6 +1167,108 @@ function drawCo(){var q=$('#coQ').value.trim().toLowerCase();
     return '<div class="cocard '+TIERS[c[1]][1]+'"><div class="top"><div class="logo-i">'+ini+'</div><div><div class="nm">'+(c[2]?'<a href="https://'+c[2]+'" target="_blank" rel="noopener">'+esc(c[0])+'</a>':esc(c[0]))+'</div><div class="tier">'+TIERS[c[1]][0]+'</div></div></div>'+
     (a.length?'<div class="acts">'+a.map(function(x){return '<div class="act"><span class="ab '+AB[x[1]][1]+'">'+AB[x[1]][0]+'</span><span>'+esc(x[2])+'</span></div>'}).join('')+'</div>':'<div class="small muted">따로 공개된 일정 없음 (현장 부스에서 확인)</div>')+'</div>'}).join('')}
 drawCo();
+
+// ---------- glossary ----------
+// [표시 이름, 찾을 패턴(정규식 문자열), 설명, 분류]
+var GL=[
+ ['Oral','\\bOral\\b','채택 논문 중 가장 높게 평가된 논문이 무대에서 하는 발표. 이번엔 8분 발표 + 2분 질의응답.','학회'],
+ ['Spotlight','\\bSpotlight\\b','Oral 다음으로 주목받은 논문의 3분짜리 짧은 무대 발표. 미리 녹화한 영상을 틀고 발표자가 직접 설명합니다.','학회'],
+ ['포스터 세션','포스터 세션','논문 내용을 큰 포스터로 붙여 두고, 지나가는 참가자에게 직접 설명하는 시간. 이번엔 모든 채택 논문이 포스터를 합니다.','학회'],
+ ['키노트(기조연설)','키노트|Keynote','학회를 대표해 초청된 유명 연구자의 강연.','학회'],
+ ['얼리커리어 키노트','얼리커리어 키노트|Early Career Keynote|Early Career','교수 임용 초기 등 떠오르는 신진 연구자를 초청한 강연.','학회'],
+ ['좌장','좌장','세션 진행을 맡은 사람(Session Chair). 발표자를 소개하고 시간과 질의응답을 관리합니다.','학회'],
+ ['LBR','\\bLBR\\b|Late-Breaking Results','Late-Breaking Results. 논문 마감 이후 나온 따끈한 연구 결과를 짧게 소개하는 포스터.','학회'],
+ ['워크숍','워크숍','특정 주제로 따로 모이는 반나절짜리 소규모 행사. 초청 강연, 짧은 논문 발표, 토론으로 이뤄집니다.','학회'],
+ ['튜토리얼','튜토리얼','특정 기술을 실습 위주로 가르쳐 주는 강의형 세션.','학회'],
+ ['OpenReview','\\bOpenReview\\b','논문 제출·심사·공개에 쓰는 웹사이트. 논문 PDF, 초록, 심사 의견을 볼 수 있습니다.','학회'],
+ ['AC','(?<![A-Za-z])ACs?(?![A-Za-z])','Area Chair. 분야별로 심사위원 의견을 모아 채택 여부를 정리하는 책임자.','학회'],
+ ['Best Paper','Best Paper','최우수 논문상. 후보 6편 가운데 폐막식에서 수상작을 발표합니다.','학회'],
+ ['배지','배지','학회 출입증. 이름표 겸 입장권이라 모든 행사장에서 차고 있어야 합니다.','학회'],
+ ['스폰서 등급','Diamond|Patron','후원 금액에 따른 등급. Diamond > Patron > Standard > Lite 순입니다.','학회'],
+ ['리셉션','리셉션','가볍게 먹고 마시며 사람들과 어울리는 서서 하는 모임.','학회'],
+ ['RSVP','\\bRSVP\\b','참석 여부를 미리 알려 달라는 뜻. 사실상 사전 신청이 필요하다는 말입니다.','학회'],
+ ['Luma','\\bLuma\\b','행사 신청·초대 관리 웹서비스. 신청하면 주최 측이 승인해 줍니다.','학회'],
+ ['볼룸','볼룸','호텔의 대연회장. 칸막이로 나눈 구역을 Salon이라고 부릅니다.','장소'],
+ ['Salon','\\bSalon\\b','호텔 연회장을 칸막이로 나눈 구역 이름(Salon A, B, …).','장소'],
+ ['중계실','중계실','메인 무대 발표를 화면으로 생중계해 주는 방.','장소'],
+ ['SXSW','\\bSXSW\\b','South by Southwest. 매년 오스틴 시내 곳곳에서 열리는 대형 음악·영화·IT 축제.','장소'],
+ ['CST','\\bCST\\b','미국 중부 표준시(UTC−6). 한국보다 15시간 늦습니다.','여행'],
+ ['ESTA','\\bESTA\\b','미국 전자여행허가. 한국 여권으로 90일 이내 관광·출장 시 비자 대신 온라인으로 받습니다. 수수료가 있고 발급에 시간이 걸릴 수 있습니다.','여행'],
+ ['CapMetro','\\bCapMetro\\b','오스틴 시 대중교통(버스·전철) 회사.','여행'],
+ ['컨택리스 결제','컨택리스','교통카드처럼 카드나 휴대폰을 단말기에 갖다 대서 내는 결제. 해외 결제 가능한 비접촉 카드나 Apple Pay·Google Pay가 됩니다.','여행'],
+ ['Lime','\\bLime\\b','앱으로 빌리는 공유 전동 킥보드·전기자전거 서비스.','여행'],
+ ['로보택시','로보택시','운전자 없이 달리는 자율주행 택시.','여행'],
+ ['Waymo','\\bWaymo\\b','구글 계열 자율주행 택시 회사. 오스틴에서는 Uber 앱으로 부릅니다.','여행'],
+ ['KiddieCorp','\\bKiddieCorp\\b','학회·행사장 보육 전문 업체.','여행'],
+ ['migas','\\bmigas\\b','계란에 토르티야 칩·치즈·채소를 넣고 볶은 텍사스식 아침 메뉴.','여행'],
+ ['라인댄스','라인댄스','여럿이 줄지어 같은 스텝을 맞춰 추는 미국 컨트리 춤.','여행'],
+ ['VLA','\\bVLA\\b','Vision-Language-Action 모델. 카메라 영상과 언어 명령을 받아 로봇 동작을 바로 출력하는 모델.','로봇·AI'],
+ ['파운데이션 모델','파운데이션 모델','아주 많은 데이터로 미리 학습해 두고 여러 작업에 두루 쓰는 대형 AI 모델(GPT 같은 것).','로봇·AI'],
+ ['월드 모델','월드 모델|월드모델','행동을 하면 세상이 어떻게 바뀔지 예측하는 AI 모델. 머릿속 시뮬레이터 같은 역할입니다.','로봇·AI'],
+ ['정책(policy)','정책','로봇 학습에서 "지금 상황에서 어떤 동작을 할지" 정하는 모델. 행정의 정책과는 다른 뜻입니다.','로봇·AI'],
+ ['덱스터러스','덱스터러스','손가락이 여러 개인 로봇손으로 하는 섬세한 조작.','로봇·AI'],
+ ['휴머노이드','휴머노이드','사람 모양의 두 발 로봇.','로봇·AI'],
+ ['Sim2Real','Sim2Real|Sim-to-Real|Real2Sim2Real','시뮬레이션에서 학습한 것을 실제 로봇에 옮기는 것. Real2Sim2Real은 현실을 시뮬레이션으로 옮겨 학습한 뒤 다시 현실에 적용하는 방식입니다.','로봇·AI'],
+ ['강화학습','강화학습','시행착오를 반복하며 보상이 커지는 쪽으로 행동을 배우는 학습 방법.','로봇·AI'],
+ ['모방학습','모방학습','사람이 보여 준 시연을 따라 하면서 배우는 학습 방법.','로봇·AI'],
+ ['다중 에이전트','다중 에이전트','여러 로봇이나 AI가 함께 움직이는 상황.','로봇·AI'],
+ ['지속 학습','지속 학습','새 작업을 배우면서도 예전에 배운 것을 잊지 않도록 계속 학습하는 것.','로봇·AI'],
+ ['합의 최적화','합의 최적화','여러 주체가 각자 계산한 답을 하나로 맞춰 가는 최적화 기법.','로봇·AI'],
+ ['자기회귀 모델','자기회귀 모델','앞에서 만든 결과를 보고 다음 것을 하나씩 이어서 만들어 내는 생성 모델.','로봇·AI'],
+ ['Agentic Robotics','Agentic Robotics|에이전트형','LLM 같은 AI 에이전트가 스스로 계획을 세우고 도구·코드를 써서 로봇을 움직이는 연구 흐름.','로봇·AI'],
+ ['HRI','\\bHRI\\b','Human-Robot Interaction. 사람과 로봇의 상호작용 연구.','로봇·AI'],
+ ['UMI','\\bUMI\\b','Universal Manipulation Interface. 사람이 손에 들고 작업하며 로봇 학습용 시연 데이터를 모으는 집게형 장비.','로봇·AI'],
+ ['4D 재구성','4D 재구성','영상에서 3D 형태와 시간에 따른 움직임까지 복원하는 것.','로봇·AI'],
+ ['리더보드','리더보드','대회 참가팀 점수를 순위대로 보여 주는 표.','로봇·AI'],
+ ['DGX Spark','DGX Spark','NVIDIA의 책상용 소형 AI 컴퓨터.','로봇·AI'],
+ ['GPU 크레딧','GPU 크레딧','클라우드에서 GPU를 빌려 쓸 수 있는 이용권.','로봇·AI'],
+ ['Isaac Lab','Isaac Lab','NVIDIA의 로봇 학습용 시뮬레이터.','로봇·AI'],
+ ['G1 + Dex3','G1 \\+ Dex3','Unitree의 휴머노이드 로봇 G1과 세 손가락 로봇손 Dex3.','로봇·AI']];
+var GLRE=GL.map(function(g){return new RegExp(g[1])});
+var tip=el('div','',null);tip.id='tip';document.body.appendChild(tip);
+function annotate(root){
+  if(!root)return;var seen={};
+  var skip='A,BUTTON,SELECT,OPTION,INPUT,TEXTAREA,SCRIPT,STYLE,svg,H1,H2,NAV,LABEL';
+  var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+    for(var e=n.parentNode;e&&e!==root.parentNode;e=e.parentNode){if(e.nodeType===1&&(skip.indexOf(e.nodeName)>-1&&skip.split(',').indexOf(e.nodeName)>-1||e.classList.contains('gl')||e.classList.contains('tt')||e.classList.contains('pill')||e.classList.contains('glhint')||e.classList.contains('gloss')||e.id==='plist'||e.id==='cogrid'||e.id==='timeline'&&root.id!=='timeline'||e.id==='sgrid'||e.closest&&e.closest('svg')))return NodeFilter.FILTER_REJECT}
+    return n.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});
+  var nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+  for(var k=0;k<nodes.length;k++){var n=nodes[k];
+    var best=null;
+    GL.forEach(function(g,i){if(seen[i])return;var m=GLRE[i].exec(n.nodeValue);if(m&&(!best||m.index<best.m.index))best={i:i,m:m}});
+    if(!best)continue;
+    seen[best.i]=1;
+    var after=n.splitText(best.m.index);after.splitText(best.m[0].length);
+    var sp=document.createElement('span');sp.className='gl';sp.tabIndex=0;sp.dataset.g=best.i;sp.textContent=after.nodeValue;
+    after.parentNode.replaceChild(sp,after);
+    // same text node may contain more terms: process remainder
+    var rest=sp.nextSibling;if(rest&&rest.nodeType===3)nodes.push(rest);
+  }
+}
+function showTip(t){var g=GL[t.dataset.g];tip.innerHTML='<b>'+esc(g[0])+'</b>'+esc(g[2]);tip.classList.add('on');
+  var r=t.getBoundingClientRect(),tw=tip.offsetWidth,th=tip.offsetHeight,x=r.left+window.scrollX+r.width/2-tw/2;
+  x=Math.max(window.scrollX+12,Math.min(x,window.scrollX+document.documentElement.clientWidth-tw-12));
+  var y=r.top+window.scrollY-th-8;if(r.top-th-8<64)y=r.bottom+window.scrollY+8;
+  tip.style.left=x+'px';tip.style.top=y+'px';
+  document.querySelectorAll('.gl.on').forEach(function(e){e.classList.remove('on')});t.classList.add('on')}
+function hideTip(){tip.classList.remove('on');document.querySelectorAll('.gl.on').forEach(function(e){e.classList.remove('on')})}
+var hoverable=matchMedia('(hover:hover)').matches;
+document.addEventListener('mouseover',function(e){if(!hoverable)return;var t=e.target.closest&&e.target.closest('.gl[data-g]');if(t)showTip(t)});
+document.addEventListener('mouseout',function(e){if(!hoverable)return;var t=e.target.closest&&e.target.closest('.gl[data-g]');if(t)hideTip()});
+document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('.gl[data-g]');if(t){e.preventDefault();if(t.classList.contains('on')&&!hoverable)hideTip();else showTip(t);return}hideTip()});
+document.addEventListener('focusin',function(e){if(hoverable&&e.target.classList&&e.target.classList.contains('gl')&&e.target.dataset.g)showTip(e.target)});
+window.addEventListener('hashchange',hideTip);
+document.querySelectorAll('section.pg').forEach(annotate);
+annotate($('#timeline'));
+var _drawDay=drawDay;drawDay=function(i){_drawDay(i);annotate($('#timeline'))};
+[].forEach.call($('#daytabs').children,function(b,j){b.onclick=function(){drawDay(j)}});
+// glossary list
+var GCAT=['학회','장소','여행','로봇·AI'],GCN={'학회':'🎓 학회 용어','장소':'🏨 장소','여행':'✈️ 여행·현지','로봇·AI':'🤖 로봇·AI 용어'};
+function drawGloss(){var q=$('#glQ').value.trim().toLowerCase();
+  $('#glossList').innerHTML=GCAT.map(function(c){var items=GL.filter(function(g){return g[3]===c&&(!q||(g[0]+g[2]).toLowerCase().indexOf(q)>-1)});
+    if(!items.length)return '';return '<div class="card"><h4>'+GCN[c]+'</h4><dl>'+items.map(function(g){return '<dt>'+esc(g[0])+'</dt><dd>'+esc(g[2])+'</dd>'}).join('')+'</dl></div>'}).join('')||'<p class="muted small">찾는 용어가 없습니다.</p>'}
+$('#glQ').addEventListener('input',drawGloss);drawGloss();
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-glossary]');if(!a)return;e.preventDefault();location.hash='guide';setTimeout(function(){$('#glossary').scrollIntoView({block:'start'})},60)});
 
 // ---------- router ----------
 var PAGES=['home','schedule','papers','venues','keynotes','workshops','companies','events','guide'];
