@@ -261,7 +261,7 @@ tr:last-child td{border-bottom:none}
 /* competitions */
 .comp{border-left:5px solid var(--k-poster)}
 .comp .ch{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
-.prize{font-size:1.4rem;font-weight:900;color:var(--k-poster);line-height:1.1;text-align:right}
+.prize{font-size:1.4rem;font-weight:900;color:var(--k-poster);line-height:1.1;text-align:right;white-space:nowrap;flex:none}
 .prize small{display:block;font-size:.72rem;font-weight:500;color:var(--muted)}
 .steps{display:flex;gap:0;margin:12px 0 8px;font-size:.72rem}
 .steps div{flex:1;position:relative;padding-top:16px;text-align:center;color:var(--muted)}
@@ -302,7 +302,7 @@ dialog#pm::backdrop{background:rgba(0,0,0,.5)}
 /* glossary */
 .gl{border-bottom:1.5px dotted var(--accent);cursor:help;text-decoration:none}
 .gl:hover,.gl.on{background:var(--accent-soft);border-radius:3px}
-#tip{position:absolute;z-index:200;max-width:min(300px,calc(100vw - 24px));background:var(--fg);color:var(--bg);font-size:.82rem;line-height:1.5;padding:9px 12px;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.25);display:none;pointer-events:none}
+#tip{position:fixed;z-index:200;max-width:min(300px,calc(100vw - 24px));background:var(--fg);color:var(--bg);font-size:.82rem;line-height:1.5;padding:9px 12px;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.25);display:none;pointer-events:none}
 #tip b{display:block;font-size:.86rem;margin-bottom:2px}
 #tip.on{display:block}
 .glhint{font-size:.82rem;color:var(--fg2);display:flex;gap:6px;align-items:center;margin:10px 0 0}
@@ -335,6 +335,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   .stats .stat .ic svg{width:18px;height:18px}
   .stats .stat b{font-size:1.3rem}
   .stats .stat span{font-size:.74rem;line-height:1.35;display:block}
+  .stats .stat span.gl{display:inline;font-size:inherit}
   .hero{padding:22px 18px}
   .hero .meta{font-size:.88rem}
   .legendk{gap:4px}
@@ -1287,9 +1288,9 @@ var GLRE=GL.map(function(g){return new RegExp(g[1])});
 var tip=el('div','',null);tip.id='tip';document.body.appendChild(tip);
 function annotate(root){
   if(!root)return;var seen={};
-  var skip='A,BUTTON,SELECT,OPTION,INPUT,TEXTAREA,SCRIPT,STYLE,svg,H1,H2,NAV,LABEL';
+  var SKIP='a,button,select,option,input,textarea,label,nav,h1,h2,h3,h4,svg,.gl,.tt,.pill,.glhint,.gloss,#plist,#cogrid,#sgrid,#topicChart,#tierbar,#tierleg,#psBars,#coChips,#chips,.chips,.daytabs,.legendk,.legend,[data-t],[data-tier],[data-j],.vchip'+(root.id==='timeline'?'':',#timeline');
   var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
-    for(var e=n.parentNode;e&&e!==root.parentNode;e=e.parentNode){if(e.nodeType===1&&(skip.indexOf(e.nodeName)>-1&&skip.split(',').indexOf(e.nodeName)>-1||e.classList.contains('gl')||e.classList.contains('tt')||e.classList.contains('pill')||e.classList.contains('glhint')||e.classList.contains('gloss')||e.id==='plist'||e.id==='cogrid'||e.id==='timeline'&&root.id!=='timeline'||e.id==='sgrid'||e.closest&&e.closest('svg')))return NodeFilter.FILTER_REJECT}
+    var pe=n.parentElement;if(!pe||pe.closest(SKIP))return NodeFilter.FILTER_REJECT;
     return n.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});
   var nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
   for(var k=0;k<nodes.length;k++){var n=nodes[k];
@@ -1304,17 +1305,26 @@ function annotate(root){
     var rest=sp.nextSibling;if(rest&&rest.nodeType===3)nodes.push(rest);
   }
 }
-function showTip(t){var g=GL[t.dataset.g];tip.innerHTML='<b>'+esc(g[0])+'</b>'+esc(g[2]);tip.classList.add('on');
-  var r=t.getBoundingClientRect(),tw=tip.offsetWidth,th=tip.offsetHeight,x=r.left+window.scrollX+r.width/2-tw/2;
-  x=Math.max(window.scrollX+12,Math.min(x,window.scrollX+document.documentElement.clientWidth-tw-12));
-  var y=r.top+window.scrollY-th-8;if(r.top-th-8<64)y=r.bottom+window.scrollY+8;
-  tip.style.left=x+'px';tip.style.top=y+'px';
+var tipShownAt=0,tipEl=null;
+function showTip(t){if(!t.isConnected)return;var g=GL[t.dataset.g];
+  var host=t.closest('dialog[open]')||document.body;if(tip.parentNode!==host)host.appendChild(tip);
+  tip.innerHTML='<b>'+esc(g[0])+'</b>'+esc(g[2]);tip.classList.add('on');tipEl=t;placeTip();
   document.querySelectorAll('.gl.on').forEach(function(e){e.classList.remove('on')});t.classList.add('on')}
-function hideTip(){tip.classList.remove('on');document.querySelectorAll('.gl.on').forEach(function(e){e.classList.remove('on')})}
+function placeTip(){var t=tipEl;if(!t||!t.isConnected){hideTip();return}var host=tip.parentNode;
+  var r=t.getBoundingClientRect(),tw=tip.offsetWidth,th=tip.offsetHeight,vw=document.documentElement.clientWidth,vh=window.innerHeight;
+  var topLimit=host===document.body?($('header.top').getBoundingClientRect().bottom+6):8;
+  var x=Math.max(12,Math.min(r.left+r.width/2-tw/2,vw-tw-12));
+  var y=r.top-th-8;if(y<topLimit)y=r.bottom+8;if(y+th>vh-8)y=Math.max(topLimit,vh-th-8);
+  if(r.bottom<topLimit||r.top>vh){hideTip();return}
+  tip.style.left=x+'px';tip.style.top=y+'px'}
+function hideTip(){tipEl=null;tip.classList.remove('on');document.querySelectorAll('.gl.on').forEach(function(e){e.classList.remove('on')})}
+function hideOnScroll(){if(tip.classList.contains('on'))placeTip()}
+window.addEventListener('scroll',hideOnScroll,{passive:true});window.addEventListener('resize',hideOnScroll);
+document.addEventListener('scroll',hideOnScroll,{passive:true,capture:true});
 var hoverable=matchMedia('(hover:hover)').matches;
 document.addEventListener('mouseover',function(e){if(!hoverable)return;var t=e.target.closest&&e.target.closest('.gl[data-g]');if(t)showTip(t)});
 document.addEventListener('mouseout',function(e){if(!hoverable)return;var t=e.target.closest&&e.target.closest('.gl[data-g]');if(t)hideTip()});
-document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('.gl[data-g]');if(t){e.preventDefault();if(t.classList.contains('on')&&!hoverable)hideTip();else showTip(t);return}hideTip()});
+document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('.gl[data-g]');if(t){e.preventDefault();e.stopPropagation();if(t.classList.contains('on')&&!hoverable)hideTip();else showTip(t);return}hideTip()},true);
 document.addEventListener('focusin',function(e){if(hoverable&&e.target.classList&&e.target.classList.contains('gl')&&e.target.dataset.g)showTip(e.target)});
 window.addEventListener('hashchange',hideTip);
 document.querySelectorAll('section.pg').forEach(annotate);
