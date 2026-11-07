@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CoRL 2026 한국어 가이드</title>
+<meta name="description" content="CoRL 2026 (Austin, 2026.11.9–12) 논문 리스트, 학회 일정, 참가 가이드 한국어 정리">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5f0;--surface:#ffffff;--soft:#efece4;--fg:#1d1b17;--muted:#6b665c;--line:#e0dbcf;
+  --accent:#bf5700;--accent-soft:#fbe9db;--oral:#1f7a3a;--oral-soft:#dcf1e2;--spot:#2b5fb8;--spot-soft:#dde7f8;
+  --award:#a87500;--award-soft:#fbefcf;--ws:#7a3fb0;--ws-soft:#efe3f9;--shadow:0 1px 2px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15140f;--surface:#1f1d18;--soft:#29261f;--fg:#efebe2;--muted:#a59f92;--line:#38342b;
+  --accent:#ff9a4d;--accent-soft:#3a2617;--oral:#6fd08e;--oral-soft:#1b3323;--spot:#8fb2f5;--spot-soft:#1c2840;
+  --award:#f0c25a;--award-soft:#3a2f12;--ws:#c79af0;--ws-soft:#2e2140;--shadow:none}}
+:root[data-theme="dark"]{
+  --bg:#15140f;--surface:#1f1d18;--soft:#29261f;--fg:#efebe2;--muted:#a59f92;--line:#38342b;
+  --accent:#ff9a4d;--accent-soft:#3a2617;--oral:#6fd08e;--oral-soft:#1b3323;--spot:#8fb2f5;--spot-soft:#1c2840;
+  --award:#f0c25a;--award-soft:#3a2f12;--ws:#c79af0;--ws-soft:#2e2140;--shadow:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.65;font-size:15.5px;word-break:keep-all;overflow-wrap:anywhere}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:12px;height:54px}
+.logo{font-weight:900;letter-spacing:-.02em;color:var(--fg);white-space:nowrap}
+.logo span{color:var(--accent)}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{padding:6px 11px;border-radius:999px;color:var(--muted);font-weight:500;font-size:.92rem;white-space:nowrap}
+nav.tabs a:hover{background:var(--soft);text-decoration:none;color:var(--fg)}
+nav.tabs a.on{background:var(--fg);color:var(--bg)}
+#theme{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;width:34px;height:34px;cursor:pointer;flex:none}
+section.pg{display:none;padding:28px 0 64px}
+section.pg.on{display:block}
+h1,h2,h3{letter-spacing:-.02em;line-height:1.3}
+h2{font-size:1.5rem;margin:0 0 6px}
+h3{font-size:1.1rem;margin:28px 0 10px}
+.lead{color:var(--muted);margin:0 0 22px}
+.hero{background:linear-gradient(135deg,var(--accent) 0%,#8a3d00 100%);color:#fff;border-radius:20px;padding:32px 26px;margin-bottom:22px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(1.8rem,5vw,2.8rem);margin:0 0 6px;font-weight:900}
+.hero p{margin:0;opacity:.92}
+.hero .dd{display:inline-block;margin-top:16px;background:rgba(255,255,255,.18);padding:6px 14px;border-radius:999px;font-weight:700}
+.grid{display:grid;gap:14px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.card h4{margin:0 0 6px;font-size:1rem}
+.card p{margin:0}
+.stat b{display:block;font-size:1.8rem;font-weight:900;color:var(--accent);line-height:1.2}
+.stat span{color:var(--muted);font-size:.9rem}
+.muted{color:var(--muted)}.small{font-size:.86rem}
+ul.clean{margin:6px 0 0;padding-left:18px}ul.clean li{margin:3px 0}
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:1px 8px;border-radius:999px;vertical-align:1px;white-space:nowrap}
+.p-oral{background:var(--oral-soft);color:var(--oral)}.p-spot{background:var(--spot-soft);color:var(--spot)}
+.p-award{background:var(--award-soft);color:var(--award)}.p-ws{background:var(--ws-soft);color:var(--ws)}
+.p-key{background:var(--accent-soft);color:var(--accent)}.p-misc{background:var(--soft);color:var(--muted)}
+.note{background:var(--accent-soft);border-left:4px solid var(--accent);padding:12px 16px;border-radius:8px;margin:14px 0}
+/* schedule */
+.daytabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
+.daytabs button{border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:8px 14px;border-radius:10px;cursor:pointer;font:inherit;font-weight:500}
+.daytabs button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);margin-left:6px}
+.tl li{position:relative;padding:0 0 16px 20px}
+.tl li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--muted)}
+.tl li.k-oral::before{border-color:var(--oral);background:var(--oral)}.tl li.k-spot::before{border-color:var(--spot);background:var(--spot)}
+.tl li.k-key::before{border-color:var(--accent);background:var(--accent)}.tl li.k-poster::before{border-color:var(--award);background:var(--award)}
+.tl .tm{font-weight:700;font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.tl .tm em{font-style:normal;font-weight:400;opacity:.8;margin-left:6px}
+.tl .ti{font-weight:700}
+.tl .lo{font-size:.86rem;color:var(--muted)}
+.tl .sp{font-size:.88rem}
+.tl a.jump{font-size:.84rem}
+/* papers */
+.tools{position:sticky;top:54px;z-index:10;background:var(--bg);padding:10px 0 8px;border-bottom:1px solid var(--line);margin-bottom:8px}
+#q{width:100%;padding:11px 14px;font:inherit;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--fg)}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.filters select{font:inherit;font-size:.88rem;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);max-width:100%}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:3px 10px;border-radius:999px;cursor:pointer;font:inherit;font-size:.82rem}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+#cnt{font-size:.85rem;color:var(--muted);margin-top:6px}
+ul.papers{list-style:none;margin:0;padding:0}
+ul.papers li{display:flex;gap:10px;padding:10px 4px;border-bottom:1px solid var(--line);align-items:flex-start}
+ul.papers .no{flex:none;width:52px;font-size:.78rem;color:var(--muted);text-align:center;padding-top:3px;font-variant-numeric:tabular-nums}
+ul.papers .no b{display:block;font-size:1rem;color:var(--fg)}
+ul.papers .bd{flex:1;min-width:0}
+ul.papers .tt{font-weight:500;color:var(--fg)}
+ul.papers .mt{font-size:.82rem;color:var(--muted);margin-top:2px;display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.star{flex:none;border:none;background:none;cursor:pointer;font-size:1.25rem;line-height:1;color:var(--line);padding:2px}
+.star.on{color:var(--award)}
+.more{display:block;margin:16px auto;padding:10px 22px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);font:inherit;cursor:pointer}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--soft);font-weight:700}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.tw table th:first-child,.tw table td:first-child{padding-left:14px}
+ol.ws{margin:0;padding-left:22px}ol.ws li{margin:4px 0}
+.check label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line);cursor:pointer}
+.check input{margin-top:5px;accent-color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:.85rem}
+@media (max-width:640px){
+  .hero{padding:24px 18px}
+  header.top .wrap{gap:8px}
+  .logo{font-size:.95rem}
+  ul.papers .no{width:42px}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="#home">CoRL<span>2026</span></a>
+  <nav class="tabs" id="tabs">
+    <a href="#home">홈</a><a href="#schedule">일정</a><a href="#papers">논문</a><a href="#keynotes">키노트</a><a href="#workshops">워크숍</a><a href="#events">행사</a><a href="#guide">참가 가이드</a>
+  </nav>
+  <button id="theme" title="테마 전환" aria-label="테마 전환">◐</button>
+</div></header>
+
+<main class="wrap">
+
+<!-- ================= HOME ================= -->
+<section class="pg" id="pg-home">
+  <div class="hero">
+    <p class="small" style="opacity:.85">Conference on Robot Learning</p>
+    <h1>CoRL 2026 · 오스틴</h1>
+    <p>2026년 11월 9일(월) – 12일(목) · 미국 텍사스주 오스틴</p>
+    <p>본 학회 11/9–11 · 워크숍 11/12</p>
+    <span class="dd" id="dday"></span>
+  </div>
+
+  <div class="grid g4">
+    <div class="card stat"><b>687</b><span>채택 논문 (전원 포스터)</span></div>
+    <div class="card stat"><b>21</b><span>Oral 발표 (7개 세션)</span></div>
+    <div class="card stat"><b>72</b><span>Spotlight 발표 (8개 세션)</span></div>
+    <div class="card stat"><b>32</b><span>워크숍·튜토리얼 (11/12)</span></div>
+  </div>
+
+  <h3>한눈에 보는 4일</h3>
+  <div class="grid g2">
+    <div class="card"><h4>11/8 (일) · 사전 배지 수령</h4><p class="small">JW Marriott 2층 201호, 14:00–20:00. 9일 아침은 붐비므로 <b>전날 수령 강력 권장</b>.</p></div>
+    <div class="card"><h4>11/9 (월) · 1일차</h4><p class="small">개회 → Spotlight S1 · Oral O1–O3 · Keynote I (Wolfram Burgard) · 포스터 세션 1 → 저녁 Long Center 웰컴 디너</p></div>
+    <div class="card"><h4>11/10 (화) · 2일차</h4><p class="small">Spotlight S3–S5 · Oral O4–O7 · Keynote II (Russ Tedrake) · 포스터 세션 2 · Tesla 기가팩토리 투어</p></div>
+    <div class="card"><h4>11/11 (수) · 3일차</h4><p class="small">Spotlight S6–S8 · 포스터 세션 3 → 오후 UT Austin Bass Hall로 이동: Keynote III (Fei-Fei Li × Lisa Su), 패널, 시상·폐회</p></div>
+    <div class="card"><h4>11/12 (목) · 워크숍</h4><p class="small">JW Marriott에서 32개 반일(half-day) 워크숍·튜토리얼, 08:30–17:30</p></div>
+    <div class="card"><h4>시간대</h4><p class="small">오스틴은 <b>CST (UTC−6)</b>. 한국 시간 = 현지 시간 <b>+15시간</b> (예: 현지 월 09:00 = 한국 화 00:00).</p></div>
+  </div>
+
+  <h3>장소 3곳 (+식사·소셜)</h3>
+  <div class="tw"><table>
+    <tr><th>장소</th><th>주소</th><th>용도</th></tr>
+    <tr><td><b>JW Marriott Austin</b><br><span class="small muted">“소셜 허브”</span></td><td class="small">110 E 2nd St</td><td class="small">배지 수령, 포스터 세션, 전시, 데모, 커피·점심, 11/12 워크숍 전체. Hilton 발표 생중계 시청 가능</td></tr>
+    <tr><td><b>Hilton Austin</b> (6층)</td><td class="small">500 E 4th St</td><td class="small">개회, Spotlight, Oral, 얼리커리어 키노트, 스폰서 토크, Keynote I·II</td></tr>
+    <tr><td><b>Fareground Austin</b></td><td class="small">111 Congress Ave (One Eleven Congress 1층)</td><td class="small">점심 (실내·중정)</td></tr>
+    <tr><td><b>The Long Center</b></td><td class="small">701 W Riverside Dr</td><td class="small">11/9(월) 19:00–22:00 웰컴 소셜 디너</td></tr>
+    <tr><td><b>Bass Concert Hall</b> (UT Austin)</td><td class="small">2350 Robert Dedman Dr</td><td class="small">11/11(수) 오후: 디저트 리셉션, Keynote III, 패널, 시상·폐회</td></tr>
+  </table></div>
+  <p class="small muted">JW Marriott ↔ Hilton은 약 0.4마일(도보 10–15분), 셔틀 운행. Long Center · Bass Hall 행 셔틀 제공.</p>
+</section>
+
+<!-- ================= SCHEDULE ================= -->
+<section class="pg" id="pg-schedule">
+  <h2>학회 일정</h2>
+  <p class="lead">모든 시간은 오스틴 현지 시간(CST). 회색 KST는 한국 시간입니다. “논문 보기”를 누르면 해당 세션 논문 목록으로 이동합니다.</p>
+  <div class="daytabs" id="daytabs"></div>
+  <ul class="tl" id="timeline"></ul>
+  <h3>배지 수령 · 전시 시간</h3>
+  <div class="grid g2">
+    <div class="card"><h4>배지 수령 (JW Marriott 2층 201호)</h4><ul class="clean small">
+      <li>11/8 (일) 14:00–20:00</li><li>11/9 (월) 07:30–17:00</li><li>11/10 (화) 07:30–17:00</li><li>11/11 (수) 09:00–13:30</li><li>11/12 (목) 08:00–13:30</li></ul>
+      <p class="small muted" style="margin-top:6px">배지는 Marriott에서만 수령 가능. Hilton 가기 전에 받으세요.</p></div>
+    <div class="card"><h4>전시(Exhibit) 시간</h4><ul class="clean small">
+      <li>11/9 (월) 12:00–18:30</li><li>11/10 (화) 10:00–18:30</li><li>11/11 (수) 08:30–13:00</li></ul></div>
+  </div>
+</section>
+
+<!-- ================= PAPERS ================= -->
+<section class="pg" id="pg-papers">
+  <h2>채택 논문 리스트</h2>
+  <p class="lead">687편 전체. 제목을 누르면 OpenReview로 이동합니다. ☆ 를 눌러 관심 논문을 저장하세요(이 브라우저에만 저장).</p>
+  <div class="tools">
+    <input id="q" type="search" placeholder="논문 제목 검색 (예: VLA, humanoid, tactile)…" aria-label="논문 검색">
+    <div class="filters">
+      <select id="fType" aria-label="발표 유형"><option value="">발표 유형: 전체</option><option value="oral">Oral</option><option value="spot">Spotlight</option><option value="award">Best Paper 후보</option><option value="star">★ 내 관심 논문</option></select>
+      <select id="fPs" aria-label="포스터 세션"><option value="">포스터 세션: 전체</option><option value="1">세션 1 · 11/9(월) 17:00</option><option value="2">세션 2 · 11/10(화) 17:00</option><option value="3">세션 3 · 11/11(수) 10:30</option></select>
+      <select id="fSess" aria-label="구두 세션"><option value="">Oral/Spotlight 세션: 전체</option></select>
+      <select id="fSort" aria-label="정렬"><option value="ps">정렬: 포스터 번호</option><option value="t">정렬: 제목</option></select>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div id="cnt"></div>
+  </div>
+  <ul class="papers" id="plist"></ul>
+  <button class="more" id="more" hidden>더 보기</button>
+  <p class="small muted">주제 태그는 제목 키워드로 자동 분류한 것이라 정확하지 않을 수 있습니다. 저자 정보는 OpenReview 페이지에서 확인하세요.</p>
+</section>
+
+<!-- ================= KEYNOTES ================= -->
+<section class="pg" id="pg-keynotes">
+  <h2>키노트 · 패널</h2>
+  <p class="lead">기조연설 3개, 얼리커리어 키노트 3개, 특별 패널(토론) 1개.</p>
+  <h3>Keynote</h3>
+  <div class="grid g3">
+    <div class="card"><span class="pill p-key">Keynote I · 11/9(월) 15:30 · Hilton</span><h4 style="margin-top:8px">Wolfram Burgard</h4><p class="small muted">University of Technology Nuremberg</p><p class="small" style="margin-top:6px"><b>Challenges to Realize Embodied AI</b><br>센서·구동기의 불확실성을 다루는 확률적 접근과 딥러닝의 결합, 그리고 파운데이션 모델로 복잡·변화하는 실제 환경에 대응하는 방법.</p></div>
+    <div class="card"><span class="pill p-key">Keynote II · 11/10(화) 15:30 · Hilton</span><h4 style="margin-top:8px">Russ Tedrake</h4><p class="small muted">MIT / Walden Robotics CEO</p><p class="small" style="margin-top:6px"><b>Learning in the factories</b><br>2026년 1월 창업한 Walden Robotics가 2개월 만에 실제 생산 라인에 배치하며 얻은 교훈 — 배치 규모에 따른 성능 스케일링과 “배치-학습 순환”.</p></div>
+    <div class="card"><span class="pill p-key">Keynote III · 11/11(수) 15:00 · Bass Hall</span><h4 style="margin-top:8px">Fei-Fei Li <span class="muted small">+ Lisa Su (AMD) 대담</span></h4><p class="small muted">Stanford / World Labs</p><p class="small" style="margin-top:6px"><b>Atlas: A Unified World Model for Generation and Reconstruction</b><br>픽셀 생성과 3D 장면 복원을 통합한 자기회귀 프레임 생성 모델 Atlas. 후반부는 AMD CEO Lisa Su와의 파이어사이드 챗.</p></div>
+  </div>
+  <h3>Early Career Keynote</h3>
+  <div class="grid g3">
+    <div class="card"><span class="pill p-key">I · 11/9(월) 09:30</span><h4 style="margin-top:8px">Hang Zhao</h4><p class="small muted">Tsinghua University / Galaxea AI</p><p class="small" style="margin-top:6px"><b>Organizing Physical AI Across Timescales</b><br>지능을 기능이 아닌 시간 스케일(S2 추론·S1 정책·S0 제어)로 나누고, 각 층의 속도와 층 간 인터페이스 문제를 다룸.</p></div>
+    <div class="card"><span class="pill p-key">II · 11/9(월) 14:00</span><h4 style="margin-top:8px">Negar Mehr</h4><p class="small muted">UC Berkeley</p><p class="small" style="margin-top:6px"><b>How Can Robots Learn to Interact and Coordinate with Others?</b><br>다중 에이전트 RL, 상호작용 모방학습, 그리고 지속 학습을 합의 최적화로 보는 관점.</p></div>
+    <div class="card"><span class="pill p-key">III · 11/10(화) 09:30</span><h4 style="margin-top:8px">Roberto Martín-Martín</h4><p class="small muted">UT Austin</p><p class="small" style="margin-top:6px"><b>Learning Without Starting Over</b><br>모바일 매니퓰레이션에서 재사용 가능한 행동 공간, 사람의 시연·교정, 경험 선별을 통한 “학습 잠재력” 확장.</p></div>
+  </div>
+  <h3>특별 패널 (토론) · 11/11(수) 16:00 · Bass Hall</h3>
+  <div class="card"><p class="small">사회: Vincent Vanhoucke (Waymo)<br>패널: Marc Toussaint (TU Berlin), Chelsea Finn (Stanford/Physical Intelligence), Leslie Kaelbling (MIT), Pulkit Agrawal (MIT/Eka Robotics), Edward Johns (Imperial/Machenta), Yonatan Bisk (CMU)</p></div>
+  <h3>다이아몬드 스폰서 토크 (Hilton, 각 10분)</h3>
+  <div class="tw"><table>
+    <tr><th>시간</th><th>11/9 (월)</th><th>11/10 (화)</th></tr>
+    <tr><td>13:30</td><td>Sharpa — Scaling Robotic Dexterity</td><td>Google DeepMind — Building general purpose robots with Gemini</td></tr>
+    <tr><td>13:40</td><td>Lightwheel — Robot Learning Through Data &amp; Sim</td><td>Boston Dynamics — Actions and Agents for Long-Horizon Behavior</td></tr>
+    <tr><td>13:50</td><td>NVIDIA (Jim Fan) — World Action Models &amp; Agentic Robotics</td><td>Franka / Agile Robots — Reference Platform for Physical AI</td></tr>
+    <tr><td>16:30</td><td>GM</td><td>Meta Robotics Studio</td></tr>
+    <tr><td>16:40</td><td>BitRobot — RoboCap &amp; RoboColosseum</td><td>AGIBOT — From Human Experience to Self-Improving Robots</td></tr>
+    <tr><td>16:50</td><td>MaxInsights</td><td>Tesla</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= WORKSHOPS ================= -->
+<section class="pg" id="pg-workshops">
+  <h2>워크숍 · 튜토리얼</h2>
+  <p class="lead">11/12(목) 08:30–17:30, JW Marriott. 모든 워크숍은 <b>반일(half-day)</b> 진행이며 정확한 방·시간은 각 워크숍 사이트에서 확인하세요. 워크숍만 참석하는 등록 옵션도 있습니다.</p>
+  <div class="card"><ol class="ws" id="wslist"></ol></div>
+</section>
+
+<!-- ================= EVENTS ================= -->
+<section class="pg" id="pg-events">
+  <h2>데모 · LBR · 소셜 · 채용</h2>
+  <div class="grid g2">
+    <div class="card"><h4>연구자 데모 (11/9–10)</h4><p class="small">JW Marriott <b>Lone Star(3층)</b>: 로봇 파운데이션 모델·휴머노이드·학습 플랫폼 8개 / <b>Griffin(2층)</b>: 덱스터러스 핸드·촉각·접촉 조작 7개 / 야외 데모 2개.<br>예: MolmoAct2, Sony aibo SDK, NVIDIA Alpamayo 휴머노이드, DreamFAR(월드모델 속 로봇 조종) 등.</p></div>
+    <div class="card"><h4>Late-Breaking Results (LBR)</h4><p class="small">점심시간 12:00–13:30, JW Marriott Griffin(2층)<br>• 11/9(월) <b>Agentic Robotics</b> 포스터 21편<br>• 11/10(화) <b>Real2Sim2Real</b> 포스터 18편</p></div>
+    <div class="card"><h4>Women &amp; Allies Lunch</h4><p class="small">11/10(화) 12:00–13:30, Hilton Austin. TRI 후원, 선착순 80명. 사전 등록 필요(<a href="https://forms.gle/ES3NnWmgJZDVpRJYA" target="_blank" rel="noopener">신청 폼</a>).</p></div>
+    <div class="card"><h4>웰컴 소셜 디너</h4><p class="small">11/9(월) 19:00–22:00, The Long Center. 푸드트럭, 로봇 데모, 라이브 음악·라인댄스, 로봇 밴드 공연. 18:30 셔틀 이동.</p></div>
+  </div>
+  <h3>외부 소셜 이벤트 (공식 프로그램 아님)</h3>
+  <div class="tw"><table>
+    <tr><th>날짜</th><th>주최 · 장소</th></tr>
+    <tr><td>11/9 (월)</td><td class="small">MaxInsights @ Electric Shuffle Austin</td></tr>
+    <tr><td>11/10 (화)</td><td class="small">Abaka AI @ Nica on 4th · Austin Robotics @ Antler VC · GenRobot.AI @ Hilton Garden Inn Downtown · Samsung Next (Luma 승인제) · Sieve @ Hestia · VESSL AI @ Edge Rooftop Bar · XDOF @ Hilton 앞</td></tr>
+    <tr><td>11/11 (수)</td><td class="small">NVIDIA @ Bull and Bowl · Torc @ Austin Project Taco · X Square Robot 애프터파티 · Zeromatter</td></tr>
+    <tr><td>11/12 (목)</td><td class="small">AgileX Robotics @ JW Marriott 203–204호</td></tr>
+  </table></div>
+  <p class="small muted">시간·등록은 각 주최 측 확인 (<a href="https://2026.corl.org/program/socials" target="_blank" rel="noopener">공식 소셜 페이지</a>).</p>
+  <h3>기업 채용 세션 (JW Marriott 302·307호, 세션당 1시간)</h3>
+  <div class="tw"><table>
+    <tr><th>날짜 · 시간</th><th>302호</th><th>307호</th></tr>
+    <tr><td>11/9 10:15</td><td>Agibot</td><td>NVIDIA</td></tr>
+    <tr><td>11/9 11:30</td><td>Sharpa</td><td>Google DeepMind</td></tr>
+    <tr><td>11/9 13:30</td><td>MaxInsights</td><td>BitRobot / Frodobots</td></tr>
+    <tr><td>11/9 14:45</td><td>Tesla</td><td>Walden Robotics</td></tr>
+    <tr><td>11/9 16:00</td><td>Foundry Robotics</td><td>Sudo</td></tr>
+    <tr><td>11/9 17:15</td><td>Xynova</td><td>MicroAGI</td></tr>
+    <tr><td>11/10 09:45</td><td>Unitree Robotics</td><td>OpenAI Robotics</td></tr>
+    <tr><td>11/10 11:00</td><td>Amazon</td><td>Meta (Robotics Studio)</td></tr>
+    <tr><td>11/10 13:30</td><td>Lightwheel</td><td>Dyna</td></tr>
+    <tr><td>11/10 14:45</td><td>Toyota Research Institute</td><td>Boston Dynamics</td></tr>
+    <tr><td>11/10 16:00</td><td>Genrobot</td><td>Sieve</td></tr>
+    <tr><td>11/10 17:15</td><td>Holiday Robotics</td><td>Origami Robotics</td></tr>
+    <tr><td>11/11 08:30</td><td>Apptronik</td><td>General Motors</td></tr>
+    <tr><td>11/11 09:45</td><td>Path Robotics</td><td>Franka Robotics</td></tr>
+    <tr><td>11/11 11:00</td><td>Airoa</td><td>Gento Robotics</td></tr>
+  </table></div>
+  <h3>투어</h3>
+  <div class="grid g2">
+    <div class="card"><h4>Tesla 기가팩토리 텍사스</h4><p class="small">11/10(화) 12:00 · 15:00 (각 50명, 선착순). 주최 측 확정 메일을 받아야 참여 가능.</p></div>
+    <div class="card"><h4>Texas Robotics (UT Austin)</h4><p class="small">Anna Hiss Gymnasium 연구시설 45분 무료 투어(의료·자율·조작·원자력 로봇 랩). 1인 1예약, 교통은 개별. 11/11 오후 디저트 리셉션과 함께 진행. <a href="https://calendly.com/txroboticstours/texas-robotics-group-tour-corl" target="_blank" rel="noopener">예약</a></p></div>
+  </div>
+</section>
+
+<!-- ================= GUIDE ================= -->
+<section class="pg" id="pg-guide">
+  <h2>참가 가이드</h2>
+  <p class="lead">공식 사이트의 Attending / Instruction 페이지를 한국어로 요약했습니다.</p>
+
+  <h3>✅ 출발 전 · 도착 직후 체크리스트</h3>
+  <div class="card check" id="checklist"></div>
+
+  <h3>🛬 오스틴 가는 법</h3>
+  <div class="card"><ul class="clean small">
+    <li>공항: <b>Austin-Bergstrom 국제공항 (AUS)</b> — JW Marriott까지 약 7마일(11km). 한국발 직항은 없어 보통 달라스(DFW)·LA·샌프란시스코 등 경유.</li>
+    <li>공항 → 다운타운: 우버/리프트(앱 픽업 구역 표지 따라가기), 택시, 렌터카, 또는 <b>CapMetro 20번 버스</b> (편도 $1.25, 컨택리스 카드·Apple Pay·Google Pay 탭 결제).</li>
+    <li>미국 입국: 한국 여권 소지자는 보통 <b>ESTA</b>로 입국(출국 최소 72시간 전 신청 권장). 비자가 필요하면 등록 완료 후 확인 페이지/메일에서 <b>초청장(Visa letter)</b> 발급 가능. 문의: marissa@ctocevents.com</li>
+  </ul></div>
+
+  <h3>🚕 현지 이동</h3>
+  <div class="card"><ul class="clean small">
+    <li>JW Marriott ↔ Hilton: 0.4마일, 도보 10–15분. 무료 셔틀도 운행. 편한 신발 추천.</li>
+    <li>Bass Concert Hall(11/11 오후)·Long Center(11/9 저녁): <b>무료 셔틀</b> 운행 — 정류장·시간은 CoRL 앱/공식 사이트 공지. Bass Hall 라이드셰어 승하차는 DeLoss Dodds Way.</li>
+    <li>Lime 전동 킥보드·전기자전거가 다운타운 곳곳에 있어 호텔 간 이동에 편리(교통법규 준수).</li>
+    <li>🤖 로보택시 체험: <b>Waymo</b>는 Uber 앱 → 계정 → 설정 → Autonomous vehicles 활성화 후 호출 / <b>Tesla Robotaxi</b>·<b>Zoox</b>는 각 전용 앱. 운행 지역은 앱에서 확인.</li>
+  </ul></div>
+
+  <h3>🎫 등록 · 등록비</h3>
+  <div class="tw"><table>
+    <tr><th>구분</th><th>Early (~10/12)</th><th>Standard (10/13–10/31)</th><th>Late (11/1~)</th><th>워크숍만</th></tr>
+    <tr><td>학생</td><td>$200</td><td>$500</td><td>$1,500</td><td>$75</td></tr>
+    <tr><td>학계</td><td>$400</td><td>$800</td><td>$1,500</td><td>$150</td></tr>
+    <tr><td>산업계</td><td>$1,200</td><td>$1,500</td><td>$1,500</td><td>$450</td></tr>
+  </table></div>
+  <p class="small muted">등록비에 4일간 커피·점심 포함. 10/1 이후 환불 불가(이름 변경은 무료). 전시 스태프 배지로는 전시장만 출입 가능 — 모든 학회 활동은 등록·배지 필요.</p>
+
+  <h3>🏨 숙소</h3>
+  <div class="card"><p class="small">학회 블록(JW Marriott, Hilton)은 <b>매진</b>(할인 마감 10/16). 취소분이 나오면 공식 링크가 자동 갱신됩니다. 다운타운은 대형 행사 시 빨리 차므로 취소·결제 정책을 꼭 확인하세요.</p></div>
+
+  <h3>🧑‍🏫 발표자 가이드</h3>
+  <div class="grid g3">
+    <div class="card"><h4><span class="pill p-misc">포스터</span> 전 논문</h4><ul class="clean small">
+      <li>포스터 크기: <b>84" × 42" (213 × 107 cm), 가로형 2:1</b> (보드는 4×8 ft)</li>
+      <li>3–4단 레이아웃, 글은 적게·그림은 크게. 5–10분 설명용으로.</li>
+      <li>인쇄는 저자 책임. 공식 인쇄 서비스 온라인 주문은 <b>11/6 17:00 EST 마감</b>. 이후엔 ARC Austin 현장 주문($420).</li>
+      <li>수령: JW Marriott <b>LoneStar 전시홀</b>, 11/8–11 12:00–15:00, 11/12 09:00–13:00</li>
+      <li>세션 끝나면 반드시 철거(방치 시 폐기)</li>
+    </ul></div>
+    <div class="card"><h4><span class="pill p-spot">Spotlight</span> 72편</h4><ul class="clean small">
+      <li>3분, 사전 녹화 영상(무음)을 틀고 <b>현장에서 직접 말하며</b> 발표</li>
+      <li>영상 제출 마감 10/26 (지남) — OpenReview 업로드</li>
+      <li>세션 시작 <b>10분 전</b> 무대 옆 대기</li>
+      <li>발표 사이 쉬는 시간 없음: 앞 발표 중 무대로 이동, 영상 끝나면 바로 퇴장</li>
+    </ul></div>
+    <div class="card"><h4><span class="pill p-oral">Oral</span> 21편</h4><ul class="clean small">
+      <li>발표 8분 + 질의응답 2분, <b>시간 엄수</b></li>
+      <li><b>본인 노트북</b> 사용 — HDMI 어댑터 지참</li>
+      <li>세션 전 쉬는 시간에 연결 테스트</li>
+      <li>세션 시작 10분 전 도착</li>
+    </ul></div>
+  </div>
+
+  <h3>👨‍👩‍👧 육아 · 포용 지원</h3>
+  <div class="card"><ul class="clean small">
+    <li><b>KiddieCorp 현장 보육</b>: 11/9–12, 08:00–18:30, 아동 1인 시간당 $10 (점심·간식 포함, 사전 등록 필수)</li>
+    <li><b>IDEA Lab 로보틱스 캠프</b>(5–15세): 11/9–11, 09:00–12:00, 1인 1일 $25</li>
+    <li>접근성·미성년자 동반·기타 편의 문의: Chuchu Fan (chuchu@mit.edu), 제목에 [Inclusion at CoRL]</li>
+  </ul></div>
+
+  <h3>🌮 오스틴 즐기기 (조직위원 추천)</h3>
+  <div class="grid g2">
+    <div class="card"><h4>관광·산책</h4><ul class="clean small">
+      <li>Barton Springs Pool (연중 20℃ 내외 샘물 수영장)</li>
+      <li>텍사스 주의회 의사당, Lady Bird Lake 보트·패들보드</li>
+      <li>Mt. Bonnell 전망, Mayfield Park 공작새</li>
+      <li>UT Austin 캠퍼스: Harry Ransom Center(구텐베르크 성경), Blanton 미술관 Ellsworth Kelly 'Austin'</li>
+      <li>South Congress Ave 산책, Allen's Boots</li>
+    </ul></div>
+    <div class="card"><h4>먹고 마시기</h4><ul class="clean small">
+      <li>BBQ: Terry Black's (다운타운에서 가까움)</li>
+      <li>아침 타코: Taco Joint의 migas 타코</li>
+      <li>라이브 음악: 6th Street, Elephant Room(재즈)</li>
+      <li>바: Roosevelt Room, Driskill 호텔 피아노바, Nido(Loren 호텔) 강변 뷰</li>
+      <li>Central Library 정원 테라스 + Café Crème</li>
+    </ul></div>
+  </div>
+
+  <h3>🔗 공식 링크</h3>
+  <div class="card"><ul class="clean small">
+    <li><a href="https://2026.corl.org/" target="_blank" rel="noopener">CoRL 2026 공식 사이트</a> · <a href="https://2026.corl.org/program" target="_blank" rel="noopener">프로그램</a> · <a href="https://2026.corl.org/program/accepted-papers" target="_blank" rel="noopener">채택 논문</a></li>
+    <li><a href="https://2026.corl.org/attending/registration" target="_blank" rel="noopener">등록·비자</a> · <a href="https://2026.corl.org/attending/venue-information" target="_blank" rel="noopener">장소 안내</a> · <a href="https://2026.corl.org/attending/poster-printing" target="_blank" rel="noopener">포스터 인쇄</a> · <a href="https://2026.corl.org/contributions/instruction-for-presentations" target="_blank" rel="noopener">발표 지침</a></li>
+  </ul></div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  비공식 한국어 정리 페이지입니다. 출처: <a href="https://2026.corl.org/" target="_blank" rel="noopener">2026.corl.org</a> (2026-11-07 기준). 변경 사항은 공식 사이트·CoRL 앱을 우선 확인하세요.
+</div></footer>
+
+<script src="papers.js"></script>
+<script>
+(function(){
+// ---------- helpers ----------
+function $(s,r){return (r||document).querySelector(s)}
+function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var store={get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+// ---------- theme ----------
+var th=store.get('corl26-theme',null); if(th) document.documentElement.setAttribute('data-theme',th);
+$('#theme').onclick=function(){var cur=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  var n=cur==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);store.set('corl26-theme',n)};
+
+// ---------- D-day (Austin CST = UTC-6) ----------
+(function(){var start=Date.UTC(2026,10,9,14,30),end=Date.UTC(2026,10,12,23,30),now=Date.now(),t;
+  if(now<start){var d=Math.ceil((start-now)/864e5);t='D-'+d+' · 11월 9일 08:30 개막';}
+  else if(now<=end){t='지금 학회 진행 중! 🤖';} else t='CoRL 2026 종료 — 수고하셨습니다';
+  $('#dday').textContent=t;})();
+
+// ---------- sessions ----------
+var SESS={
+ S1:['Spotlight','Generalist policies, memory and transfer','11/9(월) 09:00','Yash Narang'],
+ O1:['Oral','Generalist policies and context scaling','11/9(월) 10:30','Michael Ryoo'],
+ O2:['Oral','World models and temporal representations','11/9(월) 11:00','Andrea Bajcsy'],
+ O3:['Oral','Data, simulation and evaluation','11/9(월) 11:30','Ed Johns'],
+ S2:['Spotlight','Efficient execution, world models and learning','11/9(월) 14:30','Dinesh Jayaraman'],
+ S3:['Spotlight','Human learning, dexterity and cooperation','11/10(화) 08:30','Danfei Xu'],
+ O4:['Oral','Reinforcement learning and motion reasoning','11/10(화) 09:00','Katerina Fragkiadaki'],
+ O5:['Oral','Dexterous learning, grasping and assembly','11/10(화) 10:30','Masha Itkina'],
+ O6:['Oral','Force, tactile control and manipulation planning','11/10(화) 11:00','Ian Abraham'],
+ O7:['Oral','Humanoid data, control and skills','11/10(화) 11:30','Koushil Sreenath'],
+ S4:['Spotlight','Touch, force and contact-rich manipulation','11/10(화) 14:00','Yunzhu Li'],
+ S5:['Spotlight','Deformable manipulation, geometry and morphology','11/10(화) 14:30','Rudi Lioutikov'],
+ S6:['Spotlight','Optimization, agentic planning and evaluation','11/11(수) 08:30','Negar Mehr'],
+ S7:['Spotlight','Humanoid locomotion and whole-body control','11/11(수) 09:00','Roberto Martín-Martín'],
+ S8:['Spotlight','Perception, navigation and autonomous systems','11/11(수) 09:30','Hang Zhao']};
+var PS={1:'11/9(월) 17:00–18:30',2:'11/10(화) 17:00–18:30',3:'11/11(수) 10:30–12:00'};
+
+// ---------- schedule ----------
+// [start,end,kind,title,location,extra]
+var DAYS=[
+ {k:'mon',label:'11/9 (월)',items:[
+  ['08:30','09:00','misc','개회 (Welcome)','Hilton Austin'],
+  ['09:00','09:30','spot','Spotlight S1 · Generalist policies, memory and transfer','Hilton Austin','S1'],
+  ['09:30','10:00','key','Early Career Keynote I · Hang Zhao','Hilton Austin'],
+  ['10:00','10:30','misc','커피 브레이크','Hilton & JW Marriott'],
+  ['10:30','11:00','oral','Oral O1 · Generalist policies and context scaling','Hilton Austin','O1'],
+  ['11:00','11:30','oral','Oral O2 · World models and temporal representations','Hilton Austin','O2'],
+  ['11:30','12:00','oral','Oral O3 · Data, simulation and evaluation','Hilton Austin','O3'],
+  ['12:00','13:30','misc','점심 + LBR 포스터: Agentic Robotics','JW Marriott & Fareground / LBR은 Griffin(JW 2층)'],
+  ['13:30','14:00','misc','스폰서 토크 ×3 (Sharpa, Lightwheel, NVIDIA)','Hilton Austin'],
+  ['14:00','14:30','key','Early Career Keynote II · Negar Mehr','Hilton Austin'],
+  ['14:30','15:00','spot','Spotlight S2 · Efficient execution, world models and learning','Hilton Austin','S2'],
+  ['15:00','15:30','misc','커피 브레이크','Hilton & JW Marriott'],
+  ['15:30','16:30','key','Keynote I · Wolfram Burgard — Challenges to Realize Embodied AI','Hilton Austin'],
+  ['16:30','17:00','misc','스폰서 토크 ×3 (GM, BitRobot, MaxInsights)','Hilton Austin'],
+  ['17:00','18:30','poster','포스터 세션 1','JW Marriott','P1'],
+  ['18:30','19:00','misc','Long Center로 이동 (셔틀)',''],
+  ['19:00','22:00','key','🤠 웰컴 소셜 디너','The Long Center']]},
+ {k:'tue',label:'11/10 (화)',items:[
+  ['08:30','09:00','spot','Spotlight S3 · Human learning, dexterity and cooperation','Hilton Austin','S3'],
+  ['09:00','09:30','oral','Oral O4 · Reinforcement learning and motion reasoning','Hilton Austin','O4'],
+  ['09:30','10:00','key','Early Career Keynote III · Roberto Martín-Martín','Hilton Austin'],
+  ['10:00','10:30','misc','커피 브레이크','Hilton & JW Marriott'],
+  ['10:30','11:00','oral','Oral O5 · Dexterous learning, grasping and assembly','Hilton Austin','O5'],
+  ['11:00','11:30','oral','Oral O6 · Force, tactile control and manipulation planning','Hilton Austin','O6'],
+  ['11:30','12:00','oral','Oral O7 · Humanoid data, control and skills','Hilton Austin','O7'],
+  ['12:00','13:30','misc','점심 + LBR 포스터: Real2Sim2Real · Women & Allies Lunch','JW Marriott & Fareground / Hilton'],
+  ['13:30','14:00','misc','스폰서 토크 ×3 (Google DeepMind, Boston Dynamics, Franka)','Hilton Austin'],
+  ['14:00','14:30','spot','Spotlight S4 · Touch, force and contact-rich manipulation','Hilton Austin','S4'],
+  ['14:30','15:00','spot','Spotlight S5 · Deformable manipulation, geometry and morphology','Hilton Austin','S5'],
+  ['15:00','15:30','misc','커피 브레이크','Hilton & JW Marriott'],
+  ['15:30','16:30','key','Keynote II · Russ Tedrake — Learning in the factories','Hilton Austin'],
+  ['16:30','17:00','misc','스폰서 토크 ×3 (Meta, AGIBOT, Tesla)','Hilton Austin'],
+  ['17:00','18:30','poster','포스터 세션 2','JW Marriott','P2']]},
+ {k:'wed',label:'11/11 (수)',items:[
+  ['08:30','09:00','spot','Spotlight S6 · Optimization, agentic planning and evaluation','Hilton Austin','S6'],
+  ['09:00','09:30','spot','Spotlight S7 · Humanoid locomotion and whole-body control','Hilton Austin','S7'],
+  ['09:30','10:00','spot','Spotlight S8 · Perception, navigation and autonomous systems','Hilton Austin','S8'],
+  ['10:00','10:30','misc','커피 브레이크','JW Marriott'],
+  ['10:30','12:00','poster','포스터 세션 3','JW Marriott','P3'],
+  ['12:00','13:30','misc','점심','JW Marriott & Fareground'],
+  ['13:30','15:00','misc','디저트 리셉션 + Texas Robotics 투어','Bass Concert Hall / Anna Hiss Gym (UT Austin)'],
+  ['15:00','16:00','key','Keynote III · Fei-Fei Li + Lisa Su 파이어사이드 챗','Bass Concert Hall'],
+  ['16:00','17:00','key','특별 패널 (사회: Vincent Vanhoucke)','Bass Concert Hall'],
+  ['17:00','18:00','key','클로징 인터루드 · 시상 & 폐회','Bass Concert Hall']]},
+ {k:'thu',label:'11/12 (목) 워크숍',items:[
+  ['08:30','17:30','ws','워크숍 · 튜토리얼 32개 (반일 진행)','JW Marriott','WS']]}
+];
+function kst(t){var h=+t.slice(0,2)+15,m=t.slice(3),d='';if(h>=24){h-=24;d='+1일 '}return d+(h<10?'0':'')+h+':'+m}
+var dayIdx=store.get('corl26-day',0);
+function drawDay(i){dayIdx=i;store.set('corl26-day',i);
+  [].forEach.call($('#daytabs').children,function(b,j){b.classList.toggle('on',j===i)});
+  var ul=$('#timeline');ul.innerHTML='';
+  DAYS[i].items.forEach(function(it){
+    var li=el('li','k-'+it[2]);var x=it[5],extra='';
+    if(x&&SESS[x]) extra='<div class="sp muted">좌장: '+esc(SESS[x][3])+' · <a class="jump" href="#papers" data-sess="'+x+'">논문 '+(SESS[x][0]==='Oral'?3:9)+'편 보기 →</a></div>';
+    else if(x&&x[0]==='P') extra='<div class="sp"><a class="jump" href="#papers" data-ps="'+x[1]+'">이 세션 포스터 보기 →</a></div>';
+    else if(x==='WS') extra='<div class="sp"><a class="jump" href="#workshops">워크숍 목록 →</a></div>';
+    li.innerHTML='<div class="tm">'+it[0]+'–'+it[1]+'<em>KST '+kst(it[0])+'</em></div><div class="ti">'+esc(it[3])+'</div>'+(it[4]?'<div class="lo">📍 '+esc(it[4])+'</div>':'')+extra;
+    ul.appendChild(li)});}
+DAYS.forEach(function(d,i){var b=el('button','',d.label);b.onclick=function(){drawDay(i)};$('#daytabs').appendChild(b)});
+drawDay(Math.min(dayIdx,3));
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.jump');if(!a)return;
+  if(a.dataset.sess){resetF();$('#fSess').value=a.dataset.sess;}
+  if(a.dataset.ps){resetF();$('#fPs').value=a.dataset.ps;}
+  if(a.dataset.sess||a.dataset.ps)setTimeout(function(){render();window.scrollTo(0,0)},0);});
+
+// ---------- papers ----------
+var P=window.PAPERS||[];
+var AWARD=['SuperMimic','Play2Perfect','GRAIL: Generating Humanoid','RoboTTT','What Are We Actually Benchmarking','Long-Horizon Multi-Object Rearrangement via Distilled'];
+P.forEach(function(p){p.aw=AWARD.some(function(a){return p.t.indexOf(a)===0});p.lt=p.t.toLowerCase()});
+var TOPICS={vla:'VLA·파운데이션',wm:'월드 모델',hum:'휴머노이드·보행',dex:'덱스터러스·파지',tac:'촉각·힘·접촉',rl:'강화학습',il:'모방학습',sim:'시뮬레이션·Sim2Real',nav:'내비게이션·주행·드론',human:'인간·HRI',eval:'벤치마크·데이터',deform:'변형체',perc:'3D·인지',plan:'계획·추론',safe:'안전·강건성'};
+var stars=store.get('corl26-stars',{});var topic='';var shown=60;
+Object.keys(SESS).sort(function(a,b){return a[0]===b[0]?a[1]-b[1]:(a[0]==='O'?-1:1)}).forEach(function(k){var o=el('option');o.value=k;o.textContent=k+' · '+SESS[k][1];$('#fSess').appendChild(o)});
+var chipAll=el('button','chip on','전체 주제');chipAll.dataset.t='';$('#chips').appendChild(chipAll);
+Object.keys(TOPICS).forEach(function(k){var c=el('button','chip',TOPICS[k]);c.dataset.t=k;$('#chips').appendChild(c)});
+$('#chips').onclick=function(e){var c=e.target.closest('.chip');if(!c)return;topic=c.dataset.t;[].forEach.call(this.children,function(x){x.classList.toggle('on',x===c)});shown=60;render()};
+function resetF(){$('#q').value='';$('#fType').value='';$('#fPs').value='';$('#fSess').value='';topic='';[].forEach.call($('#chips').children,function(x,i){x.classList.toggle('on',i===0)});shown=60}
+function render(){
+  var q=$('#q').value.trim().toLowerCase(),ty=$('#fType').value,ps=$('#fPs').value,ss=$('#fSess').value,so=$('#fSort').value;
+  var terms=q?q.split(/\s+/):[];
+  var r=P.filter(function(p){
+    if(terms.length&&!terms.every(function(t){return p.lt.indexOf(t)>-1}))return false;
+    if(ps&&p.ps!=ps)return false;
+    if(ss&&p.s.indexOf(ss)<0)return false;
+    if(topic&&p.k.indexOf(topic)<0)return false;
+    if(ty==='oral'&&!p.s.some(function(s){return s[0]==='O'}))return false;
+    if(ty==='spot'&&!p.s.some(function(s){return s[0]==='S'}))return false;
+    if(ty==='award'&&!p.aw)return false;
+    if(ty==='star'&&!stars[p.id])return false;
+    return true});
+  if(so==='t')r=r.slice().sort(function(a,b){return a.lt<b.lt?-1:1});
+  $('#cnt').textContent=r.length+'편'+(Object.keys(stars).length?' · ★ 관심 논문 '+Object.keys(stars).length+'편':'');
+  var ul=$('#plist');ul.innerHTML='';var frag=document.createDocumentFragment();
+  r.slice(0,shown).forEach(function(p){
+    var li=el('li');var tags='';
+    if(p.aw)tags+='<span class="pill p-award">🏆 Best Paper 후보</span>';
+    p.s.forEach(function(s){var S=SESS[s];tags+='<span class="pill '+(s[0]==='O'?'p-oral':'p-spot')+'" title="'+esc(S[1])+'">'+(s[0]==='O'?'Oral ':'Spotlight ')+s+' · '+S[2]+'</span>'});
+    tags+='<span>포스터 '+p.ps+' · '+PS[p.ps]+'</span>';
+    p.k.slice(0,3).forEach(function(k){tags+='<span class="pill p-misc">'+TOPICS[k]+'</span>'});
+    li.innerHTML='<div class="no"><b>#'+p.no+'</b>P'+p.ps+'</div><div class="bd"><a class="tt" href="https://openreview.net/forum?id='+encodeURIComponent(p.id)+'" target="_blank" rel="noopener">'+esc(p.t)+'</a><div class="mt">'+tags+'</div></div>';
+    var b=el('button','star'+(stars[p.id]?' on':''),stars[p.id]?'★':'☆');b.title='관심 논문';b.setAttribute('aria-label','관심 논문 표시');
+    b.onclick=function(){if(stars[p.id])delete stars[p.id];else stars[p.id]=1;store.set('corl26-stars',stars);b.classList.toggle('on');b.textContent=stars[p.id]?'★':'☆';$('#cnt').textContent=r.length+'편 · ★ 관심 논문 '+Object.keys(stars).length+'편'};
+    li.appendChild(b);frag.appendChild(li)});
+  ul.appendChild(frag);
+  var m=$('#more');m.hidden=r.length<=shown;m.textContent='더 보기 ('+(r.length-shown)+'편 남음)';
+}
+['#q','#fType','#fPs','#fSess','#fSort'].forEach(function(s){$(s).addEventListener('input',function(){shown=60;render()})});
+$('#more').onclick=function(){shown+=120;render()};
+render();
+
+// ---------- workshops ----------
+var WS=[["4th CoRL Workshop on Learning Effective Abstractions for Planning (LEAP)","http://leap-workshop.github.io"],["Bringing Physics Simulation and World Models Together for Robotic Manipulation","https://corl26ws-physwm.github.io"],["Modeling Uncertainty in Robotic World Models","https://uncertainwm2026.github.io/"],["Do Robots Need World Models? A Debate on Dynamics Learning, Planning, and End-to-End Robot Learning","https://do-robots-need-world-models.github.io/"],["The Action Gap: large generative models (video, image, 3D) learn rich knowledge","https://actiongapworkshop.github.io/"],["Sim-to-Real-to-Field (SRF): The Science of Transfer","https://sim2real2field-corl26.github.io/"],["From GPU-Accelerated Simulation for Real-World Robot Policy Learning","https://corl2026-realworld-robot-learning.github.io/"],["1st Workshop on \"Structured Physical Intelligence\" (SPIN)","https://sites.google.com/view/spin-1st-workshop/home"],["Remember, Retrieve, Act: Memory for Robot Foundation Models","https://corl2026-memory.github.io/"],["Efficient Foundation Models for Real-Time Embodied AI","http://efficient-embodied-ai.github.io"],["Continually Self-Improving Robots Workshop (CSIR-2026)","https://csircorl.github.io/website/"],["Learn@Deploy: Robot Learning at Deployment","https://learn-at-deploy.github.io/"],["Pretrain to Adapt: What Makes a Pretrained Policy Adaptable?","https://corl2026-robotcl.github.io/"],["Scaling H2R: Scaling Laws and Diversity in Human-to-Robot Workshop","http://scaling-h2r-corl.github.io/"],["\"Oops, I Erred\" — Collecting, Curating and Using Imperfect Data for Realistic Scenarios","http://workshop.oopsie-data.com/"],["Learning from Corrections and Interventions","https://sites.google.com/view/lfcworkshopcorl2026/home"],["From Human Videos to Dexterous Robot Capability: A Hands-on Tutorial","https://aanwar-nv.github.io/v2d-tutorial.github.io/"],["BiDexTool: Bimanual Dexterous Tool Use","https://bimanual-tool.github.io/"],["The UMI Olympics: From Handheld Devices to Real-World Policies","https://umi-olympics.airoa.io/"],["3rd Workshop on Dexterous Manipulation: Full-Stack Robotics on Learning and Design","https://dex-manipulation.github.io/corl2026/"],["R2RL: Roadmap to Sample-Efficient Real-World Reinforcement Learning","https://r2rl-workshop.github.io/"],["Robot Learning on the Path to Surgical Autonomy","https://corl2026-surgical-autonomy.github.io/"],["RoboLetics 3.0: Benchmarks for Agile Physical Human-Robot Interaction","https://roboletics.github.io/corl2026/"],["Human-Centered Robot Learning and Interaction","https://hc-robot-learning.github.io/"],["The Science of Physical AI Safety Workshop (SPAIS)","https://spais-ws.org"],["Grounded 4D Multimodal World Models for Autonomous Driving Decision Making","https://arlo0o.github.io/Grounded-Driving-World-Models_Workshop/"],["Spatial Intelligence and Structured Reasoning for Embodied Navigation (SISREN)","https://sisren-embodied-nav.github.io"],["Everything Beneath the Policy: Controllers, Hardware, and Data Infrastructure","https://beneath-the-policy.github.io/"],["Open Problems in Contact-Rich Loco-Manipulation","https://contact-rich-loco-manipulation.github.io"],["Beyond Binary Success: Diagnosing Fine-Grained Capabilities in Robot Manipulation","https://robofinemani2026.github.io/"],["Compositional Generalization for Real-World Robot Learning","https://compogen-robotics.github.io/corl2026/"],["Workshop on Agentic Robotics","https://agentic-robotics-workshop.github.io/"]];
+WS.forEach(function(w){var li=el('li','','<a href="'+w[1]+'" target="_blank" rel="noopener">'+esc(w[0])+'</a>');$('#wslist').appendChild(li)});
+
+// ---------- checklist ----------
+var CK=['ESTA(또는 비자) 승인 확인, 여권 유효기간 6개월 이상','등록 확인 메일·QR 준비 (등록 안 했다면 Late 요금 $1,500)','숙소 예약 확인 (학회 블록은 매진)','11/8(일) 14:00–20:00 JW Marriott 201호에서 배지 미리 수령','포스터 인쇄 주문 확인 · 수령(LoneStar 전시홀 12:00–15:00) — 84"×42" 가로','Oral 발표자: 노트북 + HDMI 어댑터, 쉬는 시간에 연결 테스트','Spotlight 발표자: 세션 10분 전 무대 옆 대기','CoRL 공식 앱 설치 (셔틀 시간·장소 공지)','미국 110V 어댑터(A타입), 얇은 겉옷 (11월 오스틴 낮 20℃대·밤 10℃대, 실내 냉방 강함)','관심 논문 ★ 표시해서 포스터 동선 짜기','11/9 저녁 Long Center 디너 · 11/11 오후 Bass Hall 이동 셔틀 확인'];
+var ck=store.get('corl26-check',{});
+CK.forEach(function(t,i){var l=el('label');var c=el('input');c.type='checkbox';c.checked=!!ck[i];c.onchange=function(){ck[i]=c.checked;store.set('corl26-check',ck)};l.appendChild(c);l.appendChild(el('span','small',esc(t)));$('#checklist').appendChild(l)});
+
+// ---------- router ----------
+var PAGES=['home','schedule','papers','keynotes','workshops','events','guide'];
+function route(){var h=location.hash.slice(1);if(PAGES.indexOf(h)<0)h='home';
+  PAGES.forEach(function(p){$('#pg-'+p).classList.toggle('on',p===h)});
+  [].forEach.call(document.querySelectorAll('#tabs a'),function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+h)});
+  var on=$('#tabs a.on');if(on&&on.scrollIntoView)on.scrollIntoView({block:'nearest',inline:'nearest'});
+  window.scrollTo(0,0);}
+window.addEventListener('hashchange',route);route();
+})();
+</script>
+</body>
+</html>
