@@ -181,7 +181,7 @@ ul.clean{margin:6px 0 0;padding-left:18px}ul.clean li{margin:3px 0}
 .psb .bar i{display:grid;place-items:center;font-style:normal;font-size:.72rem;font-weight:700;color:#fff}
 .tools{position:sticky;top:56px;z-index:10;background:var(--bg);padding:10px 0 8px;border-bottom:1px solid var(--line);margin-bottom:8px}
 .sbox{position:relative}.sbox svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted)}
-#q{width:100%;padding:11px 14px 11px 40px;font:inherit;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--fg)}
+#q,#coQ{width:100%;padding:11px 14px 11px 40px;font:inherit;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--fg)}
 .filters{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
 .filters select{font:inherit;font-size:.86rem;padding:6px 8px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--fg);max-width:100%;flex:1 1 150px}
 .chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:8px;padding-bottom:2px}
@@ -240,6 +240,37 @@ tr:last-child td{border-bottom:none}
 .flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.86rem}
 .flow .st{background:var(--soft);border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:6px}
 .flow .ar{color:var(--muted)}
+/* companies */
+.tierbar{display:flex;height:34px;border-radius:10px;overflow:hidden;gap:2px;margin:6px 0 4px}
+.tierbar i{display:grid;place-items:center;font-style:normal;font-size:.78rem;font-weight:700;color:#fff;cursor:pointer;min-width:0;white-space:nowrap;overflow:hidden}
+.t-dia{--tc:#2a78d6}.t-pat{--tc:#6250d6}.t-std{--tc:#1baf7a}.t-lite{--tc:#898781}.t-none{--tc:var(--line)}
+.cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:10px}
+.cocard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;border-top:4px solid var(--tc);display:flex;flex-direction:column;gap:6px;min-width:0}
+.cocard .top{display:flex;align-items:center;gap:10px}
+.logo-i{width:34px;height:34px;border-radius:9px;background:var(--tc);color:#fff;display:grid;place-items:center;font-weight:900;font-size:.85rem;flex:none}
+.cocard .nm{font-weight:700;line-height:1.25}
+.cocard .nm a{color:var(--fg)}
+.cocard .tier{font-size:.7rem;font-weight:700;color:var(--tc);text-transform:uppercase;letter-spacing:.04em}
+.acts{display:flex;flex-direction:column;gap:4px;font-size:.78rem}
+.act{display:flex;gap:6px;align-items:flex-start;color:var(--fg2)}
+.act .ab{flex:none;font-size:.68rem;font-weight:700;border-radius:6px;padding:1px 6px;margin-top:1px}
+.ab-talk{background:var(--k-key-s);color:var(--k-key)}.ab-rec{background:var(--k-oral-s);color:var(--k-oral)}
+.ab-soc{background:var(--k-social-s);color:var(--k-social)}.ab-etc{background:var(--k-spot-s);color:var(--k-spot)}
+/* competitions */
+.comp{border-left:5px solid var(--k-poster)}
+.comp .ch{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.prize{font-size:1.4rem;font-weight:900;color:var(--k-poster);line-height:1.1;text-align:right}
+.prize small{display:block;font-size:.72rem;font-weight:500;color:var(--muted)}
+.steps{display:flex;gap:0;margin:12px 0 8px;font-size:.72rem}
+.steps div{flex:1;position:relative;padding-top:16px;text-align:center;color:var(--muted)}
+.steps div::before{content:"";position:absolute;top:5px;left:0;right:0;height:3px;background:var(--line)}
+.steps div::after{content:"";position:absolute;top:0;left:50%;margin-left:-6px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--line)}
+.steps div.done::before,.steps div.done::after{background:var(--k-poster);border-color:var(--k-poster)}
+.steps div.now{color:var(--fg);font-weight:700}
+.steps div.now::after{background:var(--surface);border-color:var(--k-poster);box-shadow:0 0 0 4px var(--k-poster-s)}
+.steps div:first-child::before{left:50%}.steps div:last-child::before{right:50%}
+.kv{display:grid;grid-template-columns:72px 1fr;gap:4px 10px;font-size:.84rem;margin-top:6px}
+.kv dt{color:var(--muted)}.kv dd{margin:0}
 footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:.85rem}
 @media (max-width:640px){
   .hero{padding:24px 18px}
@@ -300,7 +331,8 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
     <a href="#venues"><svg class="i"><use href="#i-map"/></svg><span>장소·도면</span></a>
     <a href="#keynotes"><svg class="i"><use href="#i-mic"/></svg><span>키노트</span></a>
     <a href="#workshops"><svg class="i"><use href="#i-tool"/></svg><span>워크숍</span></a>
-    <a href="#events"><svg class="i"><use href="#i-party"/></svg><span>행사</span></a>
+    <a href="#companies"><svg class="i"><use href="#i-brief"/></svg><span>기업</span></a>
+    <a href="#events"><svg class="i"><use href="#i-trophy"/></svg><span>행사·대회</span></a>
     <a href="#guide"><svg class="i"><use href="#i-info"/></svg><span>가이드</span></a>
   </nav>
   <button id="theme" title="테마 전환" aria-label="테마 전환"><svg class="i"><use href="#i-moon"/></svg></button>
@@ -530,10 +562,36 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   </div>
 </section>
 
+<!-- ================= COMPANIES ================= -->
+<section class="pg" id="pg-companies">
+  <h2><span class="hi"><svg class="i"><use href="#i-brief"/></svg></span>참가 기업</h2>
+  <p class="lead">공식 스폰서 72곳과 채용·토크·소셜·부스 일정을 회사별로 모았습니다. 회사 카드를 보면 그 회사를 언제 어디서 만날 수 있는지 한눈에 보입니다.</p>
+  <div class="grid g4" id="coStats"></div>
+  <div class="card" style="margin-top:14px">
+    <h4><svg class="i"><use href="#i-layers"/></svg>스폰서 등급 <span class="small muted" style="font-weight:400">(누르면 필터)</span></h4>
+    <div class="tierbar" id="tierbar"></div>
+    <p class="small muted">Diamond는 다이아몬드 스폰서 토크(각 10분)를 하고, 다수가 채용 세션을 엽니다.</p>
+  </div>
+  <div class="tools" style="margin-top:14px">
+    <div class="sbox"><svg class="i"><use href="#i-search"/></svg><input id="coQ" type="search" placeholder="회사 이름 검색 (예: NVIDIA, Tesla, Unitree)…" aria-label="회사 검색"></div>
+    <div class="chips" id="coChips"></div>
+    <div id="coCnt" class="small muted" style="margin-top:6px"></div>
+  </div>
+  <div class="cogrid" id="cogrid"></div>
+  <h3><svg class="i"><use href="#i-pin"/></svg>기업 부스·전시</h3>
+  <div class="grid g2">
+    <div class="card"><h4>전시 시간 · JW Marriott</h4><p class="small fg2">11/9(월) 12:00–18:30 · 11/10(화) 10:00–18:30 · 11/11(수) 08:30–13:00<br>포스터 세션 시간과 겹치니 포스터 돌면서 부스도 같이 보면 효율적입니다.</p></div>
+    <div class="card"><h4>확인된 부스</h4><p class="small fg2"><b>NVIDIA 부스 #404</b> (JW Marriott, 11/9–11): GR00T·Isaac Lab·Newton 데모, 연구자 만남, 채용 상담.<br>다른 회사 부스 번호는 공식 공개 목록이 없어 현장 안내판·CoRL 앱에서 확인하세요.</p></div>
+  </div>
+  <p class="small muted">출처: CoRL 2026 공식 홈페이지 스폰서 로고·프로그램, NVIDIA CoRL 이벤트 페이지. 공식 스폰서가 아닌 소셜·채용 참여 회사도 함께 넣었습니다.</p>
+</section>
+
 <!-- ================= EVENTS ================= -->
 <section class="pg" id="pg-events">
-  <h2><span class="hi"><svg class="i"><use href="#i-party"/></svg></span>데모 · LBR · 소셜 · 채용</h2>
-  <p class="lead">포스터 외에 볼거리와 네트워킹 기회.</p>
+  <h2><span class="hi"><svg class="i"><use href="#i-trophy"/></svg></span>행사 · 대회</h2>
+  <p class="lead">대회·시상, 데모, LBR, 소셜, 채용, 투어까지 포스터 외의 볼거리.</p>
+  <h3><svg class="i"><use href="#i-trophy"/></svg>대회 · 챌린지 · 시상</h3>
+  <div class="grid g2" id="comps"></div>
   <div class="grid g2">
     <div class="card"><h4><svg class="i"><use href="#i-bot"/></svg>연구자 데모 · 11/9–10</h4>
       <div class="psb" style="margin:6px 0 10px"><div class="bar"><i style="flex:8;background:var(--v-jw)">Lone Star 8</i><i style="flex:7;background:var(--v-hilton)">Griffin 7</i><i style="flex:2;background:var(--muted)">야외 2</i></div></div>
@@ -950,7 +1008,7 @@ var RC=[['11/9 (월)',[['10:15','Agibot','NVIDIA'],['11:30','Sharpa','Google Dee
 $('#recruit').innerHTML=RC.map(function(d){return '<div class="card"><h4>'+d[0]+'</h4><div class="slot"><span></span><span class="small muted" style="text-align:center">302호</span><span class="small muted" style="text-align:center">307호</span></div>'+d[1].map(function(s){return '<div class="slot"><span>'+s[0]+'</span><span class="co" title="'+s[1]+'">'+s[1]+'</span><span class="co" title="'+s[2]+'">'+s[2]+'</span></div>'}).join('')+'</div>'}).join('');
 
 // ---------- socials ----------
-var SO=[['11/9 (월)',['MaxInsights @ Electric Shuffle']],['11/10 (화)',['Abaka AI @ Nica on 4th','Austin Robotics @ Antler VC','GenRobot.AI @ Hilton Garden Inn','Samsung Next (Luma 승인제)','Sieve @ Hestia','VESSL AI @ Edge Rooftop','XDOF @ Hilton 앞']],['11/11 (수)',['NVIDIA @ Bull and Bowl','Torc @ Austin Project Taco','X Square Robot 애프터파티','Zeromatter']],['11/12 (목)',['AgileX @ JW 203–204호']]];
+var SO=[['11/9 (월)',['MaxInsights @ Electric Shuffle']],['11/10 (화)',['Abaka AI @ Nica on 4th','Austin Robotics @ Antler VC','GenRobot.AI @ Hilton Garden Inn','Samsung Next (Luma 승인제)','Sieve @ Hestia','VESSL AI @ Edge Rooftop','XDOF @ Hilton 앞']],['11/11 (수)',['NVIDIA 연구자 리셉션 18:00–21:00 @ Bull and Bowl (RSVP)','Torc @ Austin Project Taco','X Square Robot 애프터파티','Zeromatter']],['11/12 (목)',['AgileX @ JW 203–204호']]];
 $('#socials').innerHTML=SO.map(function(d){return '<div class="card"><h4>'+d[0]+' <span class="pill p-misc">'+d[1].length+'</span></h4><ul class="clean small fg2">'+d[1].map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div>'}).join('');
 
 // ---------- fee ----------
@@ -966,8 +1024,86 @@ function prog(){var n=CK.filter(function(_,i){return ck[i]}).length;$('#progbar'
 CK.forEach(function(t,i){var l=el('label');var c=el('input');c.type='checkbox';c.checked=!!ck[i];c.onchange=function(){ck[i]=c.checked;store.set('corl26-check',ck);prog()};l.appendChild(c);l.appendChild(el('span','small',esc(t)));$('#checklist').appendChild(l)});
 prog();
 
+// ---------- competitions ----------
+var COMPS=[
+ {n:'NVIDIA Video-to-Data (V2D) Challenge',org:'NVIDIA',prize:'$54K',pz:'총 상금',
+  d:'사람 영상 → 로봇 데이터·정책 파이프라인 대회. 3개 트랙: ① 4D 재구성 ② Robotic Grounding (G1 + Dex3 휴머노이드, Isaac Lab) ③ 에고센트릭 영상→정책',
+  when:'11/12(목) 14:00–18:00 시상', where:'hilton|Salon D · 튜토리얼 "From Human Videos to Dexterous Robot Capability"',
+  award:'트랙별 1위 DGX Spark($6K) · 2위 GPU 크레딧 $3K · Industry Innovation Award DGX Spark+$3K',
+  steps:[['9/21','등록·데이터 공개',1],['11/4','리더보드 동결',1],['11/12','시상·발표',0]],link:'https://nvidia-isaac.github.io/video_to_data/v2d_challenge/'},
+ {n:'Child–Robot Dexterity Challenge',org:'SPIN 워크숍 · Scale AI 후원',prize:'$1,000',pz:'상금 풀',
+  d:'로봇과 아이가 같은 일상 조작 과제(예: 그릇에 따르기)를 나란히 수행해 과제별로 비교하는 <b>라이브 대회</b>. 양팔 YAM 로봇(MolmoAct 2 셋업) 제공.',
+  when:'11/12(목) 09:40–10:40 라이브', where:'jw|2층 Griffin 볼룸 (워크숍은 208호)',
+  award:'관람 자유 — 오전 워크숍 중 진행',
+  steps:[['9/17','공개',1],['10/12','등록 마감',1],['11/12','라이브 대회',0]],link:'https://spin-workshop.github.io/'},
+ {n:'The UMI Arena (UMI Olympics)',org:'AIRoA 워크숍',prize:'$1,000',pz:'Best Policy',
+  d:'핸드헬드 UMI 데이터로 학습한 정책을 <b>공유 실제 로봇</b>에서 겨루는 대회. 트랙: 🤖 정책 경쟁 · 🔧 디바이스 전시(현장 투표) · 📄 논문. UMI 데이터 약 2만 시간(초기 580시간 공개).',
+  when:'11/12(목) 14:00–18:00', where:'jw|3층 303–304호',
+  award:'Best Policy $1,000 · Best Paper · 디바이스 현장 투표',
+  steps:[['10/9','정책 등록 마감',1],['10/16','논문 마감',1],['11/12','대회·시상',0]],link:'https://umi-arena.airoa.io/'},
+ {n:'CoRL 2026 Best Paper Award',org:'CoRL 공식',prize:'6편',pz:'최종 후보',
+  d:'후보: SuperMimic · Play2Perfect · GRAIL · RoboTTT · What Are We Actually Benchmarking in Robot Manipulation? · Long-Horizon Multi-Object Rearrangement (Distilled Tree Search)',
+  when:'11/11(수) 17:00 발표', where:'bass|Awards & Farewell',
+  award:'<a href="#papers" data-award="1">후보 논문 보기 →</a> · Outstanding Reviewers/ACs도 공식 사이트에 공개',
+  steps:[['10/19','채택 발표',1],['Oral','후보 발표',0],['11/11','시상',0]],link:'https://2026.corl.org/program/awards'},
+ {n:'RoboLetics 3.0 — 복식 테니스 벤치마크',org:'워크숍 · Robotics and AI Institute 협력',prize:'🎾',pz:'벤치마크 공개',
+  d:'사람-로봇 혼합 스포츠를 다음 그랜드 챌린지로 제안. 2v2 <b>복식 테니스 시뮬레이션 벤치마크</b> 프로토타입 공개, 데모 영상·브레이크아웃 세션.',
+  when:'11/12(목) 08:30–12:30', where:'hilton|Salon D',
+  award:'상금 대회는 아님',steps:null,link:'https://roboletics.github.io/corl2026/'}];
+function today(){return Date.now()}
+$('#comps').innerHTML=COMPS.map(function(c){var w=c.where.split('|');
+  var st=c.steps?'<div class="steps">'+c.steps.map(function(s,i){var nxt=c.steps[i-1]&&c.steps[i-1][2]&&!s[2];return '<div class="'+(s[2]?'done':'')+(nxt?' now':'')+'"><b>'+s[0]+'</b><br>'+s[1]+'</div>'}).join('')+'</div>':'';
+  return '<div class="card comp"><div class="ch"><div><h4 style="margin:0">'+c.n+'</h4><div class="small muted">'+c.org+'</div></div><div class="prize">'+c.prize+'<small>'+c.pz+'</small></div></div>'+st+
+  '<p class="small fg2" style="margin-top:8px">'+c.d+'</p><dl class="kv"><dt>일시</dt><dd><b>'+c.when+'</b></dd><dt>장소</dt><dd><span class="vchip v-'+w[0]+'" style="color:var(--fg);font-weight:700">'+V[w[0]].s+'</span> '+w[1]+'</dd><dt>시상</dt><dd>'+c.award+'</dd></dl>'+
+  '<p class="small" style="margin-top:8px"><a href="'+c.link+'" target="_blank" rel="noopener">공식 페이지 ↗</a></p></div>'}).join('');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-award]');if(!a)return;e.preventDefault();resetF();$('#fType').value='award';location.hash='papers';setTimeout(render,30)});
+
+// ---------- companies ----------
+var TIERS={dia:['Diamond','t-dia'],pat:['Patron','t-pat'],std:['Standard','t-std'],lite:['Lite','t-lite'],none:['비스폰서','t-none']};
+var CO=[
+ ['BitRobot','dia','bitrobot.ai'],['Google DeepMind','dia','deepmind.google'],['NVIDIA','dia','www.nvidia.com'],['Sharpa','dia','www.sharpa.com'],['Franka Robotics','dia','franka.de'],['Meta','dia','about.meta.com'],['Lightwheel','dia','lightwheel.ai'],['MaxInsights','dia','www.maxinsights.ai'],['Tesla','dia','www.tesla.com'],['Boston Dynamics','dia','bostondynamics.com'],['GM','dia','www.gm.com'],['AGIBOT','dia','www.agibot.com'],
+ ['Sudo','pat','www.sudo.ai'],['Apple','pat','www.apple.com'],['OpenAI','pat','openai.com'],['Apptronik','pat','apptronik.com'],['Xynova','pat','xynova.tech/en'],['Dyna Robotics','pat','www.dyna.co'],['Amazon','pat','www.amazon.com'],['MicroAGI','pat','www.microagi.ai'],['GenRobot','pat','www.genrobot.ai'],['Gento Robotics','pat','gentorobotics.ai'],['AIRoA','pat','www.airoa.org'],['Toyota Research Institute','pat','www.tri.global'],['Path Robotics','pat','www.path-robotics.com'],['Origami Robotics','pat','www.origami-robotics.com'],['Holiday Robotics','pat','holiday-robotics.com'],['Unitree Robotics','pat','www.unitree.com'],['Foundry Robotics','pat','foundryrobotics.ai'],
+ ['IO-AI Tech','std','io-ai.tech/en'],['Noetix Robotics','std','www.noetixrobotics.com'],['Noitom Robotics','std','noitomrobotics.com'],['Eventual','std','www.eventual.ai'],['Robot Learning Co.','std','www.robot-learning.co'],['Tachin','std','www.tachin.com/en'],['Style3D','std','www.style3d.com'],['Hello Robot','std','hello-robot.com'],['Tashan','std','tashantec.com'],['PrismaX','std','prismax.ai'],['X Square Robot','std','x2robot.com/en'],['Oak Robotics','std','www.oakrobotics.com'],['AgileX Robotics','std','global.agilex.ai'],['Walden Robotics','std','www.waldenrobotics.com'],['Lucky Robots','std','luckyrobots.com'],['VESSL AI','std','vessl.ai'],['Zipline','std','flyzipline.com'],['Cortex','std','cortexrobot.ai'],['Microsoft','std','www.microsoft.com'],['Dexmate','std','dexmate.ai'],['Field AI','std','fieldai.com'],['Booster Robotics','std','booster.tech'],['Tangible Robots','std','tangiblerobots.ai'],['Reactor','std','www.reactor.inc'],['Alt-Bionics','std','altbionics.com'],['Fourier','std','fftai.com'],['Wing','std','wing.com'],['Feather','std','feather.dev'],['Nomadic AI','std','www.nomadicai.com'],['SimGenerator','std','www.simgenerator.com'],['Wayve','std','wayve.ai'],['Machenta','std','machenta.com'],['Abaka AI','std','www.abaka.ai'],
+ ['Samsung Next','lite','www.samsungnext.com'],['Scale AI','lite','scale.com'],['Mecka AI','lite','www.mecka.ai'],['Encord','lite','encord.com'],['RoboSense','lite','www.robosense.ai/en'],['TELUS Digital','lite','www.telusdigital.com'],['Shotwell','lite','shotwell.ai'],['maxon','lite','www.maxongroup.com/en'],['Luma AI','lite','lumalabs.ai'],['Palatial','lite','palatial.cloud'],
+ ['Sieve','none',''],['XDOF','none',''],['Torc','none',''],['Zeromatter','none',''],['Austin Robotics','none','']];
+// activities: [company, type, text]
+var ACT=[
+ ['Sharpa','talk','11/9 13:30 스폰서 토크 · Hilton'],['Lightwheel','talk','11/9 13:40 스폰서 토크 · Hilton'],['NVIDIA','talk','11/9 13:50 Jim Fan 토크 · Hilton'],['GM','talk','11/9 16:30 스폰서 토크 · Hilton'],['BitRobot','talk','11/9 16:40 RoboCap & RoboColosseum · Hilton'],['MaxInsights','talk','11/9 16:50 스폰서 토크 · Hilton'],
+ ['Google DeepMind','talk','11/10 13:30 Gemini 로봇 토크 · Hilton'],['Boston Dynamics','talk','11/10 13:40 Atlas 토크 · Hilton'],['Franka Robotics','talk','11/10 13:50 스폰서 토크 · Hilton'],['Meta','talk','11/10 16:30 Robotics Studio · Hilton'],['AGIBOT','talk','11/10 16:40 스폰서 토크 · Hilton'],['Tesla','talk','11/10 16:50 스폰서 토크 · Hilton'],
+ ['AGIBOT','rec','11/9 10:15 · 302호'],['NVIDIA','rec','11/9 10:15 · 307호'],['Sharpa','rec','11/9 11:30 · 302호'],['Google DeepMind','rec','11/9 11:30 · 307호'],['MaxInsights','rec','11/9 13:30 · 302호'],['BitRobot','rec','11/9 13:30 · 307호 (Frodobots)'],['Tesla','rec','11/9 14:45 · 302호'],['Walden Robotics','rec','11/9 14:45 · 307호'],['Foundry Robotics','rec','11/9 16:00 · 302호'],['Sudo','rec','11/9 16:00 · 307호'],['Xynova','rec','11/9 17:15 · 302호'],['MicroAGI','rec','11/9 17:15 · 307호'],
+ ['Unitree Robotics','rec','11/10 09:45 · 302호'],['OpenAI','rec','11/10 09:45 · 307호'],['Amazon','rec','11/10 11:00 · 302호'],['Meta','rec','11/10 11:00 · 307호'],['Lightwheel','rec','11/10 13:30 · 302호'],['Dyna Robotics','rec','11/10 13:30 · 307호'],['Toyota Research Institute','rec','11/10 14:45 · 302호'],['Boston Dynamics','rec','11/10 14:45 · 307호'],['GenRobot','rec','11/10 16:00 · 302호'],['Sieve','rec','11/10 16:00 · 307호'],['Holiday Robotics','rec','11/10 17:15 · 302호'],['Origami Robotics','rec','11/10 17:15 · 307호'],
+ ['Apptronik','rec','11/11 08:30 · 302호'],['GM','rec','11/11 08:30 · 307호'],['Path Robotics','rec','11/11 09:45 · 302호'],['Franka Robotics','rec','11/11 09:45 · 307호'],['AIRoA','rec','11/11 11:00 · 302호'],['Gento Robotics','rec','11/11 11:00 · 307호'],
+ ['MaxInsights','soc','11/9 Electric Shuffle'],['Abaka AI','soc','11/10 Nica on 4th'],['Austin Robotics','soc','11/10 Antler VC'],['GenRobot','soc','11/10 Hilton Garden Inn'],['Samsung Next','soc','11/10 (Luma 승인제)'],['Sieve','soc','11/10 Hestia'],['VESSL AI','soc','11/10 Edge Rooftop Bar'],['XDOF','soc','11/10 Hilton 앞'],['NVIDIA','soc','11/11 18:00–21:00 연구자 리셉션 · Bull and Bowl (RSVP)'],['Torc','soc','11/11 Austin Project Taco'],['X Square Robot','soc','11/11 애프터파티'],['Zeromatter','soc','11/11'],['AgileX Robotics','soc','11/12 JW 203–204호'],
+ ['NVIDIA','etc','부스 #404 (JW, 11/9–11) · V2D 챌린지 주최'],['Tesla','etc','11/10 기가팩토리 투어 12:00·15:00'],['Scale AI','etc','SPIN 아이 vs 로봇 대회 상금 후원'],['AIRoA','etc','UMI Arena 워크숍·대회 주최 · YUBI 데모'],['Toyota Research Institute','etc','Women & Allies Lunch 후원'],['Walden Robotics','etc','CEO Russ Tedrake Keynote II (11/10)']];
+var AB={talk:['토크','ab-talk'],rec:['채용','ab-rec'],soc:['소셜','ab-soc'],etc:['기타','ab-etc']};
+var coF='',coAct='';
+var tcount={};CO.forEach(function(c){tcount[c[1]]=(tcount[c[1]]||0)+1});
+var acts={};ACT.forEach(function(a){(acts[a[0]]=acts[a[0]]||[]).push(a)});
+var nAct=function(t){return Object.keys(acts).filter(function(k){return acts[k].some(function(a){return a[1]===t})}).length};
+$('#coStats').innerHTML=[['72','공식 스폰서','i-brief','var(--k-spot)','var(--k-spot-s)'],[nAct('rec')+'곳','채용 세션 (33회)','i-users','var(--k-oral)','var(--k-oral-s)'],['12곳','스폰서 토크 (각 10분)','i-mic','var(--k-key)','var(--k-key-s)'],[nAct('soc')+'곳','외부 소셜 이벤트','i-party','var(--k-social)','var(--k-social-s)']].map(function(s){return '<div class="card stat"><div class="ic" style="background:'+s[4]+';color:'+s[3]+'"><svg class="i"><use href="#'+s[2]+'"/></svg></div><div><b>'+s[0]+'</b><span>'+s[1]+'</span></div></div>'}).join('');
+$('#tierbar').innerHTML=['dia','pat','std','lite'].map(function(t){return '<i class="'+TIERS[t][1]+'" data-tier="'+t+'" style="flex:'+tcount[t]+';background:var(--tc)" title="'+TIERS[t][0]+' '+tcount[t]+'곳">'+TIERS[t][0]+' '+tcount[t]+'</i>'}).join('');
+var chipDefs=[['','전체'],['t:dia','Diamond'],['t:pat','Patron'],['t:std','Standard'],['t:lite','Lite'],['a:rec','채용 세션'],['a:talk','스폰서 토크'],['a:soc','소셜'],['a:etc','부스·대회·투어']];
+$('#coChips').innerHTML=chipDefs.map(function(c,i){return '<button class="chip'+(i?'':' on')+'" data-f="'+c[0]+'">'+c[1]+'</button>'}).join('');
+function setCo(f){coF=f;[].forEach.call($('#coChips').children,function(x){x.classList.toggle('on',x.dataset.f===f)});drawCo()}
+$('#coChips').onclick=function(e){var c=e.target.closest('.chip');if(c)setCo(c.dataset.f)};
+$('#tierbar').onclick=function(e){var t=e.target.closest('[data-tier]');if(t)setCo('t:'+t.dataset.tier)};
+$('#coQ').addEventListener('input',drawCo);
+function drawCo(){var q=$('#coQ').value.trim().toLowerCase();
+  var r=CO.filter(function(c){var a=acts[c[0]]||[];
+    if(q&&c[0].toLowerCase().indexOf(q)<0)return false;
+    if(coF[0]==='t'&&c[1]!==coF.slice(2))return false;
+    if(coF[0]==='a'&&!a.some(function(x){return x[1]===coF.slice(2)}))return false;
+    return true});
+  if(!coF&&!q)r=r.slice().sort(function(a,b){var o={dia:0,pat:1,std:2,lite:3,none:4};return o[a[1]]-o[b[1]]||((acts[b[0]]||[]).length-(acts[a[0]]||[]).length)});
+  $('#coCnt').textContent=r.length+'곳';
+  $('#cogrid').innerHTML=r.map(function(c){var a=(acts[c[0]]||[]).slice().sort(function(x,y){return 'talk rec etc soc'.indexOf(x[1])-'talk rec etc soc'.indexOf(y[1])});
+    var ini=c[0].replace(/[^A-Za-z0-9 ]/g,'').split(' ').filter(Boolean).map(function(w){return w[0]}).join('').slice(0,2).toUpperCase();
+    return '<div class="cocard '+TIERS[c[1]][1]+'"><div class="top"><div class="logo-i">'+ini+'</div><div><div class="nm">'+(c[2]?'<a href="https://'+c[2]+'" target="_blank" rel="noopener">'+esc(c[0])+'</a>':esc(c[0]))+'</div><div class="tier">'+TIERS[c[1]][0]+'</div></div></div>'+
+    (a.length?'<div class="acts">'+a.map(function(x){return '<div class="act"><span class="ab '+AB[x[1]][1]+'">'+AB[x[1]][0]+'</span><span>'+esc(x[2])+'</span></div>'}).join('')+'</div>':'<div class="small muted">현장 전시·부스 위주 (세부 일정 공개 없음)</div>')+'</div>'}).join('')}
+drawCo();
+
 // ---------- router ----------
-var PAGES=['home','schedule','papers','venues','keynotes','workshops','events','guide'];
+var PAGES=['home','schedule','papers','venues','keynotes','workshops','companies','events','guide'];
 function route(){var h=location.hash.slice(1);if(PAGES.indexOf(h)<0)h='home';
   PAGES.forEach(function(p){$('#pg-'+p).classList.toggle('on',p===h)});
   [].forEach.call(document.querySelectorAll('#tabs a'),function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+h)});
