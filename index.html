@@ -273,6 +273,32 @@ tr:last-child td{border-bottom:none}
 .steps div:first-child::before{left:50%}.steps div:last-child::before{right:50%}
 .kv{display:grid;grid-template-columns:72px 1fr;gap:4px 10px;font-size:.84rem;margin-top:6px}
 .kv dt{color:var(--muted)}.kv dd{margin:0}
+/* paper modal */
+button.tt{all:unset;cursor:pointer;font-weight:500;color:var(--fg);overflow-wrap:anywhere}
+button.tt:hover{color:var(--accent);text-decoration:underline}
+button.tt:focus-visible{outline:2px solid var(--accent);border-radius:4px}
+dialog#pm{border:none;padding:0;border-radius:18px;width:min(640px,calc(100vw - 32px));max-height:calc(100vh - 48px);background:var(--surface);color:var(--fg);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog#pm::backdrop{background:rgba(0,0,0,.5)}
+#pm .ph{position:sticky;top:0;background:var(--surface);padding:18px 20px 12px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;z-index:1}
+#pm .ph h3{margin:0;font-size:1.08rem;line-height:1.4;flex:1}
+#pm .x{flex:none;border:none;background:var(--soft);color:var(--fg);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;line-height:1}
+#pm .pb{padding:14px 20px 20px;display:flex;flex-direction:column;gap:14px}
+#pm .tags{display:flex;flex-wrap:wrap;gap:6px}
+#pm .sum{background:var(--soft);border-radius:12px;padding:14px 16px;font-size:.95rem;line-height:1.75}
+#pm .sum h4{margin:0 0 6px;font-size:.82rem;color:var(--muted);font-weight:700}
+#pm .warn{font-size:.78rem;color:var(--muted);margin-top:8px}
+#pm .info{display:grid;grid-template-columns:64px 1fr;gap:6px 12px;font-size:.88rem}
+#pm .info dt{color:var(--muted)}#pm .info dd{margin:0}
+#pm .acts2{display:flex;flex-wrap:wrap;gap:8px}
+#pm .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);font:inherit;font-size:.88rem;font-weight:500;cursor:pointer;text-decoration:none}
+#pm .btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+#pm .btn.on{color:var(--v-fare);border-color:var(--v-fare)}
+#pm .nav{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:640px){
+  dialog#pm{width:100vw;max-width:100vw;max-height:88vh;margin:auto 0 0;border-radius:18px 18px 0 0}
+  #pm .ph{padding:16px 16px 10px}#pm .pb{padding:12px 16px 20px}
+  #pm .info{grid-template-columns:56px 1fr}
+}
 /* glossary */
 .gl{border-bottom:1.5px dotted var(--accent);cursor:help;text-decoration:none}
 .gl:hover,.gl.on{background:var(--accent-soft);border-radius:3px}
@@ -471,7 +497,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
 <!-- ================= PAPERS ================= -->
 <section class="pg" id="pg-papers">
   <h2><span class="hi"><svg class="i"><use href="#i-doc"/></svg></span>채택 논문 목록</h2>
-  <p class="lead">채택 논문 687편을 모두 담았고, 논문마다 <b>발표 장소(건물·층·홀·보드 번호)</b>를 함께 적었습니다. 제목을 누르면 OpenReview로 가고, ☆를 누르면 관심 논문으로 저장됩니다.</p>
+  <p class="lead">채택 논문 687편을 모두 담았고, 논문마다 <b>발표 장소(건물·층·홀·보드 번호)</b>를 함께 적었습니다. 제목을 누르면 한국어 요약과 OpenReview 링크가 담긴 창이 뜨고, ☆를 누르면 관심 논문으로 저장됩니다.</p>
 
   <div class="grid g2">
     <div class="card"><h4><svg class="i"><use href="#i-layers"/></svg>주제별 논문 수 <span class="small muted" style="font-weight:400">(누르면 그 주제만 보기)</span></h4><div class="chart" id="topicChart"></div></div>
@@ -765,12 +791,14 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
 </main>
 
 <div id="lb" role="dialog" aria-label="도면 확대"><img alt=""></div>
+<dialog id="pm" aria-labelledby="pmTitle"><div class="ph"><h3 id="pmTitle"></h3><button class="x" id="pmX" aria-label="닫기">✕</button></div><div class="pb" id="pmBody"></div></dialog>
 
 <footer><div class="wrap">
   비공식 한국어 정리 페이지입니다. 출처: <a href="https://2026.corl.org/" target="_blank" rel="noopener">2026.corl.org</a> 및 공식 도면 (2026-11-07 기준). 바뀐 내용이 있을 수 있으니 공식 사이트와 CoRL 앱을 먼저 확인하세요.
 </div></footer>
 
 <script src="papers.js"></script>
+<script src="summaries.js"></script>
 <script>
 (function(){
 function $(s,r){return (r||document).querySelector(s)}
@@ -988,7 +1016,7 @@ var P=window.PAPERS||[];
 var AWARD=['SuperMimic','Play2Perfect','GRAIL: Generating Humanoid','RoboTTT','What Are We Actually Benchmarking','Long-Horizon Multi-Object Rearrangement via Distilled'];
 P.forEach(function(p){p.aw=AWARD.some(function(a){return p.t.indexOf(a)===0});p.lt=p.t.toLowerCase();p.ls=p.no<=116});
 var TOPICS={vla:'VLA·파운데이션',wm:'월드 모델',hum:'휴머노이드·보행',dex:'덱스터러스·파지',tac:'촉각·힘·접촉',rl:'강화학습',il:'모방학습',sim:'시뮬레이션·Sim2Real',nav:'내비게이션·주행·드론',human:'사람·HRI',eval:'벤치마크·데이터',deform:'천·줄 같은 변형 물체',perc:'3D·인식',plan:'계획·추론',safe:'안전·강건성'};
-var stars=store.get('corl26-stars',{});var topic='';var shown=60;
+var stars=store.get('corl26-stars',{});var topic='';var shown=60;var lastList=[];
 Object.keys(SESS).sort(function(a,b){return a[0]===b[0]?a[1]-b[1]:(a[0]==='O'?-1:1)}).forEach(function(k){var o=el('option');o.value=k;o.textContent=k+' · '+SESS[k][1];$('#fSess').appendChild(o)});
 var chipAll=el('button','chip on','전체 주제');chipAll.dataset.t='';$('#chips').appendChild(chipAll);
 Object.keys(TOPICS).forEach(function(k){var c=el('button','chip',TOPICS[k]);c.dataset.t=k;$('#chips').appendChild(c)});
@@ -1020,6 +1048,7 @@ function render(){
     if(ty==='star'&&!stars[p.id])return false;
     return true});
   if(so==='t')r=r.slice().sort(function(a,b){return a.lt<b.lt?-1:1});
+  lastList=r.map(function(p){return p.id});
   var cntTxt=function(){return r.length+'편'+(Object.keys(stars).length?' · ★ 관심 논문 '+Object.keys(stars).length+'편':'')};
   $('#cnt').textContent=cntTxt();
   var ul=$('#plist');ul.innerHTML='';var frag=document.createDocumentFragment();
@@ -1029,8 +1058,8 @@ function render(){
     p.s.forEach(function(s){var S=SESS[s];tags+='<span class="pill '+(s[0]==='O'?'p-oral':'p-spot')+'" title="'+esc(S[1])+'">'+(s[0]==='O'?'Oral ':'Spotlight ')+s+' · '+S[2]+' · Hilton 6F</span>'});
     tags+='<span class="where"><span class="vchip v-jw" style="color:var(--fg)">JW '+(p.ls?'3층 Lone Star':'2층 Griffin')+'</span> · 보드 #'+p.no+' · '+PS[p.ps]+'</span>';
     p.k.slice(0,3).forEach(function(k){tags+='<span class="pill p-misc">'+TOPICS[k]+'</span>'});
-    li.innerHTML='<div class="no'+(p.ls?' ls':'')+'"><b>#'+p.no+'</b>P'+p.ps+' · '+(p.ls?'3F':'2F')+'</div><div class="bd"><a class="tt" href="https://openreview.net/forum?id='+encodeURIComponent(p.id)+'" target="_blank" rel="noopener">'+esc(p.t)+'</a><div class="mt">'+tags+'</div></div>';
-    var b=el('button','star'+(stars[p.id]?' on':''),stars[p.id]?'★':'☆');b.title='관심 논문';b.setAttribute('aria-label','관심 논문 표시');
+    li.innerHTML='<div class="no'+(p.ls?' ls':'')+'"><b>#'+p.no+'</b>P'+p.ps+' · '+(p.ls?'3F':'2F')+'</div><div class="bd"><button class="tt" data-pid="'+p.id+'">'+esc(p.t)+'</button><div class="mt">'+tags+'</div></div>';
+    var b=el('button','star'+(stars[p.id]?' on':''),stars[p.id]?'★':'☆');b.dataset.pid=p.id;b.title='관심 논문';b.setAttribute('aria-label','관심 논문 표시');
     b.onclick=function(){if(stars[p.id])delete stars[p.id];else stars[p.id]=1;store.set('corl26-stars',stars);b.classList.toggle('on');b.textContent=stars[p.id]?'★':'☆';$('#cnt').textContent=cntTxt()};
     li.appendChild(b);frag.appendChild(li)});
   ul.appendChild(frag);
@@ -1167,6 +1196,36 @@ function drawCo(){var q=$('#coQ').value.trim().toLowerCase();
     return '<div class="cocard '+TIERS[c[1]][1]+'"><div class="top"><div class="logo-i">'+ini+'</div><div><div class="nm">'+(c[2]?'<a href="https://'+c[2]+'" target="_blank" rel="noopener">'+esc(c[0])+'</a>':esc(c[0]))+'</div><div class="tier">'+TIERS[c[1]][0]+'</div></div></div>'+
     (a.length?'<div class="acts">'+a.map(function(x){return '<div class="act"><span class="ab '+AB[x[1]][1]+'">'+AB[x[1]][0]+'</span><span>'+esc(x[2])+'</span></div>'}).join('')+'</div>':'<div class="small muted">따로 공개된 일정 없음 (현장 부스에서 확인)</div>')+'</div>'}).join('')}
 drawCo();
+
+// ---------- paper modal ----------
+var SUM=window.SUMMARY||{};var PBYID={};P.forEach(function(p){PBYID[p.id]=p});var curList=[],curIdx=-1;
+function openPaper(id,list){var p=PBYID[id];if(!p)return;curList=list||curList;curIdx=curList.indexOf(id);
+  var d=SUM[id]||{};
+  $('#pmTitle').textContent=p.t;
+  var tags='';if(p.aw)tags+='<span class="pill p-award">🏆 Best Paper 후보</span>';
+  p.s.forEach(function(s){tags+='<span class="pill '+(s[0]==='O'?'p-oral':'p-spot')+'">'+(s[0]==='O'?'Oral ':'Spotlight ')+s+'</span>'});
+  p.k.forEach(function(k){tags+='<span class="pill p-misc">'+TOPICS[k]+'</span>'});
+  var when='<dt>포스터</dt><dd><span class="vchip v-jw" style="color:var(--fg);font-weight:700">JW Marriott</span> '+(p.ls?'3층 Lone Star 볼룸':'2층 Griffin 홀')+' · <b>보드 #'+p.no+'</b><br>포스터 세션 '+p.ps+' · '+PS[p.ps]+'</dd>';
+  p.s.forEach(function(s){var S=SESS[s];when+='<dt>'+(s[0]==='O'?'Oral':'Spotlight')+'</dt><dd><span class="vchip v-hilton" style="color:var(--fg);font-weight:700">Hilton</span> 6층 메인 무대 · '+s+' · '+S[2]+'<br><span class="muted small">'+esc(S[1])+' (좌장 '+esc(S[3])+')</span></dd>'});
+  if(d.a&&d.a.length)when+='<dt>저자</dt><dd class="small">'+esc(d.a.slice(0,8).join(', '))+(d.a.length>8?' 외 '+(d.a.length-8)+'명':'')+'</dd>';
+  var sum=d.s?'<div class="sum"><h4>한국어 요약</h4>'+esc(d.s)+(d.src==='title'?'<div class="warn">※ 공개된 초록을 찾지 못해 제목만 보고 쓴 짧은 소개입니다. 정확한 내용은 OpenReview에서 확인하세요.</div>':'<div class="warn">※ arXiv에 공개된 초록을 바탕으로 정리했습니다.</div>')+'</div>':'<div class="sum"><h4>한국어 요약</h4>요약을 준비 중입니다.</div>';
+  var st=!!stars[id];
+  $('#pmBody').innerHTML='<div class="tags">'+tags+'</div>'+sum+'<dl class="info">'+when+'</dl>'+
+    '<div class="acts2"><a class="btn pri" href="https://openreview.net/forum?id='+encodeURIComponent(id)+'" target="_blank" rel="noopener">OpenReview에서 보기 ↗</a>'+
+    (d.x?'<a class="btn" href="https://arxiv.org/abs/'+encodeURIComponent(d.x)+'" target="_blank" rel="noopener">arXiv ↗</a>':'')+
+    '<button class="btn'+(st?' on':'')+'" id="pmStar">'+(st?'★ 관심 논문':'☆ 관심 논문에 추가')+'</button></div>'+
+    '<div class="nav"><button class="btn" id="pmPrev"'+(curIdx>0?'':' disabled style="opacity:.4"')+'>← 이전</button><span class="small muted" style="align-self:center">'+(curIdx+1)+' / '+curList.length+'</span><button class="btn" id="pmNext"'+(curIdx>-1&&curIdx<curList.length-1?'':' disabled style="opacity:.4"')+'>다음 →</button></div>';
+  $('#pmStar').onclick=function(){if(stars[id])delete stars[id];else stars[id]=1;store.set('corl26-stars',stars);var on=!!stars[id];this.classList.toggle('on',on);this.textContent=on?'★ 관심 논문':'☆ 관심 논문에 추가';
+    var lb=document.querySelector('#plist .star[data-pid="'+id+'"]');if(lb){lb.classList.toggle('on',on);lb.textContent=on?'★':'☆'}};
+  $('#pmPrev').onclick=function(){if(curIdx>0)openPaper(curList[curIdx-1])};
+  $('#pmNext').onclick=function(){if(curIdx<curList.length-1)openPaper(curList[curIdx+1])};
+  var dlg=$('#pm');if(!dlg.open){if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')}
+  $('#pmBody').parentNode.scrollTop=0;annotate($('#pmBody'))}
+$('#pmX').onclick=function(){$('#pm').close()};
+$('#pm').addEventListener('click',function(e){if(e.target===this)this.close()});
+$('#pm').addEventListener('close',hideTip);
+document.addEventListener('keydown',function(e){if(!$('#pm').open)return;if(e.key==='ArrowRight'&&$('#pmNext'))$('#pmNext').click();if(e.key==='ArrowLeft'&&$('#pmPrev'))$('#pmPrev').click()});
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button.tt[data-pid]');if(!b)return;openPaper(b.dataset.pid,lastList)});
 
 // ---------- glossary ----------
 // [표시 이름, 찾을 패턴(정규식 문자열), 설명, 분류]
