@@ -717,10 +717,10 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   </div>
   <div class="xbar xsub" id="xsub" hidden>
     <button class="chip on" data-s="">쇼핑 전체</button>
-    <button class="chip" data-s="mart">🛒 마트</button>
+    <button class="chip" data-s="mart">🛒 마트·편의점</button>
     <button class="chip" data-s="elec">💻 전자제품</button>
     <button class="chip" data-s="cloth">👢 옷·잡화</button>
-    <button class="chip" data-s="mall">🛍 쇼핑몰·아웃렛</button>
+    <button class="chip" data-s="street">🏙 쇼핑 거리</button>
     <button class="chip" data-s="gift">📚 책·음반·기념품</button>
   </div>
   <div id="xmap" role="region" aria-label="관광지 지도"></div>
@@ -1392,7 +1392,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 
 // ---------- explore ----------
 var XC={sight:['관광지','#2a78d6'],food:['식당','#eb6834'],bar:['술집','#6250d6'],shop:['쇼핑','#1baf7a']};
-var XS={mart:'마트',elec:'전자제품',cloth:'옷·잡화',mall:'쇼핑몰·아웃렛',gift:'책·음반·기념품'};var xsub='';
+var XS={mart:'마트·편의점',elec:'전자제품',cloth:'옷·잡화',street:'쇼핑 거리',gift:'책·음반·기념품'};var xsub='';
 var XPL=(window.PLACES||[]).map(function(p,i){p.i=i+1;return p});
 var JW=[30.2647,-97.7426],HOTEL=[30.2832,-97.7454];
 function km(a,b){var R=6371,r=Math.PI/180,dl=(b[0]-a[0])*r,dn=(b[1]-a[1])*r,x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dn/2)*Math.sin(dn/2);return 2*R*Math.asin(Math.sqrt(x))}

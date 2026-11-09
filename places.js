@@ -1,5 +1,5 @@
 // 오스틴 관광지·식당·술집·쇼핑 (좌표는 대략적인 위치)
-// c: 카테고리 하나 [sight|food|bar|shop], sub: 쇼핑 세부 [mart|elec|cloth|mall|gift], late: 자정 넘어서도 영업, h: 영업시간(확인된 것만)
+// c: 카테고리 하나 [sight|food|bar|shop], sub: 쇼핑 세부 [mart|elec|cloth|street|gift], late: 자정 넘어서도 영업, h: 영업시간(확인된 것만)
 window.PLACES=[
  // ---------- 관광지 ----------
  {n:'텍사스 주의사당',en:'Texas State Capitol',c:['sight'],ll:[30.2747,-97.7404],a:'1100 Congress Ave',d:'오스틴의 대표 랜드마크. 무료로 들어가 볼 수 있고 숙소에서 가까움.'},
@@ -14,16 +14,13 @@ window.PLACES=[
  {n:'컨티넨털 클럽',en:'The Continental Club',c:['sight'],ll:[30.2502,-97.7494],a:'1315 S Congress Ave',d:'SoCo에 있는 오래된 라이브 음악 클럽.',late:1,h:'공연 따라 새벽 2시 무렵까지'},
  {n:'질커 공원',en:'Zilker Park',c:['sight'],ll:[30.2669,-97.7729],a:'2100 Barton Springs Rd',d:'오스틴에서 가장 큰 도심 공원.'},
  {n:'바튼 스프링스 풀',en:'Barton Springs Pool',c:['sight'],ll:[30.2641,-97.7713],a:'2201 Barton Springs Rd',d:'1년 내내 수온이 20도 안팎인 천연 샘물 수영장.'},
- {n:'마운트 보넬',en:'Mount Bonnell',c:['sight'],ll:[30.3210,-97.7734],a:'3800 Mt Bonnell Rd',d:'강과 시내가 내려다보이는 언덕 전망대. 노을 명소.'},
  // ---------- 식당 ----------
  {n:'프랭클린 바비큐',en:'Franklin Barbecue',c:['food'],ll:[30.2701,-97.7313],a:'900 E 11th St',d:'오스틴에서 가장 유명한 브리스킷 집. 줄이 몇 시간씩 길어짐.'},
  {n:'테리 블랙스 바비큐 (오스틴)',en:"Terry Black's BBQ Austin",c:['food'],ll:[30.2594,-97.7547],a:'1003 Barton Springs Rd',d:'줄이 비교적 짧은 인기 바비큐 집.'},
- {n:'테리 블랙스 바비큐 (록하트 본점)',en:"Terry Black's BBQ Lockhart",c:['food'],ll:[29.8933,-97.6714],a:'900 N Colorado St, Lockhart',d:'텍사스 바비큐의 수도로 불리는 록하트에 있는 본점. 오스틴에서 차로 약 50분.',h:'일–목 10:30–20:00 · 금–토 10:30–21:00',tel:'+1 (512) 668-4617'},
  {n:'la Barbecue',en:'la Barbecue',c:['food'],ll:[30.2560,-97.7171],a:'2401 E Cesar Chavez St',d:'현지인이 많이 추천하는 바비큐 집.'},
  {n:'Veracruz All Natural',en:'Veracruz All Natural',c:['food'],ll:[30.2575,-97.7271],a:'1704 E Cesar Chavez St',d:'미가스 타코로 유명한 멕시칸 타코 집.'},
  {n:"Torchy's Tacos (SoCo)",en:"Torchy's Tacos South Congress",c:['food'],ll:[30.2465,-97.7510],a:'1822 S Congress Ave',d:'오스틴에서 시작한 타코 체인. SoCo 지점.'},
  {n:'Juan in a Million',en:'Juan in a Million',c:['food'],ll:[30.2558,-97.7198],a:'2300 E Cesar Chavez St',d:'큼직한 아침 타코로 유명한 집.'},
- {n:"Matt's El Rancho",en:"Matt's El Rancho",c:['food'],ll:[30.2459,-97.7808],a:'2613 S Lamar Blvd',d:'오래된 텍스멕스 노포.'},
  {n:'Uchi',en:'Uchi Austin',c:['food'],ll:[30.2577,-97.7597],a:'801 S Lamar Blvd',d:'오스틴 대표 고급 스시·퓨전 일식. 예약 추천.'},
  {n:'Kerbey Lane Cafe',en:'Kerbey Lane Cafe',c:['food'],ll:[30.2908,-97.7418],a:'2606 Guadalupe St (UT 지점)',d:'팬케이크와 퀘소로 유명한 캐주얼 식당. 숙소 근처. 시내에 지점이 여러 곳.'},
  {n:'Home Slice Pizza',en:'Home Slice Pizza',c:['food'],ll:[30.2493,-97.7496],a:'1415 S Congress Ave',d:'SoCo에 있는 뉴욕식 피자 집.'},
@@ -38,28 +35,45 @@ window.PLACES=[
  {n:'Firehouse Lounge',en:'Firehouse Lounge Austin',c:['bar'],ll:[30.2682,-97.7416],a:'605 Brazos St',d:'호스텔 책장 뒤에 숨은 스피크이지 바.',late:1,h:'보통 새벽 2시까지'},
  {n:'Nido (The Loren 호텔 루프탑)',en:'Nido The Loren Austin',c:['bar'],ll:[30.2599,-97.7578],a:'1211 W Riverside Dr',d:'레이디 버드 레이크와 시내 전망이 좋은 루프탑 바.'},
  {n:'The Driskill Bar',en:'The Driskill Bar',c:['bar'],ll:[30.2681,-97.7421],a:'604 Brazos St',d:'오스틴에서 가장 오래된 호텔의 클래식한 바. 피아노 연주.'},
- // ---------- 쇼핑 ----------
- {n:"Allen's Boots",en:"Allen's Boots",c:['shop'],sub:'cloth',ll:[30.2484,-97.7505],a:'1522 S Congress Ave',d:'카우보이 부츠가 벽을 가득 채운 대형 부츠 가게.'},
- {n:'University Co-op',en:'University Co-op',c:['shop'],sub:'gift',ll:[30.2867,-97.7421],a:'2246 Guadalupe St',d:'UT 롱혼 굿즈를 파는 대학 기념품점.'},
- {n:'BookPeople',en:'BookPeople Austin',c:['shop'],sub:'gift',ll:[30.2700,-97.7535],a:'603 N Lamar Blvd',d:'텍사스 최대 독립 서점.'},
+ // ---------- 쇼핑: 마트·편의점 ----------
+ {n:'7-Eleven (Congress 613)',en:'7-Eleven 613 Congress Ave',c:['shop'],sub:'mart',ll:[30.2690,-97.7427],a:'613 Congress Ave',d:'편의점. 학회장(JW·Hilton) 사이 Congress Ave에 있음.'},
+ {n:'7-Eleven (Congress 823)',en:'7-Eleven 823 Congress Ave',c:['shop'],sub:'mart',ll:[30.2712,-97.7420],a:'823 Congress Ave',d:'편의점. 주의사당 가는 길.'},
+ {n:'7-Eleven (MLK)',en:'7-Eleven 411 W Martin Luther King Jr Blvd',c:['shop'],sub:'mart',ll:[30.2817,-97.7433],a:'411 W Martin Luther King Jr Blvd',d:'편의점. 숙소에서 가장 가까운 편의점 중 하나.'},
+ {n:'7-Eleven (Guadalupe 2330)',en:'7-Eleven 2330 Guadalupe St',c:['shop'],sub:'mart',ll:[30.2878,-97.7420],a:'2330 Guadalupe St',d:'편의점. UT 앞 Guadalupe 거리.'},
+ {n:'7-Eleven (Guadalupe 2600)',en:'7-Eleven 2600 Guadalupe St',c:['shop'],sub:'mart',ll:[30.2905,-97.7419],a:'2600 Guadalupe St',d:'편의점. UT 앞 Guadalupe 거리.'},
+ {n:'CVS (Congress)',en:'CVS Pharmacy 500 Congress Ave',c:['shop'],sub:'mart',ll:[30.2678,-97.7428],a:'500 Congress Ave',d:'약국 겸 편의점. 상비약·세면도구·간식. 학회장에서 가장 가까운 약국.'},
+ {n:'CVS (Guadalupe 2222)',en:'CVS Pharmacy 2222 Guadalupe St',c:['shop'],sub:'mart',ll:[30.2864,-97.7419],a:'2222 Guadalupe St',d:'약국 겸 편의점. 숙소에서 걸어갈 수 있음.'},
+ {n:'CVS (Guadalupe 2927)',en:'CVS Pharmacy 2927 Guadalupe St',c:['shop'],sub:'mart',ll:[30.2948,-97.7417],a:'2927 Guadalupe St',d:'약국 겸 편의점.'},
+ {n:'Royal Blue Grocery (Brazos)',en:'Royal Blue Grocery 301 Brazos St',c:['shop'],sub:'mart',ll:[30.2652,-97.7419],a:'301 Brazos St',d:'다운타운 소형 식료품점. 간식·음료·와인·샌드위치. JW Marriott 바로 근처.'},
+ {n:'Royal Blue Grocery (3rd St)',en:'Royal Blue Grocery 241 W 3rd St',c:['shop'],sub:'mart',ll:[30.2660,-97.7452],a:'241 W 3rd St',d:'다운타운 소형 식료품점. 2nd Street 쪽.'},
+ {n:'Target (UT 캠퍼스점)',en:'Target Austin UT Campus',c:['shop'],sub:'mart',ll:[30.2833,-97.7419],a:'2025 Guadalupe St',d:'생필품·간식·충전기 등 웬만한 건 다 있는 대형 마트. 안에 CVS 약국도 있음. 숙소에서 걸어갈 수 있음.'},
+ {n:"Trader Joe's (Seaholm)",en:"Trader Joe's Seaholm",c:['shop'],sub:'mart',ll:[30.2683,-97.7521],a:'211 Walter Seaholm Dr',d:'자체 브랜드 간식·견과류·에코백이 인기인 식료품점. 기념품 사기에도 좋음.'},
+ {n:'Whole Foods 본점',en:'Whole Foods Market Lamar',c:['shop'],sub:'mart',ll:[30.2706,-97.7533],a:'525 N Lamar Blvd',d:'오스틴에서 시작한 Whole Foods의 본점 매장. 델리에서 간단한 식사도 가능.'},
+ {n:'Wheatsville Food Co-op',en:'Wheatsville Food Co-op Guadalupe',c:['shop'],sub:'mart',ll:[30.2970,-97.7415],a:'3101 Guadalupe St',d:'지역 협동조합 식료품점. 유기농·로컬 식품, 델리.'},
+ {n:'Central Market (North Lamar)',en:'Central Market North Lamar',c:['shop'],sub:'mart',ll:[30.3073,-97.7405],a:'4001 N Lamar Blvd',d:'H-E-B가 운영하는 고급 식료품점. 텍사스 한정 소스·과자가 많음.'},
+ // ---------- 쇼핑: 전자제품 ----------
+ {n:'AT&T Store (W 5th)',en:'AT&T Store 1011 W 5th St',c:['shop'],sub:'elec',ll:[30.2702,-97.7527],a:'1011 W 5th St',d:'휴대폰 매장. 충전기·케이블·케이스 등 액세서리 구매 가능.'},
+ {n:'T-Mobile (Triangle)',en:'T-Mobile 4700 W Guadalupe St',c:['shop'],sub:'elec',ll:[30.3160,-97.7395],a:'4700 W Guadalupe St',d:'휴대폰 매장. 충전기·케이블·유심.'},
+ // ---------- 쇼핑: 옷·잡화 ----------
+ {n:"Allen's Boots",en:"Allen's Boots",c:['shop'],sub:'cloth',ll:[30.2484,-97.7505],a:'1522 S Congress Ave',d:'1977년부터 운영한 카우보이 부츠·웨스턴 의류 가게.'},
+ {n:'Tecovas (SoCo)',en:'Tecovas South Congress',c:['shop'],sub:'cloth',ll:[30.2498,-97.7497],a:'S Congress Ave',d:'오스틴에서 시작한 카우보이 부츠 브랜드의 플래그십. 둘러보며 음료도 마실 수 있음.'},
+ {n:'STAG Provisions',en:'STAG Provisions for Men',c:['shop'],sub:'cloth',ll:[30.2497,-97.7502],a:'1423 S Congress Ave',d:'웨스턴 감성 남성복 가게. "Willie for President" 벽화로 유명.'},
+ {n:'Service Menswear',en:'Service Menswear',c:['shop'],sub:'cloth',ll:[30.2500,-97.7489],a:'1400 S Congress Ave',d:'남성복 편집숍.'},
+ {n:'Kendra Scott (SoCo)',en:'Kendra Scott South Congress',c:['shop'],sub:'cloth',ll:[30.2469,-97.7488],a:'1701 S Congress Ave',d:'오스틴 출신 주얼리 브랜드 매장.'},
+ {n:'Prototype Vintage',en:'Prototype Vintage Design',c:['shop'],sub:'cloth',ll:[30.2470,-97.7505],a:'1700 S Congress Ave',d:'빈티지 의류·소품 가게.'},
+ {n:'Second Street Boutique',en:'Second Street Boutique',c:['shop'],sub:'cloth',ll:[30.2652,-97.7448],a:'201 W 2nd St',d:'2nd Street 거리의 의류·선물 부티크. JW Marriott에서 한 블록.'},
+ {n:'Buffalo Exchange',en:'Buffalo Exchange Austin',c:['shop'],sub:'cloth',ll:[30.2945,-97.7419],a:'2904 Guadalupe St',d:'UT 근처 빈티지·중고 의류 가게.'},
+ // ---------- 쇼핑: 쇼핑 거리 ----------
+ {n:'2nd Street District',en:'2nd Street District Austin',c:['shop'],sub:'street',ll:[30.2652,-97.7455],a:'W 2nd St (Congress Ave–San Antonio St)',d:'JW Marriott 바로 옆 쇼핑 거리. 부티크·의류·잡화 가게와 카페가 모여 있음.'},
+ {n:'The Drag (Guadalupe St)',en:'The Drag Guadalupe Street',c:['shop'],sub:'street',ll:[30.2875,-97.7420],a:'Guadalupe St (MLK–29th St)',d:'UT 정문 앞 거리. 학생 대상 가게·편의점·약국·식당이 줄지어 있음. 숙소에서 걸어감.'},
+ // ---------- 쇼핑: 책·음반·기념품 ----------
+ {n:'University Co-op',en:'University Co-op',c:['shop'],sub:'gift',ll:[30.2868,-97.7420],a:'2246 Guadalupe St',d:'UT 롱혼 굿즈를 파는 대학 기념품점.'},
+ {n:'BookPeople',en:'BookPeople Austin',c:['shop'],sub:'gift',ll:[30.2700,-97.7535],a:'603 N Lamar Blvd',d:'텍사스 최대 독립 서점. 오스틴 굿즈도 많음.'},
  {n:'Waterloo Records',en:'Waterloo Records',c:['shop'],sub:'gift',ll:[30.2695,-97.7530],a:'600 N Lamar Blvd',d:'오스틴 음악 도시를 대표하는 레코드 가게.'},
- {n:'Whole Foods 본점',en:'Whole Foods Market Lamar',c:['shop'],sub:'mart',ll:[30.2706,-97.7533],a:'525 N Lamar Blvd',d:'오스틴에서 시작한 Whole Foods의 본점 매장. 간단한 식사도 가능.'},
- // 마트
- {n:'Target (UT 캠퍼스점)',en:'Target Austin Campus',c:['shop'],sub:'mart',ll:[30.2833,-97.7419],a:'2025 Guadalupe St',d:'생필품·간식·세면도구를 한 번에 살 수 있는 대형 마트. 숙소에서 걸어갈 수 있는 거리.'},
- {n:"Trader Joe's (Seaholm)",en:"Trader Joe's Seaholm",c:['shop'],sub:'mart',ll:[30.2683,-97.7521],a:'211 Seaholm Dr',d:'자체 브랜드 간식·견과류·에코백이 인기인 식료품점. 기념품 사기에도 좋음.'},
- {n:'H-E-B (Mueller)',en:'H-E-B Mueller',c:['shop'],sub:'mart',ll:[30.3021,-97.7027],a:'1801 E 51st St',d:'텍사스 대표 슈퍼마켓 체인. 텍사스 한정 소스·과자·H-E-B 굿즈가 많음.'},
- {n:'Central Market (North Lamar)',en:'Central Market North Lamar',c:['shop'],sub:'mart',ll:[30.3073,-97.7405],a:'4001 N Lamar Blvd',d:'H-E-B가 운영하는 고급 식료품점. 델리·베이커리·와인 코너가 큼.'},
- // 전자제품
- {n:'Apple The Domain',en:'Apple The Domain',c:['shop'],sub:'elec',ll:[30.4023,-97.7255],a:'11410 Century Oaks Terrace',d:'오스틴 북쪽 쇼핑 지구 The Domain에 있는 애플 스토어.'},
- {n:'Apple Barton Creek',en:'Apple Barton Creek',c:['shop'],sub:'elec',ll:[30.2570,-97.8083],a:'2901 S Capital of Texas Hwy',d:'Barton Creek Square 몰 안의 애플 스토어. 시내에서 가장 가까운 애플 매장.'},
- {n:'Best Buy (Gateway)',en:'Best Buy Gateway Austin',c:['shop'],sub:'elec',ll:[30.3920,-97.7477],a:'9607 Research Blvd',d:'노트북·카메라·충전기·케이블 등 전자제품 전문 대형 매장.'},
- // 옷·잡화
- {n:'Tecovas (SoCo)',en:'Tecovas South Congress',c:['shop'],sub:'cloth',ll:[30.2498,-97.7497],a:'1333 S Congress Ave',d:'오스틴에서 시작한 카우보이 부츠·웨스턴 의류 브랜드 매장.'},
- {n:'Kendra Scott (SoCo)',en:'Kendra Scott South Congress',c:['shop'],sub:'cloth',ll:[30.2495,-97.7488],a:'1400 S Congress Ave',d:'오스틴 출신 주얼리 브랜드의 플래그십 매장.'},
- {n:'Buffalo Exchange',en:'Buffalo Exchange Austin',c:['shop'],sub:'cloth',ll:[30.2955,-97.7419],a:'2904 Guadalupe St',d:'UT 근처 빈티지·중고 의류 가게.'},
- // 쇼핑몰·아웃렛
- {n:'The Domain',en:'The Domain Austin',c:['shop'],sub:'mall',ll:[30.4021,-97.7253],a:'11410 Century Oaks Terrace',d:'오스틴 북쪽의 야외형 쇼핑몰. 의류·명품·레스토랑이 모여 있음. 시내에서 차로 약 20분.'},
- {n:'Barton Creek Square',en:'Barton Creek Square Mall',c:['shop'],sub:'mall',ll:[30.2566,-97.8081],a:'2901 S Capital of Texas Hwy',d:'시내 서쪽의 실내 쇼핑몰. 백화점과 브랜드 매장이 모여 있음.'},
- {n:'San Marcos Premium Outlets',en:'San Marcos Premium Outlets',c:['shop'],sub:'mall',ll:[29.8279,-97.9837],a:'3939 S IH-35, San Marcos',d:'오스틴 남쪽의 대형 아웃렛. 차로 약 40분.'},
- {n:'Round Rock Premium Outlets',en:'Round Rock Premium Outlets',c:['shop'],sub:'mall',ll:[30.5652,-97.6886],a:'4401 N IH-35, Round Rock',d:'오스틴 북쪽의 아웃렛. 차로 약 30분.'}
+ {n:'Wild About Music',en:'Wild About Music Austin',c:['shop'],sub:'gift',ll:[30.2691,-97.7427],a:'615 Congress Ave',d:'음악 테마 의류·선물 가게. 학회장 사이 Congress Ave.'},
+ {n:'Lucky Lizard Curios & Gifts',en:'Lucky Lizard Curios Gifts',c:['shop'],sub:'gift',ll:[30.2673,-97.7390],a:'412 E 6th St',d:'6번가의 작은 텍사스·오스틴 기념품 가게. Hilton 바로 근처.',h:'매일 10:00–24:00 (출처 1곳)'},
+ {n:'Tesoros Trading Co.',en:'Tesoros Trading Company',c:['shop'],sub:'gift',ll:[30.2490,-97.7495],a:'1500 S Congress Ave',d:'중남미 민예품·잡화 가게.'},
+ {n:'South Congress Books',en:'South Congress Books',c:['shop'],sub:'gift',ll:[30.2477,-97.7505],a:'1608 S Congress Ave',d:'희귀본·중고책·LP 가게.'},
+ {n:'Big Top Candy Shop',en:'Big Top Candy Shop',c:['shop'],sub:'gift',ll:[30.2467,-97.7490],a:'1706 S Congress Ave',d:'옛날 미국 사탕·과자 가게. 선물용으로 좋음.'},
+ {n:'Prima Dora',en:'Prima Dora South Congress',c:['shop'],sub:'gift',ll:[30.2469,-97.7503],a:'1700 S Congress Ave',d:'현지 작가가 만든 오스틴 테마 마그넷·머그·옷 가게.'}
 ];
