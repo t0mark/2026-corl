@@ -1,17 +1,17 @@
 // 오스틴 관광지·식당·술집·쇼핑 (좌표는 대략적인 위치)
-// c: 카테고리 [sight, food, bar, shop] (첫 번째가 지도 색), late: 자정 넘어서도 영업, h: 영업시간(확인된 것만)
+// c: 카테고리 하나 [sight|food|bar|shop], late: 자정 넘어서도 영업, h: 영업시간(확인된 것만)
 window.PLACES=[
  // ---------- 관광지 ----------
  {n:'텍사스 주의사당',en:'Texas State Capitol',c:['sight'],ll:[30.2747,-97.7404],a:'1100 Congress Ave',d:'오스틴의 대표 랜드마크. 무료로 들어가 볼 수 있고 숙소에서 가까움.'},
  {n:'UT 타워',en:'UT Tower (Main Building)',c:['sight'],ll:[30.2862,-97.7394],a:'110 Inner Campus Dr',d:'텍사스대 상징인 시계탑. 캠퍼스 산책 코스로 좋음.'},
  {n:'블랜튼 미술관',en:'Blanton Museum of Art',c:['sight'],ll:[30.2808,-97.7377],a:'200 E MLK Jr Blvd',d:'UT 캠퍼스 안 미술관. Bass Hall 근처.'},
  {n:'불럭 텍사스 역사박물관',en:'Bullock Texas State History Museum',c:['sight'],ll:[30.2803,-97.7391],a:'1800 Congress Ave',d:'텍사스 역사를 다루는 박물관. 블랜튼 미술관 바로 옆.'},
- {n:'6번가',en:'6th Street',c:['sight','bar'],ll:[30.2671,-97.7392],a:'E 6th St (Congress Ave–I-35)',d:'바와 라이브 음악 클럽이 몰려 있는 밤 거리. 힐튼 바로 옆.',late:1,h:'바는 보통 새벽 2시까지'},
- {n:'레이니 스트리트',en:'Rainey Street',c:['sight','bar'],ll:[30.2590,-97.7385],a:'Rainey St',d:'옛 주택을 개조한 바가 모인 거리. 학회장에서 걸어갈 수 있음.',late:1,h:'바는 보통 새벽 2시까지'},
+ {n:'6번가',en:'6th Street',c:['sight'],ll:[30.2671,-97.7392],a:'E 6th St (Congress Ave–I-35)',d:'바와 라이브 음악 클럽이 몰려 있는 밤 거리. 힐튼 바로 옆.',late:1,h:'바는 보통 새벽 2시까지'},
+ {n:'레이니 스트리트',en:'Rainey Street',c:['sight'],ll:[30.2590,-97.7385],a:'Rainey St',d:'옛 주택을 개조한 바가 모인 거리. 학회장에서 걸어갈 수 있음.',late:1,h:'바는 보통 새벽 2시까지'},
  {n:'박쥐 다리 (콩그레스 애비뉴 브리지)',en:'Congress Avenue Bridge',c:['sight'],ll:[30.2617,-97.7451],a:'Congress Ave Bridge',d:'여름철 해 질 녘 박쥐 떼로 유명한 다리. 11월엔 박쥐가 거의 떠났을 수 있음.'},
  {n:'레이디 버드 레이크 보드워크',en:'Lady Bird Lake Boardwalk',c:['sight'],ll:[30.2482,-97.7296],a:'Ann and Roy Butler Trail',d:'호수 위로 난 산책로. 아침 산책이나 조깅에 좋음.'},
- {n:'사우스 콩그레스 (SoCo)',en:'South Congress',c:['sight','shop'],ll:[30.2492,-97.7500],a:'S Congress Ave',d:'빈티지 가게, 벽화, 맛집이 모인 거리.'},
- {n:'컨티넨털 클럽',en:'The Continental Club',c:['sight','bar'],ll:[30.2502,-97.7494],a:'1315 S Congress Ave',d:'SoCo에 있는 오래된 라이브 음악 클럽.',late:1,h:'공연 따라 새벽 2시 무렵까지'},
+ {n:'사우스 콩그레스 (SoCo)',en:'South Congress',c:['sight'],ll:[30.2492,-97.7500],a:'S Congress Ave',d:'빈티지 가게, 벽화, 맛집이 모인 거리.'},
+ {n:'컨티넨털 클럽',en:'The Continental Club',c:['sight'],ll:[30.2502,-97.7494],a:'1315 S Congress Ave',d:'SoCo에 있는 오래된 라이브 음악 클럽.',late:1,h:'공연 따라 새벽 2시 무렵까지'},
  {n:'질커 공원',en:'Zilker Park',c:['sight'],ll:[30.2669,-97.7729],a:'2100 Barton Springs Rd',d:'오스틴에서 가장 큰 도심 공원.'},
  {n:'바튼 스프링스 풀',en:'Barton Springs Pool',c:['sight'],ll:[30.2641,-97.7713],a:'2201 Barton Springs Rd',d:'1년 내내 수온이 20도 안팎인 천연 샘물 수영장.'},
  {n:'마운트 보넬',en:'Mount Bonnell',c:['sight'],ll:[30.3210,-97.7734],a:'3800 Mt Bonnell Rd',d:'강과 시내가 내려다보이는 언덕 전망대. 노을 명소.'},
@@ -31,7 +31,7 @@ window.PLACES=[
  {n:"Jo's Coffee",en:"Jo's Coffee South Congress",c:['food'],ll:[30.2509,-97.7496],a:'1300 S Congress Ave',d:'SoCo의 커피집. "i love you so much" 벽화로 유명.'},
  {n:"Mattie's",en:"Mattie's Austin",c:['food'],ll:[30.2443,-97.7615],a:'811 W Live Oak St',d:'오래된 저택(Green Pastures)을 개조한 남부식 레스토랑. 정원이 예쁘고 분위기 있는 저녁 식사에 좋음.',tel:'+1 (512) 444-1888'},
  {n:'ThoroughBread',en:'ThoroughBread Austin',c:['food'],ll:[30.2483,-97.7790],a:'1709 Bluebonnet Ln',d:'오스틴 베이커리 추천 목록에 자주 오르는 빵집. 아침·브런치용.',h:'일 08:00–14:00 · 월–금 08:00–18:00 · 토 08:00–14:00',tel:'+1 (512) 822-7622'},
- {n:'Batch Craft Beer and Kolaches',en:'Batch Craft Beer and Kolaches',c:['food','bar'],ll:[30.2846,-97.7090],a:'3220 Manor Rd',d:'체코식 빵 콜라치와 수제 맥주를 함께 파는 곳. 아침엔 빵집, 저녁엔 맥주집.',h:'일 09:00–22:00 · 월–목 08:00–22:00 · 금 08:00–23:00 · 토 09:00–23:00',tel:'+1 (512) 401-3025'},
+ {n:'Batch Craft Beer and Kolaches',en:'Batch Craft Beer and Kolaches',c:['food'],ll:[30.2846,-97.7090],a:'3220 Manor Rd',d:'체코식 빵 콜라치와 수제 맥주를 함께 파는 곳. 아침엔 빵집, 저녁엔 맥주집.',h:'일 09:00–22:00 · 월–목 08:00–22:00 · 금 08:00–23:00 · 토 09:00–23:00',tel:'+1 (512) 401-3025'},
  // ---------- 술집 ----------
  {n:'Roosevelt Room',en:'The Roosevelt Room Austin',c:['bar'],ll:[30.2675,-97.7458],a:'307 W 5th St',d:'시대별 클래식 칵테일 메뉴로 유명한 칵테일 바.',late:1,h:'보통 새벽 2시까지'},
  {n:'Elephant Room',en:'Elephant Room Austin',c:['bar'],ll:[30.2659,-97.7438],a:'315 Congress Ave',d:'지하에 있는 오래된 재즈 클럽. 숙소에서 걸어서 몇 분.',late:1,h:'보통 새벽 2시까지'},
@@ -43,5 +43,5 @@ window.PLACES=[
  {n:'University Co-op',en:'University Co-op',c:['shop'],ll:[30.2867,-97.7421],a:'2246 Guadalupe St',d:'UT 롱혼 굿즈를 파는 대학 기념품점.'},
  {n:'BookPeople',en:'BookPeople Austin',c:['shop'],ll:[30.2700,-97.7535],a:'603 N Lamar Blvd',d:'텍사스 최대 독립 서점.'},
  {n:'Waterloo Records',en:'Waterloo Records',c:['shop'],ll:[30.2695,-97.7530],a:'600 N Lamar Blvd',d:'오스틴 음악 도시를 대표하는 레코드 가게.'},
- {n:'Whole Foods 본점',en:'Whole Foods Market Lamar',c:['shop','food'],ll:[30.2706,-97.7533],a:'525 N Lamar Blvd',d:'오스틴에서 시작한 Whole Foods의 본점 매장. 간단한 식사도 가능.'}
+ {n:'Whole Foods 본점',en:'Whole Foods Market Lamar',c:['shop'],ll:[30.2706,-97.7533],a:'525 N Lamar Blvd',d:'오스틴에서 시작한 Whole Foods의 본점 매장. 간단한 식사도 가능.'}
 ];
