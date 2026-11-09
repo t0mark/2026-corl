@@ -315,6 +315,7 @@ dialog#pm::backdrop{background:rgba(0,0,0,.5)}
 .tgl .sw::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .2s}
 .tgl input:checked+.sw{background:var(--k-bar,#6250d6)}
 .tgl input:checked+.sw::after{left:19px}
+#xmap.dark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.95) contrast(.9)}
 #xmap{height:420px;border-radius:16px;border:1px solid var(--line);z-index:0;background:var(--soft)}
 .xpin{width:26px;height:26px;border-radius:50%;background:var(--pc);color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35);font-family:"Noto Sans KR",sans-serif}
 .xpin.sel{transform:scale(1.25);box-shadow:0 0 0 4px rgba(0,0,0,.18)}
@@ -1386,7 +1387,8 @@ function gmap(p){var q=p.en+', '+p.a+(/Lockhart/.test(p.a)?', TX':', Austin, TX'
 var xcat='',xmap=null,xtiles=null,xmarks={},xsel=0;
 function isDark(){var t=document.documentElement.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
 function setTiles(){if(!xmap)return;if(xtiles)xmap.removeLayer(xtiles);
-  xtiles=L.tileLayer('https://{s}.basemaps.cartocdn.com/'+(isDark()?'dark_all':'rastertiles/voyager')+'/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd',attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(xmap)}
+  xtiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'}).addTo(xmap);
+  $('#xmap').classList.toggle('dark',isDark())}
 function xinit(){if(xmap||!window.L)return;
   xmap=L.map('xmap',{scrollWheelZoom:false,tap:true}).setView(JW,13);setTiles();
   [['JW Marriott','JW',JW],['Hilton Austin','H',[30.2655,-97.7389]],['Bass Concert Hall','B',[30.2860,-97.7310]]].forEach(function(v){
