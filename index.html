@@ -902,7 +902,7 @@ function mapSVG(){
   return s+'</svg>'}
 $('#mapHome').innerHTML=mapSVG();$('#mapVenue').innerHTML=mapSVG();
 $('#vlistHome').innerHTML=VORD.map(function(k,i){var v=V[k];return '<div class="vitem v-'+k+'"><span class="n">'+(i+1)+'</span><div><b>'+v.n+'</b><div class="small">'+v.d+'</div><div class="small muted">'+v.a+' · <a href="'+v.m+'" target="_blank" rel="noopener">지도 ↗</a></div></div></div>'}).join('');
-var WHERE=[['배지 수령','jw','2층 201호'],['Oral · Spotlight · 키노트 I·II','hilton','6층 메인 무대'],['포스터 보드 1–116','jw','3층 Lone Star 볼룸'],['포스터 보드 117~','jw','2층 Griffin 홀'],['데모','jw','3층 Lone Star · 2층 Griffin'],['LBR 포스터 (점심)','jw','2층 Griffin'],['기업 채용 세션','jw','3층 302·307호'],['커피 브레이크','jw','+ Hilton (11/11은 JW만)'],['점심','fare','+ JW Marriott'],['웰컴 디너 (11/9)','long','야외·로비'],['Keynote III · 패널 · 시상','bass','콘서트홀'],['워크숍 (11/12)','jw','+ Hilton Salon D/E, 408/410'],['인쇄한 포스터 찾기','jw','3층 Lone Star 전시홀']];
+var WHERE=[['배지 수령','jw','2층 201호'],['Oral · Spotlight · 키노트 I·II','hilton','6층 메인 무대'],['포스터 보드 1–116','jw','3층 Lone Star 볼룸'],['포스터 보드 117~','jw','2층 Griffin 홀'],['데모','jw','3층 Lone Star · 2층 Griffin'],['LBR 포스터 (점심)','jw','2층 Griffin'],['기업 채용 세션','jw','3층 302·307호'],['커피 브레이크','jw','+ Hilton (11/11은 JW만)'],['점심','fare','+ JW Marriott'],['웰컴 디너 (11/9)','long','701 W Riverside Dr'],['Keynote III · 패널 · 시상','bass','콘서트홀'],['워크숍 (11/12)','jw','+ Hilton Salon D/E, 408/410'],['인쇄한 포스터 찾기','jw','3층 Lone Star 전시홀']];
 WHERE.forEach(function(w){var tr=el('tr');tr.innerHTML='<td class="small">'+w[0]+'</td><td class="small"><span class="vchip v-'+w[1]+'" style="color:var(--fg);font-weight:700">'+V[w[1]].s+'</span> <span class="fg2">'+w[2]+'</span></td>';$('#whereTbl').appendChild(tr)});
 
 // simplified floor plans
