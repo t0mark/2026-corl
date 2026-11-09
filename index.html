@@ -7,6 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
 <meta name="description" content="CoRL 2026 (Austin, 2026.11.9–12) 논문 리스트, 학회 일정, 장소·도면, 참가 가이드 한국어 정리">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -302,6 +303,39 @@ dialog#pm::backdrop{background:rgba(0,0,0,.5)}
   #pm .ph{padding:16px 16px 10px}#pm .pb{padding:12px 16px 20px}
   #pm .info{grid-template-columns:56px 1fr}
 }
+/* explore */
+.pc-sight{--pc:#2a78d6}.pc-food{--pc:#eb6834}.pc-bar{--pc:#6250d6}.pc-shop{--pc:#1baf7a}
+.xbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.xbar .chip{font-size:.88rem;padding:6px 14px;display:inline-flex;align-items:center;gap:6px}
+.xbar .chip i{width:9px;height:9px;border-radius:50%;background:var(--pc);display:inline-block}
+.xbar .chip.on i{background:#fff}
+.tgl{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;margin-left:auto;user-select:none}
+.tgl input{display:none}
+.tgl .sw{width:38px;height:22px;border-radius:99px;background:var(--line);position:relative;transition:background .2s;flex:none}
+.tgl .sw::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .2s}
+.tgl input:checked+.sw{background:var(--k-bar,#6250d6)}
+.tgl input:checked+.sw::after{left:19px}
+#xmap{height:420px;border-radius:16px;border:1px solid var(--line);z-index:0;background:var(--soft)}
+.xpin{width:26px;height:26px;border-radius:50%;background:var(--pc);color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35);font-family:"Noto Sans KR",sans-serif}
+.xpin.sel{transform:scale(1.25);box-shadow:0 0 0 4px rgba(0,0,0,.18)}
+.xven{width:22px;height:22px;border-radius:6px;background:#1d1b17;color:#fff;font-size:11px;display:grid;place-items:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.leaflet-popup-content{font-family:"Noto Sans KR",sans-serif;font-size:13px;margin:10px 12px}
+.leaflet-popup-content b{display:block;font-size:14px}
+#xcnt{font-size:.85rem;color:var(--muted);margin:12px 0 8px}
+.xlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:10px}
+.xcard{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--pc);border-radius:14px;padding:12px 14px;display:flex;gap:12px;min-width:0;scroll-margin-top:120px}
+.xcard.sel{outline:2px solid var(--pc)}
+.xcard .num{width:28px;height:28px;border-radius:50%;background:var(--pc);color:#fff;font-weight:800;font-size:.8rem;display:grid;place-items:center;flex:none;margin-top:2px}
+.xcard .bd{flex:1;min-width:0}
+.xcard .nm{font-weight:700;line-height:1.35}
+.xcard .en{font-size:.75rem;color:var(--muted)}
+.xcard .tags{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
+.xcard .tg{font-size:.7rem;font-weight:700;border-radius:99px;padding:1px 8px;background:color-mix(in srgb,var(--tc) 15%,var(--surface));color:var(--tc)}
+.xcard .ds{font-size:.88rem;color:var(--fg2);margin:0}
+.xcard .meta{font-size:.78rem;color:var(--muted);margin-top:6px;display:flex;flex-direction:column;gap:2px}
+.xcard .acts3{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.xcard .acts3 button,.xcard .acts3 a{font:inherit;font-size:.8rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:8px;padding:4px 10px;cursor:pointer;text-decoration:none}
+@media (max-width:640px){#xmap{height:340px}.tgl{margin-left:0}}
 /* glossary */
 .gl{border-bottom:1.5px dotted var(--accent);cursor:help;text-decoration:none}
 .gl:hover,.gl.on{background:var(--accent-soft);border-radius:3px}
@@ -409,6 +443,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
  <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 13v1M15 13v1M9 17h6"/><circle cx="12" cy="3.5" r="1"/></symbol>
  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+ <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
 </svg>
 
@@ -422,6 +457,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
     <a href="#keynotes"><svg class="i"><use href="#i-mic"/></svg><span>키노트</span></a>
     <a href="#workshops"><svg class="i"><use href="#i-tool"/></svg><span>워크숍</span></a>
     <a href="#companies"><svg class="i"><use href="#i-brief"/></svg><span>기업</span></a>
+    <a href="#explore"><svg class="i"><use href="#i-compass"/></svg><span>관광지</span></a>
     <a href="#events"><svg class="i"><use href="#i-trophy"/></svg><span>행사·대회</span></a>
     <a href="#guide"><svg class="i"><use href="#i-info"/></svg><span>가이드</span></a>
   </nav>
@@ -665,6 +701,23 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   </div>
 </section>
 
+<!-- ================= EXPLORE ================= -->
+<section class="pg" id="pg-explore">
+  <h2><span class="hi"><svg class="i"><use href="#i-compass"/></svg></span>관광지</h2>
+  <div class="xbar" id="xbar">
+    <button class="chip on" data-c="">전체</button>
+    <button class="chip pc-sight" data-c="sight"><i></i>관광지</button>
+    <button class="chip pc-food" data-c="food"><i></i>식당</button>
+    <button class="chip pc-bar" data-c="bar"><i></i>술집</button>
+    <button class="chip pc-shop" data-c="shop"><i></i>쇼핑</button>
+    <label class="tgl"><input type="checkbox" id="xlate"><span class="sw"></span>🌙 새벽 영업만</label>
+  </div>
+  <div id="xmap" role="region" aria-label="관광지 지도"></div>
+  <div id="xcnt"></div>
+  <div class="xlist" id="xlist"></div>
+  <p class="small muted" style="margin-top:12px">새벽 영업 = 자정 넘어서도 여는 곳. 영업시간은 바뀔 수 있으니 방문 전 구글 지도에서 확인하세요.</p>
+</section>
+
 <!-- ================= EVENTS ================= -->
 <section class="pg" id="pg-events">
   <h2><span class="hi"><svg class="i"><use href="#i-trophy"/></svg></span>행사 · 대회</h2>
@@ -758,13 +811,8 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
     <div class="card"><h4><svg class="i"><use href="#i-users"/></svg>접근성 문의</h4><p class="small fg2">Chuchu Fan (chuchu@mit.edu), 제목에 [Inclusion at CoRL]</p></div>
   </div>
 
-  <h3><svg class="i"><use href="#i-food"/></svg>오스틴 즐기기 (조직위원 추천)</h3>
-  <div class="grid g4">
-    <div class="card"><h4>🏊 자연·산책</h4><p class="small fg2">Barton Springs Pool · Lady Bird Lake 보트·패들보드 · Mt. Bonnell 전망 · Mayfield Park 공작새</p></div>
-    <div class="card"><h4>🏛 문화</h4><p class="small fg2">주의회 의사당 · Harry Ransom Center(구텐베르크 성경) · Blanton 미술관 · Central Library 테라스</p></div>
-    <div class="card"><h4>🍖 먹거리</h4><p class="small fg2">Terry Black's BBQ · Taco Joint 아침 타코(migas) · Clay Pit 인도요리 · South Congress</p></div>
-    <div class="card"><h4>🎸 밤 문화</h4><p class="small fg2">6th Street 라이브 음악 · Elephant Room 재즈 · Roosevelt Room · Nido 강변 루프탑</p></div>
-  </div>
+  <h3><svg class="i"><use href="#i-food"/></svg>오스틴 즐기기</h3>
+  <a class="card" href="#explore" style="display:flex;align-items:center;gap:12px;color:var(--fg)"><svg class="i" style="width:24px;height:24px;color:var(--accent)"><use href="#i-compass"/></svg><span><b>관광지 · 식당 · 술집 · 쇼핑</b><br><span class="small muted">지도로 보기 →</span></span></a>
 
   <h3 id="glossary"><svg class="i"><use href="#i-doc"/></svg>용어 풀이</h3>
   <div class="sbox"><svg class="i" style="top:22px"><use href="#i-search"/></svg><input id="glQ" type="search" placeholder="용어 검색 (예: Spotlight, VLA, ESTA)…" aria-label="용어 검색"></div>
@@ -787,7 +835,9 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   비공식 한국어 정리 페이지입니다. 출처: <a href="https://2026.corl.org/" target="_blank" rel="noopener">2026.corl.org</a> 및 공식 도면 (2026-11-07 기준). 바뀐 내용이 있을 수 있으니 공식 사이트와 CoRL 앱을 먼저 확인하세요.
 </div></footer>
 
+<script src="vendor/leaflet/leaflet.js"></script>
 <script src="papers.js"></script>
+<script src="places.js"></script>
 <script src="summaries.js"></script>
 <script>
 (function(){
@@ -1327,8 +1377,48 @@ function drawGloss(){var q=$('#glQ').value.trim().toLowerCase();
 $('#glQ').addEventListener('input',drawGloss);drawGloss();
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-glossary]');if(!a)return;e.preventDefault();location.hash='guide';setTimeout(function(){$('#glossary').scrollIntoView({block:'start'})},60)});
 
+// ---------- explore ----------
+var XC={sight:['관광지','#2a78d6'],food:['식당','#eb6834'],bar:['술집','#6250d6'],shop:['쇼핑','#1baf7a']};
+var XPL=(window.PLACES||[]).map(function(p,i){p.i=i+1;return p});
+var JW=[30.2647,-97.7426];
+function km(a,b){var R=6371,r=Math.PI/180,dl=(b[0]-a[0])*r,dn=(b[1]-a[1])*r,x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dn/2)*Math.sin(dn/2);return 2*R*Math.asin(Math.sqrt(x))}
+function gmap(p){var q=p.en+', '+p.a+(/Lockhart/.test(p.a)?', TX':', Austin, TX');return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q)}
+var xcat='',xmap=null,xtiles=null,xmarks={},xsel=0;
+function isDark(){var t=document.documentElement.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+function setTiles(){if(!xmap)return;if(xtiles)xmap.removeLayer(xtiles);
+  xtiles=L.tileLayer('https://{s}.basemaps.cartocdn.com/'+(isDark()?'dark_all':'rastertiles/voyager')+'/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd',attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(xmap)}
+function xinit(){if(xmap||!window.L)return;
+  xmap=L.map('xmap',{scrollWheelZoom:false,tap:true}).setView(JW,13);setTiles();
+  [['JW Marriott','JW',JW],['Hilton Austin','H',[30.2655,-97.7389]],['Bass Concert Hall','B',[30.2860,-97.7310]]].forEach(function(v){
+    L.marker(v[2],{icon:L.divIcon({className:'',html:'<div class="xven">'+v[1]+'</div>',iconSize:[22,22],iconAnchor:[11,11]}),zIndexOffset:-100}).addTo(xmap).bindPopup('<b>'+v[0]+'</b>학회장')});
+  XPL.forEach(function(p){var c=p.c[0];
+    var m=L.marker(p.ll,{icon:L.divIcon({className:'',html:'<div class="xpin pc-'+c+'">'+p.i+'</div>',iconSize:[26,26],iconAnchor:[13,13],popupAnchor:[0,-12]})});
+    m.bindPopup('<b>'+esc(p.n)+'</b>'+esc(p.d)+'<br><a href="'+gmap(p)+'" target="_blank" rel="noopener">구글 지도 ↗</a>');
+    m.on('click',function(){selectPlace(p.i,false)});xmarks[p.i]=m});
+  new MutationObserver(setTiles).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  xdraw(true)}
+function xvisible(){var late=$('#xlate').checked;return XPL.filter(function(p){return (!xcat||p.c.indexOf(xcat)>-1)&&(!late||p.late)})}
+function xdraw(fit){var v=xvisible();
+  $('#xcnt').textContent=v.length+'곳';
+  if(xmap){Object.keys(xmarks).forEach(function(k){xmap.removeLayer(xmarks[k])});v.forEach(function(p){xmarks[p.i].addTo(xmap)});
+    if(fit&&v.length){var near=v.filter(function(p){return km(JW,p.ll)<30});var b=L.latLngBounds((near.length?near:v).map(function(p){return p.ll}).concat([JW]));xmap.fitBounds(b,{padding:[30,30],maxZoom:15})}}
+  $('#xlist').innerHTML=v.length?v.map(function(p){var c=p.c[0],d=km(JW,p.ll);
+    return '<div class="xcard pc-'+c+(xsel===p.i?' sel':'')+'" id="xc'+p.i+'"><div class="num">'+p.i+'</div><div class="bd"><div class="nm">'+esc(p.n)+'</div><div class="en">'+esc(p.en)+'</div>'+
+      '<div class="tags">'+p.c.map(function(k){return '<span class="tg" style="--tc:'+XC[k][1]+'">'+XC[k][0]+'</span>'}).join('')+(p.late?'<span class="tg" style="--tc:#6250d6">🌙 새벽 영업</span>':'')+'</div>'+
+      '<p class="ds">'+esc(p.d)+'</p><div class="meta"><span>📍 '+esc(p.a)+' · JW Marriott에서 약 '+(d<10?d.toFixed(1):Math.round(d))+'km</span>'+(p.h?'<span>🕒 '+esc(p.h)+'</span>':'')+(p.tel?'<span>📞 <a href="tel:'+p.tel.replace(/[^+\d]/g,'')+'">'+esc(p.tel)+'</a></span>':'')+'</div>'+
+      '<div class="acts3"><button data-x="'+p.i+'">지도에서 보기</button><a href="'+gmap(p)+'" target="_blank" rel="noopener">구글 지도 ↗</a></div></div></div>'}).join(''):'<p class="muted small">조건에 맞는 곳이 없습니다.</p>'}
+function selectPlace(i,fly){xsel=i;document.querySelectorAll('.xcard.sel').forEach(function(e){e.classList.remove('sel')});document.querySelectorAll('.xpin.sel').forEach(function(e){e.classList.remove('sel')});
+  var c=$('#xc'+i);if(c){c.classList.add('sel');if(!fly)c.scrollIntoView({block:'nearest',behavior:'smooth'})}
+  var m=xmarks[i];if(m&&xmap){var el=m.getElement();if(el&&el.firstChild)el.firstChild.classList.add('sel');if(fly){xmap.setView(m.getLatLng(),Math.max(xmap.getZoom(),15));m.openPopup();$('#xmap').scrollIntoView({block:'center',behavior:'smooth'})}}}
+$('#xbar').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;xcat=b.dataset.c;[].forEach.call(this.querySelectorAll('.chip'),function(x){x.classList.toggle('on',x===b)});xdraw(true)});
+$('#xlate').addEventListener('change',function(){xdraw(true)});
+$('#xlist').addEventListener('click',function(e){var b=e.target.closest('button[data-x]');if(b)selectPlace(+b.dataset.x,true)});
+xdraw(false);
+window.addEventListener('hashchange',function(){if(location.hash==='#explore')setTimeout(function(){xinit();if(xmap)xmap.invalidateSize()},50)});
+if(location.hash==='#explore')setTimeout(xinit,50);
+
 // ---------- router ----------
-var PAGES=['home','schedule','papers','venues','keynotes','workshops','companies','events','guide'];
+var PAGES=['home','schedule','papers','venues','keynotes','workshops','companies','explore','events','guide'];
 function route(){var h=location.hash.slice(1);if(PAGES.indexOf(h)<0)h='home';
   PAGES.forEach(function(p){$('#pg-'+p).classList.toggle('on',p===h)});
   [].forEach.call(document.querySelectorAll('#tabs a'),function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+h)});
