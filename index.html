@@ -307,6 +307,7 @@ dialog#pm::backdrop{background:rgba(0,0,0,.5)}
 .pc-sight{--pc:#2a78d6}.pc-food{--pc:#eb6834}.pc-bar{--pc:#6250d6}.pc-shop{--pc:#1baf7a}
 .xbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
 .xbar .chip{font-size:.88rem;padding:6px 14px;display:inline-flex;align-items:center;gap:6px}
+.xsub[hidden]{display:none}.xsub{margin-top:-4px}.xsub .chip{font-size:.82rem;padding:5px 11px}.xsub .chip.on{background:#1baf7a;border-color:#1baf7a}
 .xbar .chip i{width:9px;height:9px;border-radius:50%;background:var(--pc);display:inline-block}
 .xbar .chip.on i{background:#fff}
 .tgl{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;margin-left:auto;user-select:none}
@@ -713,6 +714,14 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
     <button class="chip pc-bar" data-c="bar"><i></i>술집</button>
     <button class="chip pc-shop" data-c="shop"><i></i>쇼핑</button>
     <label class="tgl"><input type="checkbox" id="xlate"><span class="sw"></span>🌙 새벽 영업만</label>
+  </div>
+  <div class="xbar xsub" id="xsub" hidden>
+    <button class="chip on" data-s="">쇼핑 전체</button>
+    <button class="chip" data-s="mart">🛒 마트</button>
+    <button class="chip" data-s="elec">💻 전자제품</button>
+    <button class="chip" data-s="cloth">👢 옷·잡화</button>
+    <button class="chip" data-s="mall">🛍 쇼핑몰·아웃렛</button>
+    <button class="chip" data-s="gift">📚 책·음반·기념품</button>
   </div>
   <div id="xmap" role="region" aria-label="관광지 지도"></div>
   <div class="legend" style="margin-top:8px"><span><i style="background:#c0392b"></i>🏨 숙소 (Hotel Ella)</span><span><i style="background:#1d1b17"></i>JW · H · B 학회장</span></div>
@@ -1383,6 +1392,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 
 // ---------- explore ----------
 var XC={sight:['관광지','#2a78d6'],food:['식당','#eb6834'],bar:['술집','#6250d6'],shop:['쇼핑','#1baf7a']};
+var XS={mart:'마트',elec:'전자제품',cloth:'옷·잡화',mall:'쇼핑몰·아웃렛',gift:'책·음반·기념품'};var xsub='';
 var XPL=(window.PLACES||[]).map(function(p,i){p.i=i+1;return p});
 var JW=[30.2647,-97.7426],HOTEL=[30.2832,-97.7454];
 function km(a,b){var R=6371,r=Math.PI/180,dl=(b[0]-a[0])*r,dn=(b[1]-a[1])*r,x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dn/2)*Math.sin(dn/2);return 2*R*Math.asin(Math.sqrt(x))}
@@ -1394,7 +1404,7 @@ function setTiles(){if(!xmap)return;if(xtiles)xmap.removeLayer(xtiles);
   $('#xmap').classList.toggle('dark',isDark())}
 function xinit(){if(xmap||!window.L)return;
   xmap=L.map('xmap',{scrollWheelZoom:false,tap:true}).setView(JW,13);setTiles();
-  L.marker(HOTEL,{icon:L.divIcon({className:'',html:'<div class="xhotel">🏨</div>',iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-14]}),zIndexOffset:1000}).addTo(xmap).bindPopup('<b>Hotel Ella (숙소)</b>1900 Rio Grande St<br><a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('Hotel Ella, 1900 Rio Grande St, Austin, TX')+'" target="_blank" rel="noopener">구글 지도 ↗</a>');
+  L.marker(HOTEL,{icon:L.divIcon({className:'',html:'<div class="xhotel">🏨</div>',iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-14]}),zIndexOffset:-50}).addTo(xmap).bindPopup('<b>Hotel Ella (숙소)</b>1900 Rio Grande St<br><a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('Hotel Ella, 1900 Rio Grande St, Austin, TX')+'" target="_blank" rel="noopener">구글 지도 ↗</a>');
   [['JW Marriott','JW',JW],['Hilton Austin','H',[30.2655,-97.7389]],['Bass Concert Hall','B',[30.2860,-97.7310]]].forEach(function(v){
     L.marker(v[2],{icon:L.divIcon({className:'',html:'<div class="xven">'+v[1]+'</div>',iconSize:[22,22],iconAnchor:[11,11]}),zIndexOffset:-100}).addTo(xmap).bindPopup('<b>'+v[0]+'</b>학회장')});
   XPL.forEach(function(p){var c=p.c[0];
@@ -1403,20 +1413,21 @@ function xinit(){if(xmap||!window.L)return;
     m.on('click',function(){selectPlace(p.i,false)});xmarks[p.i]=m});
   new MutationObserver(setTiles).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
   xdraw(true)}
-function xvisible(){var late=$('#xlate').checked;return XPL.filter(function(p){return (!xcat||p.c.indexOf(xcat)>-1)&&(!late||p.late)})}
+function xvisible(){var late=$('#xlate').checked;return XPL.filter(function(p){return (!xcat||p.c.indexOf(xcat)>-1)&&(!xsub||p.sub===xsub)&&(!late||p.late)})}
 function xdraw(fit){var v=xvisible();
   $('#xcnt').textContent=v.length+'곳';
   if(xmap){Object.keys(xmarks).forEach(function(k){xmap.removeLayer(xmarks[k])});v.forEach(function(p){xmarks[p.i].addTo(xmap)});
     if(fit&&v.length){var near=v.filter(function(p){return km(HOTEL,p.ll)<30});var b=L.latLngBounds((near.length?near:v).map(function(p){return p.ll}).concat([HOTEL]));xmap.fitBounds(b,{padding:[30,30],maxZoom:15})}}
   $('#xlist').innerHTML=v.length?v.map(function(p){var c=p.c[0],d=km(HOTEL,p.ll);
     return '<div class="xcard pc-'+c+(xsel===p.i?' sel':'')+'" id="xc'+p.i+'"><div class="num">'+p.i+'</div><div class="bd"><div class="nm">'+esc(p.n)+'</div><div class="en">'+esc(p.en)+'</div>'+
-      '<div class="tags">'+p.c.map(function(k){return '<span class="tg" style="--tc:'+XC[k][1]+'">'+XC[k][0]+'</span>'}).join('')+(p.late?'<span class="tg" style="--tc:#6250d6">🌙 새벽 영업</span>':'')+'</div>'+
+      '<div class="tags">'+p.c.map(function(k){return '<span class="tg" style="--tc:'+XC[k][1]+'">'+XC[k][0]+(k==='shop'&&p.sub?' · '+XS[p.sub]:'')+'</span>'}).join('')+(p.late?'<span class="tg" style="--tc:#6250d6">🌙 새벽 영업</span>':'')+'</div>'+
       '<p class="ds">'+esc(p.d)+'</p><div class="meta"><span>📍 '+esc(p.a)+' · 숙소에서 약 '+(d<10?d.toFixed(1):Math.round(d))+'km</span>'+(p.h?'<span>🕒 '+esc(p.h)+'</span>':'')+(p.tel?'<span>📞 <a href="tel:'+p.tel.replace(/[^+\d]/g,'')+'">'+esc(p.tel)+'</a></span>':'')+'</div>'+
       '<div class="acts3"><button data-x="'+p.i+'">지도에서 보기</button><a href="'+gmap(p)+'" target="_blank" rel="noopener">구글 지도 ↗</a></div></div></div>'}).join(''):'<p class="muted small">조건에 맞는 곳이 없습니다.</p>'}
 function selectPlace(i,fly){xsel=i;document.querySelectorAll('.xcard.sel').forEach(function(e){e.classList.remove('sel')});document.querySelectorAll('.xpin.sel').forEach(function(e){e.classList.remove('sel')});
   var c=$('#xc'+i);if(c){c.classList.add('sel');if(!fly)c.scrollIntoView({block:'nearest',behavior:'smooth'})}
   var m=xmarks[i];if(m&&xmap){var el=m.getElement();if(el&&el.firstChild)el.firstChild.classList.add('sel');if(fly){xmap.setView(m.getLatLng(),Math.max(xmap.getZoom(),15));m.openPopup();$('#xmap').scrollIntoView({block:'center',behavior:'smooth'})}}}
-$('#xbar').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;xcat=b.dataset.c;[].forEach.call(this.querySelectorAll('.chip'),function(x){x.classList.toggle('on',x===b)});xdraw(true)});
+$('#xbar').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;xcat=b.dataset.c;[].forEach.call(this.querySelectorAll('.chip'),function(x){x.classList.toggle('on',x===b)});xsub='';$('#xsub').hidden=xcat!=='shop';[].forEach.call($('#xsub').children,function(x,i){x.classList.toggle('on',i===0)});xdraw(true)});
+$('#xsub').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;xsub=b.dataset.s;[].forEach.call(this.children,function(x){x.classList.toggle('on',x===b)});xdraw(true)});
 $('#xlate').addEventListener('change',function(){xdraw(true)});
 $('#xlist').addEventListener('click',function(e){var b=e.target.closest('button[data-x]');if(b)selectPlace(+b.dataset.x,true)});
 xdraw(false);

@@ -1,5 +1,5 @@
 // 오스틴 관광지·식당·술집·쇼핑 (좌표는 대략적인 위치)
-// c: 카테고리 하나 [sight|food|bar|shop], late: 자정 넘어서도 영업, h: 영업시간(확인된 것만)
+// c: 카테고리 하나 [sight|food|bar|shop], sub: 쇼핑 세부 [mart|elec|cloth|mall|gift], late: 자정 넘어서도 영업, h: 영업시간(확인된 것만)
 window.PLACES=[
  // ---------- 관광지 ----------
  {n:'텍사스 주의사당',en:'Texas State Capitol',c:['sight'],ll:[30.2747,-97.7404],a:'1100 Congress Ave',d:'오스틴의 대표 랜드마크. 무료로 들어가 볼 수 있고 숙소에서 가까움.'},
@@ -39,9 +39,27 @@ window.PLACES=[
  {n:'Nido (The Loren 호텔 루프탑)',en:'Nido The Loren Austin',c:['bar'],ll:[30.2599,-97.7578],a:'1211 W Riverside Dr',d:'레이디 버드 레이크와 시내 전망이 좋은 루프탑 바.'},
  {n:'The Driskill Bar',en:'The Driskill Bar',c:['bar'],ll:[30.2681,-97.7421],a:'604 Brazos St',d:'오스틴에서 가장 오래된 호텔의 클래식한 바. 피아노 연주.'},
  // ---------- 쇼핑 ----------
- {n:"Allen's Boots",en:"Allen's Boots",c:['shop'],ll:[30.2484,-97.7505],a:'1522 S Congress Ave',d:'카우보이 부츠가 벽을 가득 채운 대형 부츠 가게.'},
- {n:'University Co-op',en:'University Co-op',c:['shop'],ll:[30.2867,-97.7421],a:'2246 Guadalupe St',d:'UT 롱혼 굿즈를 파는 대학 기념품점.'},
- {n:'BookPeople',en:'BookPeople Austin',c:['shop'],ll:[30.2700,-97.7535],a:'603 N Lamar Blvd',d:'텍사스 최대 독립 서점.'},
- {n:'Waterloo Records',en:'Waterloo Records',c:['shop'],ll:[30.2695,-97.7530],a:'600 N Lamar Blvd',d:'오스틴 음악 도시를 대표하는 레코드 가게.'},
- {n:'Whole Foods 본점',en:'Whole Foods Market Lamar',c:['shop'],ll:[30.2706,-97.7533],a:'525 N Lamar Blvd',d:'오스틴에서 시작한 Whole Foods의 본점 매장. 간단한 식사도 가능.'}
+ {n:"Allen's Boots",en:"Allen's Boots",c:['shop'],sub:'cloth',ll:[30.2484,-97.7505],a:'1522 S Congress Ave',d:'카우보이 부츠가 벽을 가득 채운 대형 부츠 가게.'},
+ {n:'University Co-op',en:'University Co-op',c:['shop'],sub:'gift',ll:[30.2867,-97.7421],a:'2246 Guadalupe St',d:'UT 롱혼 굿즈를 파는 대학 기념품점.'},
+ {n:'BookPeople',en:'BookPeople Austin',c:['shop'],sub:'gift',ll:[30.2700,-97.7535],a:'603 N Lamar Blvd',d:'텍사스 최대 독립 서점.'},
+ {n:'Waterloo Records',en:'Waterloo Records',c:['shop'],sub:'gift',ll:[30.2695,-97.7530],a:'600 N Lamar Blvd',d:'오스틴 음악 도시를 대표하는 레코드 가게.'},
+ {n:'Whole Foods 본점',en:'Whole Foods Market Lamar',c:['shop'],sub:'mart',ll:[30.2706,-97.7533],a:'525 N Lamar Blvd',d:'오스틴에서 시작한 Whole Foods의 본점 매장. 간단한 식사도 가능.'},
+ // 마트
+ {n:'Target (UT 캠퍼스점)',en:'Target Austin Campus',c:['shop'],sub:'mart',ll:[30.2833,-97.7419],a:'2025 Guadalupe St',d:'생필품·간식·세면도구를 한 번에 살 수 있는 대형 마트. 숙소에서 걸어갈 수 있는 거리.'},
+ {n:"Trader Joe's (Seaholm)",en:"Trader Joe's Seaholm",c:['shop'],sub:'mart',ll:[30.2683,-97.7521],a:'211 Seaholm Dr',d:'자체 브랜드 간식·견과류·에코백이 인기인 식료품점. 기념품 사기에도 좋음.'},
+ {n:'H-E-B (Mueller)',en:'H-E-B Mueller',c:['shop'],sub:'mart',ll:[30.3021,-97.7027],a:'1801 E 51st St',d:'텍사스 대표 슈퍼마켓 체인. 텍사스 한정 소스·과자·H-E-B 굿즈가 많음.'},
+ {n:'Central Market (North Lamar)',en:'Central Market North Lamar',c:['shop'],sub:'mart',ll:[30.3073,-97.7405],a:'4001 N Lamar Blvd',d:'H-E-B가 운영하는 고급 식료품점. 델리·베이커리·와인 코너가 큼.'},
+ // 전자제품
+ {n:'Apple The Domain',en:'Apple The Domain',c:['shop'],sub:'elec',ll:[30.4023,-97.7255],a:'11410 Century Oaks Terrace',d:'오스틴 북쪽 쇼핑 지구 The Domain에 있는 애플 스토어.'},
+ {n:'Apple Barton Creek',en:'Apple Barton Creek',c:['shop'],sub:'elec',ll:[30.2570,-97.8083],a:'2901 S Capital of Texas Hwy',d:'Barton Creek Square 몰 안의 애플 스토어. 시내에서 가장 가까운 애플 매장.'},
+ {n:'Best Buy (Gateway)',en:'Best Buy Gateway Austin',c:['shop'],sub:'elec',ll:[30.3920,-97.7477],a:'9607 Research Blvd',d:'노트북·카메라·충전기·케이블 등 전자제품 전문 대형 매장.'},
+ // 옷·잡화
+ {n:'Tecovas (SoCo)',en:'Tecovas South Congress',c:['shop'],sub:'cloth',ll:[30.2498,-97.7497],a:'1333 S Congress Ave',d:'오스틴에서 시작한 카우보이 부츠·웨스턴 의류 브랜드 매장.'},
+ {n:'Kendra Scott (SoCo)',en:'Kendra Scott South Congress',c:['shop'],sub:'cloth',ll:[30.2495,-97.7488],a:'1400 S Congress Ave',d:'오스틴 출신 주얼리 브랜드의 플래그십 매장.'},
+ {n:'Buffalo Exchange',en:'Buffalo Exchange Austin',c:['shop'],sub:'cloth',ll:[30.2955,-97.7419],a:'2904 Guadalupe St',d:'UT 근처 빈티지·중고 의류 가게.'},
+ // 쇼핑몰·아웃렛
+ {n:'The Domain',en:'The Domain Austin',c:['shop'],sub:'mall',ll:[30.4021,-97.7253],a:'11410 Century Oaks Terrace',d:'오스틴 북쪽의 야외형 쇼핑몰. 의류·명품·레스토랑이 모여 있음. 시내에서 차로 약 20분.'},
+ {n:'Barton Creek Square',en:'Barton Creek Square Mall',c:['shop'],sub:'mall',ll:[30.2566,-97.8081],a:'2901 S Capital of Texas Hwy',d:'시내 서쪽의 실내 쇼핑몰. 백화점과 브랜드 매장이 모여 있음.'},
+ {n:'San Marcos Premium Outlets',en:'San Marcos Premium Outlets',c:['shop'],sub:'mall',ll:[29.8279,-97.9837],a:'3939 S IH-35, San Marcos',d:'오스틴 남쪽의 대형 아웃렛. 차로 약 40분.'},
+ {n:'Round Rock Premium Outlets',en:'Round Rock Premium Outlets',c:['shop'],sub:'mall',ll:[30.5652,-97.6886],a:'4401 N IH-35, Round Rock',d:'오스틴 북쪽의 아웃렛. 차로 약 30분.'}
 ];
