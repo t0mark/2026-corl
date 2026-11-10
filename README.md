@@ -6,6 +6,7 @@ CoRL 2026 (2026.11.9–12, Austin, TX) 참가자를 위한 비공식 한국어 �
 - `img/` — JW Marriott 공식 도면 (CoRL 2026 공식 도면 폴더)
 - `summaries.js` — 논문별 한국어 요약(arXiv 초록 기반 568편, 제목 기반 119편), 저자, arXiv ID
 - `places.js` — 숙소·학회장 1.5km 이내 38곳: 관광지 7·식당 4·술집 4·쇼핑 23
+- `vendor/leaflet/` — 지도 라이브러리 Leaflet 1.9.4 (BSD-2)
 - `papers.js` — 채택 논문 데이터 (제목, OpenReview ID, 포스터 세션·번호, Oral/Spotlight 세션, 키워드 기반 주제 태그)
 
 빌드 없이 `index.html`을 브라우저로 열면 됩니다. GitHub Pages로도 바로 배포 가능합니다.
