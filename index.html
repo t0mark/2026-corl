@@ -320,7 +320,7 @@ dialog#pm::backdrop{background:rgba(0,0,0,.5)}
 .tgl input:checked+.sw{background:var(--k-bar,#6250d6)}
 .tgl input:checked+.sw::after{left:19px}
 #xmap{display:block;width:100%;height:480px;border-radius:16px;border:1px solid var(--line);background:var(--soft)}
-.xopen{display:inline-block;margin-top:8px;font-weight:700}
+
 .xven{width:22px;height:22px;border-radius:6px;background:#1d1b17;color:#fff;font-size:11px;display:grid;place-items:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)}
 #xcnt{font-size:.85rem;color:var(--muted);margin:12px 0 8px}
 .xlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:10px}
@@ -722,8 +722,8 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
     <button class="chip" data-s="street">🏙 쇼핑 거리</button>
     <button class="chip" data-s="gift">📚 책·음반·기념품</button>
   </div>
-  <iframe id="xmap" title="관광지 지도 (구글 지도)" data-src="https://www.google.com/maps/d/embed?mid=1eSjLUEzK2QwU3qiS3mCpdd0cDGVPoBo" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  <a class="xopen" href="https://www.google.com/maps/d/viewer?mid=1eSjLUEzK2QwU3qiS3mCpdd0cDGVPoBo" target="_blank" rel="noopener">구글 지도에서 크게 보기 ↗</a>
+  <div id="xnow" class="small fg2" style="margin-bottom:6px">지도: <b>🏨 Hotel Ella (숙소)</b> · 아래 목록에서 장소를 누르면 지도에 표시돼요</div>
+  <iframe id="xmap" title="관광지 지도 (구글 지도)" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   <div id="xcnt"></div>
   <div class="xlist" id="xlist"></div>
   <p class="small muted" style="margin-top:12px">새벽 영업 = 자정 넘어서도 여는 곳. 영업시간은 바뀔 수 있으니 방문 전 구글 지도에서 확인하세요.</p>
@@ -1428,7 +1428,13 @@ var JW=[30.2647,-97.7426],HOTEL=[30.2832,-97.7454];
 function km(a,b){var R=6371,r=Math.PI/180,dl=(b[0]-a[0])*r,dn=(b[1]-a[1])*r,x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dn/2)*Math.sin(dn/2);return 2*R*Math.asin(Math.sqrt(x))}
 function gmap(p){var q=p.en+', '+p.a+(/Lockhart/.test(p.a)?', TX':', Austin, TX');return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q)}
 var xcat='',xsel=0;
-function xinit(){var f=$('#xmap');if(f&&!f.src)f.src=f.dataset.src}
+function gq(p){return p.en+', '+p.a.replace(/\s*\(.*\)/,'')+', Austin, TX'}
+function gembed(q){return 'https://www.google.com/maps?q='+encodeURIComponent(q)+'&z=16&hl=ko&output=embed'}
+function xinit(){var f=$('#xmap');if(f&&!f.src)f.src=gembed('Hotel Ella, 1900 Rio Grande St, Austin, TX')}
+function xshow(i){var p=XPL.filter(function(x){return x.i===i})[0];if(!p)return;xsel=i;
+  $('#xmap').src=gembed(gq(p));$('#xnow').innerHTML='지도: <b>'+esc(p.n)+'</b> · '+esc(p.a);
+  document.querySelectorAll('.xcard.sel').forEach(function(e){e.classList.remove('sel')});var c=$('#xc'+i);if(c)c.classList.add('sel');
+  $('#xnow').scrollIntoView({block:'start',behavior:'smooth'})}
 function xvisible(){var late=$('#xlate').checked;return XPL.filter(function(p){return (!xcat||p.c.indexOf(xcat)>-1)&&(!xsub||p.sub===xsub)&&(!late||p.late)})}
 function xdraw(fit){var v=xvisible();
   $('#xcnt').textContent=v.length+'곳';
@@ -1436,10 +1442,11 @@ function xdraw(fit){var v=xvisible();
     return '<div class="xcard pc-'+c+(xsel===p.i?' sel':'')+'" id="xc'+p.i+'"><div class="num">'+p.i+'</div><div class="bd"><div class="nm">'+esc(p.n)+'</div><div class="en">'+esc(p.en)+'</div>'+
       '<div class="tags">'+p.c.map(function(k){return '<span class="tg" style="--tc:'+XC[k][1]+'">'+XC[k][0]+(k==='shop'&&p.sub?' · '+XS[p.sub]:'')+'</span>'}).join('')+(p.late?'<span class="tg" style="--tc:#6250d6">🌙 새벽 영업</span>':'')+'</div>'+
       '<p class="ds">'+esc(p.d)+'</p><div class="meta"><span>📍 '+esc(p.a)+' · 숙소에서 약 '+(d<10?d.toFixed(1):Math.round(d))+'km</span>'+(p.h?'<span>🕒 '+esc(p.h)+'</span>':'')+(p.tel?'<span>📞 <a href="tel:'+p.tel.replace(/[^+\d]/g,'')+'">'+esc(p.tel)+'</a></span>':'')+'</div>'+
-      '<div class="acts3"><a href="'+gmap(p)+'" target="_blank" rel="noopener">구글 지도 앱에서 열기 ↗</a></div></div></div>'}).join(''):'<p class="muted small">조건에 맞는 곳이 없습니다.</p>'}
+      '<div class="acts3"><button data-x="'+p.i+'">지도에서 보기</button><a href="'+gmap(p)+'" target="_blank" rel="noopener">구글 지도 앱에서 열기 ↗</a></div></div></div>'}).join(''):'<p class="muted small">조건에 맞는 곳이 없습니다.</p>'}
 $('#xbar').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;xcat=b.dataset.c;[].forEach.call(this.querySelectorAll('.chip'),function(x){x.classList.toggle('on',x===b)});xsub='';$('#xsub').hidden=xcat!=='shop';[].forEach.call($('#xsub').children,function(x,i){x.classList.toggle('on',i===0)});xdraw(true)});
 $('#xsub').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;xsub=b.dataset.s;[].forEach.call(this.children,function(x){x.classList.toggle('on',x===b)});xdraw(true)});
 $('#xlate').addEventListener('change',function(){xdraw(true)});
+$('#xlist').addEventListener('click',function(e){var b=e.target.closest('button[data-x]');if(b)xshow(+b.dataset.x)});
 xdraw(false);
 window.addEventListener('hashchange',function(){if(location.hash==='#explore')xinit()});
 if(location.hash==='#explore')xinit();
