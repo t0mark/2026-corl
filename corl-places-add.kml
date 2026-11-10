@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>추가 장소</name><Style id="sight"><IconStyle><color>ffE5881E</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Style id="food"><IconStyle><color>ff0051E6</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Style id="bar"><IconStyle><color>ffA21F7B</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Style id="shop"><IconStyle><color>ff327D2E</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Folder><name>추가 장소 78곳</name><Placemark><name>텍사스 주지사 관저</name><description>관광지
+1010 Colorado St
+1856년에 지은 주지사 관저. 주의사당 바로 남서쪽이라 지나가며 외관을 볼 수 있음. 내부 투어는 사전 예약제.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.74309,30.27275,0</coordinates></Point></Placemark><Placemark><name>해리 랜섬 센터</name><description>관광지
+300 W 21st St
+UT 캠퍼스 안 도서관·박물관. 구텐베르크 성경과 세계 최초의 사진을 상설 전시. 무료 입장.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.74122,30.28433,0</coordinates></Point></Placemark><Placemark><name>LBJ 대통령 도서관</name><description>관광지
+2313 Red River St
+린든 B. 존슨 대통령 기념 도서관·박물관. Bass Hall 바로 옆.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.72925,30.28586,0</coordinates></Point></Placemark><Placemark><name>멕시카르테 미술관</name><description>관광지
+419 Congress Ave
+멕시코·라틴계 미술 전문 미술관. Congress Ave, 학회장 사이.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.74279,30.26684,0</coordinates></Point></Placemark><Placemark><name>컨템퍼러리 오스틴 (존스 센터)</name><description>관광지
+700 Congress Ave
+현대미술관. 옥상 테라스가 있음. Congress Ave.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.74284,30.26927,0</coordinates></Point></Placemark><Placemark><name>오스틴 중앙도서관</name><description>관광지
+710 W Cesar Chavez St
+건축으로 유명한 시립 도서관. 옥상 정원과 카페가 있고 누구나 들어갈 수 있음.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.75193,30.26578,0</coordinates></Point></Placemark><Placemark><name>리퍼블릭 스퀘어</name><description>관광지
+422 Guadalupe St
+다운타운 공원. 토요일 오전엔 파머스 마켓이 열림.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.74733,30.26779,0</coordinates></Point></Placemark><Placemark><name>파라마운트 극장</name><description>관광지
+713 Congress Ave
+1915년 개관한 역사적인 극장. 공연·영화 상영.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.74198,30.26942,0</coordinates></Point></Placemark><Placemark><name>트리티 오크</name><description>관광지
+507 Baylor St
+수백 년 된 거대한 참나무가 있는 작은 공원.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.75555,30.27123,0</coordinates></Point></Placemark><Placemark><name>워털루 파크</name><description>관광지
+500 E 12th St
+주의사당 동쪽의 도심 공원. 산책로와 야외 공연장.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.736,30.27374,0</coordinates></Point></Placemark><Placemark><name>주의사당 방문자 센터</name><description>관광지
+112 E 11th St
+주의사당 옆 옛 토지청 건물. 텍사스 역사 전시와 기념품 가게.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.73925,30.27265,0</coordinates></Point></Placemark><Placemark><name>오 헨리 박물관</name><description>관광지
+409 E 5th St.
+작가 오 헨리가 살던 집. 무료 입장. Hilton 바로 근처.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.73906,30.26571,0</coordinates></Point></Placemark><Placemark><name>스티비 레이 본 동상</name><description>관광지
+Auditorium Shores (Riverside Dr)
+오스틴 출신 블루스 기타리스트 동상. 레이디 버드 호수 남쪽 산책로.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.75069,30.26309,0</coordinates></Point></Placemark><Placemark><name>텍사스 메모리얼 스타디움</name><description>관광지
+2139 San Jacinto Blvd
+UT 미식축구 경기장. 10만 명 규모. Bass Hall 근처.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.73252,30.28354,0</coordinates></Point></Placemark><Placemark><name>오스틴 방문자 센터</name><description>관광지
+103 E 5th St.
+관광 안내소. 지도·안내 책자, 오스틴 기념품.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.74239,30.26668,0</coordinates></Point></Placemark><Placemark><name>롱 센터</name><description>관광지
+701 W Riverside Dr
+공연장. 앞 테라스에서 호수 건너 다운타운 스카이라인이 잘 보임.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.75109,30.26025,0</coordinates></Point></Placemark><Placemark><name>에스더스 폴리스</name><description>관광지
+525 E 6th St
+6번가의 코미디·마술 쇼 극장. 영어 풍자 개그 위주.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.73751,30.26629,0</coordinates></Point></Placemark><Placemark><name>윌리 넬슨 동상</name><description>관광지
+310 W 2nd St
+컨트리 가수 윌리 넬슨 동상. JW Marriott에서 몇 블록.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.74674,30.26516,0</coordinates></Point></Placemark><Placemark><name>무디 센터</name><description>관광지
+2001 Robert Dedman Dr
+UT 농구장 겸 대형 공연장. Bass Hall 근처.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.73066,30.28097,0</coordinates></Point></Placemark><Placemark><name>테리 블랙스 바비큐 (오스틴)</name><description>식당
+1003 Barton Springs Rd
+줄이 비교적 짧은 인기 바비큐 집.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.75482,30.25971,0</coordinates></Point></Placemark><Placemark><name>쿠퍼스 바비큐</name><description>식당
+217 Congress Ave
+구덩이 불에 고기를 굽는 바비큐 집. 줄이 짧은 편. JW Marriott에서 걸어서 2분.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74374,30.26494,0</coordinates></Point></Placemark><Placemark><name>램버츠</name><description>식당
+401 W 2nd St
+오래된 석조 건물의 고급 바비큐 레스토랑.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74791,30.26523,0</coordinates></Point></Placemark><Placemark><name>스텁스 바비큐</name><description>식당
+801 Red River St
+바비큐 식당 겸 야외 공연장. 일요일엔 가스펠 브런치.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.73626,30.26849,0</coordinates></Point></Placemark><Placemark><name>문샤인 그릴</name><description>식당
+303 Red River St
+옛 건물의 남부 가정식 식당. 일요일 브런치 뷔페가 유명. Hilton 근처.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.73803,30.26376,0</coordinates></Point></Placemark><Placemark><name>우차우</name><description>식당
+500 W 5th St #168
+딤섬·중식 레스토랑. 주말 딤섬 브런치가 인기.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74789,30.26858,0</coordinates></Point></Placemark><Placemark><name>레드 애시</name><description>식당
+303 Colorado St #200
+장작 화덕 이탈리안·스테이크. 고급.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74494,30.2657,0</coordinates></Point></Placemark><Placemark><name>코메도르</name><description>식당
+501 Colorado St
+현대식 멕시칸 파인다이닝.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74416,30.2676,0</coordinates></Point></Placemark><Placemark><name>리차스 칸티나</name><description>식당
+1306 E 6th St
+옛 주택을 고친 멕시코 가정식 식당. 동쪽 6번가.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.72885,30.26412,0</coordinates></Point></Placemark><Placemark><name>에디 브이스</name><description>식당
+301 E 5th St.
+해산물·스테이크 레스토랑. 라이브 재즈. Hilton 근처.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74063,30.26625,0</coordinates></Point></Placemark><Placemark><name>트루럭스</name><description>식당
+300 Colorado St
+게 요리로 유명한 해산물 레스토랑.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74532,30.26597,0</coordinates></Point></Placemark><Placemark><name>클레이 핏</name><description>식당
+1601 Guadalupe St
+주의사당 근처 옛 건물의 인도 요리집. 점심 메뉴가 저렴.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74242,30.27895,0</coordinates></Point></Placemark><Placemark><name>텍사스 칠리 팔러</name><description>식당
+1409 Lavaca St
+텍사스식 칠리 전문 오래된 식당 겸 바.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74195,30.27698,0</coordinates></Point></Placemark><Placemark><name>더티 마틴스</name><description>식당
+2808 Guadalupe St
+1926년부터 영업한 UT 앞 햄버거 집.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74234,30.294,0</coordinates></Point></Placemark><Placemark><name>할랄 브로스</name><description>식당
+2712 Guadalupe St
+샤와르마·할랄 플래터. 저렴하고 양이 많음. UT 앞.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74165,30.29253,0</coordinates></Point></Placemark><Placemark><name>네코 유부</name><description>식당
+1910 Guadalupe St
+UT 앞 일식(스시) 집. 숙소에서 가까움.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74223,30.28255,0</coordinates></Point></Placemark><Placemark><name>마담 맘스</name><description>식당
+510 W 26th St
+오래된 태국 음식점. UT 서쪽 26번가.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.7424,30.29067,0</coordinates></Point></Placemark><Placemark><name>벨벳 타코</name><description>식당
+522 Congress Ave Ste 100
+퓨전 타코. Congress Ave, 학회장 사이.
+🌙 새벽 영업
+🕒 매일 자정까지, 금·토 새벽 4시까지 (출처 1곳)</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74317,30.26796,0</coordinates></Point></Placemark><Placemark><name>거스 프라이드치킨</name><description>식당
+117 San Jacinto Blvd
+매콤한 남부식 프라이드치킨. Hilton·JW 근처.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74174,30.26348,0</coordinates></Point></Placemark><Placemark><name>조스 커피</name><description>식당
+242 W 2nd St
+오스틴 로컬 카페. 2nd Street 거리.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74609,30.26502,0</coordinates></Point></Placemark><Placemark><name>왓어버거 (Guadalupe)</name><description>식당
+2800 Guadalupe St
+텍사스 대표 햄버거 체인. UT 앞.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74217,30.29346,0</coordinates></Point></Placemark><Placemark><name>부두 도넛</name><description>식당
+212 E 6th St
+특이한 모양·토핑의 도넛 가게. 6번가.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74085,30.26778,0</coordinates></Point></Placemark><Placemark><name>알로 그레이</name><description>식당
+111 E Cesar Chavez St
+The LINE 호텔 안 레스토랑. 호수 전망. JW Marriott 바로 근처.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74411,30.26271,0</coordinates></Point></Placemark><Placemark><name>아이린스</name><description>식당
+506 West Ave
+브런치·칵테일이 좋은 캐주얼 식당.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.75104,30.26982,0</coordinates></Point></Placemark><Placemark><name>토치스 타코</name><description>식당
+2801 Guadalupe St #5-B
+오스틴에서 시작한 타코 체인. UT 앞.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74171,30.29372,0</coordinates></Point></Placemark><Placemark><name>해피 칙스</name><description>식당
+214 E 6th St
+치킨 텐더·샌드위치. 6번가.
+🌙 새벽 영업
+🕒 금·토 새벽 2시까지 (출처 1곳)</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74079,30.26763,0</coordinates></Point></Placemark><Placemark><name>디 어니언 (피자)</name><description>식당
+408 Brazos St
+조각 피자집. 6번가 술자리 뒤에 많이 감.
+🌙 새벽 영업
+🕒 주말 새벽 3시까지 (출처 1곳)</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74213,30.26649,0</coordinates></Point></Placemark><Placemark><name>이지 타이거</name><description>식당
+111 Congress Ave
+빵·프레첼과 맥주로 유명한 베이커리. Congress Ave 남쪽 끝.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74357,30.26353,0</coordinates></Point></Placemark><Placemark><name>타코델리</name><description>식당
+301 Congress Ave
+오스틴 로컬 아침·점심 타코. JW Marriott 바로 근처.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74347,30.26539,0</coordinates></Point></Placemark><Placemark><name>미드나잇 카우보이</name><description>술집
+313 E 6th St
+6번가의 예약제 스피크이지 칵테일 바.
+🌙 새벽 영업
+🕒 보통 새벽 2시까지</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.73997,30.26709,0</coordinates></Point></Placemark><Placemark><name>개러지</name><description>술집
+503 Colorado St
+주차장 건물 안에 숨은 칵테일 바.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74409,30.26797,0</coordinates></Point></Placemark><Placemark><name>스몰 빅토리</name><description>술집
+108 E 7th St
+주차장 건물 2층의 작은 칵테일 바.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74169,30.26893,0</coordinates></Point></Placemark><Placemark><name>히어 노어 데어</name><description>술집
+612 Brazos St
+주제별 코스 메뉴로 운영하는 예약제 칵테일 바.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74138,30.26841,0</coordinates></Point></Placemark><Placemark><name>페쉐</name><description>술집
+208 W 4th St
+압생트와 클래식 칵테일 바. 식사도 가능.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74521,30.26687,0</coordinates></Point></Placemark><Placemark><name>하프 스텝</name><description>술집
+75 1/2 Rainey St
+레이니 스트리트의 칵테일 바. 마당이 넓음.
+🌙 새벽 영업
+🕒 보통 새벽 2시까지</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.73859,30.25861,0</coordinates></Point></Placemark><Placemark><name>컨테이너 바</name><description>술집
+90 Rainey St
+컨테이너를 쌓아 만든 바. 레이니 스트리트.
+🌙 새벽 영업
+🕒 보통 새벽 2시까지</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.73839,30.2603,0</coordinates></Point></Placemark><Placemark><name>모호크</name><description>술집
+912 Red River St
+Red River 거리의 라이브 공연 바. 야외 무대.
+🌙 새벽 영업
+🕒 보통 새벽 2시까지</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.73612,30.27005,0</coordinates></Point></Placemark><Placemark><name>치어 업 찰리스</name><description>술집
+900 Red River St
+절벽 아래 야외 마당이 있는 바·공연장.
+🌙 새벽 영업
+🕒 보통 새벽 2시까지</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.73636,30.26961,0</coordinates></Point></Placemark><Placemark><name>앤톤스</name><description>술집
+305 E 5th St.
+1975년 문을 연 블루스 클럽. Hilton 바로 옆.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74039,30.26605,0</coordinates></Point></Placemark><Placemark><name>숄츠 가르텐</name><description>술집
+1607 San Jacinto Blvd
+1866년 문을 연 텍사스에서 가장 오래된 비어가든.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.73623,30.27789,0</coordinates></Point></Placemark><Placemark><name>홀 인 더 월</name><description>술집
+2538 Guadalupe St
+UT 앞 오래된 라이브 음악 바.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74163,30.29006,0</coordinates></Point></Placemark><Placemark><name>더 타운센드</name><description>술집
+718 Congress Ave #100
+칵테일 바 겸 라이브 공연장. Congress Ave.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74247,30.26974,0</coordinates></Point></Placemark><Placemark><name>잔지바르 (루프톱)</name><description>술집
+304 E Cesar Chavez St
+7층 루프톱 바. 다운타운 야경.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74188,30.26308,0</coordinates></Point></Placemark><Placemark><name>엣지 루프톱</name><description>술집
+110 E 2nd St
+JW Marriott 꼭대기 루프톱 바. 학회장 건물 안.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74348,30.26422,0</coordinates></Point></Placemark><Placemark><name>캐롤라인</name><description>술집
+621 Congress Ave Suite 101
+Congress Ave의 레스토랑 겸 바. 위층에 루프톱 바.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.7423,30.26882,0</coordinates></Point></Placemark><Placemark><name>피츠 듀얼링 피아노 바</name><description>술집
+421 E 6th St
+피아노 두 대로 신청곡 대결을 하는 바. 6번가.
+🌙 새벽 영업
+🕒 보통 새벽 2시까지</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.73863,30.26662,0</coordinates></Point></Placemark><Placemark><name>데드 래빗</name><description>술집
+204 E 6th St
+뉴욕 유명 아이리시 바의 오스틴 지점. 6번가.
+🌙 새벽 영업
+🕒 보통 새벽 2시까지</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74113,30.26772,0</coordinates></Point></Placemark><Placemark><name>셰익스피어스</name><description>술집
+314 E 6th St
+6번가의 영국식 펍. 2층 발코니.
+🌙 새벽 영업
+🕒 보통 새벽 2시까지</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.73976,30.26743,0</coordinates></Point></Placemark><Placemark><name>재커로프</name><description>술집
+404 E 6th St
+6번가의 편한 분위기 바. 햄버거도 팜.
+🌙 새벽 영업
+🕒 보통 새벽 2시까지</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.739,30.26713,0</coordinates></Point></Placemark><Placemark><name>뷰포드스</name><description>술집
+700 W 6th St
+서쪽 6번가의 큰 야외 마당 바.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74969,30.27027,0</coordinates></Point></Placemark><Placemark><name>쿠아트로스</name><description>술집
+1004 W 24th St
+UT 근처 스포츠 바. 텍사스식 멕시칸 안주.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74817,30.28836,0</coordinates></Point></Placemark><Placemark><name>Trader Joe's (Seaholm)</name><description>쇼핑 · 마트·편의점
+211 Walter Seaholm Dr
+자체 브랜드 간식·견과류·에코백이 인기인 식료품점. 기념품 사기에도 좋음.</description><styleUrl>#shop</styleUrl><Point><coordinates>-97.75275,30.26767,0</coordinates></Point></Placemark><Placemark><name>Royal Blue Grocery (Congress)</name><description>쇼핑 · 마트·편의점
+609 Congress Ave
+다운타운 소형 식료품점. 학회장 사이 Congress Ave.</description><styleUrl>#shop</styleUrl><Point><coordinates>-97.74225,30.26832,0</coordinates></Point></Placemark><Placemark><name>Royal Blue Grocery (Nueces)</name><description>쇼핑 · 마트·편의점
+360 Nueces St #90
+다운타운 소형 식료품점.</description><styleUrl>#shop</styleUrl><Point><coordinates>-97.74941,30.26767,0</coordinates></Point></Placemark><Placemark><name>Royal Blue Grocery (Rainey)</name><description>쇼핑 · 마트·편의점
+51 Rainey St #120
+레이니 스트리트 입구의 소형 식료품점.</description><styleUrl>#shop</styleUrl><Point><coordinates>-97.73912,30.25723,0</coordinates></Point></Placemark><Placemark><name>Target (다운타운점)</name><description>쇼핑 · 마트·편의점
+901 E 5th St. Ste 140
+다운타운 동쪽의 Target. 생필품·간식.</description><styleUrl>#shop</styleUrl><Point><coordinates>-97.73344,30.26416,0</coordinates></Point></Placemark><Placemark><name>Verizon (Guadalupe)</name><description>쇼핑 · 전자제품
+2116 Guadalupe St
+휴대폰 매장. 충전기·케이블 등 액세서리. 숙소에서 가까움.</description><styleUrl>#shop</styleUrl><Point><coordinates>-97.74222,30.28437,0</coordinates></Point></Placemark><Placemark><name>UT 캠퍼스 컴퓨터 스토어</name><description>쇼핑 · 전자제품
+2304 Whitis Ave (FAC 109)
+UT 캠퍼스 안 컴퓨터·전자기기 매장. 케이블·어댑터.</description><styleUrl>#shop</styleUrl><Point><coordinates>-97.74032,30.28626,0</coordinates></Point></Placemark><Placemark><name>어반 아웃피터스</name><description>쇼핑 · 옷·잡화
+2406 Guadalupe St
+의류·잡화 매장. UT 앞 Guadalupe.</description><styleUrl>#shop</styleUrl><Point><coordinates>-97.74184,30.28816,0</coordinates></Point></Placemark></Folder></Document></kml>
