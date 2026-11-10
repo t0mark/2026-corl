@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>추가 장소</name><Style id="sight"><IconStyle><color>ffE5881E</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Style id="food"><IconStyle><color>ff0051E6</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Style id="bar"><IconStyle><color>ffA21F7B</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Style id="shop"><IconStyle><color>ff327D2E</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Folder><name>추가 장소 78곳</name><Placemark><name>텍사스 주지사 관저</name><description>관광지
+<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>추가 장소</name><Style id="sight"><IconStyle><color>ffE5881E</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Style id="food"><IconStyle><color>ff0051E6</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Style id="bar"><IconStyle><color>ffA21F7B</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Style id="shop"><IconStyle><color>ff327D2E</color><scale>1.1</scale><Icon><href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href></Icon></IconStyle></Style><Folder><name>추가 장소 76곳</name><Placemark><name>텍사스 주지사 관저</name><description>관광지
 1010 Colorado St
 1856년에 지은 주지사 관저. 주의사당 바로 남서쪽이라 지나가며 외관을 볼 수 있음. 내부 투어는 사전 예약제.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.74309,30.27275,0</coordinates></Point></Placemark><Placemark><name>해리 랜섬 센터</name><description>관광지
 300 W 21st St
@@ -36,9 +36,7 @@ UT 미식축구 경기장. 10만 명 규모. Bass Hall 근처.</description><sty
 310 W 2nd St
 컨트리 가수 윌리 넬슨 동상. JW Marriott에서 몇 블록.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.74674,30.26516,0</coordinates></Point></Placemark><Placemark><name>무디 센터</name><description>관광지
 2001 Robert Dedman Dr
-UT 농구장 겸 대형 공연장. Bass Hall 근처.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.73066,30.28097,0</coordinates></Point></Placemark><Placemark><name>테리 블랙스 바비큐 (오스틴)</name><description>식당
-1003 Barton Springs Rd
-줄이 비교적 짧은 인기 바비큐 집.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.75482,30.25971,0</coordinates></Point></Placemark><Placemark><name>쿠퍼스 바비큐</name><description>식당
+UT 농구장 겸 대형 공연장. Bass Hall 근처.</description><styleUrl>#sight</styleUrl><Point><coordinates>-97.73066,30.28097,0</coordinates></Point></Placemark><Placemark><name>쿠퍼스 바비큐</name><description>식당
 217 Congress Ave
 구덩이 불에 고기를 굽는 바비큐 집. 줄이 짧은 편. JW Marriott에서 걸어서 2분.</description><styleUrl>#food</styleUrl><Point><coordinates>-97.74374,30.26494,0</coordinates></Point></Placemark><Placemark><name>램버츠</name><description>식당
 401 W 2nd St
@@ -162,9 +160,7 @@ Congress Ave의 레스토랑 겸 바. 위층에 루프톱 바.</description><sty
 700 W 6th St
 서쪽 6번가의 큰 야외 마당 바.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74969,30.27027,0</coordinates></Point></Placemark><Placemark><name>쿠아트로스</name><description>술집
 1004 W 24th St
-UT 근처 스포츠 바. 텍사스식 멕시칸 안주.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74817,30.28836,0</coordinates></Point></Placemark><Placemark><name>Trader Joe's (Seaholm)</name><description>쇼핑 · 마트·편의점
-211 Walter Seaholm Dr
-자체 브랜드 간식·견과류·에코백이 인기인 식료품점. 기념품 사기에도 좋음.</description><styleUrl>#shop</styleUrl><Point><coordinates>-97.75275,30.26767,0</coordinates></Point></Placemark><Placemark><name>Royal Blue Grocery (Congress)</name><description>쇼핑 · 마트·편의점
+UT 근처 스포츠 바. 텍사스식 멕시칸 안주.</description><styleUrl>#bar</styleUrl><Point><coordinates>-97.74817,30.28836,0</coordinates></Point></Placemark><Placemark><name>Royal Blue Grocery (Congress)</name><description>쇼핑 · 마트·편의점
 609 Congress Ave
 다운타운 소형 식료품점. 학회장 사이 Congress Ave.</description><styleUrl>#shop</styleUrl><Point><coordinates>-97.74225,30.26832,0</coordinates></Point></Placemark><Placemark><name>Royal Blue Grocery (Nueces)</name><description>쇼핑 · 마트·편의점
 360 Nueces St #90
